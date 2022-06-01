@@ -1,12 +1,15 @@
-import Home from "@pages/Home";
+import Header from "./components/Header";
+import Routes from "./components/Routes";
+import Footer from "./components/Footer";
 
-import "./App.css";
+import "./style/App.css";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <p>coucou</p>
+      <Header />
+      <Routes />
+      <Footer />
     </div>
   );
 }
