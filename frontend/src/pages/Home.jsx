@@ -1,15 +1,27 @@
-import { SimpleGrid, Box, Text } from "@chakra-ui/react";
+import {
+  SimpleGrid,
+  Box,
+  Text,
+  Container,
+  AspectRatio,
+} from "@chakra-ui/react";
 import Harry from "../assets/harryroselmack.jpg";
 import Xavier from "../assets/xavierniel.jpg";
+import LogoBleu from "../assets/logoattente.jpg";
 
 export default function Home() {
   return (
     <div className="container">
-      <div className="big-logo">
-        <img className="inspiraction-logo" src="logo" alt="inspiraction logo" />
-      </div>
-      <div className="introduction">
-        <p>Lorem Ipsum is simple dummy text...</p>
+      <Container bgColor="#1738CE" height="20%">
+        <img src={LogoBleu} alt="inspiraction logo" />
+      </Container>
+      <div>
+        <Text color="#1738CE" align="center" padding="50px 35px">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1 500s, when an unknown printer took a galley of type and
+          scrambled it to make.
+        </Text>
       </div>
       <SimpleGrid columns={[2]} spacing="0px">
         <Box
@@ -29,10 +41,10 @@ export default function Home() {
           <Text color="white">Métier</Text>
         </Box>
         <Box bg="#1738CE" height="100%" width="100%">
-          <img className="image-people1" src={Xavier} alt="célébrité" />
+          <img src={Xavier} alt="célébrité" />
         </Box>
         <Box bg="#1738CE" height="100%" width="100%">
-          <img className="image-people1" src={Harry} alt="célébrité" />
+          <img src={Harry} alt="célébrité" />
         </Box>
         <Box
           bg="#1738CE"
@@ -67,34 +79,27 @@ export default function Home() {
           <Text color="white">Métier</Text>
         </Box>
         <Box bg="#1738CE" height="100%" width="100%">
-          <img className="image-people1" src={Xavier} alt="célébrité" />
+          <img src={Xavier} alt="célébrité" />
         </Box>
       </SimpleGrid>
-      {/* <div className="people-mosaic">
-        <div className="rectangle-name1">
-          <p>name</p>
+      <div>
+        <div display="flex" align="center">
+          <AspectRatio marginTop="7%">
+            <iframe
+              title="Masterclass"
+              src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+              allowFullScreen
+            />
+          </AspectRatio>
         </div>
-        <div className="rectangle-image1">
-          <img className="image-people1" src="logo" alt="nom célébrité" />
-        </div>
-        <div className="rectangle-image2">
-          <img className="image-people3" src="logo" alt="nom célébrité" />
-        </div>
-        <div className="rectangle-name2">
-          <p>name</p>
-        </div>
-        <div className="rectangle-name3">
-          <p>name</p>
-        </div>
-        <div className="rectangle-image3">
-          <img className="image-people3" src="logo" alt="nom célébrité" />
-        </div>
-      </div> */}
-      <div className="video-sample">
-        <img className="video" src="logo" alt="extrait vidéo" />
       </div>
-      <div className="text-area">
-        <p>Lorem Ipsum is simple dummy text...</p>
+      <div>
+        <Text color="#1738CE" align="center" padding="50px 35px">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1 500s, when an unknown printer took a galley of type and
+          scrambled it to make.
+        </Text>
       </div>
       <div className="subscribing-area">
         <div className="basic-sub">
