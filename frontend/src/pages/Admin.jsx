@@ -1,38 +1,17 @@
 import {
-  Select,
   Button,
   Spacer,
   Text,
   Flex,
   Box,
   Container,
+  MenuList,
+  MenuItem,
+  Menu,
+  MenuButton,
 } from "@chakra-ui/react";
-import { useState } from "react";
-
-const [masterclassOn, setMasterclassOn] = useState(false);
-const [clientsOn, setClientsOn] = useState(false);
-
-const toggleMasterclass = () => {
-  const divClient = document.querySelector(".clients");
-  if (masterclassOn !== true) {
-    divClient.style.display = "none";
-    setMasterclassOn(true);
-  } else if (masterclassOn !== false) {
-    divClient.style.display = "block";
-    setMasterclassOn(false);
-  }
-};
-
-const toggleClients = () => {
-  const divClient = document.querySelector(".clients");
-  if (clientsOn === true) {
-    divClient.style.display = "none";
-    setClientsOn(false);
-  } else if (clientsOn === false) {
-    divClient.style.display = "block";
-    setClientsOn(true);
-  }
-};
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import "../style/Admin.css";
 
 export default function Admin() {
   return (
@@ -42,10 +21,15 @@ export default function Admin() {
 "
         textAlign="end"
         color="white"
-        pr="3rem"
+        pr="1.5rem"
         h="3rem"
       >
-        <span>A</span>dministrateur
+        <Text>
+          <Text as="span" fontSize="2.5rem">
+            A
+          </Text>
+          dministrateur
+        </Text>
       </Box>
       <Flex
         mt="1rem"
@@ -64,7 +48,7 @@ export default function Admin() {
           {" "}
           <Box>
             <Text>
-              150 <br />
+              <Text fontSize="3rem">150</Text>
               Clients
             </Text>
           </Box>
@@ -73,7 +57,8 @@ export default function Admin() {
             {" "}
             <Text>
               {" "}
-              75 <br /> Abonnés
+              <Text fontSize="3rem">75</Text>
+              Abonnés
             </Text>
           </Box>
         </Container>
@@ -82,15 +67,16 @@ export default function Admin() {
           <Box>
             <Text>
               {" "}
-              43
-              <br /> Masterclass
+              <Text fontSize="3rem">43</Text>
+              Masterclass
             </Text>
           </Box>
           <Spacer m="2rem" />
           <Box>
             <Text>
               {" "}
-              240 <br /> Ventes
+              <Text fontSize="3rem">240</Text>
+              Ventes
             </Text>
           </Box>
         </Container>
@@ -109,10 +95,12 @@ export default function Admin() {
           <Button
             bg="#1738CE
 "
-            onClick={toggleMasterclass}
           >
             <Text>
-              <span>C</span>lients
+              <Text as="span" fontSize="2rem">
+                C
+              </Text>
+              lients
             </Text>{" "}
           </Button>
         </Box>
@@ -126,45 +114,143 @@ export default function Admin() {
           w="50%"
         >
           {" "}
-          <Button bg="#EF4957" onClick={toggleClients}>
+          <Button bg="#EF4957">
             <Text>
-              <span>M</span>asterclass{" "}
+              <Text as="span" fontSize="2rem">
+                M
+              </Text>
+              asterclass{" "}
             </Text>
           </Button>
         </Box>
       </Flex>
       <Flex textAlign="center" display="flex" align="center" mt="1rem">
-        <div className="clients" onChange={masterclassOn}>
-          {" "}
-          <Container w="100%" h="50rem" bg="rgba(23,56,206, 0.8)">
-            <Box display="flex" justifyContent="space-around" m="1rem">
-              {" "}
-              <Button bg="#1738CE" color="white">
-                Abonnés
-              </Button>
-              <Button bg="#1738CE" color="white">
-                Non-abonnés
-              </Button>
-            </Box>
-            <Select onChange={clientsOn} placeholder="Select Client" bg="none">
-              <option value="option1">Client 1</option>
-              <option value="option2">Client 2</option>
-              <option value="option3">Client 3</option>
-              <option value="option4">Client 4</option>
-              <option value="option5">Client 5</option>
-              <option value="option6">Client 6</option>
-              <option value="option7">Client 7</option>
-              <option value="option8">Client 8</option>
-              <option value="option9">Client 9</option>
-              <option value="option10">Client 10</option>
-              <option value="option11">Client 11</option>
-              <option value="option12">Client 12</option>
-              <option value="option13">Client 13</option>
-              <option value="option14">Client 14</option>
-              <option value="option15">Client 15</option>
-            </Select>
-          </Container>
-        </div>
+        {" "}
+        <Container w="100%" h="25rem" bg="rgba(23,56,206, 0.8)">
+          <Box display="flex" justifyContent="space-around" m="1rem">
+            {" "}
+            <Button w="45%" bg="#1738CE" color="white">
+              Abonnés
+            </Button>
+            <Button w="45%" bg="#1738CE" color="white">
+              Non-abonnés
+            </Button>
+          </Box>
+          <Menu>
+            <MenuButton
+              colorScheme="rgba(23,56,206, 0.9)"
+              borderWidth="1px"
+              borderColor="blue"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              w="80%"
+              _expanded={{ bg: "#1738CE" }}
+            >
+              Abonnés
+            </MenuButton>
+            <MenuList bg="rgba(23,56,206, 0.5)">
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 1
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 2
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 3
+              </MenuItem>
+              <MenuItem color="white">Abonné 4</MenuItem>
+            </MenuList>
+          </Menu>
+          <Menu>
+            <MenuButton
+              colorScheme="rgba(23,56,206, 0.9)"
+              borderWidth="1px"
+              borderColor="blue"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              w="80%"
+              _expanded={{ bg: "#1738CE" }}
+            >
+              Non-abonnés
+            </MenuButton>
+            <MenuList bg="rgba(23,56,206, 0.5)">
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 1
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 2
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 3
+              </MenuItem>
+              <MenuItem color="white">Abonné 4</MenuItem>
+            </MenuList>
+          </Menu>
+        </Container>
+      </Flex>
+      <Flex textAlign="center" display="flex" align="center" mt="1rem">
+        {" "}
+        <Container w="100%" h="25rem" bg="rgba(255,0,0, 0.6)">
+          <Box display="flex" justifyContent="space-around" m="1rem">
+            {" "}
+            <Button w="45%" bg="#1738CE" color="white">
+              Abonnés
+            </Button>
+            <Button w="45%" bg="#1738CE" color="white">
+              Non-abonnés
+            </Button>
+          </Box>
+          <Menu>
+            <MenuButton
+              colorScheme="rgba(23,56,206, 0.9)"
+              borderWidth="1px"
+              borderColor="blue"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              w="80%"
+              _expanded={{ bg: "#1738CE" }}
+            >
+              Abonnés
+            </MenuButton>
+            <MenuList bg="rgba(23,56,206, 0.5)">
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 1
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 2
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 3
+              </MenuItem>
+              <MenuItem color="white">Abonné 4</MenuItem>
+            </MenuList>
+          </Menu>
+          <Menu>
+            <MenuButton
+              colorScheme="rgba(23,56,206, 0.9)"
+              borderWidth="1px"
+              borderColor="blue"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+              w="80%"
+              _expanded={{ bg: "#1738CE" }}
+            >
+              Non-abonnés
+            </MenuButton>
+            <MenuList bg="rgba(23,56,206, 0.5)">
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 1
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 2
+              </MenuItem>
+              <MenuItem color="white" borderBottom="1px">
+                Abonné 3
+              </MenuItem>
+              <MenuItem color="white">Abonné 4</MenuItem>
+            </MenuList>
+          </Menu>
+        </Container>
       </Flex>
     </div>
   );
