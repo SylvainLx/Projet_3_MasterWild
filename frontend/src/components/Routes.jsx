@@ -22,6 +22,7 @@ export default function Main() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/connexion" element={<Connexion />} />
+        {/* <Route path="/inscription" element={<Inscription />} /> */}
       </Routes>
     </div>
   );
