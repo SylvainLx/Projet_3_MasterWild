@@ -8,6 +8,7 @@ import Profil from "../pages/Profil";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
 import Connexion from "../pages/Connexion";
+import Inscription from "../pages/Inscription";
 
 export default function Main() {
   return (
@@ -22,7 +23,7 @@ export default function Main() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/connexion" element={<Connexion />} />
-        {/* <Route path="/inscription" element={<Inscription />} /> */}
+        <Route path="/inscription" element={<Inscription />} />
       </Routes>
     </div>
   );
