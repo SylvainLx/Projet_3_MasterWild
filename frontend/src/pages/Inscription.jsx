@@ -148,7 +148,7 @@ export default function Inscription() {
                   }}
                   minWidth={{ md: "30%" }}
                 >
-                  <Text href="/search">Je m'inscris</Text>
+                  <Link href="/search">Je m'inscris</Link>
                 </Button>
               </Stack>
             </FormControl>
