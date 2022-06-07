@@ -1,6 +1,5 @@
 import { AspectRatio, Flex, Text, Box, Image } from "@chakra-ui/react";
 import harryroselmack2 from "../assets/harryroselmack2.png";
-import harryroselmack from "../assets/harryroselmack.png";
 import heart from "../assets/heart.png";
 
 export default function VideoSample() {
@@ -23,7 +22,7 @@ export default function VideoSample() {
           padding="10px"
         >
           <Box width={{ base: "300px", md: "300px" }} margin="auto">
-            <Image src={harryroselmack} alt="Celebrity's portrait" />
+            <Image src={harryroselmack2} alt="Celebrity's portrait" />
           </Box>
           <Flex flexDirection="column" justify="space-between">
             <Flex justify="space-between" padding="2px 10px">
