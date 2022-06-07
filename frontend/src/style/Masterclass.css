@@ -1,0 +1,9 @@
+.container-masterclass {
+    margin: none
+}
+
+@media (min-width: 768px) {
+    .container-masterclass {
+        margin: 50px;
+    }
+}
