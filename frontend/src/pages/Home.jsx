@@ -4,6 +4,7 @@ import {
   Text,
   Container,
   AspectRatio,
+  Button,
 } from "@chakra-ui/react";
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
@@ -113,51 +114,95 @@ export default function Home() {
       </div>
       <div>
         <SimpleGrid columns={[2]} spacing="0px">
-          <Box bg="#EF4957" height="100%" width="100%" fontSize="1.2rem">
+          <Box
+            bg="#EF4957"
+            height="100%"
+            width="100%"
+            fontSize="1.2rem"
+            paddingTop="5px"
+          >
             <Text
               color="#1738CE"
               textAlign="center"
               marginTop="-25px"
               fontWeight="600"
             >
-              <Text as="span" fontSize="4.5rem">
+              <Text as="span" fontSize="4rem">
                 B
               </Text>
               asic
             </Text>
             <Text
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               color="white"
               textAlign="center"
               padding="15px"
-              marginTop="-20px"
+              marginTop="-25px"
+              marginBottom="10px"
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1 500s.
             </Text>
           </Box>
-          <Box bg="#1738CE" height="100%" width="100%" fontSize="1.2rem">
+          <Box
+            bg="#1738CE"
+            height="100%"
+            width="100%"
+            fontSize="1.2rem"
+            paddingTop="5px"
+          >
             <Text
               color="#EF4957"
               textAlign="center"
               marginTop="-25px"
               fontWeight="600"
             >
-              <Text as="span" fontSize="4.5rem" letterSpacing="-22px">
+              <Text as="span" fontSize="4rem" letterSpacing="-20px">
                 P
               </Text>
               remium
             </Text>
             <Text
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               color="white"
               textAlign="center"
               padding="15px"
-              marginTop="-20px"
+              marginTop="-25px"
+              marginBottom="10px"
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1 500s.
             </Text>
+          </Box>
+          <Box display="flex" justifyContent="center" marginTop="-12px">
+            <Button
+              bg="#1738CE"
+              color="white"
+              border="solid white"
+              rounded="full"
+              width="100px"
+              height="25px"
+            >
+              <Text fontSize="0.8rem" textTransform="uppercase">
+                s'inscrire
+              </Text>
+            </Button>
+          </Box>
+          <Box display="flex" justifyContent="center" marginTop="-12px">
+            <Button
+              bg="#EF4957"
+              color="white"
+              border="solid white"
+              rounded="full"
+              width="100px"
+              height="25px"
+            >
+              <Text fontSize="0.8rem" textTransform="uppercase">
+                s'inscrire
+              </Text>
+            </Button>
           </Box>
         </SimpleGrid>
       </div>
