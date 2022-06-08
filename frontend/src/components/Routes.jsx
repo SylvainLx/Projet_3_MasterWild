@@ -9,6 +9,8 @@ import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
 import Connexion from "../pages/Connexion";
 import Inscription from "../pages/Inscription";
+import AdminAbonne from "./AdminAbonne";
+import AdminMasterclass from "./AdminMasterclass";
 
 export default function Main() {
   return (
