@@ -7,6 +7,8 @@ import Paiement from "../pages/Paiement";
 import Profil from "../pages/Profil";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
+import AdminAbonne from "./AdminAbonne";
+import AdminMasterclass from "./AdminMasterclass";
 
 export default function Main() {
   return (
@@ -19,7 +21,10 @@ export default function Main() {
         <Route path="/paiement" element={<Paiement />} />
         <Route path="/profil" element={<Profil />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route path="abonne" element={<AdminAbonne />} />
+          <Route path="editmasterclass" element={<AdminMasterclass />} />
+        </Route>
       </Routes>
     </div>
   );

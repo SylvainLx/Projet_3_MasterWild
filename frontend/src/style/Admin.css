@@ -1,3 +1,157 @@
-.lettrin-button {
-    font-size: 3rem;
+.admin {
+    color: grey;
+}
+
+.title {
+    background-color: blue;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+
+.span-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.dashboard {
+    background-color: red;
+    width: 100vw;
+    height: 20rem;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+}
+
+.text-dashboard {
+    font-size: 1.5rem;
+}
+
+.span-number {
+    font-size: 2.5rem;
+}
+
+.selectTask {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.span-task {
+    font-size: 2rem;
+    padding-bottom: 0.7rem;
+}
+
+.select-clients {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    width: 50%;
+    height: 3.5rem;
+}
+.select-masterclass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 50%;
+    height: 3.5rem;
+}
+
+.showClients {
+    background-color: turquoise;
+    width: 100%;
+    height: 50vh;
+    margin-top: 1rem;
+}
+
+.buttonClient {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.abonnes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.non-abonnes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.choose-clients {
+    width: 70%;
+    border: solid 1px blue;
+    background-color: aqua;
+}
+
+.showMasterclass {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    background-color: red;
+}
+
+.thematique {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPutDelete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: green;
+}
+
+@media (min-width: 767.98px) {
+    .title {
+        font-size: 2rem;
+    }
+    .span-title {
+        font-size: 3rem;
+    }
+    .dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .text-dashboard {
+        font-size: 2rem;
+    }
+    .span-number {
+        font-size: 3rem;
+    }
+    .span-task {
+        font-size: 2rem;
+        padding-bottom: 0.7rem;
+    }
+    .select-clients {
+        font-size: 1.5rem;
+        width: 50%;
+        height: 4.5rem;
+    }
+    .select-masterclass {
+        font-size: 1.5rem;
+        width: 50%;
+        height: 4.5rem;
+    }
+    .span-task {
+        font-size: 3rem;
+    }
+    .showMasterclass {
+        flex-direction: row;
+    }
 }
