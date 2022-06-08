@@ -6,7 +6,7 @@ import logowhite from "../assets/logowhite.png";
 
 export default function Header() {
   return (
-    <div className="full-header">
+    <div>
       <BurgerMenu className="mobile-burger">
         <NavLink className="menu-item" to="/">
           Home{" "}
@@ -33,13 +33,14 @@ export default function Header() {
           Admin
         </NavLink>
       </BurgerMenu>
+      <div className="full-header">
+        <img className="logo-header" src={logowhite} alt="logowhite" />
 
-      <img className="logo-header" src={logowhite} alt="logowhite" />
-
-      <div className="menu-right">
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/profil">Profil</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <div className="menu-right">
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/profil">Profil</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </div>
       </div>
     </div>
   );
