@@ -1,40 +1,57 @@
-.full-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.full-desktop-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-
-/* .full-header{
-
-} */
 
 .logo-header {
-  width: 30%;
+  width: 25vw;
+  grid-column-start: 2;
+  justify-self: center;
 }
 
-/* .menu-right{
-  
-} */
+.menu-right {
+  display: none;
+}
+
+@media screen and (min-width: 767.98px) {
+  .mobile-burger {
+    display: none;
+  }
+  .menu-right {
+    display: flex;
+    grid-column-start: 3;
+    align-self: center;
+    justify-self: end;
+    margin: auto;
+  }
+
+  .navlink-menu-right {
+    margin: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
+
+  .logo-header {
+    width: 15vw;
+  }
+}
 
 /* Burger-menu configuration */
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;
   width: 36px;
   height: 30px;
-  left: 36px;
-  top: 36px;
+  margin: 3vw;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #a90000;
+  background: var(--main-red);
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: var(--main-red);
 }
 
 /* Position and sizing of clickable cross button */
@@ -45,7 +62,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: var(--primary-text);
 }
 
 /*
@@ -59,28 +76,20 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
-  padding: 2.5em 1.5em 0;
+  background: var(--main-blue);
+  padding: 2em 0.5em 0;
   font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color: var(--primary-text);
+  font-size: xx-large;
   padding: 0.8em;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3em;
 }

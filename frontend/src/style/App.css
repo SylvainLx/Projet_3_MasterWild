@@ -142,7 +142,7 @@ table {
   /*Colors*/
   --main-red: #ef4957;
   --main-blue: #1738ce;
-  --secondary-red: rgba(239, 73, 87, 0.8);
+  --secondary-red: rgba(239, 73, 87, 0.6);
   --secondary-blue: rgba(23, 56, 206, 0.8);
   --button-color: #dadada;
   --primary-text: white;
