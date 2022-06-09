@@ -185,6 +185,12 @@
         width: 50%;
         height: 4.5rem;
     }
+    .choose-clients, .thematique, .selectMasterclass {
+        height: 5rem;
+    }
+    .thematique, .selectMasterclass {
+        width: 40vw;
+    }
     .span-task {
         font-size: 3rem;
     }

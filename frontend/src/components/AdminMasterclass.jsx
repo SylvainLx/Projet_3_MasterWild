@@ -1,7 +1,16 @@
 import "../style/Admin.css";
 import "../style/App.css";
+import { useState } from "react";
 
 export default function AdminMasterclass() {
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [picture, setPicture] = useState("");
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+  const [theme, setTheme] = useState("");
+  const [keyword, setKeyword] = useState("");
+
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -40,28 +49,55 @@ export default function AdminMasterclass() {
               className="input"
               type="text"
               placeholder="Titre de la video"
+              onChange={(e) => setTitle(e.target.value)}
             />
           </label>
           <label htmlFor="Mots clés">
-            <input className="input" type="text" placeholder="Mots Clés" />
+            <input
+              className="input"
+              type="text"
+              placeholder="Mots Clés"
+              onChange={(e) => setKeyword(e.target.value)}
+            />
           </label>
           <label htmlFor="Photo">
-            <input className="input" type="text" placeholder="Photo" />
+            <input
+              className="input"
+              type="text"
+              placeholder="Photo"
+              onChange={(e) => setPicture(e.target.value)}
+            />
           </label>
           <label htmlFor="Name">
-            <input className="input" type="text" placeholder="Nom célébrité" />
+            <input
+              className="input"
+              type="text"
+              placeholder="Nom célébrité"
+              onChange={(e) => setName(e.target.value)}
+            />
           </label>
           <label htmlFor="Url">
-            <input className="input" type="text" placeholder="Url" />
+            <input
+              className="input"
+              type="text"
+              placeholder="Url"
+              onChange={(e) => setUrl(e.target.value)}
+            />
           </label>
           <label htmlFor="Theme">
-            <input className="input" type="text" placeholder="Thématique" />
+            <input
+              className="input"
+              type="text"
+              placeholder="Thématique"
+              onChange={(e) => setTheme(e.target.value)}
+            />
           </label>
           <label className="desc" htmlFor="Desc">
             <textarea
               className="input i-desc"
               type="text"
               placeholder="Description"
+              onChange={(e) => setDesc(e.target.value)}
             />
           </label>
           <button className="btnSend" type="button">
