@@ -1,7 +1,7 @@
 .container-admin {
     color: var(--primary-text);
 }
-
+/* Blue Bar */
 .title {
     background-color: var(--main-blue);
     font-size: var(--L);
@@ -14,7 +14,7 @@
     font-size: var(--XL);
     font-weight: var(--bold);
 }
-
+ /* DashBoard */
 .dashboard {
     background-color: var(--main-red);
     width: 100vw;
@@ -33,7 +33,7 @@
 .span-number {
     font-size: var(--XL);
 }
-
+/* Select Client / Masterclass */
 .selectTask {
     display: flex;
     justify-content: space-around;
@@ -62,7 +62,7 @@
     width: 50%;
     height: 3.5rem;
 }
-
+/* AdminAbonne */
 .showClients {
     background-color: var(--secondary-blue);
     width: 100%;
@@ -94,7 +94,7 @@
     width: 70%;
     border: solid 1px var(--main-blue);
 }
-
+/* AdminMasterclass */
 .showMasterclass {
     background-color: var(--secondary-red);
     margin-top: 1rem;
@@ -128,7 +128,7 @@
   width: 10rem;
   height: 2rem;
 }
-
+/* Add a Masterclass */
 .add-masterclass {
     background-color: var(--secondary-blue);
     width: 100%;
