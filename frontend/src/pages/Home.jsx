@@ -1,6 +1,7 @@
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
 import LogoBleu from "../assets/logoattente.png";
+import Arrow from "../assets/downarrow.png";
 import "../style/Home.css";
 
 export default function Home() {
@@ -60,10 +61,21 @@ export default function Home() {
         <h2>2 Offres au choix</h2>
 
         <div className="subscribe-one">
-          <h3>Vidéo à la demande</h3>
-          <p>
-            5,99€ <span>/ vidéo</span>
-          </p>
+          <div className="subscribe-title">
+            <h3>Vidéo à la demande</h3>
+            <p>
+              5,99€ <span>/ vidéo</span>
+            </p>
+          </div>
+          <div className="open-button">
+            <button type="button">
+              <img
+                className="arrow"
+                src={Arrow}
+                alt="flèche pour dérouler le menu"
+              />
+            </button>
+          </div>
         </div>
         <div className="subscribe-two">
           <h3>Abonnement mensuel</h3>

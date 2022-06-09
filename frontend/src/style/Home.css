@@ -111,38 +111,50 @@
 }
 
 .subscribe-one {
+  display: flex;
+  justify-content: space-between;
   margin-top: 1.6em;
-  padding-top: 0.4rem;
+  padding: 0.4rem 2rem 0 1rem;
   background-color: var(--primary-text);
   border-radius: 15px;
   height: 3.7em;
   box-shadow: 2px 3px 7px rgba(26, 26, 26, 0.4);
 }
 
-.subscribe-one h3 {
-  padding-left: 1.3em;
+.subscribe-title h3 {
   font-size: var(--S);
   color: var(--main-blue);
   font-weight: var(--bold);
 }
 
-.subscribe-one p {
+.subscribe-title p {
   margin-top: -3px;
-  padding-left: 1.3em;
   font-size: var(--S);
   font-weight: var(--bold);
 }
 
-.subscribe-one span {
+.subscribe-title span {
   padding-top: -3px;
   text-transform: uppercase;
   font-size: var(--XS);
   letter-spacing: 2px;
 }
 
+.open-button {
+  margin-right: -2em;
+}
+
+.open-button .arrow {
+  width: 50%;
+}
+
+button {
+  height: 100%;
+}
+
 .subscribe-two {
   margin-top: 2em;
-  padding-top: 0.4rem;
+  padding: 0.4rem 2rem 0 1rem;
   background-color: var(--primary-text);
   border-radius: 15px;
   height: 3.7em;
