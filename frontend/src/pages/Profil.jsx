@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import MyProfil from "../components/MonProfil";
+import MyProfil from "../components/MyProfil";
 import MyMCFavorites from "../components/MyMCFavorites";
 import "../style/Profil.css";
 

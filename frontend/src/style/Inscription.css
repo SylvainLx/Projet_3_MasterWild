@@ -4,14 +4,14 @@
   background-color: var(--main-blue);
   color: var(--primary-text);
   display: flex;
-  justify-content: end;  
+  justify-content: end;
 }
 
-.titleh2{
-    font-size: var(--XL);
+.titleh2 {
+  font-size: var(--XL);
 }
-.monoLetter{
-    font-size: 200%;
+.monoLetter {
+  font-size: 200%;
 }
 
 /* partie connexion*/
@@ -33,16 +33,16 @@
   border-radius: 4px;
 }
 
-[type="checkbox"]{
-	cursor: pointer;   
+[type="checkbox"] {
+  cursor: pointer;
 }
 
-.blabla{
+.blabla {
   height: 1em;
   width: 1em;
 }
 
-.checkBinsc{
+.checkBinsc {
   font-size: var(--S);
 }
 
@@ -120,25 +120,25 @@
 
 /* Media querie */
 
-@media screen and (min-width: 1199.98px){
-    .pageInsc{
-        display: flex;
-        align-items: center;
-        margin-left: 1em;
-    }
+@media screen and (min-width: 1199.98px) {
+  .pageInsc {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+  }
 
-.formInsc{
+  .formInsc {
     width: 50%;
-}
-.secoPart{
+  }
+  .secoPart {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-left: 2px solid var(--main-blue);
-}
-.mosaicStar{
+  }
+  .mosaicStar {
     width: 80%;
-}
+  }
 }
