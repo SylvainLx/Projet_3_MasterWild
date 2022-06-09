@@ -1,38 +1,37 @@
-// import useState from "react";
-import harryroselmack2 from "../assets/harryroselmack2.png";
-import heart from "../assets/heart.png";
+import { useState } from "react";
+import harryroselmack from "../assets/harryroselmack.png";
 import flower from "../assets/flower.webm";
 import "../style/VideoSample.css";
 
 export default function VideoSample() {
-  // const [isFavorite, setIsFavorite] = useState(item.isFavorite);
-  // const handleClickFavorite = () => {
-  //   setIsFavorite(!isFavorite);
-  // };
+  const [isFavorite, setIsFavorite] = useState(false);
+  const handleClickFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <section>
       <div className="container-video">
         <div className="video">
-          <video controls width="950">
+          <video controls width="1500">
             <source src={flower} type="video/webm" />
             <track default kind="captions" srcLang="en" />
           </video>
         </div>
         <div className="description-video">
           <div className="picture-video">
-            <img src={harryroselmack2} alt="Celebrity's portrait" />
+            <img src={harryroselmack} alt="Celebrity's portrait" />
           </div>
           <div className="text">
             <div className="text-top">
-              <h1 className="title-video">Harry Roselmack</h1>
-              <img
-                src={heart}
-                id="favorite"
-                // className={isFavorite ? "isFavorite" : "notFavorite"}
-                // onClick={handleClickFavorite}
-                alt="Heart for favorite"
-              />
+              <h1 className="title-video">Titre de la vidéo</h1>
+              <button
+                type="button"
+                className={isFavorite ? "isFavorite" : "notFavorite"}
+                onClick={handleClickFavorite}
+              >
+                &nbsp;
+              </button>
             </div>
             <p className="text-bottom">
               Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum

@@ -138,12 +138,18 @@ table {
   font-display: swap;
 }
 
+.App {
+  background-color: #fafafa;
+  font-family: Roboto, sans-serif;
+}
+
+/* VARIABLES */
 :root {
   /*Colors*/
   --main-red: #ef4957;
   --main-blue: #1738ce;
-  --secondary-red: rgba(239, 73, 87, 0.8);
-  --secondary-blue: rgba(23, 56, 206, 0.8);
+  --secondary-red: rgba(239, 73, 87, 0.6);
+  --secondary-blue: rgba(23, 56, 206, 0.6);
   --button-color: #dadada;
   --primary-text: white;
   --secondary-text: #1f1f1f
@@ -164,7 +170,8 @@ table {
   --XS: clamp(0.75rem, 1vw, 1rem);
 
   /*Breakpoints 
-  @media screen and (min 479.98px)
+  @media screen and (min-width: 479.98px)
   @media screen and (min-width: 767.98px)
+  @media screen and (min-width: 1199.98px)
   */
 }
