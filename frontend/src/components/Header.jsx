@@ -4,12 +4,12 @@ import "../style/Header.css";
 import { pushRotate as BurgerMenu, menuOpen } from "react-burger-menu";
 import logowhite from "../assets/logowhite.png";
 import loginIcon from "../assets/login.png";
-import languageIcon from "../assets/language.png";
+import accountCicleIcon from "../assets/account_circle.png";
 import alternateEmailIcon from "../assets/alternate_email.png";
 
 export default function Header() {
   return (
-    <div>
+    <header>
       <div className="mobile-burger">
         <BurgerMenu>
           <NavLink
@@ -82,7 +82,7 @@ export default function Header() {
           <NavLink className="navlink-menu-right" to="/profil">
             <img
               className="menu-right-icon"
-              src={languageIcon}
+              src={accountCicleIcon}
               alt="logowhite"
             />
           </NavLink>
@@ -95,6 +95,6 @@ export default function Header() {
           </NavLink>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

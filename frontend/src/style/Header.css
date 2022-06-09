@@ -14,9 +14,6 @@
 }
 
 @media screen and (min-width: 767.98px) {
-  .mobile-burger {
-    display: none;
-  }
   .menu-right {
     display: flex;
     grid-column-start: 3;
