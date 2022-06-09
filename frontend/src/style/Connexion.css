@@ -4,14 +4,14 @@
   background-color: var(--main-blue);
   color: var(--primary-text);
   display: flex;
-  justify-content: end;  
+  justify-content: end;
 }
 
-.titleh2{
-    font-size: var(--XL);
+.titleh2 {
+  font-size: var(--XL);
 }
-.monoLetter{
-    font-size: 200%;
+.monoLetter {
+  font-size: 200%;
 }
 
 /* partie connexion*/
@@ -109,24 +109,24 @@
 
 /* Media querie */
 
-@media screen and (min-width: 1199.98px){
-    .pageCo{
-        display: flex;
-        align-items: center;
-    }
+@media screen and (min-width: 1199.98px) {
+  .pageCo {
+    display: flex;
+    align-items: center;
+  }
 
-.formConnection{
+  .formConnection {
     width: 50%;
-}
-.secPart{
+  }
+  .secPart {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-left: 2px solid var(--main-blue);
-}
-.mosaicStar{
+  }
+  .mosaicStar {
     width: 80%;
-}
+  }
 }
