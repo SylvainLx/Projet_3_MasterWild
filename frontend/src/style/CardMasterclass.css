@@ -31,8 +31,6 @@
 .theme {
     font-size: 0.7rem;
     color: var(--optionnal-text);
-    /* letter-spacing: wide;
-    font-size: xs; */
     text-transform: uppercase;
     margin-left: 3px;
 }
