@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../style/Header.css";
 
-import { pushRotate as BurgerMenu, menuOpen } from "react-burger-menu";
+import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
 import logowhite from "../assets/logowhite.png";
 import loginIcon from "../assets/login.png";
 import accountCicleIcon from "../assets/account_circle.png";
