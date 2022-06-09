@@ -1,0 +1,144 @@
+@import "../style/App.css";
+
+.introSinscrire {
+  background-color: var(--main-blue);
+  color: var(--primary-text);
+  display: flex;
+  justify-content: end;  
+}
+
+.titleh2{
+    font-size: var(--XL);
+}
+.monoLetter{
+    font-size: 200%;
+}
+
+/* partie connexion*/
+
+.formInsc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.login-input {
+  width: 15em;
+  height: 1.7em;
+  padding-left: 10px;
+  font-size: var(--S);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+[type="checkbox"]{
+	cursor: pointer;   
+}
+
+.blabla{
+  height: 1em;
+  width: 1em;
+}
+
+.checkBinsc{
+  font-size: var(--S);
+}
+
+.buttonShow {
+  background: var(--button-color);
+  border-radius: 4px;
+  color: var(--optionnal-text);
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.login-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5rem 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  color: #ffffff;
+  background-color: var(--main-blue);
+  font-size: var(--S);
+  letter-spacing: 1px;
+  font-weight: var(--semi-bold);
+  transition: all 0.15s linear;
+}
+
+.login-button:hover {
+  background-color: var(--primary-text);
+  border-color: var(--main-blue);
+  color: var(--main-blue);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.login-button:active {
+  background-color: transparent;
+  border-color: var(--main-blue);
+  color: var(--main-blue);
+  transform: translateY(5px) scale(0.95);
+}
+
+.login-button:disabled {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #8e8e93;
+  border-color: #8e8e93;
+}
+
+.textInsc {
+  color: var(--main-blue);
+  font-weight: var(--semi-bold);
+  font-size: var(--S);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.iconeEye {
+  height: 1.5em;
+}
+
+/* partie inscription*/
+
+.mosaicStar {
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+}
+
+.goInscrip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Media querie */
+
+@media screen and (min-width: 1199.98px){
+    .pageInsc{
+        display: flex;
+        align-items: center;
+        margin-left: 1em;
+    }
+
+.formInsc{
+    width: 50%;
+}
+.secoPart{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid var(--main-blue);
+}
+.mosaicStar{
+    width: 80%;
+}
+}
