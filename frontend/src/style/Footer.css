@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1em;
-  font-weight:600;
+  font-weight: 600;
 }
 
 .logoFooter {
@@ -35,6 +35,10 @@
   margin-left: 1em;
   margin-right: 1em;
 }
+.linkIntern {
+    margin-top: .7em;
+    margin-bottom: .7em;
+  }
 
 /* media querie */
 
@@ -45,23 +49,25 @@
     font-size: 2em;
   }
   .linkIntern {
-    margin-top: .7em;
-    margin-bottom: .7em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
   }
-  .listeRSfooter{
-      padding-top: 0;
+  .listeRSfooter {
+    padding-top: 0;
   }
   .listeRes {
     padding-top: 1em;
   }
-  .linksFooter{
-      align-items: baseline;
+  .linksFooter {
+    align-items: baseline;
   }
-  .listIconesRS{
+  .listIconesRS {
     padding-top: 0;
-    padding-bottom: 0; 
+    padding-bottom: 0;
   }
-  .logoFacebook, .logoInstagram, .logoTwitter{
-      height: 3em;
+  .logoFacebook,
+  .logoInstagram,
+  .logoTwitter {
+    height: 3em;
   }
 }
