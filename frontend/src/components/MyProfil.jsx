@@ -42,14 +42,22 @@ export default function MyProfil() {
           </tr>
         </tbody>
       </table>
-      <button type="button">Editer mon profil</button>
-      <button type="button">Changer mon mot de passe</button>
+      <button className="button-pink button-profil" type="button">
+        Editer mon profil
+      </button>
+      <button className="button-red button-profil" type="button">
+        Changer mon mot de passe
+      </button>
       <div className="my-subscription-plan">
         <h1 className="inter-titre">Ma Formule</h1>
         <p>Vous êtes actuellement abonné Prenium jusqu'au 26/08/2024</p>
         <p>renouvelement automatique : activé </p>
-        <button type="button">Désactiver mon renouvelement automatique</button>
-        <button type="button">Changer ma formule</button>
+        <button className="button-blue button-profil" type="button">
+          Changer ma formule
+        </button>
+        <button className="button-grey button-profil" type="button">
+          Désactiver mon renouvelement automatique
+        </button>
       </div>
     </div>
   );

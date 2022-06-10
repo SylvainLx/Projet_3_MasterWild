@@ -1,27 +1,82 @@
-.my-profil{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.my-profil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.inter-titre{
-        width: 100%;
-        height: 50px;
-        font-size: x-large;
-        display: flex;
-        background-color: var(--main-blue);
-        color: var(--primary-text);
-        justify-content: center;
-        align-items: center;   
+.inter-titre {
+  width: 100%;
+  height: 50px;
+  font-size: x-large;
+  display: flex;
+  background-color: var(--main-blue);
+  color: var(--primary-text);
+  justify-content: center;
+  align-items: center;
 }
 
-.my-subscription-plan{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.my-subscription-plan {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.user-table{
-    display: flex;
-    align-items: center;
+.user-table {
+  display: flex;
+  align-items: center;
+}
+
+.button-blue {
+  background-color: var(--main-blue);
+}
+
+.button-red {
+  background-color: var(--main-red);
+}
+
+.button-grey {
+  background-color: var(--optionnal-text);
+}
+
+.button-pink {
+  background-color: var(--secondary-red);
+}
+
+.button-profil {
+    width: 370px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5rem 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-size: var(--S);
+  letter-spacing: 1px;
+  font-weight: var(--semi-bold);
+  transition: all 0.15s linear;
+}
+
+.button-profil:hover {
+  background-color: var(--primary-text);
+  border-color: var(--main-blue);
+  color: var(--main-blue);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.button-profil:active {
+  background-color: transparent;
+  border-color: var(--main-blue);
+  color: var(--main-blue);
+  transform: translateY(5px) scale(0.95);
+}
+
+.button-profil:disabled {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #8e8e93;
+  border-color: #8e8e93;
 }
