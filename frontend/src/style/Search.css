@@ -18,11 +18,13 @@
 .title {
     color: var(--main-blue);
     font-size: var(--XL);
+    font-weight: var(--bold);
+
     margin: 1rem;
 }
 .span-title {
     color: var(--main-red);
-    font-weight: var(--bold);
+    font-weight: var(--extra-bold);
 }
 /* Search Bar */
 .search-section {
@@ -120,6 +122,13 @@
     color: var(--secondary-blue);
 }
 
+.result-masterclass {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
 @media screen and (min-width: 767.98px){
     .logo-inspiraction {
         display: none;
@@ -128,6 +137,12 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         padding: 3rem 0rem;
+    }
+    .result-masterclass {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; 
+        justify-content: space-between;
+        width: 100%;
     }
 }
     

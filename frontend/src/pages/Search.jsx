@@ -1,15 +1,21 @@
 import "../style/Search.css";
 import "../style/App.css";
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 import LogoSearch from "../assets/search.png";
 import Logo from "../assets/logoattente.png";
 import ArrowDown from "../assets/arrowdown.png";
 import ArrowLeft from "../assets/arrowleft.png";
+import CardMasterclass from "../components/CardMasterclass";
 
 export default function Search() {
   const [showTheme, setShowTheme] = useState(false);
   const [showMetiers, setShowMetiers] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleShowTheme = () => {
     setShowTheme((current) => !current);
@@ -17,6 +23,26 @@ export default function Search() {
   const handleShowMetiers = () => {
     setShowMetiers((current) => !current);
   };
+  const handleSearch = () => {
+    setSearchBar(!searchBar);
+  };
+
+  function filterSearch(filter) {
+    localStorage.setItem("user", JSON.stringify(filter));
+  }
+
+  const getSearch = (e) => {
+    e.preventDefault();
+    axios
+      .get("http://localhost:4000/api/search", {
+        searchBar,
+      })
+      .then((response) => {
+        filterSearch(response.data);
+        navigate("/search");
+      });
+  };
+
   return (
     <div className="search-page">
       <img className="logo-inspiraction" src={Logo} alt="Logo InspirAction" />
@@ -27,8 +53,13 @@ export default function Search() {
       </div>
       <section className="search-section">
         <div className="search-bar">
-          <input className="searching" type="text" placeholder="Rechercher" />
-          <button type="button">
+          <input
+            className="searching"
+            type="text"
+            placeholder="Rechercher"
+            onChange={handleSearch}
+          />
+          <button type="button" onClick={getSearch}>
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
         </div>
@@ -40,9 +71,9 @@ export default function Search() {
           >
             <span className="letter-t">T</span>
             <div>
-              <h3 className="recherche">Recherche</h3>
+              <h3 className="recherche">Recherche par</h3>
 
-              <h3 className="hematiques">HEMATIQUES</h3>
+              <h3 className="hematiques">HEMATIQUE</h3>
             </div>
             {showTheme ? (
               <img src={ArrowDown} alt="arrowdown" className="logo-arrow" />
@@ -77,7 +108,7 @@ export default function Search() {
           >
             <span className="letter-m">M</span>
             <div>
-              <h3 className="recherche">Recherche</h3>
+              <h3 className="recherche">Recherche par</h3>
 
               <h3 className="etiers">ETIERS</h3>
             </div>
@@ -102,6 +133,12 @@ export default function Search() {
           )}
         </div>
         <div className="result"> resultat video</div>
+      </section>
+      <section className="result-masterclass">
+        <CardMasterclass />
+        <CardMasterclass />
+        <CardMasterclass />
+        <CardMasterclass />
       </section>
     </div>
   );
