@@ -1,0 +1,92 @@
+.full-desktop-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.logo-header {
+  width: 25vw;
+  grid-column-start: 2;
+  justify-self: center;
+}
+
+.menu-right {
+  display: none;
+}
+
+@media screen and (min-width: 767.98px) {
+  .menu-right {
+    display: flex;
+    grid-column-start: 3;
+    align-self: center;
+    justify-self: end;
+    margin: auto;
+  }
+
+  .navlink-menu-right {
+    margin: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
+
+  .logo-header {
+    width: 15vw;
+  }
+}
+
+/* Burger-menu configuration */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  margin: 3vw;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: var(--main-red);
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: var(--main-red);
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: var(--primary-text);
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: var(--main-blue);
+  padding: 2em 0.5em 0;
+  font-size: 1.15em;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: var(--primary-text);
+  font-size: xx-large;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  padding: 0.3em;
+}

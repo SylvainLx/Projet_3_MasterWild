@@ -138,6 +138,12 @@ table {
   font-display: swap;
 }
 
+.App {
+  background-color: #fafafa;
+  font-family: Roboto, sans-serif;
+}
+
+/* VARIABLES */
 :root {
   /*Colors*/
   --main-red: #ef4957;
@@ -164,7 +170,7 @@ table {
   --XS: clamp(0.75rem, 1vw, 1rem);
 
   /*Breakpoints 
-  @media screen and (min 479.98px)
+  @media screen and (min-width: 479.98px)
   @media screen and (min-width: 767.98px)
   @media screen and (min-width: 1199.98px)
   */
