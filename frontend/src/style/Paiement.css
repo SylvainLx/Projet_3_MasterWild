@@ -1,0 +1,13 @@
+/* BLUE HEADER */
+.header-paiement {
+    background-color: var(--main-blue);
+    color: var(--primary-text);
+    display: flex;
+    justify-content: end;
+}
+.titleh2{
+    font-size: var(--XL);
+}
+.monoLetter{
+    font-size: 200%;
+}
