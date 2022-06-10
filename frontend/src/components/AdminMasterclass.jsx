@@ -2,6 +2,8 @@ import "../style/Admin.css";
 import "../style/App.css";
 import { useState } from "react";
 
+import VideoSample from "./VideoSample";
+
 export default function AdminMasterclass() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -40,7 +42,7 @@ export default function AdminMasterclass() {
         </div>
       </section>
       <section className="sample-video">
-        <p>ajouter le sample video de lou</p>
+        <VideoSample />
       </section>
       <section className="add-masterclass">
         <form className="form-masterclass" action="post">
