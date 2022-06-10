@@ -1,8 +1,10 @@
 @import "../style/App.css";
 
 .container-masterclass {
-    margin: none
+    max-width: 1500px;
+    margin: auto;
 }
+
 /* BLUE HEADER */
 .header-video {
     background-color: var(--main-blue);

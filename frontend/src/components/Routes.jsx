@@ -9,6 +9,8 @@ import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
 import Connexion from "../pages/Connexion";
 import Inscription from "../pages/Inscription";
+import AdminAbonne from "./AdminAbonne";
+import AdminMasterclass from "./AdminMasterclass";
 
 export default function Main() {
   return (
@@ -21,6 +23,10 @@ export default function Main() {
         <Route path="/paiement" element={<Paiement />} />
         <Route path="/profil" element={<Profil />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route path="abonne" element={<AdminAbonne />} />
+          <Route path="editmasterclass" element={<AdminMasterclass />} />
+        </Route>
         <Route path="/admin" element={<Admin />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
