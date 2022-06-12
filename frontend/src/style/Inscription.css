@@ -14,6 +14,10 @@
     font-size: 200%;
 }
 
+.hugoInsc{
+  max-width: 100vh;
+}
+
 /* partie connexion*/
 
 .formInsc {

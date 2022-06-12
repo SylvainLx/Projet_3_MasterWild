@@ -60,7 +60,7 @@ export default function Inscription() {
         </h2>
       </div>
       <div className="pageInsc">
-        <div>
+        <div className="hugoInsc">
           <img src={Hugo} alt="Hugo Clément" />
         </div>
         <form className="formInsc" onSubmit={postUser}>
