@@ -13,6 +13,9 @@
   text-decoration: none;
   color: white;
 }
+.linkFooter:hover{
+  text-decoration: underline;
+}
 
 .logoFooter {
   max-width: 100%;
@@ -40,6 +43,9 @@
 .liIcone {
   margin-left: 1em;
   margin-right: 1em;
+}
+.liIcone:hover{
+  transform: translateY(-5px) scale(1.05);
 }
 .linkIntern {
     margin-top: .7em;
