@@ -8,6 +8,11 @@
   font-weight: 600;
 }
 
+.linkFooter{
+  text-decoration: none;
+  color: white;
+}
+
 .logoFooter {
   height: 10em;
 }
@@ -47,6 +52,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     font-size: 2em;
+    margin-top: 0;
   }
   .linkIntern {
     margin-top: 0.7em;

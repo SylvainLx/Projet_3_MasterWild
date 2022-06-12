@@ -9,16 +9,16 @@ export default function Footer() {
   return (
     <div className="footer">
       <div>
-        <NavLink to="/">
+        <NavLink className="linkFooter" to="/">
           <img className="logoFooter" src={Logo} alt="logo aspiraction" />
         </NavLink>
       </div>
       <div>
         <ul className="linksFooter">
-          <NavLink to="/contact">
+          <NavLink className="linkFooter" to="/contact">
             <li className="linkIntern">Foire aux questions</li>
           </NavLink>
-          <NavLink to="/">
+          <NavLink className="linkFooter" to="/">
             <li className="linkIntern">Offres</li>
           </NavLink>
           <li className="linkIntern">Mentions légales</li>
