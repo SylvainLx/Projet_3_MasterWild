@@ -7,11 +7,22 @@
   justify-content: end;  
 }
 
-.titleh2{
+.titleConnexion{
     font-size: var(--XL);
+    margin-right: 1rem;
 }
 .monoLetter{
     font-size: 200%;
+}
+
+.picStar{
+  max-width: 100%;
+}
+
+.divPicConnexion{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* partie connexion*/
@@ -35,11 +46,31 @@
   border-radius: 4px;
 }
 
-.buttonShow {
-  background: var(--button-color);
+.passInput{
+  width: 15em;
+  height: 1.7em;
+  padding-left: 10px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  font-size: var(--S);
+  background: #fff;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputPassText{
+  border: none;
+  font-size: var(--S);
+}
+
+.buttonShow {
+  border: none;
+  border-radius: none;
+  background: var(--button-color);
   color: var(--optionnal-text);
-  margin-bottom: 1em;
+  height: 100%;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -60,6 +91,7 @@
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
   transition: all 0.15s linear;
+  cursor: pointer;   
 }
 
 .login-button:hover {
@@ -91,7 +123,11 @@
 }
 
 .iconeEye {
-  height: 1.5em;
+  height: 90%;
+}
+
+.linkInsc{
+  text-decoration: none;
 }
 
 /* partie inscription*/
