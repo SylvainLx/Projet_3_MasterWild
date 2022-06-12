@@ -1,0 +1,18 @@
+@import "../style/App.css";
+
+.introContact {
+  background-color: var(--main-blue);
+  color: var(--primary-text);
+  display: flex;
+  justify-content: end;
+}
+.titleContact {
+  font-size: var(--XL);
+  margin-right: 1rem;
+}
+.monoLetter {
+  font-size: 200%;
+}
+.picStar {
+  max-width: 100%;
+}
