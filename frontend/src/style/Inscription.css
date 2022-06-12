@@ -15,8 +15,10 @@
     font-size: 200%;
 }
 
-.hugoInsc{
-  max-width: 100vh;
+.divPicIntro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* partie connexion*/
@@ -68,6 +70,7 @@
 
 .inputPassText{
   border: none;
+  font-size: var(--S);
 }
 
 .buttonShow {
@@ -96,6 +99,7 @@
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
   transition: all 0.15s linear;
+  cursor: pointer;   
 }
 
 .login-button:hover {
@@ -127,7 +131,7 @@
 }
 
 .iconeEye {
-  height: 1.5em;
+  height: 90%;
 }
 
 .linkInsc{
@@ -163,9 +167,18 @@
         align-items: center;
         margin-left: 1em;
     }
+    .divPicIntro{
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
 
 .formInsc{
     width: 50%;
+}
+.blabla{
+  height: 1.2em;
+  width: 1.2em;
+  margin-right: 1em;
 }
 .secoPart{
     width: 50%;
@@ -176,6 +189,6 @@
     border-left: 2px solid var(--main-blue);
 }
 .mosaicStar{
-    width: 80%;
+    width: 95%;
 }
 }
