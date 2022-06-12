@@ -8,7 +8,7 @@ import Twitter from "../assets/iconeTwitter.png";
 export default function Footer() {
   return (
     <div className="footer">
-      <div>
+      <div className="divLogoFooter">
         <NavLink className="linkFooter" to="/">
           <img className="logoFooter" src={Logo} alt="logo aspiraction" />
         </NavLink>
