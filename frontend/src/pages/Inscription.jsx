@@ -137,7 +137,7 @@ export default function Inscription() {
             <p className="textInsc">Déjà un compte ?</p>
             <Link className="linkInsc" to="/connexion">
               <button type="submit" className="login-button">
-                S'inscrire
+                Se connecter
               </button>
             </Link>
           </div>
