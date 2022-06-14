@@ -1,15 +1,41 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-modal";
 import Hugo from "../assets/hugoclement.png";
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
+import Close from "../assets/close.png";
 import "../style/Connexion.css";
+
+const customStyles = {
+  content: {
+    top: "12rem",
+    left: "20rem",
+    right: "20rem",
+    bottom: "12rem",
+    borderRadius: "1rem",
+    fontFamily: "Roboto",
+  },
+  overlay: {
+    background: "rgba(0,0,0,0.6)",
+  },
+};
 
 export default function Connexion() {
   const [show, setShow] = useState(true);
   const handleClick = () => setShow(!show);
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   return (
     <div>
       <div className="introSeConnecter">
@@ -48,7 +74,61 @@ export default function Connexion() {
               Se connecter
             </button>
           </Link>
-          <p className="textConnex">Mot de Passe oublié ?</p>
+
+          <button className="textConnex" type="button" onClick={openModal}>
+            Mot de Passe oublié ?
+          </button>
+          <div>
+            <Modal
+              setIsOpen={setIsOpen}
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+              style={customStyles}
+              contentLabel="Modal"
+            >
+              <div className="modalTitleBtn">
+                <h2 className="modalTitle">Changer de mot de passe</h2>
+                <button
+                  className="modalClose"
+                  type="button"
+                  onClick={closeModal}
+                >
+                  <img
+                    className="modalImgClose"
+                    src={Close}
+                    alt="boutton croix"
+                  />
+                </button>
+              </div>
+              <br />
+              <form className="modalForm">
+                <label htmlFor="Email" className="modalEmail">
+                  <input
+                    className="modalInput"
+                    type="text"
+                    placeholder="Email"
+                  />
+                </label>
+                <label htmlFor="NvxPass">
+                  <input
+                    className="modalInput"
+                    type="text"
+                    placeholder="Nouveau mot de passe"
+                  />
+                </label>
+                <label htmlFor="NvxPass">
+                  <input
+                    className="modalInput"
+                    type="text"
+                    placeholder="Confirmer votre nouveau mot de passe"
+                  />
+                </label>
+                <button className="modalSubmit" type="submit">
+                  Enregistrer
+                </button>
+              </form>
+            </Modal>
+          </div>
         </form>
         <div className="secPart">
           <div className="mosaicStar">

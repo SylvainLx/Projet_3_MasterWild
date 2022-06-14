@@ -120,8 +120,16 @@
   font-size: var(--S);
   margin-top: 1em;
   margin-bottom: 1em;
-}
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s linear;
 
+}
+.textConnex:hover {
+  transform: translateY(0px) scale(1.05);
+}
+  
 .iconeEye {
   height: 90%;
 }
@@ -141,6 +149,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* partie modale */
+
+.modalImgClose {
+  width: 2rem;
+  height: 2rem;
+}
+.modalClose {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+.modalClose:hover {
+  transform: translateY(0px) scale(1.25);
+
+}
+.modalTitleBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.modalInput {
+  width: 20rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.modalSubmit {
+  margin: 1rem;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  color: var(--primary-text);
+  background-color: var(--main-blue);
+  font-size: var(--S);
+  letter-spacing: 1px;
+  font-weight: var(--semi-bold);
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+.modalSubmit:hover {
+  background-color: var(--primary-text);
+  border-color: var(--main-blue);
+  color: var(--main-blue);
+  transform: translateY(-5px) scale(1.05);
 }
 
 /* Media querie */
