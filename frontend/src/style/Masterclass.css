@@ -1,100 +1,100 @@
 @import "../style/App.css";
 
 .container-masterclass {
-    margin: none
+  margin: none;
 }
 /* BLUE HEADER */
 .header-video {
-    background-color: var(--main-blue);
-    color: var(--primary-text);
-    display: flex;
-    justify-content: end;
+  background-color: var(--main-blue);
+  color: var(--primary-text);
+  display: flex;
+  justify-content: end;
 }
-.titleh2{
-    font-size: var(--XL);
+.titleh2 {
+  font-size: var(--XL);
 }
-.monoLetter{
-    font-size: 200%;
+.monoLetter {
+  font-size: 200%;
 }
 
 /* PARTIE SUGGESTIONS */
 .suggestions {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* BOUTON RETOUR VERS PAGE SEARCH */
 .global-return-button {
-    width: 15%;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 15%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .return-button {
-    display: flex;
-    height: 3em;
-    width: 110px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    letter-spacing: 1px;
-    transition: all 0.2s linear;
-    cursor: pointer;
+  display: flex;
+  height: 3em;
+  width: 110px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
 }
 .return-button > svg {
-    margin-right: 5px;
-    margin-left: 5px;
-    font-size: 20px;
-    transition: all 0.4s ease-in;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
 }
 .return-button:hover > svg {
-    font-size: 1.2em;
-    transform: translateX(-5px);
+  font-size: 1.2em;
+  transform: translateX(-5px);
 }
 .return-button span {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 .return-button:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 479.98px) {
-    .container-masterclass {
-        margin: 0 20px;
-    }
-    .global-return-button {
-        width: 12%;
-        height: 5rem;
-    }
-    .return-button span {
-        font-size: 0.9rem;
-    }
+  .container-masterclass {
+    margin: 0 20px;
+  }
+  .global-return-button {
+    width: 12%;
+    height: 5rem;
+  }
+  .return-button span {
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (min-width: 767.98px) {
-    .suggestions {
-        margin: inherit;
-    }
-    .global-return-button {
-        width: 12%;
-        height: 5rem;
-    }
-    .return-button span {
-        font-size: 1.1rem;
-    }
+  .suggestions {
+    margin: inherit;
+  }
+  .global-return-button {
+    width: 12%;
+    height: 5rem;
+  }
+  .return-button span {
+    font-size: 1.1rem;
+  }
 }
 
 @media screen and (min-width: 1199.98px) {
-    .container-masterclass {
-        margin: 0 50px;
-    }
-    .global-return-button {
-        width: 12%;
-        height: 5rem;
-    }
-    .return-button span {
-        font-size: 1.3rem;
-    }
+  .container-masterclass {
+    margin: 0 50px;
+  }
+  .global-return-button {
+    width: 12%;
+    height: 5rem;
+  }
+  .return-button span {
+    font-size: 1.3rem;
+  }
 }
