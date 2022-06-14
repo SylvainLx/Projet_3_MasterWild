@@ -1,0 +1,146 @@
+/* Page Search */
+.search-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title Masterclass */
+.div-title {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: var(--main-blue);
+  font-size: var(--XL);
+  font-weight: var(--bold);
+
+  margin: 1rem;
+}
+.span-title {
+  color: var(--main-red);
+  font-weight: var(--extra-bold);
+}
+/* Search Bar */
+.search-section {
+  width: 100%;
+}
+
+.search-bar {
+  height: 2rem;
+  margin-bottom: 2rem;
+}
+.searching {
+  background-color: rgba(218, 212, 212, 0.691);
+  border-radius: 1rem;
+  padding-left: 2rem;
+  height: 2rem;
+  width: 50vw;
+}
+.logo-search {
+  width: 1.7rem;
+}
+/* Search Select Theme */
+.btnSearchTheme {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  height: 10rem;
+  background-color: var(--main-red);
+}
+.letter-t {
+  color: var(--main-blue);
+  font-size: 5rem;
+  padding-bottom: 1rem;
+}
+.letters {
+  display: flex;
+  margin-top: 1.4rem;
+}
+.recherche {
+  color: var(--primary-text);
+  font-weight: var(--bold);
+}
+.hematiques {
+  color: var(--main-blue);
+  font-weight: var(--bold);
+}
+.logo-arrow {
+  display: flex;
+  align-self: center;
+}
+/* Search Select Jobs */
+.btnSearchMetier {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  height: 10rem;
+  background-color: var(--main-blue);
+}
+.letter-m {
+  color: var(--main-red);
+  font-size: 5rem;
+  padding-bottom: 1rem;
+}
+
+.etiers {
+  color: var(--main-red);
+  font-weight: var(--bold);
+}
+/* Result Search Theme */
+.list-theme {
+  background-color: var(--secondary-red);
+  color: var(--primary-text);
+  font-weight: var(--bold);
+  padding: 1rem;
+  line-height: 2rem;
+}
+/* Result Search Jobs */
+.list-metier {
+  background-color: var(--secondary-blue);
+  color: var(--primary-text);
+  font-weight: var(--bold);
+  padding: 1rem;
+  line-height: 2rem;
+}
+/* Result Search Section */
+
+.metiers {
+  color: var(--secondary-blue);
+}
+
+.result-masterclass {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media screen and (min-width: 767.98px) {
+  .logo-inspiraction {
+    display: none;
+  }
+  .list-theme,
+  .list-metier {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 3rem 0rem;
+  }
+  .result-masterclass {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
