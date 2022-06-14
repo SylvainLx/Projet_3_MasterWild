@@ -10,67 +10,67 @@ import alternateEmailIcon from "../assets/alternate_email.png";
 export default function Header() {
   return (
     <header>
-      <div className="mobile-burger">
-        <BurgerMenu>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/"
-          >
-            Home{" "}
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/inscription"
-          >
-            Inscription
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/masterclass"
-          >
-            Masterclass
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/search"
-          >
-            Search
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/paiement"
-          >
-            Paiement
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/profil"
-          >
-            Profil
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/contact"
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/admin"
-          >
-            Admin
-          </NavLink>
-        </BurgerMenu>
-      </div>
       <div className="full-desktop-header">
+        <div className="mobile-burger">
+          <BurgerMenu>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/"
+            >
+              Home{" "}
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/inscription"
+            >
+              Inscription
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/masterclass"
+            >
+              Masterclass
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/search"
+            >
+              Search
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/paiement"
+            >
+              Paiement
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/profil"
+            >
+              Profil
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/contact"
+            >
+              Contact
+            </NavLink>
+            <NavLink
+              onClick={{ menuOpen: !menuOpen }}
+              className="menu-item"
+              to="/admin"
+            >
+              Admin
+            </NavLink>
+          </BurgerMenu>
+        </div>
         <NavLink className="logo-header" to="/">
           <img src={logowhite} alt="logowhite" />
         </NavLink>
