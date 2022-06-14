@@ -132,7 +132,7 @@ export default function Search() {
             </div>
           )}
         </div>
-        <div className="result"> resultat video</div>
+        <div className="result"></div>
       </section>
       <section className="result-masterclass">
         <CardMasterclass />

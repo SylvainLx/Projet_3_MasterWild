@@ -2,7 +2,7 @@
     color: var(--primary-text);
 }
 /* Blue Bar */
-.title {
+.title-admin {
     background-color: var(--main-blue);
     font-size: var(--L);
     display: flex;
@@ -10,8 +10,8 @@
     padding: 0.5rem 1rem;
 }
 
-.span-title {
-    font-size: var(--XL);
+.span-A {
+    font-size: 200%;
     font-weight: var(--bold);
 }
  /* DashBoard */
@@ -34,6 +34,21 @@
     font-size: var(--XL);
 }
 /* Select Client / Masterclass */
+.btn-red {
+    border: none;
+    background-color: var(--main-red);
+    color: var(--primary-text);
+    font-size: var(--M);
+}
+
+.btn-blue {
+    border: none;
+    background-color: var(--main-blue);
+    color: var(--primary-text);
+    font-size: var(--M);
+
+}
+
 .selectTask {
     display: flex;
     justify-content: space-around;
@@ -75,6 +90,7 @@
     flex-direction: row;
     justify-content: space-around;
     padding: 2rem;
+    border: none;
 }
 
 .abonnes {
@@ -93,6 +109,8 @@
     background-color: var(--secondary-blue);
     width: 70%;
     border: solid 1px var(--main-blue);
+    color: var(--primary-text);
+
 }
 /* AdminMasterclass */
 .showMasterclass {
@@ -113,6 +131,7 @@
     width: 70vw;
     border: solid 1px var(--main-red);
     margin-top: 2rem;
+    color: var(--primary-text);
 }
 
 .buttonPutDelete {
@@ -128,6 +147,9 @@
   border-radius: 5rem;
   width: 10rem;
   height: 2rem;
+  color: var(--primary-text);
+  border: none;
+  font-size: var(--S);
 }
 /* Add a Masterclass */
 .add-masterclass {
@@ -228,5 +250,4 @@
         grid-column-start: span 2;
         width: 45rem;
     }
-    
 }
