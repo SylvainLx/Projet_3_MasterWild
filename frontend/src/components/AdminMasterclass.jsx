@@ -1,6 +1,7 @@
 import "../style/Admin.css";
 import "../style/App.css";
 import { useState } from "react";
+import Select from "react-select";
 
 import VideoSample from "./VideoSample";
 
@@ -13,23 +14,65 @@ export default function AdminMasterclass() {
   const [theme, setTheme] = useState("");
   const [keyword, setKeyword] = useState("");
 
+  const optionsTheme = [
+    { value: "theme1", label: "theme 1" },
+    { value: "theme1", label: "theme 2" },
+    { value: "theme1", label: "theme 3" },
+  ];
+  const optionsMasterclass = [
+    { value: "Masterclass", label: "Masterclass 1" },
+    { value: "Masterclass", label: "Masterclass 2" },
+    { value: "Masterclass", label: "Masterclass 3" },
+  ];
+
+  const customStyleTheme = {
+    control: (base) => ({
+      ...base,
+      backgroundColor: "var(--secondary-red)",
+      border: 0,
+    }),
+    dropdownIndicator: () => ({
+      color: "white",
+    }),
+
+    menu: () => ({
+      marginTop: "0",
+      background: "var(--secondary-red)",
+    }),
+  };
+
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
-        <div className="selectmaster">
-          <select className="thematique">
-            <option value="theme">Recettes</option>
-            <option value="theme">People</option>
-            <option value="theme">Art</option>
-          </select>
-        </div>
-        <div>
-          <select className="selectMasterclass">
-            <option value="masterclass">Masterclass 1</option>
-            <option value="masterclass">Masterclass 2</option>
-            <option value="masterclass">Masterclass 3</option>
-          </select>
-        </div>
+        <Select
+          className="selectmaster"
+          styles={customStyleTheme}
+          options={optionsTheme}
+          placeholder="Selection Abonné"
+          theme={(themes) => ({
+            ...themes,
+            colors: {
+              ...themes.colors,
+              primary25: "var(--secondary-red)",
+              primary: "var(--main-red)",
+            },
+          })}
+        />
+
+        <Select
+          className="selectmaster"
+          styles={customStyleTheme}
+          options={optionsMasterclass}
+          placeholder="Selection Abonné"
+          theme={(themes) => ({
+            ...themes,
+            colors: {
+              ...themes.colors,
+              primary25: "var(--main-red)",
+              primary: "var(--main-red)",
+            },
+          })}
+        />
         <div className="buttonPutDelete">
           <button className="btnPut" type="button">
             Modifier
