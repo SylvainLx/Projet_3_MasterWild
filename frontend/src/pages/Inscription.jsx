@@ -55,13 +55,13 @@ export default function Inscription() {
   return (
     <div>
       <div className="introSinscrire">
-        <h2 className="titleh2">
+        <h2 className="titleInsc">
           S' <span className="monoLetter">I</span>nscrire
         </h2>
       </div>
       <div className="pageInsc">
-        <div>
-          <img src={Hugo} alt="Hugo Clément" />
+        <div className="divPicIntro">
+          <img className="picStar" src={Hugo} alt="Hugo Clément" />
         </div>
         <form className="formInsc" onSubmit={postUser}>
           <input
@@ -85,8 +85,9 @@ export default function Inscription() {
             onChange={handleMail}
             required
           />
-          <div className="login-input">
+          <div className="passInput">
             <input
+              className="inputPassText"
               type={show ? "password" : "text"}
               placeholder="Mot de passe"
               onChange={handlePassword}
@@ -120,7 +121,7 @@ export default function Inscription() {
             />
             Je souhaite recevoir la newsletter.
           </label>
-          <Link to="/">
+          <Link className="linkInsc" to="/">
             <button type="submit" className="login-button">
               Je m'inscris
             </button>
@@ -128,15 +129,15 @@ export default function Inscription() {
         </form>
         <div className="secoPart">
           <div className="mosaicStar">
-            <img src={Hugo} alt="hugo clement" />
-            <img src={Harry} alt="harry roselmack" />
-            <img src={Xavier} alt="xiavier niel" />
+            <img className="picStar" src={Hugo} alt="hugo clement" />
+            <img className="picStar" src={Harry} alt="harry roselmack" />
+            <img className="picStar" src={Xavier} alt="xiavier niel" />
           </div>
           <div className="goInscrip">
             <p className="textInsc">Déjà un compte ?</p>
-            <Link to="/connexion">
+            <Link className="linkInsc" to="/connexion">
               <button type="submit" className="login-button">
-                S'inscrire
+                Se connecter
               </button>
             </Link>
           </div>

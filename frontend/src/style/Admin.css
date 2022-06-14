@@ -1,5 +1,5 @@
 .container-admin {
-    color: var(--primary-text);
+  color: var(--primary-text);
 }
 /* Blue Bar */
 .title-admin {
@@ -14,24 +14,24 @@
     font-size: 200%;
     font-weight: var(--bold);
 }
- /* DashBoard */
+/* DashBoard */
 .dashboard {
-    background-color: var(--main-red);
-    width: 100vw;
-    height: 20rem;
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    text-align: center;
+  background-color: var(--main-red);
+  width: 100vw;
+  height: 20rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  text-align: center;
 }
 
 .text-dashboard {
-    font-size: var(--M);
+  font-size: var(--M);
 }
 
 .span-number {
-    font-size: var(--XL);
+  font-size: var(--XL);
 }
 /* Select Client / Masterclass */
 .btn-red {
@@ -50,39 +50,39 @@
 }
 
 .selectTask {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .span-task {
-    font-size: var(--XL);
-    padding-bottom: 0.7rem;
+  font-size: var(--XL);
+  padding-bottom: 0.7rem;
 }
 
 .select-clients {
-    background-color: var(--main-blue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 3.5rem;
+  background-color: var(--main-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 3.5rem;
 }
 .select-masterclass {
-    background-color: var(--main-red);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 3.5rem;
+  background-color: var(--main-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 3.5rem;
 }
 /* AdminAbonne */
 .showClients {
-    background-color: var(--secondary-blue);
-    width: 100%;
-    height: 50vh;
-    margin-top: 1rem;
+  background-color: var(--secondary-blue);
+  width: 100%;
+  height: 50vh;
+  margin-top: 1rem;
 }
 
 .buttonClient {
@@ -94,15 +94,15 @@
 }
 
 .abonnes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .non-abonnes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .choose-clients {
@@ -112,14 +112,14 @@
 }
 /* AdminMasterclass */
 .showMasterclass {
-    background-color: var(--secondary-red);
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 50vh;
-    margin-bottom: 1rem;
+  background-color: var(--secondary-red);
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 1rem;
 }
 
 .selectmaster {
@@ -138,14 +138,17 @@
 }
 
 .buttonPutDelete {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 2rem;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 2rem;
+  width: 100%;
 }
 
-.btnPut, .btnDel, .btnSend, .btnAbonne {
+.btnPut,
+.btnDel,
+.btnSend,
+.btnAbonne {
   background-color: var(--main-blue);
   border-radius: 5rem;
   width: 10rem;
@@ -156,29 +159,28 @@
 }
 /* Add a Masterclass */
 .add-masterclass {
-    background-color: var(--secondary-blue);
-    width: 100%;
-    height: 60vh;
-    padding-top: 2rem;
-    margin-top: 1rem;
+  background-color: var(--secondary-blue);
+  width: 100%;
+  height: 60vh;
+  padding-top: 2rem;
+  margin-top: 1rem;
 }
 
 .form-masterclass {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 
 .input {
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    border: 1px solid var(--main-blue);
-    border-radius: 1rem;
-    width: 70vw;
-    height: 2rem;
-    color: var(--secondary-text);
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border: 1px solid var(--main-blue);
+  border-radius: 1rem;
+  width: 70vw;
+  height: 2rem;
+  color: var(--secondary-text);
 }
-
 
 @media (min-width: 767.98px) {
     .title {
