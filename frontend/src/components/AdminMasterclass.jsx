@@ -34,7 +34,10 @@ export default function AdminMasterclass() {
     dropdownIndicator: () => ({
       color: "white",
     }),
-
+    placeholder: (base) => ({
+      ...base,
+      color: "white",
+    }),
     menu: () => ({
       marginTop: "0",
       background: "var(--secondary-red)",
