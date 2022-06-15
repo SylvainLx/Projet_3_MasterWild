@@ -34,9 +34,7 @@ export default function Profil() {
         </button>
       </div>
 
-      <div className="container">
-        {selectOnglet ? <MyMCFavorites /> : <MyProfil />}
-      </div>
+      <div>{selectOnglet ? <MyMCFavorites /> : <MyProfil />}</div>
     </div>
   );
 }

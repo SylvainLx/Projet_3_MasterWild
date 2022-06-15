@@ -1,21 +1,7 @@
-import { React, useState } from "react";
-import EditProfil from "./EditProfil";
+import { React } from "react";
 import "../style/MyProfil.css";
-import ChangePassword from "./ChangePassword";
 
-export default function MyProfil() {
-  const [editProfil, setEditProfil] = useState(0);
-
-  const EditProfilOpen = () => {
-    setEditProfil(!editProfil);
-  };
-
-  const [editPassword, setEditPassword] = useState(0);
-
-  const EditPasswordOpen = () => {
-    setEditPassword(!editPassword);
-  };
-
+export default function EditProfil() {
   return (
     <div className="my-profil">
       <table className="user-table">
@@ -70,36 +56,12 @@ export default function MyProfil() {
           </tr>
         </tbody>
       </table>
-      <button
-        onClick={EditProfilOpen}
-        className="button-pink button-profil"
-        type="button"
-      >
-        Editer mon profil
-      </button>
-      {editProfil ? <EditProfil /> : ""}
-      <button
-        onClick={EditPasswordOpen}
-        className="button-red button-profil"
-        type="button"
-      >
-        Changer mon mot de passe
-      </button>
-      {editPassword ? <ChangePassword /> : ""}
-      <div className="my-subscription-plan">
-        <h1 className="inter-titre">Ma Formule</h1>
-        <div className="text-abonnement">
-          <p>Vous êtes actuellement abonné Prenium jusqu'au 26/08/2024</p>
-          <p>
-            renouvelement automatique :{" "}
-            <span className="autosub-green">activé</span>{" "}
-          </p>
-        </div>
+      <div className="cont-valid-button">
         <button className="button-blue button-profil" type="button">
-          Changer ma formule
+          Valider
         </button>
         <button className="button-grey button-profil" type="button">
-          Désactiver mon renouvelement automatique
+          Abbandonner
         </button>
       </div>
     </div>
