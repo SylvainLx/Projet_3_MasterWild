@@ -62,6 +62,8 @@
 }
 
 .pAsk {
+  font-size: var(--S);
+  font-weight: var(--bold);
   color: var(--main-red);
   padding-bottom: 1em;
 }
@@ -169,4 +171,80 @@
   background-color: rgba(255, 255, 255, 0.16);
   color: #8e8e93;
   border-color: #8e8e93;
+}
+.introFaq {
+  padding-left: 1em;
+  padding-bottom: 1em;
+  color: var(--primary-text);
+  font-size: var(--M);
+}
+/* Media queries */
+
+@media screen and (max-width: 1199.98px) {
+  .titleFaq,
+  .mosaicPicStar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1199.98px) {
+  .pageFAQ {
+    display: flex;
+  }
+  .picFAQmobile {
+    display: none;
+  }
+
+  .answerDiv {
+    text-align: center;
+    width: 80%;
+    font-size: var(--M);
+  }
+  .askContact {
+    flex-direction: row;
+    align-content: center;
+    width: 100%;
+    background-color: var(--secondary-red);
+  }
+  .pAsk {
+    padding-bottom: 0;
+    color: var(--primary-text);
+    font-size: var(--M)
+  }
+  .askButton {
+    margin-inline: 0;
+  }
+  .formHidden {
+    padding-top: 1.2em;
+    padding-bottom: 1em;
+    background-color: var(--secondary-red);
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .sep {
+    border: 1px solid white;
+  }
+  .mosaicPicStar {
+    width: 22%;
+  }
+  .componentFAQ {
+    width: 78%;
+  }
+  .mosaicStarFaq {
+    max-width: 100%;
+  }
+  .mosaicPicStar {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    background-color: white;
+    align-items: center;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  .mosaicStarHidden{
+    max-width: 100%;
+    opacity: 0;
+  }
 }

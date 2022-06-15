@@ -5,6 +5,7 @@ export default function FormContact() {
 
   return (
     <div className="divFormContact">
+      <div className="sep"> </div>
       <div className="askContact">
         <p className="pAsk">Vous n'avez pas trouvé de réponse ?</p>
         <button className="askButton" type="button" onClick={setOpen}>

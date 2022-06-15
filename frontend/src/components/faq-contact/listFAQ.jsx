@@ -8,10 +8,6 @@ export default function ListFAQ() {
 
   const answersFaq = [
     {
-      id: "1",
-      answer: "INSPIR/ACTION est une plateforme de masterclass.",
-    },
-    {
       id: "2",
       answer: "INSPIR/ACTION est une plateforme de masterclass.",
     },
@@ -33,8 +29,11 @@ export default function ListFAQ() {
 
   return (
     <div className="popularQuestions">
+      <h3 className="introFaq">
+        Retrouvez les questions les plus populaires dans notre Foire Aux
+        Questions.
+      </h3>
       <select className="selectQuestions" onChange={handleChange}>
-        <option value="1">Questions fréquentes</option>
         <option value="2">Qu'est-ce qu'INSPIR/ACTION ?</option>
         <option value="3">Où regarder les vidéos ?</option>
         <option value="4">Quel offre choisir ?</option>
