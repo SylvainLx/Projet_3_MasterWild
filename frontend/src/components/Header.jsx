@@ -1,56 +1,103 @@
 import { NavLink } from "react-router-dom";
+import "../style/Header.css";
 
-function Header() {
-  const getActiveLinkStyle = ({ isActive }) => {
-    if (isActive) {
-      return { color: "green" };
-    }
-    return null;
-  };
+import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
+import logowhite from "../assets/logowhite.png";
+import loginIcon from "../assets/login.png";
+import accountCicleIcon from "../assets/account_circle.png";
+import alternateEmailIcon from "../assets/alternate_email.png";
+
+const navlinklist = [
+  {
+    to: "/",
+
+    text: "Home",
+  },
+
+  {
+    to: "/inscription",
+
+    text: "Inscription",
+  },
+
+  {
+    to: "/masterclass",
+
+    text: "Masterclass",
+  },
+
+  {
+    to: "/search",
+
+    text: "Search",
+  },
+
+  {
+    to: "/paiement",
+
+    text: "Paiement",
+  },
+
+  {
+    to: "/profil",
+
+    text: "Profil",
+  },
+
+  {
+    to: "/contact",
+
+    text: "Contact",
+  },
+
+  {
+    to: "/admin",
+
+    text: "Admin",
+  },
+];
+
+export default function Header() {
   return (
-    <div>
-      <nav className="navbar">
-        <div className="pages">
-          <NavLink className="link-nav" to="/" style={getActiveLinkStyle}>
-            Home
+    <header>
+      <div className="full-desktop-header">
+        <div className="mobile-burger">
+          <BurgerMenu>
+            {navlinklist.map((navlink) => (
+              <NavLink
+                onClick={{ menuOpen: !menuOpen }}
+                className="menu-item"
+                to={navlink.to}
+              >
+                {navlink.text}
+              </NavLink>
+            ))}
+          </BurgerMenu>
+        </div>
+        <NavLink className="logo-header" to="/">
+          <img src={logowhite} alt="logowhite" />
+        </NavLink>
+
+        <div className="menu-right">
+          <NavLink className="navlink-menu-right" to="/login">
+            <img className="menu-right-icon" src={loginIcon} alt="logowhite" />
           </NavLink>
-          <NavLink className="link-nav" to="/login" style={getActiveLinkStyle}>
-            Login
+          <NavLink className="navlink-menu-right" to="/profil">
+            <img
+              className="menu-right-icon"
+              src={accountCicleIcon}
+              alt="logowhite"
+            />
           </NavLink>
-          <NavLink
-            className="link-nav"
-            to="/masterclass"
-            style={getActiveLinkStyle}
-          >
-            Masterclass
-          </NavLink>
-          <NavLink className="link-nav" to="/search" style={getActiveLinkStyle}>
-            Search
-          </NavLink>
-          <NavLink
-            className="link-nav"
-            to="/paiement"
-            style={getActiveLinkStyle}
-          >
-            Paiement
-          </NavLink>
-          <NavLink className="link-nav" to="/profil" style={getActiveLinkStyle}>
-            Profil
-          </NavLink>
-          <NavLink
-            className="link-nav"
-            to="/contact"
-            style={getActiveLinkStyle}
-          >
-            Contact
-          </NavLink>
-          <NavLink className="link-nav" to="/admin" style={getActiveLinkStyle}>
-            Admin
+          <NavLink className="navlink-menu-right" to="/contact">
+            <img
+              className="menu-right-icon"
+              src={alternateEmailIcon}
+              alt="logowhite"
+            />
           </NavLink>
         </div>
-      </nav>
-    </div>
+      </div>
+    </header>
   );
 }
-
-export default Header;

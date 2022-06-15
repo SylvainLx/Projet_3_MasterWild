@@ -1,28 +1,18 @@
-import {
-  Box,
-  Text,
-  Image,
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Button,
-  InputGroup,
-  InputRightElement,
-  useColorModeValue,
-  Flex,
-  Link,
-  Checkbox,
-} from "@chakra-ui/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
+
 import Hugo from "../assets/hugoclement.png";
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
+import OpenEye from "../assets/visOn.png";
+import ClosedEye from "../assets/visOff.png";
+
+import "../style/Inscription.css";
 
 export default function Inscription() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const handleClick = () => setShow(!show);
 
   const [firstname, setFirstname] = useState("");
@@ -63,138 +53,96 @@ export default function Inscription() {
       });
   };
   return (
-    <Stack>
-      <Box bg="#1738CE" w="100%" p={4} h={{ md: "10em" }} color="white">
-        <Text textAlign="end" fontWeight="medium" fontSize={{ md: "3em" }}>
-          S'{" "}
-          <Text as="span" fontSize="2em">
-            I
-          </Text>
-          nscrire
-        </Text>
-      </Box>
-      <Flex direction={{ base: "column", md: "row" }}>
-        <Flex pb={4} p="4">
-          <Image src={Hugo} alt="Hugo Clement" />
-        </Flex>
-        <Flex
-          w={{ md: "50%" }}
-          pl={8}
-          pr={8}
-          justifyContent="center"
-          align="center"
-        >
-          <Stack spacing={4} w="90%">
-            <FormControl isRequired onSubmit={postUser}>
-              <FormLabel>Prénom</FormLabel>
-              <Input
-                id="firstname"
-                type="text"
-                placeholder="Prénom"
-                bg={useColorModeValue("gray.100")}
-                border="none"
-                onChange={handleFirstname}
-              />
-              <FormLabel>Nom</FormLabel>
-              <Input
-                id="lastname"
-                type="text"
-                placeholder="Nom"
-                bg={useColorModeValue("gray.100")}
-                border="none"
-                onChange={handleLastname}
-              />
-              <FormLabel>Email</FormLabel>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Email"
-                bg={useColorModeValue("gray.100")}
-                border="none"
-                onChange={handleMail}
-              />
-              <FormLabel>Mot de passe</FormLabel>
-              <InputGroup>
-                <Input
-                  id="password"
-                  type={show ? "text" : "password"}
-                  placeholder="Mot de passe"
-                  bg={useColorModeValue("gray.100")}
-                  border="none"
-                  onChange={handlePassword}
-                />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? "Hide" : "Show"}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-              <Flex flexDirection="column" py="4">
-                <Checkbox borderColor="gray.100">
-                  J'accepte les conditions générales.
-                </Checkbox>
-                <Checkbox borderColor="gray.100">
-                  Je souhaite recevoir la newsletter.
-                </Checkbox>
-              </Flex>
-              <Stack spacing={4} align="center">
-                <Button
-                  type="submit"
-                  bg="#1738CE"
-                  rounded="full"
-                  color="white"
-                  _hover={{
-                    transform: "translateY(-2px)",
-                  }}
-                  minWidth={{ md: "30%" }}
-                >
-                  <Link href="/search">Je m'inscris</Link>
-                </Button>
-              </Stack>
-            </FormControl>
-          </Stack>
-        </Flex>
-        <Flex flexDirection="column" w={{ md: "50%" }} justify="center">
-          <Flex
-            direction="row"
-            justify="space-between"
-            pt={4}
-            pb={4}
-            p={{ md: "4" }}
-          >
-            <Image w="33%" src={Hugo} alt="Hugo Clement" />
-            <Image w="33%" src={Harry} alt="Harry Roselmack" />
-            <Image w="33%" src={Xavier} alt="Xavier Niel" />
-          </Flex>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            pl={8}
-            pr={8}
-          >
-            <Text
-              textAlign="center"
-              fontWeight="medium"
-              color={useColorModeValue("#1738CE")}
-            >
-              Vous avez déjà un compte ?
-            </Text>
-            <Button
-              mt="1em"
-              bg="#1738CE"
-              rounded="full"
-              color="white"
-              _hover={{
-                transform: "translateY(-2px)",
-              }}
-              minWidth={{ md: "30%" }}
-            >
-              <Link href="/connexion">Je me connecte</Link>
-            </Button>
-          </Flex>
-        </Flex>
-      </Flex>
-    </Stack>
+    <div>
+      <div className="introSinscrire">
+        <h2 className="titleInsc">
+          S' <span className="monoLetter">I</span>nscrire
+        </h2>
+      </div>
+      <div className="pageInsc">
+        <div className="divPicIntro">
+          <img className="picStar" src={Hugo} alt="Hugo Clément" />
+        </div>
+        <form className="formInsc" onSubmit={postUser}>
+          <input
+            type="text"
+            className="login-input"
+            placeholder="Nom"
+            onChange={handleLastname}
+            required
+          />
+          <input
+            type="text"
+            className="login-input"
+            placeholder="Prénom"
+            onChange={handleFirstname}
+            required
+          />
+          <input
+            type="text"
+            className="login-input"
+            placeholder="Email"
+            onChange={handleMail}
+            required
+          />
+          <div className="passInput">
+            <input
+              className="inputPassText"
+              type={show ? "password" : "text"}
+              placeholder="Mot de passe"
+              onChange={handlePassword}
+              required
+            />
+            <button className="buttonShow" type="button" onClick={handleClick}>
+              {show ? (
+                <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+              ) : (
+                <img src={OpenEye} alt="icone eye" className="iconeEye" />
+              )}
+            </button>
+          </div>
+          <label htmlFor="CGV" className="checkBinsc">
+            <input
+              className="blabla"
+              type="checkbox"
+              name="name"
+              id="CGV"
+              required
+            />
+            J'accepte les conditions générales.
+          </label>
+          <label htmlFor="NsL" className="checkBinsc">
+            <input
+              className="blabla"
+              type="checkbox"
+              name="name"
+              id="NsL"
+              required
+            />
+            Je souhaite recevoir la newsletter.
+          </label>
+          <Link className="linkInsc" to="/">
+            <button type="submit" className="login-button">
+              Je m'inscris
+            </button>
+          </Link>
+        </form>
+        <div className="secoPart">
+          <div className="mosaicStar">
+            <img className="picStar" src={Hugo} alt="hugo clement" />
+            <img className="picStar" src={Harry} alt="harry roselmack" />
+            <img className="picStar" src={Xavier} alt="xiavier niel" />
+          </div>
+          <div className="goInscrip">
+            <p className="textInsc">Déjà un compte ?</p>
+            <Link className="linkInsc" to="/connexion">
+              <button type="submit" className="login-button">
+                Se connecter
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

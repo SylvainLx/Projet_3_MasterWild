@@ -1,0 +1,116 @@
+@import "../style/App.css";
+
+/* STRUCTURE CARD */
+.card-container {
+    max-width: 150px;
+    margin: auto;
+    background-color: rgb(232 232 232 / 65%);
+    box-shadow: 0px 4px 9px 0px rgba(167, 167, 169, 0.87);
+    margin: 20px auto;
+    padding: 1%;
+}
+
+.card-container:hover {
+    box-shadow: 8px 8px 12px rgb(206, 198, 198);
+    -webkit-transform:scale(1.02); /* Safari and Chrome */
+    -moz-transform:scale(1.02); /* Firefox */
+    -ms-transform:scale(1.02); /* IE 9 */
+    -o-transform:scale(1.02); /* Opera */
+     transform:scale(1.02);
+}
+.picture-card {
+    border-radius: 8px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2px;
+  height: 140px;
+}
+.theme {
+    font-size: 0.7rem;
+    color: var(--optionnal-text);
+    text-transform: uppercase;
+    margin: 15px 0 0 3px;
+}
+.title-card {
+  font-weight: var(--semi-bold);
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+.description-card {
+  text-align: center;
+  font-size: 0.8rem;
+}
+.button {
+  display: flex;
+  align-items: center;
+}
+.button-style {
+    margin: 0 0 6px 10px;
+    color: var(--main-blue);
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+.button-style:hover {
+  text-decoration: underline;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 479.98px) {
+  .card-container {
+    max-width: 170px;
+  }
+  .title-card {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 767.98px) {
+  .card-container {
+    max-width: 230px;
+  }
+  .information {
+    height: 165px;
+  }
+  .theme {
+    font-size: 0.9rem;
+    margin-left: 6px;
+  }
+  .title-card {
+    font-size: 1.4rem;
+  }
+  .description-card {
+    font-size: 1rem;
+  }
+  .button-style {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1199.98px) {
+  .card-container {
+    max-width: 250px;
+  }
+  .theme {
+    font-size: 1.2rem;
+  }
+  .title-card {
+    font-size: 1.7rem;
+  }
+  .description-card {
+    font-size: 1.4rem;
+  }
+  .button-style {
+    font-size: 20px;
+  }
+  .information {
+    height: 200px;
+  }
+}

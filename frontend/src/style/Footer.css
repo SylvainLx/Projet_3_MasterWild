@@ -5,11 +5,17 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1em;
-  font-weight:600;
+  font-size: var(--S);
+  font-weight: 600;
+}
+
+.linkFooter {
+  text-decoration: none;
+  color: white;
 }
 
 .logoFooter {
-  height: 10em;
+  max-width: 100%;
 }
 
 .linksFooter {
@@ -35,6 +41,10 @@
   margin-left: 1em;
   margin-right: 1em;
 }
+.linkIntern {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
 
 /* media querie */
 
@@ -42,26 +52,31 @@
   .footer {
     flex-direction: row;
     justify-content: space-evenly;
-    font-size: 2em;
+    margin-top: 0;
+  }
+  .divLogoFooter {
+    width: 15%;
   }
   .linkIntern {
-    margin-top: .7em;
-    margin-bottom: .7em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
   }
-  .listeRSfooter{
-      padding-top: 0;
+  .listeRSfooter {
+    padding-top: 0;
   }
   .listeRes {
     padding-top: 1em;
   }
-  .linksFooter{
-      align-items: baseline;
+  .linksFooter {
+    align-items: baseline;
   }
-  .listIconesRS{
+  .listIconesRS {
     padding-top: 0;
-    padding-bottom: 0; 
+    padding-bottom: 0;
   }
-  .logoFacebook, .logoInstagram, .logoTwitter{
-      height: 3em;
+  .logoFacebook,
+  .logoInstagram,
+  .logoTwitter {
+    height: 3em;
   }
 }
