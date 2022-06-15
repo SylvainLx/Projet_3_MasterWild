@@ -3,7 +3,6 @@ import Carousel from "react-spring-3d-carousel";
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
 import Hugo from "../assets/hugoclement.png";
-import "../style/CarouselHome.css";
 
 export default function CarouselHome() {
   const state1 = {

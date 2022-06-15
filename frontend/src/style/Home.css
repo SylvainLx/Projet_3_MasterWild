@@ -7,6 +7,13 @@
 }
 
 /*START Mobile Version*/
+
+@media screen and (max-width: 767.98px) {
+  .carousel-home {
+    display: none;
+  }
+}
+
 .logo-top {
   background-color: var(--main-blue);
 }
@@ -113,8 +120,9 @@
 }
 
 .subscribing-area {
-  margin-top: 1.5em;
-  margin-bottom: -1em;
+  position: relative;
+  top: 1.5em;
+  bottom: -1em;
   padding: 1em 1.5em 3em 1.5em;
   background-color: var(--secondary-blue);
 }
@@ -163,10 +171,6 @@
 .sub-button {
   border: none;
   background-color: var(--primary-text);
-}
-
-.button-one {
-  margin-right: -2em;
 }
 
 .arrow {
@@ -291,6 +295,40 @@
 
   .video-sample-area p {
     font-weight: var(--bold);
+  }
+
+  .subscribing-area {
+    position: relative;
+    bottom: -1em;
+  }
+
+  .subscribing-area h2 {
+    position: relative;
+    top: 0.5em;
+    bottom: -1em;
+  }
+
+  .subscribe-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    margin: 2em 3em 0 3em;
+  }
+
+  .subscribe {
+    height: 25rem;
+    width: 15rem;
+    margin: 2em;
+  }
+
+  .sub-button {
+    display: none;
+  }
+
+  .subscribing-options {
+    display: none;
   }
 }
 /*END Tablet and Laptop Version */

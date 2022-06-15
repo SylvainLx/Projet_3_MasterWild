@@ -38,7 +38,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div>
+      <div className="carousel-home">
         <CarouselHome />
       </div>
       <div className="home-mosaic">
@@ -83,173 +83,175 @@ export default function Home() {
       </div>
       <div className="subscribing-area">
         <h2>2 Offres au choix</h2>
-        <div className="subscribe">
-          <div className="subscribe-flex">
-            <div className="subscribe-title">
-              <h3>Vidéo à la demande</h3>
-              <p>
-                5,99€ /<span> vidéo</span>
-              </p>
-            </div>
-            <div>
-              <button
-                className="sub-button"
-                type="button"
-                onClick={handleClickOne}
-              >
-                <img
-                  className="arrow"
-                  src={Arrow}
-                  alt="flèche pour dérouler le menu"
-                />
-              </button>
-            </div>
-          </div>
-          {showButtonOne && (
-            <div id="subscribing-options">
-              <div className="container-grid">
-                <div className="box-1">
+        <div className="subscribe-container">
+          <div className="subscribe">
+            <div className="subscribe-flex">
+              <div className="subscribe-title">
+                <h3>Vidéo à la demande</h3>
+                <p>
+                  5,99€ /<span> vidéo</span>
+                </p>
+              </div>
+              <div>
+                <button
+                  className="sub-button"
+                  type="button"
+                  onClick={handleClickOne}
+                >
                   <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
+                    className="arrow"
+                    src={Arrow}
+                    alt="flèche pour dérouler le menu"
                   />
-                </div>
-                <div className="box-2">
-                  <p>option une</p>
-                </div>
-                <div className="box-3">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-4">
-                  <p>option deux</p>
-                </div>
-                <div className="box-5">
-                  <img
-                    className="check-logo"
-                    src={CheckedInactive}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-6">
-                  <p>option trois</p>
-                </div>
-                <div className="box-7">
-                  <img
-                    className="check-logo"
-                    src={CheckedInactive}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-8">
-                  <p>option quatre</p>
-                </div>
-                <div className="box-9">
-                  <img
-                    className="check-logo"
-                    src={CheckedInactive}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-10">
-                  <p>option cinq</p>
-                </div>
-                <div className="box-11">
-                  <button className="options-button" type="button">
-                    <p>Je choisis cette offre</p>
-                  </button>
-                </div>
+                </button>
               </div>
             </div>
-          )}
-        </div>
-        <div className="subscribe">
-          <div className="subscribe-flex">
-            <div className="subscribe-title">
-              <h3>Abonnement mensuel</h3>
-              <p>
-                14,99€ /<span> mois</span>
-              </p>
-            </div>
-            <div>
-              <button
-                className="sub-button"
-                type="button"
-                onClick={handleClickTwo}
-              >
-                <img
-                  className="arrow"
-                  src={Arrow}
-                  alt="flèche pour dérouler le menu"
-                />
-              </button>
-            </div>
-          </div>
-          {showButtonTwo && (
-            <div id="subscribing-options">
-              <div className="container-grid">
-                <div className="box-1">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-2">
-                  <p>option une</p>
-                </div>
-                <div className="box-3">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-4">
-                  <p>option deux</p>
-                </div>
-                <div className="box-5">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-6">
-                  <p>option trois</p>
-                </div>
-                <div className="box-7">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-8">
-                  <p>option quatre</p>
-                </div>
-                <div className="box-9">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-10">
-                  <p>option cinq</p>
-                </div>
-                <div className="box-11">
-                  <button className="options-button" type="button">
-                    <p>Je choisis cette offre</p>
-                  </button>
+            {showButtonOne && (
+              <div className="subscribing-options">
+                <div className="container-grid">
+                  <div className="box-1">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-2">
+                    <p>option une</p>
+                  </div>
+                  <div className="box-3">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-4">
+                    <p>option deux</p>
+                  </div>
+                  <div className="box-5">
+                    <img
+                      className="check-logo"
+                      src={CheckedInactive}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-6">
+                    <p>option trois</p>
+                  </div>
+                  <div className="box-7">
+                    <img
+                      className="check-logo"
+                      src={CheckedInactive}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-8">
+                    <p>option quatre</p>
+                  </div>
+                  <div className="box-9">
+                    <img
+                      className="check-logo"
+                      src={CheckedInactive}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-10">
+                    <p>option cinq</p>
+                  </div>
+                  <div className="box-11">
+                    <button className="options-button" type="button">
+                      <p>Je choisis cette offre</p>
+                    </button>
+                  </div>
                 </div>
               </div>
+            )}
+          </div>
+          <div className="subscribe">
+            <div className="subscribe-flex">
+              <div className="subscribe-title">
+                <h3>Abonnement mensuel</h3>
+                <p>
+                  14,99€ /<span> mois</span>
+                </p>
+              </div>
+              <div>
+                <button
+                  className="sub-button"
+                  type="button"
+                  onClick={handleClickTwo}
+                >
+                  <img
+                    className="arrow"
+                    src={Arrow}
+                    alt="flèche pour dérouler le menu"
+                  />
+                </button>
+              </div>
             </div>
-          )}
+            {showButtonTwo && (
+              <div id="subscribing-options">
+                <div className="container-grid">
+                  <div className="box-1">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-2">
+                    <p>option une</p>
+                  </div>
+                  <div className="box-3">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-4">
+                    <p>option deux</p>
+                  </div>
+                  <div className="box-5">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-6">
+                    <p>option trois</p>
+                  </div>
+                  <div className="box-7">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-8">
+                    <p>option quatre</p>
+                  </div>
+                  <div className="box-9">
+                    <img
+                      className="check-logo"
+                      src={Checked}
+                      alt="logo checked"
+                    />
+                  </div>
+                  <div className="box-10">
+                    <p>option cinq</p>
+                  </div>
+                  <div className="box-11">
+                    <button className="options-button" type="button">
+                      <p>Je choisis cette offre</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
