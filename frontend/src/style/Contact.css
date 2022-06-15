@@ -19,7 +19,7 @@
 
 /* listFAQ */
 
-.popularQuestions{
+.popularQuestions {
   background-color: var(--secondary-red);
   display: flex;
   flex-direction: column;
@@ -29,13 +29,144 @@
   padding-bottom: 1.2em;
 }
 
-.selectQuestions{
+.selectQuestions {
+  background-color: var(--main-red);
   font-size: var(--M);
+  border: none;
+  color: var(--primary-text);
   margin-bottom: 1em;
+  padding: 0.2em;
 }
 
-.answerDiv{
+.answerDiv {
   font-size: var(--L);
   color: var(--primary-text);
   margin-inline: 1em;
+}
+
+/* formContact */
+
+.divFormContact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.askContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.pAsk {
+  color: var(--main-red);
+  padding-bottom: 1em;
+}
+
+.askButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-inline: auto;
+  padding: 0.5rem 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: var(--main-red);
+  font-size: var(--S);
+  letter-spacing: 1px;
+  font-weight: var(--semi-bold);
+  transition: all 0.15s linear;
+  cursor: pointer;
+}
+
+.askButton:hover {
+  background-color: var(--primary-text);
+  border-color: var(--main-red);
+  color: var(--main-red);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.askButton:active {
+  background-color: transparent;
+  border-color: var(--main-red);
+  color: var(--main-red);
+  transform: translateY(5px) scale(0.95);
+}
+
+.askButton:disabled {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #8e8e93;
+  border-color: #8e8e93;
+}
+
+.formHidden {
+  display: none;
+}
+
+.formContact {
+  padding-top: 1.2em;
+  padding-bottom: 1em;
+  background-color: var(--secondary-red);
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contactInput {
+  margin-inline: auto;
+  margin-bottom: 1em;
+  width: 80%;
+  font-size: var(--S);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contactButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-inline: auto;
+  padding: 0.5rem 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: var(--main-red);
+  font-size: var(--S);
+  letter-spacing: 1px;
+  font-weight: var(--semi-bold);
+  transition: all 0.15s linear;
+  cursor: pointer;
+  max-width: 60%;
+}
+
+.contactButton:hover {
+  background-color: var(--primary-text);
+  border-color: var(--main-red);
+  color: var(--main-red);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.contactButton:active {
+  background-color: transparent;
+  border-color: var(--main-red);
+  color: var(--main-red);
+  transform: translateY(5px) scale(0.95);
+}
+
+.contactButton:disabled {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #8e8e93;
+  border-color: #8e8e93;
 }
