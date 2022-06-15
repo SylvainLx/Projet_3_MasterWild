@@ -15,18 +15,18 @@ export default function AdminAbonne() {
     setShowNonAbonne((current) => !current);
     setShowAbonne(!true);
   };
-  const optionsAbonné = [
+  const optionsAbonne = [
     { value: "Abonne 1", label: "Abonne 1" },
     { value: "Abonne 2", label: "Abonne 2" },
     { value: "Abonne 3", label: "Abonne 3" },
   ];
-  const optionsNonAbonné = [
+  const optionsNonAbonne = [
     { value: "Non Abonne 1", label: "Non Abonne 1" },
     { value: "Non Abonne 2", label: "Non Abonne 2" },
     { value: "Non Abonne 3", label: "Non Abonne 3" },
   ];
 
-  const customStyleAbonné = {
+  const customStyleAbonne = {
     control: (base) => ({
       ...base,
       backgroundColor: "var(--secondary-blue)",
@@ -61,8 +61,8 @@ export default function AdminAbonne() {
         <div className="abonnes">
           <Select
             className="choose-clients"
-            styles={customStyleAbonné}
-            options={optionsAbonné}
+            styles={customStyleAbonne}
+            options={optionsAbonne}
             placeholder="Selection Abonné"
             theme={(theme) => ({
               ...theme,
@@ -79,8 +79,8 @@ export default function AdminAbonne() {
         <div className="non-abonnes">
           <Select
             className="choose-clients"
-            styles={customStyleAbonné}
-            options={optionsNonAbonné}
+            styles={customStyleAbonne}
+            options={optionsNonAbonne}
             placeholder="Selection Non Abonné"
             theme={(theme) => ({
               ...theme,
