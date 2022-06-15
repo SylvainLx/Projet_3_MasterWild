@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-modal";
 import Hugo from "../assets/hugoclement.png";
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
@@ -7,9 +8,25 @@ import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
 import "../style/Connexion.css";
 
+const customStyles = {
+  overlay: {
+    background: "rgba(0,0,0,0.88)",
+  },
+};
+
 export default function Connexion() {
   const [show, setShow] = useState(true);
   const handleClick = () => setShow(!show);
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   return (
     <div>
       <div className="introSeConnecter">
@@ -48,7 +65,45 @@ export default function Connexion() {
               Se connecter
             </button>
           </Link>
-          <p className="textConnex">Mot de Passe oublié ?</p>
+
+          <button className="textConnex" type="button" onClick={openModal}>
+            Mot de Passe oublié ?
+          </button>
+          <div>
+            <Modal
+              setIsOpen={setIsOpen}
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+              style={customStyles}
+              contentLabel="Modal"
+              className="Modal"
+            >
+              <div className="modalTitleBtn">
+                <button
+                  className="modalClose"
+                  type="button"
+                  onClick={closeModal}
+                >
+                  x
+                </button>{" "}
+                <h2 className="modalTitle">Mot de passe oublié ?</h2>
+              </div>
+              <br />
+              <form className="modalForm">
+                <label htmlFor="Email" className="modalEmail">
+                  <input
+                    className="modalInput"
+                    type="text"
+                    placeholder="Email"
+                  />
+                </label>
+
+                <button className="login-button" type="submit">
+                  Enregistrer
+                </button>
+              </form>
+            </Modal>
+          </div>
         </form>
         <div className="secPart">
           <div className="mosaicStar">
