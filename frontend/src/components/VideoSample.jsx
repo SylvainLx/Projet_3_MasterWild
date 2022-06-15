@@ -12,15 +12,19 @@ export default function VideoSample() {
   return (
     <section>
       <div className="container-video">
-        <div className="video">
-          <video controls width="1500">
+        <div>
+          <video controls width="1500" className="video">
             <source src={flower} type="video/webm" />
             <track default kind="captions" srcLang="en" />
           </video>
         </div>
         <div className="description-video">
-          <div className="picture-video">
-            <img src={harryroselmack} alt="Celebrity's portrait" />
+          <div>
+            <img
+              src={harryroselmack}
+              alt="Celebrity's portrait"
+              className="picture-video"
+            />
           </div>
           <div className="text">
             <div className="text-top">
