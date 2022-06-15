@@ -19,3 +19,23 @@
 
 /* listFAQ */
 
+.popularQuestions{
+  background-color: var(--secondary-red);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+}
+
+.selectQuestions{
+  font-size: var(--M);
+  margin-bottom: 1em;
+}
+
+.answerDiv{
+  font-size: var(--L);
+  color: var(--primary-text);
+  margin-inline: 1em;
+}
