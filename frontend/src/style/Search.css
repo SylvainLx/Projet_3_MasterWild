@@ -5,6 +5,9 @@
   align-items: center;
   text-align: center;
 }
+.inspiractionLogo {
+  width: 100%;
+}
 
 /* Title Masterclass */
 .div-title {
@@ -41,9 +44,14 @@
   padding-left: 2rem;
   height: 2rem;
   width: 50vw;
+  border: none;
 }
 .logo-search {
   width: 1.7rem;
+}
+.btnlogo {
+  border: none;
+  background-color: transparent;
 }
 /* Search Select Theme */
 .btnSearchTheme {
@@ -55,6 +63,7 @@
   width: 100%;
   height: 10rem;
   background-color: var(--main-red);
+  border: none;
 }
 .letter-t {
   color: var(--main-blue);
@@ -87,6 +96,7 @@
   width: 100%;
   height: 10rem;
   background-color: var(--main-blue);
+  border: none;
 }
 .letter-m {
   color: var(--main-red);
@@ -128,7 +138,7 @@
 }
 
 @media screen and (min-width: 767.98px) {
-  .logo-inspiraction {
+  .inspiractionLogo {
     display: none;
   }
   .list-theme,

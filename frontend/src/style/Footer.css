@@ -5,11 +5,17 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1em;
+  font-size: var(--S);
   font-weight: 600;
 }
 
+.linkFooter {
+  text-decoration: none;
+  color: white;
+}
+
 .logoFooter {
-  height: 10em;
+  max-width: 100%;
 }
 
 .linksFooter {
@@ -46,7 +52,10 @@
   .footer {
     flex-direction: row;
     justify-content: space-evenly;
-    font-size: 2em;
+    margin-top: 0;
+  }
+  .divLogoFooter {
+    width: 15%;
   }
   .linkIntern {
     margin-top: 0.7em;

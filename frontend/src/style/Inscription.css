@@ -7,11 +7,18 @@
   justify-content: end;
 }
 
-.titleh2 {
+.titleInsc {
   font-size: var(--XL);
+  margin-right: 1rem;
 }
 .monoLetter {
   font-size: 200%;
+}
+
+.divPicIntro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* partie connexion*/
@@ -33,6 +40,20 @@
   border-radius: 4px;
 }
 
+.passInput {
+  width: 15em;
+  height: 1.7em;
+  padding-left: 10px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  font-size: var(--S);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
 [type="checkbox"] {
   cursor: pointer;
 }
@@ -44,13 +65,20 @@
 
 .checkBinsc {
   font-size: var(--S);
+  margin-bottom: 1em;
+}
+
+.inputPassText {
+  border: none;
+  font-size: var(--S);
 }
 
 .buttonShow {
+  border: none;
+  border-radius: none;
   background: var(--button-color);
-  border-radius: 4px;
   color: var(--optionnal-text);
-  margin-bottom: 1em;
+  height: 100%;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -71,6 +99,7 @@
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
   transition: all 0.15s linear;
+  cursor: pointer;
 }
 
 .login-button:hover {
@@ -102,10 +131,18 @@
 }
 
 .iconeEye {
-  height: 1.5em;
+  height: 90%;
+}
+
+.linkInsc {
+  text-decoration: none;
 }
 
 /* partie inscription*/
+
+.secoPart {
+  padding-top: 1em;
+}
 
 .mosaicStar {
   display: grid;
@@ -117,6 +154,9 @@
   flex-direction: column;
   align-items: center;
 }
+.picStar {
+  max-width: 100%;
+}
 
 /* Media querie */
 
@@ -126,9 +166,18 @@
     align-items: center;
     margin-left: 1em;
   }
+  .divPicIntro {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
   .formInsc {
     width: 50%;
+  }
+  .blabla {
+    height: 1.2em;
+    width: 1.2em;
+    margin-right: 1em;
   }
   .secoPart {
     width: 50%;
@@ -139,6 +188,6 @@
     border-left: 2px solid var(--main-blue);
   }
   .mosaicStar {
-    width: 80%;
+    width: 95%;
   }
 }

@@ -13,13 +13,13 @@ export default function Connexion() {
   return (
     <div>
       <div className="introSeConnecter">
-        <h2 className="titleh2">
+        <h2 className="titleConnexion">
           Se <span className="monoLetter">C</span>onnecter
         </h2>
       </div>
       <div className="pageCo">
-        <div>
-          <img src={Hugo} alt="Hugo Clément" />
+        <div className="divPicConnexion">
+          <img className="picStar" src={Hugo} alt="Hugo Clément" />
         </div>
         <form className="formConnection">
           <input
@@ -28,8 +28,9 @@ export default function Connexion() {
             placeholder="Email"
             required
           />
-          <div className="login-input">
+          <div className="passInput">
             <input
+              className="inputPassText"
               type={show ? "password" : "text"}
               placeholder="Mot de passe"
               required
@@ -42,7 +43,7 @@ export default function Connexion() {
               )}
             </button>
           </div>
-          <Link to="/">
+          <Link className="linkInsc" to="/">
             <button type="submit" className="login-button">
               Se connecter
             </button>
@@ -51,13 +52,13 @@ export default function Connexion() {
         </form>
         <div className="secPart">
           <div className="mosaicStar">
-            <img src={Hugo} alt="hugo clement" />
-            <img src={Harry} alt="harry roselmack" />
-            <img src={Xavier} alt="xiavier niel" />
+            <img className="picStar" src={Hugo} alt="hugo clement" />
+            <img className="picStar" src={Harry} alt="harry roselmack" />
+            <img className="picStar" src={Xavier} alt="xiavier niel" />
           </div>
           <div className="goInscrip">
             <p className="textConnex">Pas encore de compte ?</p>
-            <Link to="/inscription">
+            <Link className="linkInsc" to="/inscription">
               <button type="submit" className="login-button">
                 S'inscrire
               </button>
