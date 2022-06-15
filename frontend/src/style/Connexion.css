@@ -4,14 +4,25 @@
   background-color: var(--main-blue);
   color: var(--primary-text);
   display: flex;
-  justify-content: end;  
+  justify-content: end;
 }
 
-.titleh2{
-    font-size: var(--XL);
+.titleConnexion {
+  font-size: var(--XL);
+  margin-right: 1rem;
 }
-.monoLetter{
-    font-size: 200%;
+.monoLetter {
+  font-size: 200%;
+}
+
+.picStar {
+  max-width: 100%;
+}
+
+.divPicConnexion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* partie connexion*/
@@ -35,11 +46,31 @@
   border-radius: 4px;
 }
 
-.buttonShow {
-  background: var(--button-color);
+.passInput {
+  width: 15em;
+  height: 1.7em;
+  padding-left: 10px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  font-size: var(--S);
+  background: #fff;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputPassText {
+  border: none;
+  font-size: var(--S);
+}
+
+.buttonShow {
+  border: none;
+  border-radius: none;
+  background: var(--button-color);
   color: var(--optionnal-text);
-  margin-bottom: 1em;
+  height: 100%;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -54,12 +85,13 @@
   padding: 0.5rem 2.5rem;
   border-radius: 2rem;
   border: 1px solid transparent;
-  color: #ffffff;
+  color: var(--primary-text);
   background-color: var(--main-blue);
   font-size: var(--S);
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
   transition: all 0.15s linear;
+  cursor: pointer;
 }
 
 .login-button:hover {
@@ -88,10 +120,21 @@
   font-size: var(--S);
   margin-top: 1em;
   margin-bottom: 1em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+.textConnex:hover {
+  transform: translateY(0px) scale(1.05);
+}
+  
+.iconeEye {
+  height: 90%;
 }
 
-.iconeEye {
-  height: 1.5em;
+.linkInsc {
+  text-decoration: none;
 }
 
 /* partie inscription*/
@@ -107,26 +150,91 @@
   align-items: center;
 }
 
+/* partie modale */
+
+.modalImgClose {
+  width: 2rem;
+  height: 2rem;
+}
+.modalClose {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: white;
+  font-size: 2rem;
+ margin-left: 20rem;
+}
+.modalClose:hover {
+  transform: translateY(0px) scale(1.25);
+
+}
+.modalTitleBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 13rem;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  color: white;
+}
+
+.modalInput {
+  width: 13rem;
+  height: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
 /* Media querie */
 
-@media screen and (min-width: 1199.98px){
-    .pageCo{
-        display: flex;
-        align-items: center;
-    }
-
-.formConnection{
+@media screen and (min-width: 1199.98px) {
+  .pageCo {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+  }
+  .divPicConnexion {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .modalClose {
+  margin-left: 50rem;
+  }
+  .modalTitle {
+    font-size: var(--L);
+  }
+  .formConnection {
     width: 50%;
-}
-.secPart{
+  }
+  .secPart {
     width: 50%;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-left: 2px solid var(--main-blue);
-}
-.mosaicStar{
-    width: 80%;
-}
+  }
+  .mosaicStar {
+    width: 95%;
+  }
+  .modalInput {
+    width: 35rem;
+    height: 2.5rem;
+    margin-bottom: 2rem;
+  }
 }
