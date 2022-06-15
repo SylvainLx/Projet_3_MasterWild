@@ -1,5 +1,6 @@
 .my-profil {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 }
@@ -23,8 +24,50 @@
 }
 
 .user-table {
+  max-width: 900px;
+  width: 100%;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-abonnement {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.autosub-green {
+  color: rgb(56, 205, 56);
+  font-weight: 1000;
+}
+
+.text-abonnement p {
+  text-align: center;
+  margin: 5px;
+  font-size: medium;
+}
+
+.user-table tr {
+  font-weight: 600;
+  width: 95%;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-table tr td {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.user-table tr td input {
+  border: 1px solid black;
+  width: 95%;
 }
 
 .button-blue {
@@ -44,7 +87,8 @@
 }
 
 .button-profil {
-  width: 370px;
+  width: 90%;
+  max-width: 470px;
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
 }
 
 .ongletLeftActive {
@@ -25,6 +26,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
 }
 
 .ongletRight {
@@ -37,6 +39,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
 }
 
 .ongletRightActive {
@@ -49,4 +52,5 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
 }

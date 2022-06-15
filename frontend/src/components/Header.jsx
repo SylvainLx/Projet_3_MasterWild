@@ -65,6 +65,7 @@ export default function Header() {
           <BurgerMenu>
             {navlinklist.map((navlink) => (
               <NavLink
+                key={navlink.text}
                 onClick={{ menuOpen: !menuOpen }}
                 className="menu-item"
                 to={navlink.to}
