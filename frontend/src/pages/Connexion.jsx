@@ -6,20 +6,11 @@ import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
-import Close from "../assets/close.png";
 import "../style/Connexion.css";
 
 const customStyles = {
-  content: {
-    top: "12rem",
-    left: "20rem",
-    right: "20rem",
-    bottom: "12rem",
-    borderRadius: "1rem",
-    fontFamily: "Roboto",
-  },
   overlay: {
-    background: "rgba(0,0,0,0.6)",
+    background: "rgba(0,0,0,0.88)",
   },
 };
 
@@ -85,20 +76,17 @@ export default function Connexion() {
               onRequestClose={closeModal}
               style={customStyles}
               contentLabel="Modal"
+              className="Modal"
             >
               <div className="modalTitleBtn">
-                <h2 className="modalTitle">Changer de mot de passe</h2>
                 <button
                   className="modalClose"
                   type="button"
                   onClick={closeModal}
                 >
-                  <img
-                    className="modalImgClose"
-                    src={Close}
-                    alt="boutton croix"
-                  />
-                </button>
+                  x
+                </button>{" "}
+                <h2 className="modalTitle">Mot de passe oublié ?</h2>
               </div>
               <br />
               <form className="modalForm">
@@ -109,21 +97,8 @@ export default function Connexion() {
                     placeholder="Email"
                   />
                 </label>
-                <label htmlFor="NvxPass">
-                  <input
-                    className="modalInput"
-                    type="text"
-                    placeholder="Nouveau mot de passe"
-                  />
-                </label>
-                <label htmlFor="NvxPass">
-                  <input
-                    className="modalInput"
-                    type="text"
-                    placeholder="Confirmer votre nouveau mot de passe"
-                  />
-                </label>
-                <button className="modalSubmit" type="submit">
+
+                <button className="login-button" type="submit">
                   Enregistrer
                 </button>
               </form>

@@ -85,7 +85,7 @@
   padding: 0.5rem 2.5rem;
   border-radius: 2rem;
   border: 1px solid transparent;
-  color: #ffffff;
+  color: var(--primary-text);
   background-color: var(--main-blue);
   font-size: var(--S);
   letter-spacing: 1px;
@@ -124,7 +124,6 @@
   background-color: transparent;
   cursor: pointer;
   transition: all 0.15s linear;
-
 }
 .textConnex:hover {
   transform: translateY(0px) scale(1.05);
@@ -164,6 +163,9 @@
   background-color: transparent;
   cursor: pointer;
   transition: all 0.15s linear;
+  color: white;
+  font-size: 2rem;
+ margin-left: 20rem;
 }
 .modalClose:hover {
   transform: translateY(0px) scale(1.25);
@@ -171,19 +173,22 @@
 }
 .modalTitleBtn {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 13rem;
 }
 
 .modalTitle {
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  color: white;
 }
 
 .modalInput {
-  width: 20rem;
+  width: 13rem;
   height: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .modalForm {
@@ -192,27 +197,6 @@
   align-items: center;
   width: 100%;
   margin-top: 3rem;
-}
-
-.modalSubmit {
-  margin: 1rem;
-  width: 10rem;
-  height: 2rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  color: var(--primary-text);
-  background-color: var(--main-blue);
-  font-size: var(--S);
-  letter-spacing: 1px;
-  font-weight: var(--semi-bold);
-  cursor: pointer;
-  transition: all 0.15s linear;
-}
-.modalSubmit:hover {
-  background-color: var(--primary-text);
-  border-color: var(--main-blue);
-  color: var(--main-blue);
-  transform: translateY(-5px) scale(1.05);
 }
 
 /* Media querie */
@@ -227,14 +211,14 @@
     margin-top: 1em;
     margin-bottom: 1em;
   }
-
+  .modalClose {
+  margin-left: 50rem;
+  }
+  .modalTitle {
+    font-size: var(--L);
+  }
   .formConnection {
     width: 50%;
-  }
-  .blabla {
-    height: 1.2em;
-    width: 1.2em;
-    margin-right: 1em;
   }
   .secPart {
     width: 50%;
@@ -247,5 +231,10 @@
   }
   .mosaicStar {
     width: 95%;
+  }
+  .modalInput {
+    width: 35rem;
+    height: 2.5rem;
+    margin-bottom: 2rem;
   }
 }
