@@ -2,11 +2,13 @@
 
 /* VIDEO */
 .container-video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1500px;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    margin: auto;
+}
+.video {
+    width: 100%;
 }
 
 /* PARTIE DESCRIPTIVE DE LA VIDEO */
@@ -24,31 +26,35 @@
   justify-content: space-between;
 }
 .text-top {
-  display: flex;
-  justify-content: space-between;
-  padding: 2px 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 10px;
+    align-items: center;
 }
 .title-video {
-  font-size: 1.5rem;
-  color: var(--primary-text);
-  text-align: center;
-  text-shadow: 1px 1px var(--optionnal-text);
-  margin-bottom: 2%;
-  font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-text);
+    text-align: center;
+    text-shadow: 1px 1px var(--optionnal-text);
+    font-family: "Open Sans", sans-serif;
 }
 .isFavorite {
-  width: 30px;
-  height: 30px;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg");
-  background-size: 100%;
-  align-self: flex-start;
-}
+    width: 30px;
+    height: 30px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg");
+    background-size: 100%;
+    align-self: flex-start;
+    border: none;
+    background-color: transparent;
+  }
 .notFavorite {
-  width: 30px;
-  height: 30px;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg");
-  background-size: 100%;
-  align-self: flex-start;
+    width: 30px;
+    height: 30px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4f/Ei-heart.svg");
+    background-size: 100%;
+    align-self: flex-start;
+    border: none;
+    background-color: transparent;
 }
 .text-bottom {
   font-size: 0.9rem;
@@ -96,31 +102,32 @@
 }
 
 @media screen and (min-width: 1199.98px) {
-  .picture-video {
-    display: initial;
-    width: 100%;
-    margin: auto;
-  }
-  .text-bottom {
-    font-size: 1.9rem;
-  }
-  .title-video {
-    font-size: 2.8rem;
-    padding-left: 20px;
-  }
-  .time-video {
-    font-size: 1.6rem;
-  }
-  .description-video {
-    padding: 25px;
-    margin-top: 2em;
-  }
-  .isFavorite {
-    width: 40px;
-    height: 40px;
-  }
-  .notFavorite {
-    width: 40px;
-    height: 40px;
-  }
+    .picture-video {
+        display: initial;
+        width: 80%;
+        border-radius: 2px;
+        margin: auto;
+    }
+    .text-bottom {
+        font-size: 1.9rem;
+    }
+    .title-video {
+        font-size: 2.8rem;
+        padding-left: 20px;
+    }
+    .time-video {
+        font-size: 1.6rem;
+    }
+    .description-video {
+        padding: 25px;
+        margin-top: 2em;
+    }
+    .isFavorite {
+        width: 40px;
+        height: 40px;
+    }
+    .notFavorite {
+        width: 40px;
+        height: 40px;
+    }
 }

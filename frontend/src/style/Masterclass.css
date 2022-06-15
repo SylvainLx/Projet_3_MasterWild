@@ -1,8 +1,8 @@
 @import "../style/App.css";
 
 .container-masterclass {
-  max-width: 1500px;
-  margin: auto;
+    max-width: 2500px;
+    margin: auto;
 }
 
 /* BLUE HEADER */
@@ -12,8 +12,9 @@
   display: flex;
   justify-content: end;
 }
-.titleh2 {
-  font-size: var(--XL);
+.titleh2{
+    font-size: var(--XL);
+    margin-right: 1rem;
 }
 .monoLetter {
   font-size: 200%;
@@ -26,23 +27,27 @@
 }
 
 /* BOUTON RETOUR VERS PAGE SEARCH */
+.go-to-search {
+    text-decoration: none;
+}
 .global-return-button {
-  width: 15%;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 15%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
 }
 .return-button {
-  display: flex;
-  height: 3em;
-  width: 110px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  letter-spacing: 1px;
-  transition: all 0.2s linear;
-  cursor: pointer;
+    display: flex;
+    height: 3em;
+    width: 110px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 .return-button > svg {
   margin-right: 5px;
@@ -58,21 +63,25 @@
   font-size: 0.7rem;
 }
 .return-button:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
+}  
+.return-button:active {
+    background-color: transparent;
+    color: var(--main-blue);
 }
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 479.98px) {
-  .container-masterclass {
-    margin: 0 20px;
-  }
-  .global-return-button {
-    width: 12%;
-    height: 5rem;
-  }
-  .return-button span {
-    font-size: 0.9rem;
-  }
+    .container-masterclass {
+        margin: 0 50px 30px 50px;
+    }
+    .global-return-button {
+        width: 12%;
+        height: 5rem;
+    }
+    .return-button span {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (min-width: 767.98px) {
@@ -89,14 +98,11 @@
 }
 
 @media screen and (min-width: 1199.98px) {
-  .container-masterclass {
-    margin: 0 50px;
-  }
-  .global-return-button {
-    width: 12%;
-    height: 5rem;
-  }
-  .return-button span {
-    font-size: 1.3rem;
-  }
+    .global-return-button {
+        width: 12%;
+        height: 5rem;
+    }
+    .return-button span {
+        font-size: 1.3rem;
+    }
 }

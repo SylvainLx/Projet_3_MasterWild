@@ -2,17 +2,17 @@
   color: var(--primary-text);
 }
 /* Blue Bar */
-.title {
-  background-color: var(--main-blue);
-  font-size: var(--L);
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.5rem 1rem;
+.title-admin {
+    background-color: var(--main-blue);
+    font-size: var(--L);
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
 }
 
-.span-title {
-  font-size: var(--XL);
-  font-weight: var(--bold);
+.span-A {
+    font-size: 200%;
+    font-weight: var(--bold);
 }
 /* DashBoard */
 .dashboard {
@@ -34,6 +34,21 @@
   font-size: var(--XL);
 }
 /* Select Client / Masterclass */
+.btn-red {
+    border: none;
+    background-color: var(--main-red);
+    color: var(--primary-text);
+    font-size: var(--M);
+}
+
+.btn-blue {
+    border: none;
+    background-color: var(--main-blue);
+    color: var(--primary-text);
+    font-size: var(--M);
+
+}
+
 .selectTask {
   display: flex;
   justify-content: space-around;
@@ -71,10 +86,11 @@
 }
 
 .buttonClient {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2rem;
+    border: none;
 }
 
 .abonnes {
@@ -90,9 +106,9 @@
 }
 
 .choose-clients {
-  background-color: var(--secondary-blue);
-  width: 70%;
-  border: solid 1px var(--main-blue);
+    width: 75%;
+    border: solid 1px var(--main-blue);
+    color: black;
 }
 /* AdminMasterclass */
 .showMasterclass {
@@ -106,14 +122,19 @@
   margin-bottom: 1rem;
 }
 
-.thematique,
-.selectMasterclass {
-  display: flex;
-  justify-content: center;
-  background-color: var(--secondary-red);
-  width: 70vw;
-  border: solid 1px var(--main-red);
-  margin-top: 2rem;
+.selectmaster {
+    width: 75%;
+    padding: 1rem;
+}
+
+.thematique, .selectMasterclass {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-red);
+    width: 70vw;
+    border: solid 1px var(--main-red);
+    margin-top: 2rem;
+    color: var(--primary-text);
 }
 
 .buttonPutDelete {
@@ -132,6 +153,9 @@
   border-radius: 5rem;
   width: 10rem;
   height: 2rem;
+  color: var(--primary-text);
+  border: none;
+  font-size: var(--S);
 }
 /* Add a Masterclass */
 .add-masterclass {
@@ -159,81 +183,75 @@
 }
 
 @media (min-width: 767.98px) {
-  .title {
-    font-size: var(--XL);
-  }
-  .span-title {
-    font-size: 3rem;
-  }
-  .dashboard {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  .text-dashboard {
-    font-size: var(--XL);
-  }
-  .span-number {
-    font-size: 3rem;
-  }
-  .span-task {
-    font-size: var(--XL);
-    padding-bottom: 0.7rem;
-  }
-  .select-clients {
-    font-size: var(--L);
-    width: 50%;
-    height: 4.5rem;
-  }
-  .select-masterclass {
-    font-size: var(--L);
-    width: 50%;
-    height: 4.5rem;
-  }
-  .choose-clients,
-  .thematique,
-  .selectMasterclass {
-    height: 5rem;
-  }
-  .thematique,
-  .selectMasterclass {
-    width: 40vw;
-  }
-  .span-task {
-    font-size: 3rem;
-  }
-  .showMasterclass {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2;
-    justify-items: center;
-  }
-  .btnPut,
-  .btnDel,
-  .btnSend {
-    width: 20rem;
-    height: 3rem;
-  }
-  .form-masterclass {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-  }
-  .input {
-    width: 45vw;
-    height: 3rem;
-  }
-  .i-desc {
-    width: 100%;
-    height: 8rem;
-  }
-  .desc {
-    height: 10rem;
-    width: 95vw;
-    grid-column-start: span 2;
-  }
-  .btnSend {
-    grid-column-start: span 2;
-    width: 45rem;
-  }
+    .title {
+        font-size: var(--XL);
+    }
+    .span-title {
+        font-size: 3rem;
+    }
+    .dashboard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .text-dashboard {
+        font-size: var(--XL);
+    }
+    .span-number {
+        font-size: 3rem;
+    }
+    .span-task {
+        font-size: var(--XL);
+        padding-bottom: 0.7rem;
+    }
+    .select-clients {
+        font-size: var(--L);
+        width: 50%;
+        height: 4.5rem;
+    }
+    .select-masterclass {
+        font-size: var(--L);
+        width: 50%;
+        height: 4.5rem;
+    }
+   
+    .thematique, .selectMasterclass {
+        width: 40vw;
+    }
+    .span-task {
+        font-size: 3rem;
+    }
+    .showMasterclass {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2;
+        justify-items: center;
+    }
+    .btnPut, .btnDel, .btnSend {
+        width: 20rem;
+        height: 3rem;
+      }
+    .form-masterclass {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+    .input {
+        width: 45vw;
+        height: 3rem;
+    }
+    .i-desc {
+        width: 100%;
+        height: 8rem;
+    }
+    .desc {
+        padding-right: 1rem;
+        height: 10rem;
+        width: 95vw;
+        grid-column-start: span 2;
+   }
+    .btnSend {
+        grid-column-start: span 2;
+        width: 45rem;
+    }
 }
