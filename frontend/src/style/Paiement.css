@@ -11,3 +11,106 @@
 .monoLetter{
     font-size: 200%;
 }
+
+/* STRUCTURE PAGE */
+.container-paiement {
+    width: 80%;
+    margin: 7% auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.abonnement {
+    font-size: var(--XL);
+    font-family: "Open Sans", sans-serif;
+}
+
+.info-abonnement {
+    margin: 2rem 0;
+}
+
+.text-abonnement {
+    font-size: var(--S);
+    text-align: justify;
+    margin: 1rem auto;
+}
+
+.payez {
+    font-size: var(--M);
+    font-family: "Open Sans", sans-serif;
+    height: 2rem;
+}
+
+.box-logo {
+    display: flex;
+    height: 2rem;
+    margin: 0.7em 1em 2em;
+}
+
+.form-paiement {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: var(--XS);
+}
+
+.card-input {
+    width: 15em;
+    height: 1.7em;
+    padding-left: 10px;
+    font-size: var(--S);
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 13px auto;
+}
+
+.paiement-button {
+    margin: 4em 0 1em 0;
+    padding: 0.5rem 2.5rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    color: #ffffff;
+    background-color: var(--main-blue);
+    font-size: var(--S);
+    letter-spacing: 1px;
+    font-weight: var(--semi-bold);
+    transition: all 0.15s linear;
+}
+  
+.paiement-button:hover {
+    background-color: var(--primary-text);
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    transform: translateY(-5px) scale(1.05);
+}
+  
+.paiement-button:active {
+    background-color: transparent;
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    transform: translateY(5px) scale(0.95);
+}
+
+.return-to-profil {
+    text-decoration: none;
+}
+
+.button-to-profil {
+    margin-bottom: 2em;
+    padding: 0.5rem 2.5rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    color: rgba(151, 151, 151);
+    background-color: rgba(218, 218, 218);
+    font-size: var(--XS);
+    letter-spacing: 1px;
+    transition: all 0.15s linear;
+}
