@@ -12,6 +12,10 @@
   .carousel-home {
     display: none;
   }
+
+  .subscribing-area {
+    display: none;
+  }
 }
 
 .logo-top {
@@ -118,135 +122,6 @@
   text-align: center;
   line-height: 1.5em;
 }
-
-.subscribing-area {
-  margin-top: 2em;
-  padding: 1em 1.5em 3em 1.5em;
-  background-color: var(--secondary-blue);
-}
-
-.subscribing-area h2 {
-  color: var(--primary-text);
-  font-weight: var(--bold);
-  text-transform: uppercase;
-  font-size: 1.7rem;
-  text-align: center;
-}
-
-.subscribe {
-  margin-top: 1.6em;
-  padding: 0rem 2rem 0 1rem;
-  background-color: var(--primary-text);
-  border-radius: 15px;
-  box-shadow: 2px 3px 7px rgba(26, 26, 26, 0.4);
-}
-
-.subscribe-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.subscribe-title h3 {
-  font-size: var(--S);
-  color: var(--main-blue);
-  font-weight: var(--bold);
-}
-
-.subscribe-title p {
-  margin-top: -3px;
-  font-size: var(--S);
-  font-weight: var(--bold);
-  padding-top: 0.5em;
-}
-
-.subscribe-title span {
-  text-transform: uppercase;
-  font-size: var(--XS);
-  letter-spacing: 2px;
-}
-
-.sub-button {
-  border: none;
-  background-color: var(--primary-text);
-}
-
-.arrow {
-  padding-top: 0.4em;
-  width: 70%;
-}
-
-.container-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 15px 5px;
-  grid-template-areas:
-    "BOX-1 BOX-2"
-    "BOX-3 BOX-4"
-    "BOX-5 BOX-6"
-    "BOX-7 BOX-8"
-    "BOX-9 BOX-10"
-    "BOX-11 BOX-11";
-  align-items: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-.box-1 {
-  grid-area: BOX-1;
-}
-.box-2 {
-  grid-area: BOX-2;
-}
-.box-3 {
-  grid-area: BOX-3;
-}
-.box-4 {
-  grid-area: BOX-4;
-}
-.box-5 {
-  grid-area: BOX-5;
-}
-.box-6 {
-  grid-area: BOX-6;
-}
-.box-7 {
-  grid-area: BOX-7;
-}
-.box-8 {
-  grid-area: BOX-8;
-}
-.box-9 {
-  grid-area: BOX-9;
-}
-.box-10 {
-  grid-area: BOX-10;
-}
-.box-11 {
-  grid-area: BOX-11;
-}
-
-.check-logo {
-  width: 20%;
-}
-
-.options-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-  border-radius: 10px;
-  background-color: var(--main-blue);
-  height: 1.5rem;
-}
-
-.options-button > p {
-  font-family: Roboto, sans-serif;
-  color: var(--primary-text);
-  font-weight: var(--bold);
-  letter-spacing: 0.5px;
-}
 /*END Mobile Version */
 
 /*START Tablet and Laptop Version */
@@ -295,10 +170,21 @@
     font-weight: var(--bold);
   }
 
+  .subscribe-mobile {
+    display: none;
+  }
+
+  .subscribing-area {
+    margin: 2em 0 0 0;
+    background-color: var(--secondary-blue);
+  }
+
   .subscribing-area h2 {
-    position: relative;
-    top: 0.5em;
-    bottom: -1em;
+    padding: 1em;
+    color: var(--primary-text);
+    font-weight: var(--semi-bold);
+    font-size: var(--L);
+    text-align: center;
   }
 
   .subscribe-container {
@@ -307,21 +193,56 @@
     justify-content: space-around;
     align-content: center;
     align-items: center;
-    margin: 2em 3em 0 3em;
   }
 
   .subscribe {
+    padding: 0rem 2rem 0 1rem;
+    background-color: var(--primary-text);
+    border-radius: 15px;
+    box-shadow: 2px 3px 7px rgba(26, 26, 26, 0.4);
     height: 25rem;
     width: 15rem;
-    margin: 2em;
+    margin-bottom: 2em;
   }
 
-  .sub-button {
-    display: none;
+  .subscribe-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    color: var(--secondary-text);
   }
 
-  .subscribing-options {
-    display: none;
+  .subscribe-title h3 {
+    font-size: var(--S);
+    color: var(--main-blue);
+    font-weight: var(--bold);
+  }
+
+  .subscribe-title p {
+    font-size: var(--L);
+    font-weight: var(--bold);
+    padding-top: 0.5em;
+  }
+
+  .subscribe-title span {
+    text-transform: uppercase;
+    font-size: var(--XS);
+    letter-spacing: 2px;
+  }
+
+  .flex-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .subscribe-button {
+    border: none;
+    border-radius: 10px;
+    height: 2.5em;
+    background-color: var(--main-blue);
+    color: var(--primary-text);
   }
 }
 /*END Tablet and Laptop Version */

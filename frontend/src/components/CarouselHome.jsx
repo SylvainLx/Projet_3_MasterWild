@@ -49,7 +49,7 @@ export default function CarouselHome() {
   }, [showArrows]);
 
   return (
-    <div style={{ width: "80%", height: "400px", margin: "3rem auto" }}>
+    <div style={{ width: "80%", height: "400px", margin: "4rem auto" }}>
       <Carousel
         className="carousel-style"
         slides={slides}

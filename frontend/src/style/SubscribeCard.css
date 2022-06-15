@@ -1,0 +1,130 @@
+@import "../style/App.css";
+
+.sub-area-mobile {
+  margin-top: 2em;
+  padding: 1em 1.5em 3em 1.5em;
+  background-color: var(--secondary-blue);
+}
+
+.sub-area-mobile h2 {
+  color: var(--primary-text);
+  font-weight: var(--bold);
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.sub-mobile {
+  margin-top: 1.6em;
+  padding: 0rem 2rem 0 1rem;
+  background-color: var(--primary-text);
+  border-radius: 15px;
+  box-shadow: 2px 3px 7px rgba(26, 26, 26, 0.4);
+}
+
+.sub-flex-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-flex-mobile h3 {
+  font-size: var(--S);
+  color: var(--main-blue);
+  font-weight: var(--bold);
+}
+
+.sub-title-mobile p {
+  margin-top: -3px;
+  font-size: var(--S);
+  font-weight: var(--bold);
+  padding-top: 0.5em;
+}
+
+.sub-title-mobile span {
+  text-transform: uppercase;
+  font-size: var(--XS);
+  letter-spacing: 2px;
+}
+
+.sub-button {
+  border: none;
+  background-color: var(--primary-text);
+}
+
+.arrow {
+  padding-top: 0.4em;
+  width: 70%;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px 5px;
+  grid-template-areas:
+    "BOX-1 BOX-2"
+    "BOX-3 BOX-4"
+    "BOX-5 BOX-6"
+    "BOX-7 BOX-8"
+    "BOX-9 BOX-10"
+    "BOX-11 BOX-11";
+  align-items: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.box-1 {
+  grid-area: BOX-1;
+}
+.box-2 {
+  grid-area: BOX-2;
+}
+.box-3 {
+  grid-area: BOX-3;
+}
+.box-4 {
+  grid-area: BOX-4;
+}
+.box-5 {
+  grid-area: BOX-5;
+}
+.box-6 {
+  grid-area: BOX-6;
+}
+.box-7 {
+  grid-area: BOX-7;
+}
+.box-8 {
+  grid-area: BOX-8;
+}
+.box-9 {
+  grid-area: BOX-9;
+}
+.box-10 {
+  grid-area: BOX-10;
+}
+.box-11 {
+  grid-area: BOX-11;
+}
+
+.check-logo {
+  width: 20%;
+}
+
+.options-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-blue);
+  height: 1.5rem;
+}
+
+.options-button > p {
+  font-family: Roboto, sans-serif;
+  color: var(--primary-text);
+  font-weight: var(--bold);
+  letter-spacing: 0.5px;
+}
