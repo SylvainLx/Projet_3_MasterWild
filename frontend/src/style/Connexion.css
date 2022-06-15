@@ -85,7 +85,7 @@
   padding: 0.5rem 2.5rem;
   border-radius: 2rem;
   border: 1px solid transparent;
-  color: #ffffff;
+  color: var(--primary-text);
   background-color: var(--main-blue);
   font-size: var(--S);
   letter-spacing: 1px;
@@ -120,8 +120,15 @@
   font-size: var(--S);
   margin-top: 1em;
   margin-bottom: 1em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s linear;
 }
-
+.textConnex:hover {
+  transform: translateY(0px) scale(1.05);
+}
+  
 .iconeEye {
   height: 90%;
 }
@@ -143,6 +150,55 @@
   align-items: center;
 }
 
+/* partie modale */
+
+.modalImgClose {
+  width: 2rem;
+  height: 2rem;
+}
+.modalClose {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.15s linear;
+  color: white;
+  font-size: 2rem;
+ margin-left: 20rem;
+}
+.modalClose:hover {
+  transform: translateY(0px) scale(1.25);
+
+}
+.modalTitleBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 13rem;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  color: white;
+}
+
+.modalInput {
+  width: 13rem;
+  height: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
 /* Media querie */
 
 @media screen and (min-width: 1199.98px) {
@@ -155,14 +211,14 @@
     margin-top: 1em;
     margin-bottom: 1em;
   }
-
+  .modalClose {
+  margin-left: 50rem;
+  }
+  .modalTitle {
+    font-size: var(--L);
+  }
   .formConnection {
     width: 50%;
-  }
-  .blabla {
-    height: 1.2em;
-    width: 1.2em;
-    margin-right: 1em;
   }
   .secPart {
     width: 50%;
@@ -175,5 +231,10 @@
   }
   .mosaicStar {
     width: 95%;
+  }
+  .modalInput {
+    width: 35rem;
+    height: 2.5rem;
+    margin-bottom: 2rem;
   }
 }
