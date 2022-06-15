@@ -4,22 +4,22 @@
   background-color: var(--main-blue);
   color: var(--primary-text);
   display: flex;
-  justify-content: end;  
+  justify-content: end;
 }
 
-.titleConnexion{
-    font-size: var(--XL);
-    margin-right: 1rem;
+.titleConnexion {
+  font-size: var(--XL);
+  margin-right: 1rem;
 }
-.monoLetter{
-    font-size: 200%;
+.monoLetter {
+  font-size: 200%;
 }
 
-.picStar{
+.picStar {
   max-width: 100%;
 }
 
-.divPicConnexion{
+.divPicConnexion {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@
   border-radius: 4px;
 }
 
-.passInput{
+.passInput {
   width: 15em;
   height: 1.7em;
   padding-left: 10px;
@@ -60,7 +60,7 @@
   justify-content: space-between;
 }
 
-.inputPassText{
+.inputPassText {
   border: none;
   font-size: var(--S);
 }
@@ -91,7 +91,7 @@
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
   transition: all 0.15s linear;
-  cursor: pointer;   
+  cursor: pointer;
 }
 
 .login-button:hover {
@@ -126,7 +126,7 @@
   height: 90%;
 }
 
-.linkInsc{
+.linkInsc {
   text-decoration: none;
 }
 
@@ -145,26 +145,26 @@
 
 /* Media querie */
 
-@media screen and (min-width: 1199.98px){
-    .pageCo{
-        display: flex;
-        align-items: center;
-        margin-left: 1em;
-    }
-    .divPicConnexion{
-      margin-top: 1em;
-      margin-bottom: 1em;
-    }
+@media screen and (min-width: 1199.98px) {
+  .pageCo {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+  }
+  .divPicConnexion {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
-.formConnection{
+  .formConnection {
     width: 50%;
-}
-.blabla{
-  height: 1.2em;
-  width: 1.2em;
-  margin-right: 1em;
-}
-.secPart{
+  }
+  .blabla {
+    height: 1.2em;
+    width: 1.2em;
+    margin-right: 1em;
+  }
+  .secPart {
     width: 50%;
     margin-top: 1em;
     display: flex;
@@ -172,8 +172,8 @@
     justify-content: center;
     align-items: center;
     border-left: 2px solid var(--main-blue);
-}
-.mosaicStar{
+  }
+  .mosaicStar {
     width: 95%;
-}
+  }
 }

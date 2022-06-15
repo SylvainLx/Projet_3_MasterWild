@@ -9,7 +9,7 @@
   font-weight: 600;
 }
 
-.linkFooter{
+.linkFooter {
   text-decoration: none;
   color: white;
 }
@@ -48,9 +48,9 @@
   transform: translateY(-5px) scale(1.05);
 }
 .linkIntern {
-    margin-top: .7em;
-    margin-bottom: .7em;
-  }
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
 
 /* media querie */
 

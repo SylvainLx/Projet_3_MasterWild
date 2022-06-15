@@ -45,7 +45,7 @@ export default function Search() {
 
   return (
     <div className="search-page">
-      <img className="logo-inspiraction" src={Logo} alt="Logo InspirAction" />
+      <img className="inspiractionLogo" src={Logo} alt="Logo InspirAction" />
       <div className="div-title">
         <h2 className="title">
           Les <span className="span-title">M</span>asterclass
@@ -59,7 +59,7 @@ export default function Search() {
             placeholder="Rechercher"
             onChange={handleSearch}
           />
-          <button type="button" onClick={getSearch}>
+          <button className="btnlogo" type="button" onClick={getSearch}>
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
         </div>
@@ -132,7 +132,6 @@ export default function Search() {
             </div>
           )}
         </div>
-        <div className="result"> resultat video</div>
       </section>
       <section className="result-masterclass">
         <CardMasterclass />
