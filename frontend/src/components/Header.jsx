@@ -7,70 +7,73 @@ import loginIcon from "../assets/login.png";
 import accountCicleIcon from "../assets/account_circle.png";
 import alternateEmailIcon from "../assets/alternate_email.png";
 
+const navlinklist = [
+  {
+    to: "/",
+
+    text: "Home",
+  },
+
+  {
+    to: "/inscription",
+
+    text: "Inscription",
+  },
+
+  {
+    to: "/masterclass",
+
+    text: "Masterclass",
+  },
+
+  {
+    to: "/search",
+
+    text: "Search",
+  },
+
+  {
+    to: "/paiement",
+
+    text: "Paiement",
+  },
+
+  {
+    to: "/profil",
+
+    text: "Profil",
+  },
+
+  {
+    to: "/contact",
+
+    text: "Contact",
+  },
+
+  {
+    to: "/admin",
+
+    text: "Admin",
+  },
+];
+
 export default function Header() {
   return (
     <header>
-      <div className="mobile-burger">
-        <BurgerMenu>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/"
-          >
-            Home{" "}
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/inscription"
-          >
-            Inscription
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/masterclass"
-          >
-            Masterclass
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/search"
-          >
-            Search
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/paiement"
-          >
-            Paiement
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/profil"
-          >
-            Profil
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/contact"
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            onClick={{ menuOpen: !menuOpen }}
-            className="menu-item"
-            to="/admin"
-          >
-            Admin
-          </NavLink>
-        </BurgerMenu>
-      </div>
       <div className="full-desktop-header">
+        <div className="mobile-burger">
+          <BurgerMenu>
+            {navlinklist.map((navlink) => (
+              <NavLink
+                onClick={{ menuOpen: !menuOpen }}
+                className="menu-item"
+                to={navlink.to}
+              >
+                {navlink.text}
+              </NavLink>
+            ))}
+          </BurgerMenu>
+        </div>
         <NavLink className="logo-header" to="/">
           <img src={logowhite} alt="logowhite" />
         </NavLink>

@@ -19,9 +19,9 @@ export default function Admin() {
   };
   return (
     <div className="container-admin">
-      <section className="title">
+      <section className="title-admin">
         <h2>
-          <span className="span-title">A</span>dministrateur
+          <span className="span-A">A</span>dministrateur
         </h2>
       </section>
       <section className="dashboard">
@@ -48,13 +48,13 @@ export default function Admin() {
       </section>
       <section className="selectTask">
         <div className="select-clients">
-          <button type="button" onClick={handleClients}>
+          <button className="btn-blue" type="button" onClick={handleClients}>
             {" "}
             <span className="span-task">C</span>lients
           </button>
         </div>
         <div className="select-masterclass">
-          <button type="button" onClick={handleMasterclass}>
+          <button className="btn-red" type="button" onClick={handleMasterclass}>
             {" "}
             <span className="span-task">M</span>asterclass
           </button>
