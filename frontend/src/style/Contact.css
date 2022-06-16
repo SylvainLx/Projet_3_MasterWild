@@ -36,6 +36,7 @@
   color: var(--primary-text);
   margin-bottom: 1em;
   padding: 0.2em;
+  max-width: 100%;
 }
 
 .answerDiv {
@@ -60,6 +61,7 @@
   align-items: center;
   padding-top: 1em;
   padding-bottom: 1em;
+  max-width: 100%;
 }
 
 .pAsk {
@@ -85,6 +87,7 @@
   font-size: var(--S);
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
+  max-width: 100%;
 }
 
 .formHidden {
