@@ -50,6 +50,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .askContact {
@@ -221,16 +222,20 @@
     display: flex;
     align-self: center;
     flex-direction: column;
+    justify-content: center;
+    height: 100%;
     width: 100%;
   }
   .sep {
     border: 1px solid white;
   }
   .mosaicPicStar {
-    width: 22%;
+    width: 25%;
   }
   .componentFAQ {
-    width: 78%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   .mosaicStarFaq {
     max-width: 100%;

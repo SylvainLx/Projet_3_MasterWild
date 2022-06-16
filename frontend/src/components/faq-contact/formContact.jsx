@@ -9,7 +9,7 @@ export default function FormContact() {
       <div className="askContact">
         <p className="pAsk">Vous n'avez pas trouvé de réponse ?</p>
         <button className="askButton" type="button" onClick={setOpen}>
-          Nous contacter
+          Contactez-nous !
         </button>
       </div>
       <form className={open ? "formContact" : "formHidden"} required>
