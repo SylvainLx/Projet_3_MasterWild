@@ -42,50 +42,52 @@ export default function SubscribeCard() {
           </div>
         </div>
         {showButtonOne && (
-          <div className="container-grid">
-            <div className="box-1">
-              <img className="check-logo" src={Checked} alt="logo checked" />
+          <div className="sub-open">
+            <div className="container-grid">
+              <div className="box-1">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-2">
+                <p>option une</p>
+              </div>
+              <div className="box-3">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-4">
+                <p>option deux</p>
+              </div>
+              <div className="box-5">
+                <img
+                  className="check-logo"
+                  src={CheckedInactive}
+                  alt="logo checked"
+                />
+              </div>
+              <div className="box-6">
+                <p>option trois</p>
+              </div>
+              <div className="box-7">
+                <img
+                  className="check-logo"
+                  src={CheckedInactive}
+                  alt="logo checked"
+                />
+              </div>
+              <div className="box-8">
+                <p>option quatre</p>
+              </div>
+              <div className="box-9">
+                <img
+                  className="check-logo"
+                  src={CheckedInactive}
+                  alt="logo checked"
+                />
+              </div>
+              <div className="box-10">
+                <p>option cinq</p>
+              </div>
             </div>
-            <div className="box-2">
-              <p>option une</p>
-            </div>
-            <div className="box-3">
-              <img className="check-logo" src={Checked} alt="logo checked" />
-            </div>
-            <div className="box-4">
-              <p>option deux</p>
-            </div>
-            <div className="box-5">
-              <img
-                className="check-logo"
-                src={CheckedInactive}
-                alt="logo checked"
-              />
-            </div>
-            <div className="box-6">
-              <p>option trois</p>
-            </div>
-            <div className="box-7">
-              <img
-                className="check-logo"
-                src={CheckedInactive}
-                alt="logo checked"
-              />
-            </div>
-            <div className="box-8">
-              <p>option quatre</p>
-            </div>
-            <div className="box-9">
-              <img
-                className="check-logo"
-                src={CheckedInactive}
-                alt="logo checked"
-              />
-            </div>
-            <div className="box-10">
-              <p>option cinq</p>
-            </div>
-            <div className="box-11">
+            <div className="flex-button">
               <button className="options-button" type="button">
                 <p>Je choisis cette offre</p>
               </button>
@@ -116,38 +118,40 @@ export default function SubscribeCard() {
           </div>
         </div>
         {showButtonTwo && (
-          <div className="container-grid">
-            <div className="box-1">
-              <img className="check-logo" src={Checked} alt="logo checked" />
+          <div className="sub-open">
+            <div className="container-grid">
+              <div className="box-1">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-2">
+                <p>option une</p>
+              </div>
+              <div className="box-3">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-4">
+                <p>option deux</p>
+              </div>
+              <div className="box-5">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-6">
+                <p>option trois</p>
+              </div>
+              <div className="box-7">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-8">
+                <p>option quatre</p>
+              </div>
+              <div className="box-9">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-10">
+                <p>option cinq</p>
+              </div>
             </div>
-            <div className="box-2">
-              <p>option une</p>
-            </div>
-            <div className="box-3">
-              <img className="check-logo" src={Checked} alt="logo checked" />
-            </div>
-            <div className="box-4">
-              <p>option deux</p>
-            </div>
-            <div className="box-5">
-              <img className="check-logo" src={Checked} alt="logo checked" />
-            </div>
-            <div className="box-6">
-              <p>option trois</p>
-            </div>
-            <div className="box-7">
-              <img className="check-logo" src={Checked} alt="logo checked" />
-            </div>
-            <div className="box-8">
-              <p>option quatre</p>
-            </div>
-            <div className="box-9">
-              <img className="check-logo" src={Checked} alt="logo checked" />
-            </div>
-            <div className="box-10">
-              <p>option cinq</p>
-            </div>
-            <div className="box-11">
+            <div className="flex-button">
               <button className="options-button" type="button">
                 <p>Je choisis cette offre</p>
               </button>

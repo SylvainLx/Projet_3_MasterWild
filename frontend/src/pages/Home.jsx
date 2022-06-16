@@ -4,6 +4,8 @@ import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
 import LogoBleu from "../assets/logoattente.png";
 import flower from "../assets/flower.webm";
+import Checked from "../assets/checked.png";
+import CheckedInactive from "../assets/checkedinactive.png";
 import "../style/Home.css";
 
 export default function Home() {
@@ -63,7 +65,10 @@ export default function Home() {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1 500s, when an unknown printer took a galley of type
-            and scrambled it to make.
+            and scrambled it to make. Lorem Ipsum is simply dummy text of the
+            printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1 500s, when an
+            unknown printer took a galley of type and scrambled it to make.
           </p>
         </div>
       </div>
@@ -82,6 +87,50 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            <div className="options-grid">
+              <div className="box-1">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-2">
+                <p>option une</p>
+              </div>
+              <div className="box-3">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-4">
+                <p>option deux</p>
+              </div>
+              <div className="box-5">
+                <img
+                  className="check-logo"
+                  src={CheckedInactive}
+                  alt="logo checked"
+                />
+              </div>
+              <div className="box-6">
+                <p>option trois</p>
+              </div>
+              <div className="box-7">
+                <img
+                  className="check-logo"
+                  src={CheckedInactive}
+                  alt="logo checked"
+                />
+              </div>
+              <div className="box-8">
+                <p>option quatre</p>
+              </div>
+              <div className="box-9">
+                <img
+                  className="check-logo"
+                  src={CheckedInactive}
+                  alt="logo checked"
+                />
+              </div>
+              <div className="box-10">
+                <p>option cinq</p>
+              </div>
+            </div>
             <div className="flex-button">
               <button type="button" className="subscribe-button">
                 Je choisis cette offre
@@ -96,6 +145,43 @@ export default function Home() {
                   14,99€ /<span> mois</span>
                 </p>
               </div>
+            </div>
+            <div className="options-grid">
+              <div className="box-1">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-2">
+                <p>option une</p>
+              </div>
+              <div className="box-3">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-4">
+                <p>option deux</p>
+              </div>
+              <div className="box-5">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-6">
+                <p>option trois</p>
+              </div>
+              <div className="box-7">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-8">
+                <p>option quatre</p>
+              </div>
+              <div className="box-9">
+                <img className="check-logo" src={Checked} alt="logo checked" />
+              </div>
+              <div className="box-10">
+                <p>option cinq</p>
+              </div>
+            </div>
+            <div className="flex-button">
+              <button type="button" className="subscribe-button">
+                Je choisis cette offre
+              </button>
             </div>
           </div>
         </div>
