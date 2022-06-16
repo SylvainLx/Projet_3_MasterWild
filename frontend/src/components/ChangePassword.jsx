@@ -7,14 +7,14 @@ export default function ChangePassword() {
       <table className="user-table">
         <tbody>
           <tr>
-            <td>password actuel :</td>
+            <td>Password actuel :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="nom"
                 size="30"
-                value="Dupont"
+                value=""
               />
             </td>
           </tr>
@@ -25,7 +25,7 @@ export default function ChangePassword() {
                 readOnly="readonly"
                 type="text"
                 name="prenom"
-                value="Léo"
+                value=""
                 size="30"
               />
             </td>
@@ -37,7 +37,7 @@ export default function ChangePassword() {
                 readOnly="readonly"
                 type="text"
                 name="email"
-                value="léo.dupont@gmail.com"
+                value=""
                 size="30"
               />
             </td>

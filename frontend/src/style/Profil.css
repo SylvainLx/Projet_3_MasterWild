@@ -21,7 +21,7 @@
   height: 50px;
   font-size: x-large;
   display: flex;
-  background-color: var(--main-blue);
+  background-color: var(--main-red);
   color: var(--primary-text);
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@
   height: 50px;
   font-size: large;
   display: flex;
-  background-color: var(--main-red);
+  background-color: var(--main-blue);
   color: var(--primary-text);
   justify-content: center;
   align-items: center;
