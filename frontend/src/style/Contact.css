@@ -85,28 +85,6 @@
   font-size: var(--S);
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
-  transition: all 0.15s linear;
-  cursor: pointer;
-}
-
-.askButton:hover {
-  background-color: var(--primary-text);
-  border-color: var(--main-red);
-  color: var(--main-red);
-  transform: translateY(-5px) scale(1.05);
-}
-
-.askButton:active {
-  background-color: transparent;
-  border-color: var(--main-red);
-  color: var(--main-red);
-  transform: translateY(5px) scale(0.95);
-}
-
-.askButton:disabled {
-  background-color: rgba(255, 255, 255, 0.16);
-  color: #8e8e93;
-  border-color: #8e8e93;
 }
 
 .formHidden {
@@ -181,14 +159,14 @@
 }
 /* Media queries */
 
-@media screen and (max-width: 1199.98px) {
+@media screen and (max-width: 767.98px) {
   .titleFaq,
   .mosaicPicStar {
     display: none;
   }
 }
 
-@media screen and (min-width: 1199.98px) {
+@media screen and (min-width: 767.98px) {
   .pageFAQ {
     display: flex;
   }
@@ -210,12 +188,25 @@
   .pAsk {
     padding-bottom: 0;
     color: var(--primary-text);
-    font-size: var(--M)
+    font-size: var(--M);
   }
   .askButton {
     margin-inline: 0;
+    border-radius: 0.2rem;
+    border: none;
   }
   .formHidden {
+    padding-top: 1.2em;
+    padding-bottom: 1em;
+    background-color: var(--secondary-red);
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  .formContact {
     padding-top: 1.2em;
     padding-bottom: 1em;
     background-color: var(--secondary-red);
@@ -248,7 +239,7 @@
     margin-left: 0.5em;
     margin-right: 0.5em;
   }
-  .mosaicStarHidden{
+  .mosaicStarHidden {
     max-width: 100%;
     opacity: 0;
   }
