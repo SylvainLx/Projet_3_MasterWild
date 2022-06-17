@@ -25,6 +25,14 @@ export default function AdminMasterclass() {
     { value: "Masterclass", label: "Masterclass 3" },
   ];
 
+  const videoExemple = {
+    name: "Nom de la Vidéo",
+    summary:
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+    duration: 45,
+    srcPicture: "src/assets/harryroselmack.png",
+  };
+
   const customStyleTheme = {
     control: (base) => ({
       ...base,
@@ -88,7 +96,13 @@ export default function AdminMasterclass() {
         </div>
       </section>
       <section className="sample-video">
-        <VideoSample />
+        <VideoSample
+          addVideo
+          name={videoExemple.name}
+          summary={videoExemple.summary}
+          duration={videoExemple.duration}
+          srcPicture={videoExemple.srcPicture}
+        />
       </section>
       <section className="add-masterclass">
         <form className="form-masterclass" action="post">

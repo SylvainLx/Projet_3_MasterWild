@@ -1,5 +1,11 @@
 @import "../style/App.css";
 
+.masterclass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container-masterclass {
   max-width: 2500px;
   margin: auto;
@@ -7,6 +13,7 @@
 
 /* BLUE HEADER */
 .header-video {
+  width: 100%;
   background-color: var(--main-blue);
   color: var(--primary-text);
   display: flex;

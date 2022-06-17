@@ -5,7 +5,7 @@ import "../style/Masterclass.css";
 
 export default function Masterclass() {
   const videoExemple = {
-    name: "Titre de la Vidéo",
+    name: "Nom de la Vidéo",
     summary:
       "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
     duration: 45,
@@ -13,12 +13,13 @@ export default function Masterclass() {
   };
 
   return (
-    <>
+    <div className="masterclass">
       <div className="header-video">
         <h2 className="titleh2">
           La <span className="monoLetter">V</span>idéo
         </h2>
       </div>
+
       <div className="container-masterclass">
         <NavLink to="/search" className="go-to-search">
           <div className="global-return-button">
@@ -50,6 +51,6 @@ export default function Masterclass() {
           <CardMasterclass />
         </div>
       </div>
-    </>
+    </div>
   );
 }

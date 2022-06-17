@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import harryroselmack from "../assets/harryroselmack.png";
 import flower from "../assets/flower.webm";
 import "../style/VideoSample.css";
 

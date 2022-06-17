@@ -1,6 +1,7 @@
 import { React } from "react";
 import VideoSample from "./VideoSample";
 import "../style/MyMCFavoritesList.css";
+import "../style/VideoSample.css";
 
 export default function MyMCFavoritesList() {
   const videoExemple = [
@@ -15,7 +16,7 @@ export default function MyMCFavoritesList() {
       name: "Nom de la Vidéo",
       summary:
         "Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla.",
-      duration: 7,
+      duration: 30,
       srcPicture: "src/assets/harryroselmack.png",
     },
     {
@@ -23,14 +24,14 @@ export default function MyMCFavoritesList() {
       summary:
         "Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu.",
       duration: 15,
-      srcPicture: "src/assets/harryroselmack.png",
+      srcPicture: "src/assets/xavierniel.png",
     },
     {
       name: "Nom de la Masterclasse",
       summary:
         "Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo.",
       duration: 7,
-      srcPicture: "src/assets/harryroselmack.png",
+      srcPicture: "src/assets/hugoclement.png",
     },
   ];
 
