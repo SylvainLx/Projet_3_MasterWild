@@ -2,28 +2,28 @@
 
 /* STRUCTURE CARD */
 .card-container {
-    max-width: 150px;
-    margin: auto;
-    background-color: rgb(232 232 232 / 65%);
-    box-shadow: 0px 4px 9px 0px rgba(167, 167, 169, 0.87);
-    margin: 20px auto;
-    padding: 1%;
+  max-width: 150px;
+  margin: auto;
+  background-color: rgb(232 232 232);
+  box-shadow: 0px 4px 9px 0px rgba(167, 167, 169, 0.87);
+  margin: 20px auto;
+  padding: 1%;
 }
 
 .card-container:hover {
-    box-shadow: 8px 8px 12px rgb(206, 198, 198);
-    -webkit-transform:scale(1.02); /* Safari and Chrome */
-    -moz-transform:scale(1.02); /* Firefox */
-    -ms-transform:scale(1.02); /* IE 9 */
-    -o-transform:scale(1.02); /* Opera */
-     transform:scale(1.02);
+  box-shadow: 8px 8px 12px rgb(206, 198, 198);
+  -webkit-transform: scale(1.02); /* Safari and Chrome */
+  -moz-transform: scale(1.02); /* Firefox */
+  -ms-transform: scale(1.02); /* IE 9 */
+  -o-transform: scale(1.02); /* Opera */
+  transform: scale(1.02);
 }
 .picture-card {
-    border-radius: 8px;
-    height: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
+  border-radius: 8px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 .information {
   display: flex;
@@ -33,10 +33,10 @@
   height: 140px;
 }
 .theme {
-    font-size: 0.7rem;
-    color: var(--optionnal-text);
-    text-transform: uppercase;
-    margin: 15px 0 0 3px;
+  font-size: 0.7rem;
+  color: var(--optionnal-text);
+  text-transform: uppercase;
+  margin: 15px 0 0 3px;
 }
 .title-card {
   font-weight: var(--semi-bold);
@@ -53,12 +53,12 @@
   align-items: center;
 }
 .button-style {
-    margin: 0 0 6px 10px;
-    color: var(--main-blue);
-    background-color: transparent;
-    border: none;
-    font-size: 13px;
-    cursor: pointer;
+  margin: 0 0 6px 10px;
+  color: var(--main-blue);
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
 }
 .button-style:hover {
   text-decoration: underline;

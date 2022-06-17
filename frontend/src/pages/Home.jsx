@@ -1,5 +1,7 @@
 import CarouselHome from "../components/CarouselHome";
 import SubscribeCard from "../components/SubscribeCard";
+import CarouselSearch from "@components/CarouselSearch";
+
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
 import LogoBleu from "../assets/logoattente.png";
@@ -79,12 +81,14 @@ export default function Home() {
           <h2>
             Exemples recherches <span className="lettrine-search">m</span>étiers
           </h2>
+          <CarouselSearch />
         </div>
         <div className="red-block">
           <h2>
             Exemples recherches <span className="lettrine-search">t</span>
             hématiques
           </h2>
+          <CarouselSearch />
         </div>
       </div>
 

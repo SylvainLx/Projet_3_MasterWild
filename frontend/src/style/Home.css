@@ -178,11 +178,11 @@
     background-color: var(--main-blue);
     color: var(--primary-text);
     margin: 3em 0 10em 0;
-    height: 25em;
+    height: 30em;
   }
 
   .blue-block > h2 {
-    padding: 1em;
+    padding: 1em 0 0 2em;
     font-size: var(--M);
   }
 
@@ -190,11 +190,11 @@
     background-color: var(--main-red);
     color: var(--primary-text);
     margin-bottom: 10em;
-    height: 25em;
+    height: 30em;
   }
 
   .red-block > h2 {
-    padding: 1em;
+    padding: 1em 0 0 2em;
     font-size: var(--M);
   }
 
