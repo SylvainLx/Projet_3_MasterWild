@@ -60,10 +60,6 @@
 
 .container-grid {
   display: grid;
-  /* grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 15px 5px; */
-
   grid-template-columns: 0.4fr 1.6fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 1.2em 0.5em;
@@ -132,20 +128,3 @@
   color: var(--primary-text);
   width: 20em;
 }
-
-/* .options-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-  border-radius: 10px;
-  background-color: var(--main-blue);
-  height: 1.5rem;
-}
-
-.options-button > p {
-  font-family: Roboto, sans-serif;
-  color: var(--primary-text);
-  font-weight: var(--bold);
-  letter-spacing: 0.5px;
-} */

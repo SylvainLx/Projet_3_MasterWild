@@ -172,6 +172,7 @@
   .video-desc {
     font-weight: var(--bold);
     font-size: var(--S);
+    line-height: 2.2em;
   }
 
   .blue-block {
@@ -182,7 +183,7 @@
   }
 
   .blue-block > h2 {
-    padding: 1em 0 0 2em;
+    padding: 0.5em 0 0 2em;
     font-size: var(--M);
   }
 
@@ -194,7 +195,7 @@
   }
 
   .red-block > h2 {
-    padding: 1em 0 0 2em;
+    padding: 0.5em 0 0 2em;
     font-size: var(--M);
   }
 
@@ -215,7 +216,6 @@
 
   .subscribing-area h2 {
     padding: 1em;
-    color: var(--primary-text);
     font-weight: var(--semi-bold);
     font-size: var(--L);
     text-align: center;
@@ -350,3 +350,20 @@
   }
 }
 /*END Tablet and Laptop Version */
+
+@media screen and (min-width: 1199.98px) {
+  .video-sample {
+    padding: 2em;
+  }
+
+  .video-sample video {
+    width: 43%;
+    height: 43%;
+  }
+
+  .video-desc {
+    font-weight: var(--bold);
+    font-size: 1.1em;
+    line-height: 2.5em;
+  }
+}
