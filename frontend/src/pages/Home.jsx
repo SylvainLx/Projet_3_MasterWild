@@ -32,7 +32,8 @@ export default function Home() {
       <div className="home-mosaic">
         <div className="square">
           <div className="text">
-            <p>Prénom</p> <p>Nom</p> <p>Métier</p>
+            <p className="p-grid">Prénom</p> <p className="p-grid">Nom</p>{" "}
+            <p className="p-grid">Métier</p>
           </div>
         </div>
         <div className="square-pic">
@@ -43,12 +44,15 @@ export default function Home() {
         </div>
         <div className="square-two">
           <div className="text-turn">
-            <p>Prénom</p> <p>Nom</p> <p>Métier</p>
+            <p className="p-grid-turn">Prénom</p>{" "}
+            <p className="p-grid-turn">Nom</p>{" "}
+            <p className="p-grid-turn">Métier</p>
           </div>
         </div>
         <div className="square">
           <div className="text">
-            <p>Prénom</p> <p>Nom</p> <p>Métier</p>
+            <p className="p-grid">Prénom</p> <p className="p-grid">Nom</p>{" "}
+            <p className="p-grid">Métier</p>
           </div>
         </div>
         <div className="square-pic">
@@ -61,17 +65,29 @@ export default function Home() {
             <source src={flower} type="video/webm" />
             <track default kind="captions" srcLang="en" />
           </video>
-          <p>
+          <p className="video-desc">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1 500s, when an unknown printer took a galley of type
             and scrambled it to make. Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1 500s, when an
-            unknown printer took a galley of type and scrambled it to make.
+            printing and typesetting industry.
           </p>
         </div>
       </div>
+      <div className="search-exemples">
+        <div className="blue-block">
+          <h2>
+            Exemples recherches <span className="lettrine-search">m</span>étiers
+          </h2>
+        </div>
+        <div className="red-block">
+          <h2>
+            Exemples recherches <span className="lettrine-search">t</span>
+            hématiques
+          </h2>
+        </div>
+      </div>
+
       <div id="link-subscribe">
         <div className="subscribe-mobile">
           <SubscribeCard />
