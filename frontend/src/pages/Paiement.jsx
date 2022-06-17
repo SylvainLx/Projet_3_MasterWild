@@ -40,11 +40,7 @@ export default function Paiement() {
             <label htmlFor="cardNumber" className="card-info">
               <input
                 className="card-input"
-                type="tel"
-                inputMode="numeric"
-                pattern="[0-9\s]{13,19}"
-                autoComplete="cc-number"
-                maxLength="19"
+                type="text"
                 name="name"
                 id="cardName"
                 placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;"
