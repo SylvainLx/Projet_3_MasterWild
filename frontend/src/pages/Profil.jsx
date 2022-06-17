@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import MyProfil from "../components/MyProfil";
-import MyMCFavorites from "../components/MyMCFavorites";
+import MyMCFavoritesList from "../components/MyMCFavoritesList";
 import "../style/Profil.css";
 
 export default function Profil() {
@@ -34,7 +34,7 @@ export default function Profil() {
         </button>
       </div>
 
-      <div>{selectOnglet ? <MyMCFavorites /> : <MyProfil />}</div>
+      <div>{selectOnglet ? <MyMCFavoritesList /> : <MyProfil />}</div>
     </div>
   );
 }
