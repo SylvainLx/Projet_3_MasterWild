@@ -15,23 +15,23 @@ export default function MyMCFavoritesList() {
     {
       name: "Nom de la Vidéo",
       summary:
-        "Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla. Bla blabla blablabla bla.",
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 30,
       srcPicture: "src/assets/harryroselmack.png",
     },
     {
       name: "Titre de la Masterclass",
       summary:
-        "Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu. Blu blublu blublublu blu.",
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 15,
-      srcPicture: "src/assets/xavierniel.png",
+      srcPicture: "src/assets/harryroselmack.png",
     },
     {
       name: "Nom de la Masterclasse",
       summary:
-        "Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo. Blo bloblo blobloblo blo.",
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 7,
-      srcPicture: "src/assets/hugoclement.png",
+      srcPicture: "src/assets/harryroselmack.png",
     },
   ];
 
