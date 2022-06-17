@@ -1,6 +1,6 @@
+import CarouselSearch from "../components/CarouselSearch";
 import CarouselHome from "../components/CarouselHome";
 import SubscribeCard from "../components/SubscribeCard";
-import CarouselSearch from "@components/CarouselSearch";
 
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
