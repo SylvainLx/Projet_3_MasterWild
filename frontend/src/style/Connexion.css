@@ -200,7 +200,7 @@
 
 /* Media querie */
 
-@media screen and (min-width: 1199.98px) {
+@media screen and (min-width: 767.98px) {
   .pageCo {
     display: flex;
     align-items: center;
