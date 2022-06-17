@@ -21,7 +21,9 @@ export default function Footer() {
           <NavLink className="linkFooter" to="/">
             <li className="linkIntern">Offres</li>
           </NavLink>
-          <li className="linkIntern">Mentions légales</li>
+          <NavLink className="linkFooter" to="/">
+            <li className="linkIntern">Mentions légales</li>
+          </NavLink>
         </ul>
       </div>
       <div className="listeRSfooter">
