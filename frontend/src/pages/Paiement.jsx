@@ -22,7 +22,6 @@ export default function Paiement() {
           </p>
         </div>
         <div className="form">
-          <h2 className="payez">Payez en ligne</h2>
           <div className="box-logo">
             <img className="card-logo" alt="card-logo" src={cardLogo} />
           </div>
@@ -41,7 +40,11 @@ export default function Paiement() {
             <label htmlFor="cardNumber" className="card-info">
               <input
                 className="card-input"
-                type="number"
+                type="tel"
+                inputMode="numeric"
+                pattern="[0-9\s]{13,19}"
+                autoComplete="cc-number"
+                maxLength="19"
                 name="name"
                 id="cardName"
                 placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;"
@@ -49,35 +52,37 @@ export default function Paiement() {
               />
               NUMÉRO DE CARTE
             </label>
-            <label htmlFor="expiration" className="card-info">
-              <input
-                className="card-input"
-                type="text"
-                name="name"
-                id="cardName"
-                placeholder="MM/AA"
-                required
-              />
-              DATE D'EXPIRATION
-            </label>
-            <label htmlFor="crypto" className="card-info">
-              <input
-                className="card-input"
-                type="number"
-                name="name"
-                id="cardName"
-                placeholder="&bull;&bull;&bull;"
-                required
-              />
-              CVV
-            </label>
+            <div className="form-bottom">
+              <label htmlFor="expiration" className="card-info">
+                <input
+                  className="card-input-bottom"
+                  type="text"
+                  name="name"
+                  id="cardName"
+                  placeholder="MM/AA"
+                  required
+                />
+                DATE D'EXPIRATION
+              </label>
+              <label htmlFor="crypto" className="card-info">
+                <input
+                  className="card-input-bottom"
+                  type="text"
+                  name="name"
+                  id="cardName"
+                  placeholder="&bull;&bull;&bull;"
+                  required
+                />
+                CVV
+              </label>
+            </div>
           </form>
         </div>
         <button type="submit" className="paiement-button">
           Paiement
         </button>
-        <NavLink to="/Profil" className="return-to-profil">
-          <button type="submit" className="button-to-profil">
+        <NavLink to="/Home" className="return-to-home">
+          <button type="submit" className="button-to-home">
             Retour
           </button>
         </NavLink>

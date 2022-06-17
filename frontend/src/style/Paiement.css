@@ -37,16 +37,10 @@
     margin: 1rem auto;
 }
 
-.payez {
-    font-size: var(--M);
-    font-family: "Open Sans", sans-serif;
-    height: 2rem;
-}
-
 .box-logo {
     display: flex;
     height: 2rem;
-    margin: 0.7em 1em 2em;
+    margin: 0.7em 2em;
 }
 
 .form-paiement {
@@ -61,7 +55,24 @@
     font-size: var(--XS);
 }
 
+.card-info-bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: var(--XS);
+}
+
 .card-input {
+    width: 15em;
+    height: 1.7em;
+    padding-left: 10px;
+    font-size: var(--S);
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 13px auto;
+}
+
+.card-input-bottom {
     width: 15em;
     height: 1.7em;
     padding-left: 10px;
@@ -99,11 +110,11 @@
     transform: translateY(5px) scale(0.95);
 }
 
-.return-to-profil {
+.return-to-home {
     text-decoration: none;
 }
 
-.button-to-profil {
+.button-to-home {
     margin-bottom: 2em;
     padding: 0.5rem 2.5rem;
     border-radius: 2rem;
@@ -113,4 +124,37 @@
     font-size: var(--XS);
     letter-spacing: 1px;
     transition: all 0.15s linear;
+}
+
+.button-to-home:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+  
+.button-to-home:active {
+    background-color: transparent;
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    transform: translateY(5px) scale(0.95);
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 479.98px) {
+    .form-bottom {
+        display: flex;
+    }
+    .card-input-bottom {
+        width: 6em;
+        margin: 13px 8px;
+    }
+}
+
+@media screen and (min-width: 767.98px) {
+    .info-abonnement {
+        margin: 2rem 0;
+        border-bottom: 2px solid;
+        padding-bottom: 3rem;
+    }
+}
+
+@media screen and (min-width: 1199.98px) {
 }
