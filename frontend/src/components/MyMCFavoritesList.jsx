@@ -1,11 +1,11 @@
 import { React } from "react";
-import MCFavorite from "./MCFavorite";
+import VideoSample from "./VideoSample";
 import "../style/MyMCFavoritesList.css";
 
 export default function MyMCFavoritesList() {
   return (
     <div>
-      <MCFavorite />
+      <VideoSample />
     </div>
   );
 }
