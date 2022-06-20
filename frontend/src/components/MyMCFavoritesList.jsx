@@ -15,21 +15,21 @@ export default function MyMCFavoritesList() {
     {
       name: "Nom de la Vidéo",
       summary:
-      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 30,
       srcPicture: "src/assets/harryroselmack.png",
     },
     {
       name: "Titre de la Masterclass",
       summary:
-      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 15,
       srcPicture: "src/assets/harryroselmack.png",
     },
     {
       name: "Nom de la Masterclasse",
       summary:
-      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 7,
       srcPicture: "src/assets/harryroselmack.png",
     },
@@ -37,9 +37,9 @@ export default function MyMCFavoritesList() {
 
   return (
     <div>
-      {videoExemple.map(({ name, summary, duration, srcPicture }, index) => (
+      {videoExemple.map(({ name, summary, duration, srcPicture }) => (
         <VideoSample
-          key={name.index}
+          key={name}
           name={name}
           summary={summary}
           duration={duration}

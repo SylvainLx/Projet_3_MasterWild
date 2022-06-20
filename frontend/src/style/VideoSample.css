@@ -18,6 +18,7 @@
   padding: 10px;
 }
 .picture-video {
+  width: 20vh;
   display: none;
 }
 .text {
