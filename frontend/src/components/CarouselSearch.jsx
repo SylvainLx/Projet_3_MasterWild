@@ -9,21 +9,6 @@ export default function CarouselSearch() {
           <li className="carousel-item">
             <CardMasterclass />
           </li>
-          <li className="carousel-item">
-            <CardMasterclass />
-          </li>
-          <li className="carousel-item">
-            <CardMasterclass />
-          </li>
-          <li className="carousel-item">
-            <CardMasterclass />
-          </li>
-          <li className="carousel-item">
-            <CardMasterclass />
-          </li>
-          <li className="carousel-item">
-            <CardMasterclass />
-          </li>
         </ul>
       </section>
     </div>

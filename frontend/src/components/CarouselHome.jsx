@@ -5,7 +5,7 @@ import Xavier from "../assets/xavierniel.png";
 import Hugo from "../assets/hugoclement.png";
 
 export default function CarouselHome() {
-  const state1 = {
+  const carouselOptions = {
     goToSlide: 0,
     offsetRadius: 2,
     showNavigation: true,
@@ -13,7 +13,7 @@ export default function CarouselHome() {
 
   const [showArrows, setShowArrows] = useState(false);
 
-  const [state, setState] = useState(state1);
+  const [state, setState] = useState(carouselOptions);
 
   const slides = [
     {
