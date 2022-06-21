@@ -4,13 +4,22 @@ import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
 export default function Masterclass() {
+  const videoExemple = {
+    name: "Nom de la Vidéo",
+    summary:
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+    duration: 45,
+    srcPicture: "src/assets/harryroselmack.png",
+  };
+
   return (
-    <>
+    <div className="masterclass">
       <div className="header-video">
         <h2 className="titleh2">
           La <span className="monoLetter">V</span>idéo
         </h2>
       </div>
+
       <div className="container-masterclass">
         <NavLink to="/search" className="go-to-search">
           <div className="global-return-button">
@@ -28,7 +37,13 @@ export default function Masterclass() {
             </button>
           </div>
         </NavLink>
-        <VideoSample />
+        <VideoSample
+          addVideo
+          name={videoExemple.name}
+          summary={videoExemple.summary}
+          duration={videoExemple.duration}
+          srcPicture={videoExemple.srcPicture}
+        />
         <div className="suggestions">
           <CardMasterclass />
           <CardMasterclass />
@@ -36,6 +51,6 @@ export default function Masterclass() {
           <CardMasterclass />
         </div>
       </div>
-    </>
+    </div>
   );
 }

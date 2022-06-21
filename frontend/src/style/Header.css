@@ -60,8 +60,8 @@ Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
 .bm-menu-wrap {
+  width: 100%;
   position: fixed;
-  height: 100%;
 }
 
 /* General sidebar styles */
@@ -111,7 +111,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   /* Individual item */
   .bm-item {
     color: var(--primary-text);
-    font-size: medium;
+    font-size: 1rem;
     text-decoration: none;
     display: inline-block;
     padding-top: 0.8em;
@@ -132,16 +132,22 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 }
 
-@media screen and (min-width: 2300px) {
+@media screen and (min-width: 2000px) {
   .bm-burger-button {
     width: 8em;
     height: 6.8em;
   }
+  .bm-item {
+    font-size: 2rem;
+  }
 }
 
-@media screen and (min-width: 5000px) {
+@media screen and (min-width: 4000px) {
   .bm-burger-button {
     width: 16em;
     height: 13.6em;
+  }
+  .bm-item {
+    font-size: 3rem;
   }
 }
