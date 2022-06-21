@@ -1,14 +1,21 @@
 import "../style/Admin.css";
 import "../style/App.css";
+<<<<<<< HEAD
 import axios from "axios";
 import { useState } from "react";
+=======
+import Select from "react-select";
+>>>>>>> ce840e2febba130bbd9d5e609df6898418287240
 
 import Select from "react-select";
 import VideoSample from "./VideoSample";
 
 export default function AdminMasterclass() {
+<<<<<<< HEAD
   const [files, setFiles] = useState([]);
 
+=======
+>>>>>>> ce840e2febba130bbd9d5e609df6898418287240
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
     { value: "theme1", label: "theme 2" },
@@ -19,6 +26,14 @@ export default function AdminMasterclass() {
     { value: "Masterclass", label: "Masterclass 2" },
     { value: "Masterclass", label: "Masterclass 3" },
   ];
+
+  const videoExemple = {
+    name: "Nom de la Vidéo",
+    summary:
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+    duration: 45,
+    srcPicture: "src/assets/harryroselmack.png",
+  };
 
   const customStyleTheme = {
     control: (base) => ({
@@ -97,7 +112,13 @@ export default function AdminMasterclass() {
         </div>
       </section>
       <section className="sample-video">
-        <VideoSample />
+        <VideoSample
+          addVideo
+          name={videoExemple.name}
+          summary={videoExemple.summary}
+          duration={videoExemple.duration}
+          srcPicture={videoExemple.srcPicture}
+        />
       </section>
       <section className="add-masterclass">
         <form className="form-masterclass" onSubmit={handlePost}>
@@ -111,6 +132,7 @@ export default function AdminMasterclass() {
           <label htmlFor="Mots clés">
             <input className="input" type="text" placeholder="Mots Clés" />
           </label>
+<<<<<<< HEAD
           <label htmlFor="uploaded_picture">
             <input
               onChange={(e) => setFiles(e.target.files)}
@@ -119,10 +141,15 @@ export default function AdminMasterclass() {
               name="upload_picture"
               placeholder="Photo"
             />
+=======
+          <label htmlFor="Photo">
+            <input className="input" type="text" placeholder="Photo" />
+>>>>>>> ce840e2febba130bbd9d5e609df6898418287240
           </label>
           <label htmlFor="Name">
             <input className="input" type="text" placeholder="Nom célébrité" />
           </label>
+<<<<<<< HEAD
           <label htmlFor="uploaded_masterclass">
             <input
               className="input"
@@ -130,6 +157,10 @@ export default function AdminMasterclass() {
               name="upload_masterclass"
               placeholder="Url"
             />
+=======
+          <label htmlFor="Url">
+            <input className="input" type="text" placeholder="Url" />
+>>>>>>> ce840e2febba130bbd9d5e609df6898418287240
           </label>
           <label htmlFor="Theme">
             <input className="input" type="text" placeholder="Thématique" />

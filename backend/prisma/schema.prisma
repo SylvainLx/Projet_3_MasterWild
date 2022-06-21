@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model author {
+  Id          Int           @id @default(autoincrement())
+  firstname   String        @db.VarChar(150)
+  lastname    String        @db.VarChar(150)
+  speciality  String        @db.VarChar(150)
+  masterclass masterclass[]
+  photo       photo[]
+}
+
+model category {
+  Id                       Int                        @id @default(autoincrement())
+  name                     String                     @db.VarChar(150)
+  masterclass_has_category masterclass_has_category[]
+}
+
+model favorite {
+  user_Id        Int
+  masterclass_Id Int
+  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_masterclass_masterclass10")
+  user           user        @relation(fields: [user_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_masterclass_user10")
+
+  @@id([user_Id, masterclass_Id])
+  @@index([masterclass_Id], map: "fk_user_has_masterclass_masterclass1_idx")
+  @@index([user_Id], map: "fk_user_has_masterclass_user1_idx")
+}
+
+model keyword {
+  Id                      Int                       @id @default(autoincrement())
+  name                    String                    @db.VarChar(150)
+  masterclass_has_keyword masterclass_has_keyword[]
+}
+
+model masterclass {
+  Id                       Int                        @default(autoincrement())
+  name                     String                     @db.VarChar(150)
+  source                   String                     @db.VarChar(1000)
+  description              String                     @db.VarChar(3000)
+  author_Id                Int
+  author                   author                     @relation(fields: [author_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_author1")
+  favorite                 favorite[]
+  masterclass_has_category masterclass_has_category[]
+  masterclass_has_keyword  masterclass_has_keyword[]
+
+  @@id([Id, author_Id])
+  @@index([author_Id], map: "fk_masterclass_author1_idx")
+}
+
+model masterclass_has_category {
+  masterclass_Id Int
+  category_Id    Int
+  category       category    @relation(fields: [category_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_category_category1")
+  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_category_masterclass")
+
+  @@id([masterclass_Id, category_Id])
+  @@index([category_Id], map: "fk_masterclass_has_category_category1_idx")
+  @@index([masterclass_Id], map: "fk_masterclass_has_category_masterclass_idx")
+}
+
+model masterclass_has_keyword {
+  masterclass_Id Int
+  keyword_Id     Int
+  keyword        keyword     @relation(fields: [keyword_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_keyword_keyword1")
+  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_keyword_masterclass1")
+
+  @@id([masterclass_Id, keyword_Id])
+  @@index([keyword_Id], map: "fk_masterclass_has_keyword_keyword1_idx")
+  @@index([masterclass_Id], map: "fk_masterclass_has_keyword_masterclass1_idx")
+}
+
+model photo {
+  Id        Int    @default(autoincrement())
+  name      String @db.VarChar(150)
+  source    String @db.VarChar(255)
+  author_Id Int
+  author    author @relation(fields: [author_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_photo_author1")
+
+  @@id([Id, author_Id])
+  @@index([author_Id], map: "fk_photo_author1_idx")
+}
+
+model user {
+  Id            Int        @id @default(autoincrement())
+  firstname     String     @db.VarChar(150)
+  lastame       String     @db.VarChar(150)
+  email         String     @db.VarChar(255)
+  password      String     @db.VarChar(3000)
+  birthday_date DateTime?  @db.DateTime(0)
+  role          String?    @db.VarChar(3000)
+  favorite      favorite[]
+}

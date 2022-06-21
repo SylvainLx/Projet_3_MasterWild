@@ -65,6 +65,7 @@ export default function Header() {
           <BurgerMenu>
             {navlinklist.map((navlink) => (
               <NavLink
+                key={navlink.text}
                 onClick={{ menuOpen: !menuOpen }}
                 className="menu-item"
                 to={navlink.to}
@@ -79,7 +80,7 @@ export default function Header() {
         </NavLink>
 
         <div className="menu-right">
-          <NavLink className="navlink-menu-right" to="/login">
+          <NavLink className="navlink-menu-right" to="/connexion">
             <img className="menu-right-icon" src={loginIcon} alt="logowhite" />
           </NavLink>
           <NavLink className="navlink-menu-right" to="/profil">
