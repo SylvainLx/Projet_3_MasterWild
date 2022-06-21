@@ -1,18 +1,13 @@
 import "../style/Admin.css";
 import "../style/App.css";
+import axios from "axios";
 import { useState } from "react";
-import Select from "react-select";
 
+import Select from "react-select";
 import VideoSample from "./VideoSample";
 
 export default function AdminMasterclass() {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [picture, setPicture] = useState("");
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
-  const [theme, setTheme] = useState("");
-  const [keyword, setKeyword] = useState("");
+  const [files, setFiles] = useState([]);
 
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
@@ -44,6 +39,20 @@ export default function AdminMasterclass() {
     }),
   };
 
+  const handlePost = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("file", files[0]);
+
+    axios
+      .post("http://localhost:5001/masterclass", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => console.log(res));
+  };
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -91,66 +100,48 @@ export default function AdminMasterclass() {
         <VideoSample />
       </section>
       <section className="add-masterclass">
-        <form className="form-masterclass" action="post">
+        <form className="form-masterclass" onSubmit={handlePost}>
           <label htmlFor="title">
             <input
               className="input"
               type="text"
               placeholder="Titre de la video"
-              onChange={(e) => setTitle(e.target.value)}
             />
           </label>
           <label htmlFor="Mots clés">
-            <input
-              className="input"
-              type="text"
-              placeholder="Mots Clés"
-              onChange={(e) => setKeyword(e.target.value)}
-            />
+            <input className="input" type="text" placeholder="Mots Clés" />
           </label>
-          <label htmlFor="Photo">
+          <label htmlFor="uploaded_picture">
             <input
+              onChange={(e) => setFiles(e.target.files)}
               className="input"
-              type="text"
+              type="file"
+              name="upload_picture"
               placeholder="Photo"
-              onChange={(e) => setPicture(e.target.value)}
             />
           </label>
           <label htmlFor="Name">
-            <input
-              className="input"
-              type="text"
-              placeholder="Nom célébrité"
-              onChange={(e) => setName(e.target.value)}
-            />
+            <input className="input" type="text" placeholder="Nom célébrité" />
           </label>
-          <label htmlFor="Url">
+          <label htmlFor="uploaded_masterclass">
             <input
               className="input"
               type="text"
+              name="upload_masterclass"
               placeholder="Url"
-              onChange={(e) => setUrl(e.target.value)}
             />
           </label>
           <label htmlFor="Theme">
-            <input
-              className="input"
-              type="text"
-              placeholder="Thématique"
-              onChange={(e) => setTheme(e.target.value)}
-            />
+            <input className="input" type="text" placeholder="Thématique" />
           </label>
           <label className="desc" htmlFor="Desc">
             <textarea
               className="input i-desc"
               type="text"
               placeholder="Description"
-              onChange={(e) => setDesc(e.target.value)}
             />
           </label>
-          <button className="btnSend" type="button">
-            Envoyer
-          </button>
+          <input className="btnSend" type="submit" />
         </form>
       </section>
     </div>

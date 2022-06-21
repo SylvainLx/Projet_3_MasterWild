@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+
 const router = require("./routes/router");
 
 const app = express();
@@ -30,6 +31,5 @@ app.get("*", (req, res) => {
     path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
   );
 });
-
 // ready to export
 module.exports = app;
