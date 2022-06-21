@@ -5,15 +5,6 @@ import Select from "react-select";
 
 import VideoSample from "./VideoSample";
 
-export default function AdminMasterclass() {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [picture, setPicture] = useState("");
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
-  const [theme, setTheme] = useState("");
-  const [keyword, setKeyword] = useState("");
-
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
     { value: "theme1", label: "theme 2" },
@@ -24,6 +15,14 @@ export default function AdminMasterclass() {
     { value: "Masterclass", label: "Masterclass 2" },
     { value: "Masterclass", label: "Masterclass 3" },
   ];
+
+  const videoExemple = {
+    name: "Nom de la Vidéo",
+    summary:
+      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
+    duration: 45,
+    srcPicture: "src/assets/harryroselmack.png",
+  };
 
   const customStyleTheme = {
     control: (base) => ({
@@ -88,7 +87,13 @@ export default function AdminMasterclass() {
         </div>
       </section>
       <section className="sample-video">
-        <VideoSample />
+        <VideoSample
+          addVideo
+          name={videoExemple.name}
+          summary={videoExemple.summary}
+          duration={videoExemple.duration}
+          srcPicture={videoExemple.srcPicture}
+        />
       </section>
       <section className="add-masterclass">
         <form className="form-masterclass" action="post">

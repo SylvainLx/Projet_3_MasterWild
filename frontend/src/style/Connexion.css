@@ -128,7 +128,7 @@
 .textConnex:hover {
   transform: translateY(0px) scale(1.05);
 }
-  
+
 .iconeEye {
   height: 90%;
 }
@@ -165,11 +165,10 @@
   transition: all 0.15s linear;
   color: white;
   font-size: 2rem;
- margin-left: 20rem;
+  margin-left: 20rem;
 }
 .modalClose:hover {
   transform: translateY(0px) scale(1.25);
-
 }
 .modalTitleBtn {
   display: flex;
@@ -212,7 +211,7 @@
     margin-bottom: 1em;
   }
   .modalClose {
-  margin-left: 50rem;
+    margin-left: 50rem;
   }
   .modalTitle {
     font-size: var(--L);
