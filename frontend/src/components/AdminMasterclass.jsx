@@ -1,10 +1,14 @@
 import "../style/Admin.css";
 import "../style/App.css";
-import Select from "react-select";
+import axios from "axios";
+import { useState } from "react";
 
+import Select from "react-select";
 import VideoSample from "./VideoSample";
 
 export default function AdminMasterclass() {
+  const [files, setFiles] = useState([]);
+
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
     { value: "theme1", label: "theme 2" },
@@ -43,6 +47,25 @@ export default function AdminMasterclass() {
     }),
   };
 
+  const handlePost = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append("file", files[0]);
+
+    axios.post("http://localhost:5001/masterclass", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  };
+
+  const handleDelete = (e) => {
+    const id = e.target.getAttribute("data-id");
+
+    axios.delete(`http://localhost:5001/masterclass/${id}`);
+  };
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -81,7 +104,7 @@ export default function AdminMasterclass() {
           </button>
         </div>
         <div className="buttonPutDelete">
-          <button className="btnDel" type="button">
+          <button onClick={handleDelete} className="btnDel" type="button">
             Supprimer
           </button>
         </div>
@@ -96,7 +119,7 @@ export default function AdminMasterclass() {
         />
       </section>
       <section className="add-masterclass">
-        <form className="form-masterclass" action="post">
+        <form className="form-masterclass" onSubmit={handlePost}>
           <label htmlFor="title">
             <input
               className="input"
@@ -107,8 +130,14 @@ export default function AdminMasterclass() {
           <label htmlFor="Mots clés">
             <input className="input" type="text" placeholder="Mots Clés" />
           </label>
-          <label htmlFor="Photo">
-            <input className="input" type="text" placeholder="Photo" />
+          <label htmlFor="uploaded_picture">
+            <input
+              onChange={(e) => setFiles(e.target.files)}
+              className="input"
+              type="file"
+              name="photo"
+              placeholder="Photo"
+            />
           </label>
           <label htmlFor="Name">
             <input className="input" type="text" placeholder="Nom célébrité" />
@@ -126,9 +155,7 @@ export default function AdminMasterclass() {
               placeholder="Description"
             />
           </label>
-          <button className="btnSend" type="button">
-            Envoyer
-          </button>
+          <input className="btnSend" type="submit" />
         </form>
       </section>
     </div>
