@@ -23,7 +23,7 @@ USE `inspiraction_db` ;
 CREATE TABLE IF NOT EXISTS `inspiraction_db`.`user` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(150) NOT NULL,
-  `lastame` VARCHAR(150) NOT NULL,
+  `lastname` VARCHAR(150) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(3000) NOT NULL,
   `birthday_date` DATETIME NULL,
