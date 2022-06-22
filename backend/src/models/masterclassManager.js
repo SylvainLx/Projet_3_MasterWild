@@ -4,9 +4,7 @@ const prisma = new PrismaClient();
 
 exports.getAll = async () => {
   try {
-    return await prisma.file_uploaded.findMany();
-  } catch (e) {
-    throw e;
+    return await prisma.photo.findMany();
   } finally {
     await prisma.$disconnect();
   }
@@ -14,11 +12,9 @@ exports.getAll = async () => {
 
 exports.createOne = async (img) => {
   try {
-    return await prisma.file_uploaded.create({
+    return await prisma.photo.create({
       data: img,
     });
-  } catch (e) {
-    throw e;
   } finally {
     await prisma.$disconnect();
   }
@@ -26,11 +22,9 @@ exports.createOne = async (img) => {
 
 exports.deleteOne = async (id) => {
   try {
-    return await prisma.file_uploaded.delete({
+    return await prisma.photo.delete({
       where: { id },
     });
-  } catch (e) {
-    throw e;
   } finally {
     await prisma.$disconnect();
   }
