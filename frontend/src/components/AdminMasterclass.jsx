@@ -1,21 +1,14 @@
 import "../style/Admin.css";
 import "../style/App.css";
-<<<<<<< HEAD
 import axios from "axios";
 import { useState } from "react";
-=======
-import Select from "react-select";
->>>>>>> ce840e2febba130bbd9d5e609df6898418287240
 
 import Select from "react-select";
 import VideoSample from "./VideoSample";
 
 export default function AdminMasterclass() {
-<<<<<<< HEAD
   const [files, setFiles] = useState([]);
 
-=======
->>>>>>> ce840e2febba130bbd9d5e609df6898418287240
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
     { value: "theme1", label: "theme 2" },
@@ -132,7 +125,6 @@ export default function AdminMasterclass() {
           <label htmlFor="Mots clés">
             <input className="input" type="text" placeholder="Mots Clés" />
           </label>
-<<<<<<< HEAD
           <label htmlFor="uploaded_picture">
             <input
               onChange={(e) => setFiles(e.target.files)}
@@ -141,15 +133,10 @@ export default function AdminMasterclass() {
               name="upload_picture"
               placeholder="Photo"
             />
-=======
-          <label htmlFor="Photo">
-            <input className="input" type="text" placeholder="Photo" />
->>>>>>> ce840e2febba130bbd9d5e609df6898418287240
           </label>
           <label htmlFor="Name">
             <input className="input" type="text" placeholder="Nom célébrité" />
           </label>
-<<<<<<< HEAD
           <label htmlFor="uploaded_masterclass">
             <input
               className="input"
@@ -157,10 +144,6 @@ export default function AdminMasterclass() {
               name="upload_masterclass"
               placeholder="Url"
             />
-=======
-          <label htmlFor="Url">
-            <input className="input" type="text" placeholder="Url" />
->>>>>>> ce840e2febba130bbd9d5e609df6898418287240
           </label>
           <label htmlFor="Theme">
             <input className="input" type="text" placeholder="Thématique" />
