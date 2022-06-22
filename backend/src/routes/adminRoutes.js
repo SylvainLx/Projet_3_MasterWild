@@ -1,6 +1,6 @@
 const express = require("express");
 
-const masterclassController = require("../controllers/masterclassController");
+const masterclassController = require("../controllers/adminController");
 
 const router = express.Router();
 
