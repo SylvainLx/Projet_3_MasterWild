@@ -90,7 +90,7 @@ model photo {
 model user {
   Id            Int        @id @default(autoincrement())
   firstname     String     @db.VarChar(150)
-  lastame       String     @db.VarChar(150)
+  lastname      String     @db.VarChar(150)
   email         String     @db.VarChar(255)
   password      String     @db.VarChar(3000)
   birthday_date DateTime?  @db.DateTime(0)
