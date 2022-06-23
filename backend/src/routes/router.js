@@ -1,13 +1,13 @@
 const express = require("express");
 
-const { ItemController } = require("../controllers");
+const masterclassController = require("../controllers/masterclassController");
 
 const router = express.Router();
 
-router.get("/items", ItemController.browse);
-router.get("/items/:id", ItemController.read);
-router.put("/items/:id", ItemController.edit);
-router.post("/items", ItemController.add);
-router.delete("/items/:id", ItemController.delete);
+const multer = require("../middlewares/multer");
+
+router.post("/masterclass", multer, masterclassController.addOne);
+router.get("/masterclass", masterclassController.getAll);
+router.delete("/masterclass/:id", masterclassController.deleteOne);
 
 module.exports = router;

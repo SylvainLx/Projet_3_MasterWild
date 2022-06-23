@@ -1,0 +1,87 @@
+.footer {
+  background-color: #1738ce;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--S);
+  font-weight: 600;
+}
+
+.linkFooter {
+  text-decoration: none;
+  color: white;
+}
+.linkFooter:hover {
+  text-decoration: underline;
+}
+
+.logoFooter {
+  max-width: 100%;
+}
+
+.linksFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listeRSfooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+.listIconesRS {
+  display: flex;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.liIcone {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.liIcone:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+.linkIntern {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+/* media querie */
+
+@media screen and (min-width: 767.98px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 0;
+  }
+  .divLogoFooter {
+    width: 15%;
+  }
+  .linkIntern {
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+  }
+  .listeRSfooter {
+    padding-top: 0;
+  }
+  .listeRes {
+    padding-top: 1em;
+  }
+  .linksFooter {
+    align-items: baseline;
+  }
+  .listIconesRS {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .logoFacebook,
+  .logoInstagram,
+  .logoTwitter {
+    height: 3em;
+  }
+}
