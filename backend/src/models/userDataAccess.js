@@ -20,25 +20,38 @@ exports.findOne = async (id) => {
   }
 };
 
-// exports.createOne = async (firstname, lastname, email, hash) => {
-//   try {
-//     return await prisma.photo.create({
-//       firstname,
-//       lastname,
-//       email,
-//       password: hash,
-//     });
-//   } finally {
-//     await prisma.$disconnect();
-//   }
-// };
+exports.createOne = async (newUser) => {
+  try {
+    return await prisma.user.create({
+      data: {
+        firstname: newUser.firstname,
+        lastname: newUser.lastname,
+        email: newUser.email,
+        password: newUser.hash,
+      },
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
 
-// exports.deleteOne = async (id) => {
-//   try {
-//     return await prisma.photo.delete({
-//       where: { id },
-//     });
-//   } finally {
-//     await prisma.$disconnect();
-//   }
-// };
+exports.removeOne = async (id) => {
+  try {
+    return await prisma.user.delete({
+      where: { Id: id },
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
+exports.modifyOne = async (userId, user) => {
+  try {
+    return await prisma.user.update({
+      where: { Id: userId },
+      data: user,
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
