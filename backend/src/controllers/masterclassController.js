@@ -3,11 +3,23 @@ const path = require("path");
 const masterclassController = require("../models/masterclassManager");
 
 exports.addOne = async (req, res) => {
-  if (!req.file) {
+  const { title, firstname, lastname, keyword, desc, source, theme } = req.body;
+  console.log(req.body);
+  if (!req.file && !req.body) {
     res.sendStatus(400);
   } else {
-    console.log(req.file);
-    const data = await masterclassController.createOne(req.file);
+    const data = await masterclassController.createOne(
+      {
+        title,
+        firstname,
+        lastname,
+        keyword,
+        desc,
+        source,
+        theme,
+      },
+      req.file
+    );
     res.status(201).json(data);
   }
 };

@@ -53,10 +53,10 @@ export default function AdminMasterclass() {
   const [source, setSource] = useState("");
   const [theme, setTheme] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [speciality, setSpeciality] = useState("");
 
   const handlePost = (e) => {
     e.preventDefault();
-    console.log(e);
     const formData = new FormData();
 
     formData.append("text", title);
@@ -67,19 +67,18 @@ export default function AdminMasterclass() {
     formData.append("text", keyword);
     formData.append("file", photo[0]);
     formData.append("text", desc);
+    formData.append("text", speciality);
 
-    axios
-      .post(
-        "http://localhost:5001/masterclass",
+    axios.post(
+      "http://localhost:5001/masterclass",
 
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then((res) => console.log(res.data));
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
   };
 
   const handleDelete = (e) => {
@@ -167,6 +166,15 @@ export default function AdminMasterclass() {
               name="lastname"
               onChange={(e) => setLastname(e.target.value)}
               placeholder="Nom Célébrité"
+            />
+          </label>
+          <label htmlFor="speciality">
+            <input
+              className="input"
+              type="text"
+              name="speciality"
+              onChange={(e) => setSpeciality(e.target.value)}
+              placeholder="Métier Célébrité"
             />
           </label>
           <label htmlFor="source">
