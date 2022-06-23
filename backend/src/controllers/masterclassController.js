@@ -4,7 +4,6 @@ const masterclassController = require("../models/masterclassManager");
 
 exports.addOne = async (req, res) => {
   const { title, firstname, lastname, keyword, desc, source, theme } = req.body;
-  console.log(req.body);
   if (!req.file && !req.body) {
     res.sendStatus(400);
   } else {
