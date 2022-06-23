@@ -55,3 +55,14 @@ exports.modifyOne = async (userId, user) => {
     await prisma.$disconnect();
   }
 };
+
+exports.findByEmail = async (email) => {
+  try {
+    console.error(email);
+    return await prisma.user.findUnique({
+      where: email,
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
