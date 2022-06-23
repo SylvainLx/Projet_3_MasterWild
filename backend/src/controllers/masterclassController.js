@@ -6,9 +6,8 @@ exports.addOne = async (req, res) => {
   if (!req.file) {
     res.sendStatus(400);
   } else {
-    const data = await masterclassController.createOne({
-      photo: req.file.filename,
-    });
+    console.log(req.file);
+    const data = await masterclassController.createOne(req.file);
     res.status(201).json(data);
   }
 };

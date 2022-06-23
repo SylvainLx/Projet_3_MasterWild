@@ -7,8 +7,6 @@ import Select from "react-select";
 import VideoSample from "./VideoSample";
 
 export default function AdminMasterclass() {
-  const [files, setFiles] = useState([]);
-
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
     { value: "theme1", label: "theme 2" },
@@ -47,18 +45,41 @@ export default function AdminMasterclass() {
     }),
   };
 
+  const [photo, setPhoto] = useState([]);
+  const [title, setTitle] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [desc, setDesc] = useState("");
+  const [source, setSource] = useState("");
+  const [theme, setTheme] = useState("");
+  const [keyword, setKeyword] = useState("");
+
   const handlePost = (e) => {
     e.preventDefault();
-
+    console.log(e);
     const formData = new FormData();
 
-    formData.append("file", files[0]);
+    formData.append("text", title);
+    formData.append("text", firstname);
+    formData.append("text", lastname);
+    formData.append("text", source);
+    formData.append("text", theme);
+    formData.append("text", keyword);
+    formData.append("file", photo[0]);
+    formData.append("text", desc);
 
-    axios.post("http://localhost:5001/masterclass", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    axios
+      .post(
+        "http://localhost:5001/masterclass",
+
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then((res) => console.log(res.data));
   };
 
   const handleDelete = (e) => {
@@ -66,6 +87,7 @@ export default function AdminMasterclass() {
 
     axios.delete(`http://localhost:5001/masterclass/${id}`);
   };
+
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -124,34 +146,71 @@ export default function AdminMasterclass() {
             <input
               className="input"
               type="text"
+              name="title"
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="Titre de la video"
             />
           </label>
-          <label htmlFor="Mots clés">
-            <input className="input" type="text" placeholder="Mots Clés" />
+          <label htmlFor="firstname">
+            <input
+              className="input"
+              type="text"
+              name="firstname"
+              onChange={(e) => setFirstname(e.target.value)}
+              placeholder="Prénom Célébrité"
+            />
+          </label>
+          <label htmlFor="lastname">
+            <input
+              className="input"
+              type="text"
+              name="lastname"
+              onChange={(e) => setLastname(e.target.value)}
+              placeholder="Nom Célébrité"
+            />
+          </label>
+          <label htmlFor="source">
+            <input
+              className="input"
+              type="text"
+              name="source"
+              onChange={(e) => setSource(e.target.value)}
+              placeholder="Lien de la video"
+            />
+          </label>
+          <label htmlFor="category">
+            <input
+              className="input"
+              type="text"
+              name="category"
+              onChange={(e) => setTheme(e.target.firstname)}
+              placeholder="Thématique"
+            />
+          </label>
+          <label htmlFor="keyword">
+            <input
+              className="input"
+              type="text"
+              name="keyword"
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="Mots Clés"
+            />
           </label>
           <label htmlFor="uploaded_picture">
             <input
-              onChange={(e) => setFiles(e.target.files)}
+              onChange={(e) => setPhoto(e.target.files)}
               className="input"
               type="file"
               name="photo"
               placeholder="Photo"
             />
           </label>
-          <label htmlFor="Name">
-            <input className="input" type="text" placeholder="Nom célébrité" />
-          </label>
-          <label htmlFor="Url">
-            <input className="input" type="text" placeholder="Url" />
-          </label>
-          <label htmlFor="Theme">
-            <input className="input" type="text" placeholder="Thématique" />
-          </label>
-          <label className="desc" htmlFor="Desc">
+          <label className="desc" htmlFor="description">
             <textarea
               className="input i-desc"
               type="text"
+              name="description"
+              onChange={(e) => setDesc(e.target.value)}
               placeholder="Description"
             />
           </label>

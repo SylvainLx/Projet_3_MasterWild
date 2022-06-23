@@ -10,10 +10,12 @@ exports.getAll = async () => {
   }
 };
 
-exports.createOne = async (img) => {
+exports.createOne = async (file) => {
   try {
     return await prisma.photo.create({
-      data: img,
+      data: {
+        source: file.filename,
+      },
     });
   } finally {
     await prisma.$disconnect();
