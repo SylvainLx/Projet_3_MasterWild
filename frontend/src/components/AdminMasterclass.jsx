@@ -2,11 +2,32 @@ import "../style/Admin.css";
 import "../style/App.css";
 import axios from "axios";
 import { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 import Select from "react-select";
 import VideoSample from "./VideoSample";
 
-export default function AdminMasterclass() {
+// function formAsyncSubmission(formValues) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       reject(Error("Form submitted"));
+//     }, 2000);
+//   });
+// }
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Le nom de la masterclass est obligatoire"),
+  firstname: Yup.string().required("Le nom est obligatoire"),
+  lastname: Yup.string().required("Le prénom est obligatoire"),
+  category: Yup.string().required("Le thème est obligatoire"),
+  keyword: Yup.string().required("Le mot clé est obligatoire"),
+  photo: Yup.mixed().required("La photo est obligatoire"),
+  description: Yup.string().required("La description est obligatoire"),
+});
+
+function AdminMasterclass() {
+  // eslint-disable-next-line no-unused-vars
   const [files, setFiles] = useState([]);
 
   const optionsTheme = [
@@ -47,20 +68,42 @@ export default function AdminMasterclass() {
     }),
   };
 
+  const initialValues = {
+    name: "",
+    firstname: "",
+    lastname: "",
+    category: "",
+    keyword: "",
+    photo: "",
+    description: "",
+  };
+
   const handlePost = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("file", files[0]);
+    // for (let value in values) {
+    //   formData.append(value, values[value]);
+    // }
 
-    axios
-      .post("http://localhost:5001/masterclass", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => console.log(res));
+    axios.post("http://localhost:5001/masterclass", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    // .then((res) => console.log(res));
   };
+
+  async function handleSubmit(formValues, onSubmittingProps) {
+    try {
+      // await formAsyncSubmission(formValues);
+      // console.log(formValues);
+      onSubmittingProps.resetForm();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -114,50 +157,136 @@ export default function AdminMasterclass() {
         />
       </section>
       <section className="add-masterclass">
-        <form className="form-masterclass" onSubmit={handlePost}>
-          <label htmlFor="title">
-            <input
-              className="input"
-              type="text"
-              placeholder="Titre de la video"
-            />
-          </label>
-          <label htmlFor="Mots clés">
-            <input className="input" type="text" placeholder="Mots Clés" />
-          </label>
-          <label htmlFor="uploaded_picture">
-            <input
-              onChange={(e) => setFiles(e.target.files)}
-              className="input"
-              type="file"
-              name="upload_picture"
-              placeholder="Photo"
-            />
-          </label>
-          <label htmlFor="Name">
-            <input className="input" type="text" placeholder="Nom célébrité" />
-          </label>
-          <label htmlFor="uploaded_masterclass">
-            <input
-              className="input"
-              type="text"
-              name="upload_masterclass"
-              placeholder="Url"
-            />
-          </label>
-          <label htmlFor="Theme">
-            <input className="input" type="text" placeholder="Thématique" />
-          </label>
-          <label className="desc" htmlFor="Desc">
-            <textarea
-              className="input i-desc"
-              type="text"
-              placeholder="Description"
-            />
-          </label>
-          <input className="btnSend" type="submit" />
-        </form>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={(handlePost, handleSubmit)}
+        >
+          {(formik) => (
+            <Form>
+              <div>
+                <Field
+                  name="name"
+                  type="text"
+                  className="input"
+                  placeholder="Titre de la vidéo"
+                  id="name"
+                />
+                <ErrorMessage
+                  name="name"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div>
+                <Field
+                  name="category"
+                  type="email"
+                  className="input"
+                  placeholder="Catégories"
+                  id="category"
+                />
+                <ErrorMessage
+                  name="category"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div>
+                <Field
+                  name="keyword"
+                  type="email"
+                  className="input"
+                  placeholder="Mots-clés"
+                  id="keyword"
+                />
+                <ErrorMessage
+                  name="keyword"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div>
+                <Field
+                  name="lastname"
+                  type="text"
+                  className="input"
+                  placeholder="Nom de la célébrité"
+                  id="lastname"
+                />
+                <ErrorMessage
+                  name="lastname"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div>
+                <Field
+                  name="firstname"
+                  type="text"
+                  className="input"
+                  placeholder="Prénom de la célébrité"
+                  id="firstname"
+                />
+                <ErrorMessage
+                  name="firstname"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <input
+                onChange={(event) => {
+                  setFiles("file", event.currentTarget.files[0]);
+                }}
+                className="input"
+                type="file"
+                name="upload_picture"
+                placeholder="Photo"
+                id="upload_picture"
+              />
+              <div>
+                <Field
+                  name="source"
+                  type="text"
+                  className="input"
+                  placeholder="Lien de la vidéo"
+                  id="source"
+                />
+                <ErrorMessage
+                  name="source"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div>
+                <Field
+                  name="description"
+                  type="text"
+                  className="input"
+                  placeholder="Description de la masterclass"
+                  id="description"
+                />
+                <ErrorMessage
+                  name="description"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="btnSend"
+                  disabled={!formik.isValid || formik.isSubmitting}
+                >
+                  Valider
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </section>
     </div>
   );
 }
+
+export default AdminMasterclass;

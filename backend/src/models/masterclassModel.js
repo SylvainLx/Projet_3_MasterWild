@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 exports.getAll = async () => {
   try {
     return await prisma.file_uploaded.findMany();
+    // eslint-disable-next-line no-useless-catch
   } catch (e) {
     throw e;
   } finally {
@@ -17,6 +18,7 @@ exports.createOne = async (img) => {
     return await prisma.file_uploaded.create({
       data: img,
     });
+    // eslint-disable-next-line no-useless-catch
   } catch (e) {
     throw e;
   } finally {
@@ -29,6 +31,7 @@ exports.deleteOne = async (id) => {
     return await prisma.file_uploaded.delete({
       where: { id },
     });
+    // eslint-disable-next-line no-useless-catch
   } catch (e) {
     throw e;
   } finally {
