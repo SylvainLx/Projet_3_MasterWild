@@ -5,6 +5,7 @@ const { encodeJWT } = require("../helpers/jwtHelper");
 exports.login = (req, res) => {
   const { email, password } = req.body;
   userDataAccess.findByEmail(email).then((user) => {
+    console.error(user);
     if (!user) {
       res.status(401).send("Invalid credentials");
     } else {

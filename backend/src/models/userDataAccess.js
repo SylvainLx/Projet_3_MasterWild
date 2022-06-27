@@ -24,10 +24,7 @@ exports.createOne = async (newUser) => {
   try {
     return await prisma.user.create({
       data: {
-        firstname: newUser.firstname,
-        lastname: newUser.lastname,
-        email: newUser.email,
-        password: newUser.hash,
+        newUser,
       },
     });
   } finally {
@@ -56,11 +53,13 @@ exports.modifyOne = async (userId, user) => {
   }
 };
 
-exports.findByEmail = async (email) => {
+exports.findByEmail = async (userEmail) => {
   try {
-    console.error(email);
+    console.error(userEmail);
     return await prisma.user.findUnique({
-      where: email,
+      where: {
+        email: userEmail,
+      },
     });
   } finally {
     await prisma.$disconnect();

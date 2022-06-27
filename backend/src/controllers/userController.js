@@ -1,17 +1,37 @@
+const Joi = require("joi");
 const userDataAccess = require("../models/userDataAccess");
 const { hashPassword } = require("../helpers/argonHelper");
 
 exports.addOne = (req, res) => {
-  const { firstname, lastname, email, password } = req.body;
-  hashPassword(password)
-    .then((hash) => {
-      userDataAccess
-        .createOne({ firstname, lastname, email, hash })
-        .then((info) => console.error(info))
-        .then((info) => res.status(201).json(info))
-        .catch((err) => res.status(500).send({ err }));
-    })
-    .catch((err) => res.status(500).send({ err }));
+  const { firstname, lastname, email, password, birthdayDate } = req.body;
+  let validationErrors = null;
+
+  // userDataAccess.findByEmail((email) => )
+
+  validationErrors = Joi.object({
+    firstname: Joi.string().max(150).required(),
+    lastname: Joi.string().max(150).required(),
+    email: Joi.string().max(250).required(),
+    password: Joi.string().max(3000).required(),
+    birthdayDate: Joi.date(),
+  }).validate(
+    { firstname, lastname, email, password, birthdayDate },
+    { abortEarly: false }
+  ).error;
+  console.error(validationErrors);
+  if (validationErrors) {
+    Promise.reject(new Error("INVALID_DATA"));
+  } else {
+    hashPassword(password)
+      .then((hash) => {
+        userDataAccess
+          .createOne({ ...req.body, password: hash })
+          .then((info) => console.error(info))
+          .then((info) => res.status(201).json(info))
+          .catch((err) => res.status(500).send({ err }));
+      })
+      .catch((err) => res.status(500).send({ err }));
+  }
 };
 
 exports.getOne = (req, res) => {
