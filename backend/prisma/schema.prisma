@@ -7,13 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model author {
+model entreprise {
   Id          Int           @id @default(autoincrement())
-  firstname   String        @db.VarChar(150)
-  lastname    String        @db.VarChar(150)
+  name        String        @db.VarChar(150)
   speciality  String        @db.VarChar(150)
+  logo_source String        @db.VarChar(250)
+  logo_name   String        @db.VarChar(150)
   masterclass masterclass[]
-  photo       photo[]
 }
 
 model category {
@@ -41,17 +41,17 @@ model keyword {
 
 model masterclass {
   Id                       Int                        @default(autoincrement())
-  name                     String                     @db.VarChar(150)
+  title                    String                     @db.VarChar(150)
   source                   String                     @db.VarChar(1000)
   description              String                     @db.VarChar(3000)
-  author_Id                Int
-  author                   author                     @relation(fields: [author_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_author1")
+  entreprise_Id            Int
+  entreprise               entreprise                 @relation(fields: [entreprise_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_entreprise1")
   favorite                 favorite[]
   masterclass_has_category masterclass_has_category[]
   masterclass_has_keyword  masterclass_has_keyword[]
 
-  @@id([Id, author_Id])
-  @@index([author_Id], map: "fk_masterclass_author1_idx")
+  @@id([Id, entreprise_Id])
+  @@index([entreprise_Id], map: "fk_masterclass_entreprise1_idx")
 }
 
 model masterclass_has_category {
@@ -76,22 +76,11 @@ model masterclass_has_keyword {
   @@index([masterclass_Id], map: "fk_masterclass_has_keyword_masterclass1_idx")
 }
 
-model photo {
-  Id        Int    @default(autoincrement())
-  name      String @db.VarChar(150)
-  source    String @db.VarChar(255)
-  author_Id Int
-  author    author @relation(fields: [author_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_photo_author1")
-
-  @@id([Id, author_Id])
-  @@index([author_Id], map: "fk_photo_author1_idx")
-}
-
 model user {
   Id            Int        @id @default(autoincrement())
   firstname     String     @db.VarChar(150)
   lastname      String     @db.VarChar(150)
-  email         String     @db.VarChar(255)
+  email         String     @unique @db.VarChar(255)
   password      String     @db.VarChar(3000)
   birthday_date DateTime?  @db.DateTime(0)
   role          String?    @db.VarChar(3000)
