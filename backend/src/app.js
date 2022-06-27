@@ -27,11 +27,11 @@ const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
 
+app.use("/api", router);
+
 router.use("/admin", adminRoutes);
 router.use("/user", userRoutes);
 router.use("/auth", authRoutes);
-
-app.use("/api", router);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {

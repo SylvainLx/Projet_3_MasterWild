@@ -1,9 +1,23 @@
+// import * as yup from 'yup';
 const userDataAccess = require("../models/userDataAccess");
 const { hashPassword } = require("../helpers/argonHelper");
 
 exports.addOne = (req, res) => {
   const { firstname, lastname, email, password, birthday } = req.body;
   console.error(password);
+
+  // let schema = yup.object().shape({
+  //   firstname: yup.string().required(),
+  //   lastname: yup.string().required(),
+  //   email: yup.string().email().required(),
+  //   password: yup.string().min(8).required(),
+  //   birthday: yup.date(),
+  // });
+
+  // schema.isValid({ user })
+  //  .then(function (valid) {
+  //    valid;
+  //  });
 
   hashPassword(password)
     .then((hash) => {
@@ -56,6 +70,19 @@ exports.deleteOne = (req, res) => {
 exports.updateOne = (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const { password } = req.body;
+
+  // let schema = yup.object().shape({
+  //   firstname: yup.string().required(),
+  //   lastname: yup.string().required(),
+  //   email: yup.string().email().required(),
+  //   password: yup.string().min(8).required(),
+  //   birthday: yup.date(),
+  // });
+
+  // schema.isValid({ user })
+  //  .then(function (valid) {
+  //    valid;
+  //  });
 
   if (password) {
     hashPassword(password)
