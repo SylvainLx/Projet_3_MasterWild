@@ -1,9 +1,10 @@
 -- CreateTable
-CREATE TABLE `author` (
+CREATE TABLE `entreprise` (
     `Id` INTEGER NOT NULL AUTO_INCREMENT,
-    `firstname` VARCHAR(150) NOT NULL,
-    `lastname` VARCHAR(150) NOT NULL,
+    `name` VARCHAR(150) NOT NULL,
     `speciality` VARCHAR(150) NOT NULL,
+    `logo_source` VARCHAR(250) NOT NULL,
+    `logo_name` VARCHAR(150) NOT NULL,
 
     PRIMARY KEY (`Id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -37,13 +38,13 @@ CREATE TABLE `keyword` (
 -- CreateTable
 CREATE TABLE `masterclass` (
     `Id` INTEGER NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(150) NOT NULL,
+    `title` VARCHAR(150) NOT NULL,
     `source` VARCHAR(1000) NOT NULL,
     `description` VARCHAR(3000) NOT NULL,
-    `author_Id` INTEGER NOT NULL,
+    `entreprise_Id` INTEGER NOT NULL,
 
-    INDEX `fk_masterclass_author1_idx`(`author_Id`),
-    PRIMARY KEY (`Id`, `author_Id`)
+    INDEX `fk_masterclass_entreprise1_idx`(`entreprise_Id`),
+    PRIMARY KEY (`Id`, `entreprise_Id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
@@ -67,17 +68,6 @@ CREATE TABLE `masterclass_has_keyword` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `photo` (
-    `Id` INTEGER NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(150) NOT NULL,
-    `source` VARCHAR(255) NOT NULL,
-    `author_Id` INTEGER NOT NULL,
-
-    INDEX `fk_photo_author1_idx`(`author_Id`),
-    PRIMARY KEY (`Id`, `author_Id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
 CREATE TABLE `user` (
     `Id` INTEGER NOT NULL AUTO_INCREMENT,
     `firstname` VARCHAR(150) NOT NULL,
@@ -87,6 +77,7 @@ CREATE TABLE `user` (
     `birthday_date` DATETIME(0) NULL,
     `role` VARCHAR(3000) NULL,
 
+    UNIQUE INDEX `user_email_key`(`email`),
     PRIMARY KEY (`Id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -97,7 +88,7 @@ ALTER TABLE `favorite` ADD CONSTRAINT `fk_user_has_masterclass_masterclass10` FO
 ALTER TABLE `favorite` ADD CONSTRAINT `fk_user_has_masterclass_user10` FOREIGN KEY (`user_Id`) REFERENCES `user`(`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE `masterclass` ADD CONSTRAINT `fk_masterclass_author1` FOREIGN KEY (`author_Id`) REFERENCES `author`(`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `masterclass` ADD CONSTRAINT `fk_masterclass_entreprise1` FOREIGN KEY (`entreprise_Id`) REFERENCES `entreprise`(`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
 ALTER TABLE `masterclass_has_category` ADD CONSTRAINT `fk_masterclass_has_category_category1` FOREIGN KEY (`category_Id`) REFERENCES `category`(`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -110,6 +101,3 @@ ALTER TABLE `masterclass_has_keyword` ADD CONSTRAINT `fk_masterclass_has_keyword
 
 -- AddForeignKey
 ALTER TABLE `masterclass_has_keyword` ADD CONSTRAINT `fk_masterclass_has_keyword_masterclass1` FOREIGN KEY (`masterclass_Id`) REFERENCES `masterclass`(`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- AddForeignKey
-ALTER TABLE `photo` ADD CONSTRAINT `fk_photo_author1` FOREIGN KEY (`author_Id`) REFERENCES `author`(`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

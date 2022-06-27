@@ -21,6 +21,7 @@ exports.findOne = async (id) => {
 };
 
 exports.createOne = async (newUser) => {
+  console.error(newUser);
   try {
     return await prisma.user.create({
       data: {

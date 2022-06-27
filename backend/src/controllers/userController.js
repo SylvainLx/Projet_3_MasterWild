@@ -4,7 +4,6 @@ const { hashPassword } = require("../helpers/argonHelper");
 
 exports.addOne = (req, res) => {
   const { firstname, lastname, email, password, birthday } = req.body;
-  console.error(password);
 
   // let schema = yup.object().shape({
   //   firstname: yup.string().required(),
@@ -31,7 +30,7 @@ exports.addOne = (req, res) => {
         })
         .then((info) => console.error(info))
         .then((info) => res.status(201).json(info))
-        .catch((err) => res.status(500).send({ err }));
+        .catch((err) => res.status(300).send({ err }));
     })
     .catch((err) => res.status(500).send({ err }));
 };
