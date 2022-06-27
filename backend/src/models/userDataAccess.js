@@ -24,9 +24,7 @@ exports.createOne = async (newUser) => {
   console.error(newUser);
   try {
     return await prisma.user.create({
-      data: {
-        newUser,
-      },
+      data: newUser,
     });
   } finally {
     await prisma.$disconnect();

@@ -1,22 +1,25 @@
-// import * as yup from 'yup';
+const yup = require("yup");
 const userDataAccess = require("../models/userDataAccess");
 const { hashPassword } = require("../helpers/argonHelper");
 
-exports.addOne = (req, res) => {
+exports.addOne = async (req, res) => {
   const { firstname, lastname, email, password, birthday } = req.body;
 
-  // let schema = yup.object().shape({
-  //   firstname: yup.string().required(),
-  //   lastname: yup.string().required(),
-  //   email: yup.string().email().required(),
-  //   password: yup.string().min(8).required(),
-  //   birthday: yup.date(),
-  // });
+  const schema = yup.object().shape({
+    firstname: yup.string().required(),
+    lastname: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(8).required(),
+    birthday: yup.date(),
+  });
 
-  // schema.isValid({ user })
-  //  .then(function (valid) {
-  //    valid;
-  //  });
+  await schema.validate({
+    firstname,
+    lastname,
+    email,
+    password,
+    birthday,
+  });
 
   hashPassword(password)
     .then((hash) => {
@@ -30,7 +33,7 @@ exports.addOne = (req, res) => {
         })
         .then((info) => console.error(info))
         .then((info) => res.status(201).json(info))
-        .catch((err) => res.status(300).send({ err }));
+        .catch((err) => res.status(500).send({ err }));
     })
     .catch((err) => res.status(500).send({ err }));
 };
