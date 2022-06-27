@@ -3,7 +3,6 @@ const path = require("path");
 const masterclassController = require("../models/masterclassManager");
 
 exports.addOne = async (req, res) => {
-  console.log(req.body.text);
   if (!req.file && !req.body) {
     res.sendStatus(400);
   } else {
