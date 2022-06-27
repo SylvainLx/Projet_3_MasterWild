@@ -10,45 +10,45 @@ exports.getAll = async () => {
   }
 };
 
-exports.createOne = async (file, body) => {
+exports.createOne = async (masterclass) => {
   try {
     return await prisma.masterclass.create({
       data: {
-        name: body.name,
-        source: file.filename,
-        description: body.description,
+        name: masterclass[0],
+        source: masterclass.filename,
+        description: masterclass[6],
         author: {
           connectOrCreate: {
             where: {
-              firstname: body.firstname,
-              lastname: body.lastname,
-              speciality: body.speciality,
+              firstname: masterclass[1].firstname,
+              lastname: masterclass[2].lastname,
+              speciality: masterclass[7].speciality,
               photo: {
                 connectOrCreate: {
                   where: {
-                    name: body.name,
-                    source: body.source,
+                    name: masterclass[0].name,
+                    source: masterclass[3].source,
                   },
                   create: {
-                    name: body.name,
-                    source: body.source,
+                    name: masterclass[0].name,
+                    source: masterclass[3].source,
                   },
                 },
               },
             },
             create: {
-              firstname: body.firstname,
-              lastname: body.lastname,
-              speciality: body.speciality,
+              firstname: masterclass[1].firstname,
+              lastname: masterclass[2].lastname,
+              speciality: masterclass[6].speciality,
               photo: {
                 connectOrCreate: {
                   where: {
-                    name: body.name,
-                    source: body.source,
+                    name: masterclass.name,
+                    source: masterclass.source,
                   },
                   create: {
-                    name: body.name,
-                    source: body.source,
+                    name: masterclass.name,
+                    source: masterclass.source,
                   },
                 },
               },
@@ -58,20 +58,20 @@ exports.createOne = async (file, body) => {
         category: {
           connectOrCreate: {
             where: {
-              name: body.name,
+              name: masterclass.name,
             },
             create: {
-              name: body.name,
+              name: masterclass.name,
             },
           },
         },
         keyword: {
           connectOrCreate: {
             where: {
-              name: body.name,
+              name: masterclass[5].name,
             },
             create: {
-              name: body.name,
+              name: masterclass[5].name,
             },
           },
         },
