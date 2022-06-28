@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-import Hugo from "../assets/hugoclement.png";
-import Harry from "../assets/harryroselmack.png";
-import Xavier from "../assets/xavierniel.png";
+import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
+import Picto from "../assets/pictures/PICTOS_WCS-11.png";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
 
@@ -56,14 +55,20 @@ export default function Inscription() {
     <div>
       <div className="introSinscrire">
         <h2 className="titleInsc">
-          S' <span className="monoLetter">I</span>nscrire
+          <p>S'inscrire</p>
         </h2>
       </div>
       <div className="pageInsc">
         <div className="divPicIntro">
-          <img className="picStar" src={Hugo} alt="Hugo Clément" />
+          <img className="picStar" src={Pattern} alt="logo wild code school" />
+        </div>
+        <div className="divPicIntrobis">
+          <img className="picStar" src={Picto} alt="logo wild code school" />
         </div>
         <form className="formInsc" onSubmit={postUser}>
+          <h2 className="titleInscbis">
+            <p>S'inscrire</p>
+          </h2>
           <input
             type="text"
             className="login-input"
@@ -103,7 +108,7 @@ export default function Inscription() {
           </div>
           <label htmlFor="CGV" className="checkBinsc">
             <input
-              className="blabla"
+              className="cgv-check"
               type="checkbox"
               name="name"
               id="CGV"
@@ -113,7 +118,7 @@ export default function Inscription() {
           </label>
           <label htmlFor="NsL" className="checkBinsc">
             <input
-              className="blabla"
+              className="cgv-check"
               type="checkbox"
               name="name"
               id="NsL"
@@ -123,21 +128,16 @@ export default function Inscription() {
           </label>
           <Link className="linkInsc" to="/">
             <button type="submit" className="login-button">
-              Je m'inscris
+              je m'inscris
             </button>
           </Link>
         </form>
         <div className="secoPart">
-          <div className="mosaicStar">
-            <img className="picStar" src={Hugo} alt="hugo clement" />
-            <img className="picStar" src={Harry} alt="harry roselmack" />
-            <img className="picStar" src={Xavier} alt="xiavier niel" />
-          </div>
           <div className="goInscrip">
             <p className="textInsc">Déjà un compte ?</p>
             <Link className="linkInsc" to="/connexion">
               <button type="submit" className="login-button">
-                Se connecter
+                se connecter
               </button>
             </Link>
           </div>

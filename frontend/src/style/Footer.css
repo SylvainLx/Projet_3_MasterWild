@@ -18,8 +18,10 @@
 }
 
 .logoFooter {
+  display: block;
+  margin: 0 auto;
   padding: 2em;
-  max-width: 90%;
+  max-width: 50%;
 }
 
 .linksFooter {
@@ -56,7 +58,7 @@
 }
 
 .logo-width {
-  max-width: 50%;
+  max-width: 40%;
 }
 /* media querie */
 
@@ -69,7 +71,7 @@
   }
 
   .divLogoFooter {
-    width: 15%;
+    width: 30%;
   }
 
   .linkIntern {
@@ -91,6 +93,6 @@
   }
 
   .logo-width {
-    max-width: 40%;
+    max-width: 30%;
   }
 }
