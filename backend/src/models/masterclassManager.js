@@ -4,74 +4,32 @@ const prisma = new PrismaClient();
 
 exports.getAll = async () => {
   try {
-    return await prisma.photo.findMany();
+    return await prisma.category.findMany();
   } finally {
     await prisma.$disconnect();
   }
 };
 
-exports.createOne = async (masterclass) => {
+exports.createOne = async (masterclass, file) => {
   try {
-    return await prisma.masterclass.create({
+    await prisma.masterclass.create({
       data: {
-        name: masterclass[0],
-        source: masterclass.filename,
-        description: masterclass[6],
-        author: {
+        title: masterclass[0],
+        source: masterclass[2],
+        description: masterclass[3],
+        entreprise: {
           connectOrCreate: {
             where: {
-              firstname: masterclass[1].firstname,
-              lastname: masterclass[2].lastname,
-              speciality: masterclass[7].speciality,
-              photo: {
-                connectOrCreate: {
-                  where: {
-                    name: masterclass[0].name,
-                    source: masterclass[3].source,
-                  },
-                  create: {
-                    name: masterclass[0].name,
-                    source: masterclass[3].source,
-                  },
-                },
-              },
+              name: masterclass[1],
+              speciality: masterclass[5],
+              logo_source: file.filename,
+              logo_name: masterclass[1],
             },
             create: {
-              firstname: masterclass[1].firstname,
-              lastname: masterclass[2].lastname,
-              speciality: masterclass[6].speciality,
-              photo: {
-                connectOrCreate: {
-                  where: {
-                    name: masterclass.name,
-                    source: masterclass.source,
-                  },
-                  create: {
-                    name: masterclass.name,
-                    source: masterclass.source,
-                  },
-                },
-              },
-            },
-          },
-        },
-        category: {
-          connectOrCreate: {
-            where: {
-              name: masterclass.name,
-            },
-            create: {
-              name: masterclass.name,
-            },
-          },
-        },
-        keyword: {
-          connectOrCreate: {
-            where: {
-              name: masterclass[5].name,
-            },
-            create: {
-              name: masterclass[5].name,
+              name: masterclass[1],
+              speciality: masterclass[5],
+              logo_source: file.filename,
+              logo_name: masterclass[1],
             },
           },
         },

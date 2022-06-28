@@ -47,8 +47,7 @@ export default function AdminMasterclass() {
 
   const [photo, setPhoto] = useState([]);
   const [title, setTitle] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+  const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [source, setSource] = useState("");
   const [theme, setTheme] = useState("");
@@ -60,14 +59,14 @@ export default function AdminMasterclass() {
     const formData = new FormData();
 
     formData.append("text", title);
-    formData.append("text", firstname);
-    formData.append("text", lastname);
+    formData.append("text", name);
     formData.append("text", source);
+    formData.append("file", name);
+    formData.append("text", desc);
+    formData.append("text", speciality);
     formData.append("text", theme);
     formData.append("text", keyword);
     formData.append("file", photo[0]);
-    formData.append("text", desc);
-    formData.append("text", speciality);
 
     axios.post(
       "http://localhost:5001/masterclass",
@@ -147,25 +146,16 @@ export default function AdminMasterclass() {
               type="text"
               name="title"
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Titre de la video"
+              placeholder="Titre de la masterclass"
             />
           </label>
-          <label htmlFor="firstname">
+          <label htmlFor="name">
             <input
               className="input"
               type="text"
-              name="firstname"
-              onChange={(e) => setFirstname(e.target.value)}
-              placeholder="Prénom Célébrité"
-            />
-          </label>
-          <label htmlFor="lastname">
-            <input
-              className="input"
-              type="text"
-              name="lastname"
-              onChange={(e) => setLastname(e.target.value)}
-              placeholder="Nom Célébrité"
+              name="name"
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Nom de l'entreprisee"
             />
           </label>
           <label htmlFor="speciality">
@@ -174,7 +164,7 @@ export default function AdminMasterclass() {
               type="text"
               name="speciality"
               onChange={(e) => setSpeciality(e.target.value)}
-              placeholder="Métier Célébrité"
+              placeholder="Spécialité - domaine"
             />
           </label>
           <label htmlFor="source">
@@ -183,7 +173,7 @@ export default function AdminMasterclass() {
               type="text"
               name="source"
               onChange={(e) => setSource(e.target.value)}
-              placeholder="Lien de la video"
+              placeholder="Lien YT de la video"
             />
           </label>
           <label htmlFor="category">
@@ -191,7 +181,7 @@ export default function AdminMasterclass() {
               className="input"
               type="text"
               name="category"
-              onChange={(e) => setTheme(e.target.firstname)}
+              onChange={(e) => setTheme(e.target.value)}
               placeholder="Thématique"
             />
           </label>
@@ -204,13 +194,12 @@ export default function AdminMasterclass() {
               placeholder="Mots Clés"
             />
           </label>
-          <label htmlFor="uploaded_picture">
+          <label htmlFor="logo_source">
             <input
               onChange={(e) => setPhoto(e.target.files)}
               className="input"
               type="file"
-              name="photo"
-              placeholder="Photo"
+              name="logo_source"
             />
           </label>
           <label className="desc" htmlFor="description">
@@ -219,7 +208,7 @@ export default function AdminMasterclass() {
               type="text"
               name="description"
               onChange={(e) => setDesc(e.target.value)}
-              placeholder="Description"
+              placeholder="Description de la masterclass"
             />
           </label>
           <input className="btnSend" type="submit" />
