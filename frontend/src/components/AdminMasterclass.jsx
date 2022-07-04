@@ -58,14 +58,14 @@ export default function AdminMasterclass() {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append("text", title);
-    formData.append("text", name);
-    formData.append("text", source);
+    formData.append("title", title);
+    formData.append("name", name);
+    formData.append("source", source);
     formData.append("file", name);
-    formData.append("text", desc);
-    formData.append("text", speciality);
-    formData.append("text", theme);
-    formData.append("text", keyword);
+    formData.append("description", desc);
+    formData.append("speciality", speciality);
+    formData.append("theme", theme);
+    formData.append("keyword", keyword);
     formData.append("file", photo[0]);
 
     axios.post(

@@ -49,7 +49,7 @@ exports.getOne = async (Id) => {
 // }));
 
 exports.createOne = async (masterclass, file) => {
-  const keywordsFormated = masterclass[6].split(",").map((word) => ({
+  const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
     keyword: {
       connectOrCreate: {
         where: { name: word },

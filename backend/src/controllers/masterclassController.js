@@ -10,14 +10,17 @@ const {
 } = require("../helpers/validateMasterclass");
 
 exports.addOne = async (req, res) => {
-  const title = req.body.text[0];
-  const name = req.body.text[1];
-  const source = req.body.text[2];
-  const description = req.body.text[3];
-  const speciality = req.body.text[4];
-  const category = req.body.text[5];
-  const keyword = req.body.text[6];
+  const { title, name, source, description, speciality, keyword, theme } =
+    req.body;
+  // const title = req.body.text[0];
+  // const name = req.body.text[1];
+  // const source = req.body.text[2];
+  // const description = req.body.text[3];
+  // const speciality = req.body.text[4];
+  // const category = req.body.text[5];
+  // const keyword = req.body.text[6];
 
+  console.log(req.body);
   const errorMasterclass = validateMasterclass({
     title,
     description,
@@ -31,7 +34,7 @@ exports.addOne = async (req, res) => {
     name: keyword,
   });
   const errorCategory = validateCategory({
-    name: category,
+    name: theme,
   });
 
   if (errorMasterclass) {
