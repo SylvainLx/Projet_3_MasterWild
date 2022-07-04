@@ -2,8 +2,8 @@
 
 /* STRUCTURE CARD */
 .card-container {
-  width: 18em;
-  height: 9em;
+  width: 80%;
+  height: 30%;
   background-color: var(--optionnal-text);
   margin: 1em auto;
   padding: 0.8em;
