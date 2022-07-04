@@ -2,16 +2,62 @@ const fs = require("fs");
 const path = require("path");
 const masterclassController = require("../models/masterclassManager");
 
+const {
+  validateMasterclass,
+  validateEntreprise,
+  validateKeyword,
+  validateCategory,
+} = require("../helpers/validateMasterclass");
+
 exports.addOne = async (req, res) => {
-  const dataMasterclass = req.body.text;
+  const title = req.body.text[0];
+  const name = req.body.text[1];
+  const source = req.body.text[2];
+  const description = req.body.text[3];
+  const speciality = req.body.text[4];
+  const category = req.body.text[5];
+  const keyword = req.body.text[6];
+
+  const errorMasterclass = validateMasterclass({
+    title,
+    description,
+    source,
+  });
+  const errorEntreprise = validateEntreprise({
+    name,
+    speciality,
+  });
+  const errorKeyword = validateKeyword({
+    name: keyword,
+  });
+  const errorCategory = validateCategory({
+    name: category,
+  });
+
+  if (errorMasterclass) {
+    console.warn(errorMasterclass);
+    res.status(422).json(errorEntreprise);
+  }
+
+  if (errorEntreprise) {
+    console.warn(errorEntreprise);
+    res.status(422).json(errorEntreprise);
+  }
+
+  if (errorKeyword) {
+    console.warn(errorKeyword);
+    res.status(422).json(errorKeyword);
+  }
+
+  if (errorCategory) {
+    console.warn(errorCategory);
+    res.status(422).json(errorCategory);
+  }
 
   if (!req.file && !req.body) {
     res.sendStatus(400);
   } else {
-    const data = await masterclassController.createOne(
-      dataMasterclass,
-      req.file
-    );
+    const data = await masterclassController.createOne(req.body.text, req.file);
     res.status(201).json(data);
   }
 };
