@@ -185,7 +185,7 @@ export default function AdminMasterclass() {
               placeholder="Thématique"
             />
           </label>
-          <label htmlFor="keyword">
+          {/* <label htmlFor="keyword">
             <input
               className="input"
               type="text"
@@ -193,7 +193,7 @@ export default function AdminMasterclass() {
               onChange={(e) => setKeyword(e.target.value)}
               placeholder="Mots Clés"
             />
-          </label>
+          </label> */}
           <label htmlFor="logo_source">
             <input
               onChange={(e) => setPhoto(e.target.files)}
@@ -209,6 +209,18 @@ export default function AdminMasterclass() {
               name="description"
               onChange={(e) => setDesc(e.target.value)}
               placeholder="Description de la masterclass"
+            />
+          </label>
+          <input className="btnSend" type="submit" />
+        </form>
+        <form className="form-masterclass" onSubmit={handlePost}>
+          <label htmlFor="keyword">
+            <input
+              className="input"
+              type="text"
+              name="keyword"
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="Mots Clés"
             />
           </label>
           <input className="btnSend" type="submit" />

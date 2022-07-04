@@ -17,15 +17,9 @@ model entreprise {
 }
 
 model category {
-<<<<<<< HEAD
-  Id                       Int                        @id @default(autoincrement())
-  name                     String                     @unique @db.VarChar(150)
-  masterclass_has_category masterclass_has_category[]
-=======
   Id          Int           @id @default(autoincrement())
   name        String        @unique @db.VarChar(150)
   masterclass masterclass[]
->>>>>>> 295299b46b7fc3edd62bf863a8f00a846b9c9267
 }
 
 model favorite {
