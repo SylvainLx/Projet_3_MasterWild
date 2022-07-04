@@ -16,6 +16,29 @@ exports.getAll = async () => {
   }
 };
 
+exports.getAllKeywords = async () => {
+  try {
+    return await prisma.keyword.findMany();
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
+exports.getOne = async (Id) => {
+  try {
+    return await prisma.masterclass.findUnique({
+      where: { Id: parseInt(Id, 10) },
+      include: {
+        entreprise: true,
+        category: true,
+        keywords: true,
+      },
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
 // const keywordsFormated = bodyText.keyword.split(",").map((word) => ({
 //   keyword: {
 //     connectOrCreate: {
@@ -71,10 +94,21 @@ exports.createOne = async (masterclass, file) => {
   }
 };
 
-exports.deleteOne = async (id) => {
+exports.editOne = async (Id, data) => {
   try {
-    return await prisma.photo.delete({
-      where: { id },
+    return await prisma.masterclass.update({
+      where: { Id: parseInt(Id, 10) },
+      data,
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
+exports.deleteOne = async (Id) => {
+  try {
+    return await prisma.masterclass.delete({
+      where: { Id: parseInt(Id, 10) },
     });
   } finally {
     await prisma.$disconnect();
