@@ -17,20 +17,24 @@ model entreprise {
 }
 
 model category {
+<<<<<<< HEAD
   Id                       Int                        @id @default(autoincrement())
   name                     String                     @unique @db.VarChar(150)
   masterclass_has_category masterclass_has_category[]
+=======
+  Id          Int           @id @default(autoincrement())
+  name        String        @unique @db.VarChar(150)
+  masterclass masterclass[]
+>>>>>>> 295299b46b7fc3edd62bf863a8f00a846b9c9267
 }
 
 model favorite {
   user_Id        Int
   masterclass_Id Int
-  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_masterclass_masterclass10")
-  user           user        @relation(fields: [user_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_masterclass_user10")
+  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: Cascade, onUpdate: NoAction)
+  user           user        @relation(fields: [user_Id], references: [Id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([user_Id, masterclass_Id])
-  @@index([masterclass_Id], map: "fk_user_has_masterclass_masterclass1_idx")
-  @@index([user_Id], map: "fk_user_has_masterclass_user1_idx")
 }
 
 model keyword {
@@ -40,40 +44,25 @@ model keyword {
 }
 
 model masterclass {
-  Id                       Int                        @default(autoincrement())
-  title                    String                     @db.VarChar(150)
-  source                   String                     @db.VarChar(1000)
-  description              String                     @db.VarChar(3000)
-  entreprise_Id            Int
-  entreprise               entreprise                 @relation(fields: [entreprise_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_entreprise1")
-  favorite                 favorite[]
-  masterclass_has_category masterclass_has_category[]
-  masterclass_has_keyword  masterclass_has_keyword[]
-
-  @@id([Id, entreprise_Id])
-  @@index([entreprise_Id], map: "fk_masterclass_entreprise1_idx")
-}
-
-model masterclass_has_category {
-  masterclass_Id Int
-  category_Id    Int
-  category       category    @relation(fields: [category_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_category_category1")
-  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_category_masterclass")
-
-  @@id([masterclass_Id, category_Id])
-  @@index([category_Id], map: "fk_masterclass_has_category_category1_idx")
-  @@index([masterclass_Id], map: "fk_masterclass_has_category_masterclass_idx")
+  Id            Int                       @id @default(autoincrement())
+  title         String                    @db.VarChar(150)
+  source        String                    @db.VarChar(1000)
+  description   String                    @db.VarChar(3000)
+  entreprise_Id Int?
+  category_Id   Int?
+  entreprise    entreprise?               @relation(fields: [entreprise_Id], references: [Id], onDelete: SetNull)
+  category      category?                 @relation(fields: [category_Id], references: [Id], onDelete: SetNull)
+  favorite      favorite[]
+  keywords      masterclass_has_keyword[]
 }
 
 model masterclass_has_keyword {
   masterclass_Id Int
   keyword_Id     Int
-  keyword        keyword     @relation(fields: [keyword_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_keyword_keyword1")
-  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "fk_masterclass_has_keyword_masterclass1")
+  keyword        keyword     @relation(fields: [keyword_Id], references: [Id], onDelete: Cascade, onUpdate: NoAction)
+  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: Cascade, onUpdate: NoAction)
 
   @@id([masterclass_Id, keyword_Id])
-  @@index([keyword_Id], map: "fk_masterclass_has_keyword_keyword1_idx")
-  @@index([masterclass_Id], map: "fk_masterclass_has_keyword_masterclass1_idx")
 }
 
 model user {
