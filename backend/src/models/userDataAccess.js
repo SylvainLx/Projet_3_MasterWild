@@ -21,7 +21,6 @@ exports.findOne = async (id) => {
 };
 
 exports.createOne = async (newUser) => {
-  console.error(newUser);
   try {
     return await prisma.user.create({
       data: newUser,
@@ -54,7 +53,6 @@ exports.modifyOne = async (userId, user) => {
 
 exports.findByEmail = async (userEmail) => {
   try {
-    console.error(userEmail);
     return await prisma.user.findUnique({
       where: {
         email: userEmail,
