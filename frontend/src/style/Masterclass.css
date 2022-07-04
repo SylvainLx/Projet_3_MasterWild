@@ -29,8 +29,11 @@
 
 /* PARTIE SUGGESTIONS */
 .suggestions {
+  margin: 0;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* BOUTON RETOUR VERS PAGE SEARCH */
@@ -92,9 +95,6 @@
 }
 
 @media screen and (min-width: 767.98px) {
-  .suggestions {
-    margin: inherit;
-  }
   .global-return-button {
     width: 12%;
     height: 5rem;
