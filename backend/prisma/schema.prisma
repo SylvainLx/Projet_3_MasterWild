@@ -9,7 +9,7 @@ datasource db {
 
 model entreprise {
   Id          Int           @id @default(autoincrement())
-  name        String        @db.VarChar(150)
+  name        String        @unique @db.VarChar(150)
   speciality  String        @db.VarChar(150)
   logo_source String        @db.VarChar(250)
   logo_name   String        @db.VarChar(150)
@@ -18,7 +18,7 @@ model entreprise {
 
 model category {
   Id                       Int                        @id @default(autoincrement())
-  name                     String                     @db.VarChar(150)
+  name                     String                     @unique @db.VarChar(150)
   masterclass_has_category masterclass_has_category[]
 }
 
@@ -35,7 +35,7 @@ model favorite {
 
 model keyword {
   Id                      Int                       @id @default(autoincrement())
-  name                    String                    @db.VarChar(150)
+  name                    String                    @unique @db.VarChar(150)
   masterclass_has_keyword masterclass_has_keyword[]
 }
 

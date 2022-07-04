@@ -1,22 +1,23 @@
 const fs = require("fs");
 const path = require("path");
 const masterclassController = require("../models/masterclassManager");
+const keywordController = require("../models/keywordManager");
+const categoryController = require("../models/categoryManager");
 
 exports.addOne = async (req, res) => {
-  const data5 = req.body.text.slice(0, 5);
+  const dataMasterclass = req.body.text.slice(0, 5);
+  const dataKeyword = req.body.text[5];
+  const dataCategory = req.body.text[6];
   if (!req.file && !req.body) {
     res.sendStatus(400);
   } else {
-    const data = await masterclassController.createOne(req.body.text, req.file);
-    const data2 = await masterclassController.createOne(
-      req.body.text,
+    const data = await masterclassController.createOne(
+      dataMasterclass,
       req.file
     );
-    const data3 = await masterclassController.createOne(
-      req.body.text,
-      req.file
-    );
-    res.status(201).json(data, data3, data2, data5);
+    const data2 = await keywordController.createOne(dataKeyword, data.Id);
+    const data3 = await categoryController.createOne(dataCategory, data.Id);
+    res.status(201).json(data, data3, data2);
   }
 };
 

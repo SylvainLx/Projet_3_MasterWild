@@ -2,16 +2,16 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-exports.createOne = async (keyword) => {
+exports.createOne = async (category) => {
   try {
-    await prisma.keyword.create({
+    await prisma.category.create({
       data: {
         connectOrCreate: {
           where: {
-            name: keyword.name,
+            name: category.name,
           },
           create: {
-            name: keyword.name,
+            name: category.name,
           },
         },
       },

@@ -20,16 +20,23 @@ exports.createOne = async (masterclass, file) => {
         entreprise: {
           connectOrCreate: {
             where: {
-              name: masterclass[1],
-              speciality: masterclass[5],
-              logo_source: file.filename,
-              logo_name: masterclass[1],
+              Id: masterclass.Id,
             },
             create: {
               name: masterclass[1],
-              speciality: masterclass[5],
+              speciality: masterclass[4],
               logo_source: file.filename,
               logo_name: masterclass[1],
+            },
+          },
+        },
+        category: {
+          connectOrCreate: {
+            where: {
+              Id: masterclass.Id,
+            },
+            create: {
+              name: masterclass[5],
             },
           },
         },
