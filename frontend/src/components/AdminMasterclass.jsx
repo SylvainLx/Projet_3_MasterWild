@@ -7,8 +7,6 @@ import Select from "react-select";
 import VideoSample from "./VideoSample";
 
 export default function AdminMasterclass() {
-  const [files, setFiles] = useState([]);
-
   const optionsTheme = [
     { value: "theme1", label: "theme 1" },
     { value: "theme1", label: "theme 2" },
@@ -47,18 +45,39 @@ export default function AdminMasterclass() {
     }),
   };
 
+  const [photo, setPhoto] = useState([]);
+  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [source, setSource] = useState("");
+  const [theme, setTheme] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [speciality, setSpeciality] = useState("");
+
   const handlePost = (e) => {
     e.preventDefault();
-
     const formData = new FormData();
 
-    formData.append("file", files[0]);
+    formData.append("title", title);
+    formData.append("name", name);
+    formData.append("source", source);
+    formData.append("file", name);
+    formData.append("description", desc);
+    formData.append("speciality", speciality);
+    formData.append("theme", theme);
+    formData.append("keyword", keyword);
+    formData.append("file", photo[0]);
 
-    axios.post("http://localhost:5001/masterclass", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    axios.post(
+      "http://localhost:5001/masterclass",
+
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
   };
 
   const handleDelete = (e) => {
@@ -66,6 +85,7 @@ export default function AdminMasterclass() {
 
     axios.delete(`http://localhost:5001/masterclass/${id}`);
   };
+
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -124,35 +144,83 @@ export default function AdminMasterclass() {
             <input
               className="input"
               type="text"
-              placeholder="Titre de la video"
+              name="title"
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Titre de la masterclass"
             />
           </label>
-          <label htmlFor="Mots clés">
-            <input className="input" type="text" placeholder="Mots Clés" />
-          </label>
-          <label htmlFor="uploaded_picture">
+          <label htmlFor="name">
             <input
-              onChange={(e) => setFiles(e.target.files)}
+              className="input"
+              type="text"
+              name="name"
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Nom de l'entreprisee"
+            />
+          </label>
+          <label htmlFor="speciality">
+            <input
+              className="input"
+              type="text"
+              name="speciality"
+              onChange={(e) => setSpeciality(e.target.value)}
+              placeholder="Spécialité - domaine"
+            />
+          </label>
+          <label htmlFor="source">
+            <input
+              className="input"
+              type="text"
+              name="source"
+              onChange={(e) => setSource(e.target.value)}
+              placeholder="Lien YT de la video"
+            />
+          </label>
+          <label htmlFor="category">
+            <input
+              className="input"
+              type="text"
+              name="category"
+              onChange={(e) => setTheme(e.target.value)}
+              placeholder="Thématique"
+            />
+          </label>
+          {/* <label htmlFor="keyword">
+            <input
+              className="input"
+              type="text"
+              name="keyword"
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="Mots Clés"
+            />
+          </label> */}
+          <label htmlFor="logo_source">
+            <input
+              onChange={(e) => setPhoto(e.target.files)}
               className="input"
               type="file"
-              name="photo"
-              placeholder="Photo"
+              name="logo_source"
             />
           </label>
-          <label htmlFor="Name">
-            <input className="input" type="text" placeholder="Nom célébrité" />
-          </label>
-          <label htmlFor="Url">
-            <input className="input" type="text" placeholder="Url" />
-          </label>
-          <label htmlFor="Theme">
-            <input className="input" type="text" placeholder="Thématique" />
-          </label>
-          <label className="desc" htmlFor="Desc">
+          <label className="desc" htmlFor="description">
             <textarea
               className="input i-desc"
               type="text"
-              placeholder="Description"
+              name="description"
+              onChange={(e) => setDesc(e.target.value)}
+              placeholder="Description de la masterclass"
+            />
+          </label>
+          <input className="btnSend" type="submit" />
+        </form>
+        <form className="form-masterclass" onSubmit={handlePost}>
+          <label htmlFor="keyword">
+            <input
+              className="input"
+              type="text"
+              name="keyword"
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="Mots Clés"
             />
           </label>
           <input className="btnSend" type="submit" />
