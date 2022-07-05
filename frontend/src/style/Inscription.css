@@ -1,24 +1,38 @@
 @import "../style/App.css";
 
 .introSinscrire {
-  background-color: var(--main-blue);
   color: var(--primary-text);
   display: flex;
   justify-content: end;
+  margin: 1em;
 }
 
 .titleInsc {
   font-size: var(--XL);
+  font-family: "VarelaRound", sans-serif;
   margin-right: 1rem;
+  font-weight: var(--bold);
 }
-.monoLetter {
-  font-size: 200%;
+
+.titleInscbis {
+  display: none;
 }
 
 .divPicIntro {
+  margin: 1em;
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+
+.divPicIntrobis {
+  display: none;
+}
+
+.picStar {
+  border-radius: 10px;
+  width: 25em;
+  height: 2em;
+  object-fit: cover;
 }
 
 /* partie connexion*/
@@ -35,20 +49,21 @@
   height: 1.7em;
   padding-left: 10px;
   font-size: var(--S);
-  background: #fff;
-  border: 1px solid #ccc;
+  background: white;
+  border: 1px solid var(--secondary-text);
   border-radius: 4px;
+  margin: 0.5em;
 }
 
 .passInput {
-  width: 15em;
-  height: 1.7em;
+  width: 15.2em;
+  height: 1.9em;
   padding-left: 10px;
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 1.5em;
   font-size: var(--S);
-  background: #fff;
-  border: 1px solid #ccc;
+  background: white;
+  border: 1px solid var(--secondary-text);
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
@@ -58,7 +73,7 @@
   cursor: pointer;
 }
 
-.blabla {
+.cgv-check {
   height: 1em;
   width: 1em;
 }
@@ -66,6 +81,8 @@
 .checkBinsc {
   font-size: var(--S);
   margin-bottom: 1em;
+  display: flex;
+  align-items: center;
 }
 
 .inputPassText {
@@ -76,54 +93,22 @@
 .buttonShow {
   border: none;
   border-radius: none;
-  background: var(--button-color);
-  color: var(--optionnal-text);
   height: 100%;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
 .login-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding: 0.5rem 2.5rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  color: #ffffff;
-  background-color: var(--main-blue);
-  font-size: var(--S);
-  letter-spacing: 1px;
-  font-weight: var(--semi-bold);
-  transition: all 0.15s linear;
-  cursor: pointer;
-}
-
-.login-button:hover {
-  background-color: var(--primary-text);
-  border-color: var(--main-blue);
-  color: var(--main-blue);
-  transform: translateY(-5px) scale(1.05);
-}
-
-.login-button:active {
-  background-color: transparent;
-  border-color: var(--main-blue);
-  color: var(--main-blue);
-  transform: translateY(5px) scale(0.95);
-}
-
-.login-button:disabled {
-  background-color: rgba(255, 255, 255, 0.16);
-  color: #8e8e93;
-  border-color: #8e8e93;
+  border: none;
+  border-radius: 15px;
+  padding: 6px 10px;
+  background-color: var(--main-red);
+  font-family: "Raleway", sans-serif;
+  color: white;
 }
 
 .textInsc {
-  color: var(--main-blue);
+  color: var(--primary-text);
   font-weight: var(--semi-bold);
   font-size: var(--S);
   margin-top: 1em;
@@ -131,7 +116,7 @@
 }
 
 .iconeEye {
-  height: 90%;
+  height: 100%;
 }
 
 .linkInsc {
@@ -144,37 +129,53 @@
   padding-top: 1em;
 }
 
-.mosaicStar {
-  display: grid;
-  grid-template-columns: repeat(3, 33.33%);
-}
-
 .goInscrip {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.picStar {
-  max-width: 100%;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 /* Media querie */
 
 @media screen and (min-width: 767.98px) {
+  .titleInsc {
+    display: none;
+  }
+  .titleInscbis {
+    display: block;
+    font-family: "VarelaRound", sans-serif;
+    font-size: var(--L);
+    font-weight: var(--bold);
+    color: var(--primary-text);
+  }
+
+  .divPicIntro {
+    display: none;
+  }
+
+  .divPicIntrobis {
+    display: block;
+    justify-self: center;
+  }
+
   .pageInsc {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-left: 1em;
   }
-  .divPicIntro {
-    margin-top: 1em;
-    margin-bottom: 1em;
+
+  .picStar {
+    width: 90%;
+    height: 190%;
+    margin-bottom: 2em;
   }
 
   .formInsc {
     width: 50%;
   }
-  .blabla {
+  .cgv-check {
     height: 1.2em;
     width: 1.2em;
     margin-right: 1em;
@@ -185,9 +186,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-left: 2px solid var(--main-blue);
   }
-  .mosaicStar {
-    width: 95%;
+
+  .login-button {
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .login-button:hover {
+    background-color: var(--secondary-red);
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
+    color: white;
   }
 }

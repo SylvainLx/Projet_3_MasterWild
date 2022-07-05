@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
-import Hugo from "../assets/hugoclement.png";
-import Harry from "../assets/harryroselmack.png";
-import Xavier from "../assets/xavierniel.png";
+
+import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
+import Picto from "../assets/pictures/PICTOS_WCS-11.png";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
 import "../style/Connexion.css";
@@ -30,15 +30,19 @@ export default function Connexion() {
   return (
     <div>
       <div className="introSeConnecter">
-        <h2 className="titleConnexion">
-          Se <span className="monoLetter">C</span>onnecter
-        </h2>
+        <h2 className="titleConnexion">Se connecter</h2>
       </div>
       <div className="pageCo">
         <div className="divPicConnexion">
-          <img className="picStar" src={Hugo} alt="Hugo Clément" />
+          <img className="picStar" src={Pattern} alt="Hugo Clément" />
+        </div>
+        <div className="divPicConnexionbis">
+          <img className="picStar" src={Picto} alt="logo wild code school" />
         </div>
         <form className="formConnection">
+          <h2 className="titleInscbis">
+            <p>Se connecter</p>
+          </h2>
           <input
             type="text"
             className="login-input"
@@ -106,11 +110,6 @@ export default function Connexion() {
           </div>
         </form>
         <div className="secPart">
-          <div className="mosaicStar">
-            <img className="picStar" src={Hugo} alt="hugo clement" />
-            <img className="picStar" src={Harry} alt="harry roselmack" />
-            <img className="picStar" src={Xavier} alt="xiavier niel" />
-          </div>
           <div className="goInscrip">
             <p className="textConnex">Pas encore de compte ?</p>
             <Link className="linkInsc" to="/inscription">
