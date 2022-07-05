@@ -16,9 +16,11 @@ exports.getAll = async () => {
   }
 };
 
-exports.getAllKeywords = async () => {
+exports.getOneKeyword = async (Id) => {
   try {
-    return await prisma.keyword.findMany();
+    return await prisma.keyword.findUnique({
+      where: { Id: parseInt(Id, 10) },
+    });
   } finally {
     await prisma.$disconnect();
   }
@@ -39,15 +41,6 @@ exports.getOne = async (Id) => {
   }
 };
 
-// const keywordsFormated = bodyText.keyword.split(",").map((word) => ({
-//   keyword: {
-//     connectOrCreate: {
-//       where: { name: word },
-//       create: { name: word },
-//     },
-//   },
-// }));
-
 exports.createOne = async (masterclass, file) => {
   const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
     keyword: {
@@ -61,13 +54,13 @@ exports.createOne = async (masterclass, file) => {
   try {
     return await prisma.masterclass.create({
       data: {
-        title: masterclass[0],
-        description: masterclass[3],
-        source: masterclass[2],
+        title: masterclass.title,
+        description: masterclass.description,
+        source: masterclass.source,
         category: {
           connectOrCreate: {
-            where: { name: masterclass[4] },
-            create: { name: masterclass[4] },
+            where: { name: masterclass.speciality },
+            create: { name: masterclass.speciality },
           },
         },
         keywords: {
@@ -75,10 +68,10 @@ exports.createOne = async (masterclass, file) => {
         },
         entreprise: {
           connectOrCreate: {
-            where: { name: masterclass[1] },
+            where: { name: masterclass.name },
             create: {
-              name: masterclass[1],
-              speciality: masterclass[4],
+              name: masterclass.name,
+              speciality: masterclass.speciality,
               logo_name: file.filename,
               logo_source: file.destination,
             },

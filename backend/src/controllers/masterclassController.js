@@ -12,15 +12,7 @@ const {
 exports.addOne = async (req, res) => {
   const { title, name, source, description, speciality, keyword, theme } =
     req.body;
-  // const title = req.body.text[0];
-  // const name = req.body.text[1];
-  // const source = req.body.text[2];
-  // const description = req.body.text[3];
-  // const speciality = req.body.text[4];
-  // const category = req.body.text[5];
-  // const keyword = req.body.text[6];
 
-  console.log(req.body);
   const errorMasterclass = validateMasterclass({
     title,
     description,
@@ -60,7 +52,7 @@ exports.addOne = async (req, res) => {
   if (!req.file && !req.body) {
     res.sendStatus(400);
   } else {
-    const data = await masterclassController.createOne(req.body.text, req.file);
+    const data = await masterclassController.createOne(req.body, req.file);
     res.status(201).json(data);
   }
 };
@@ -92,9 +84,10 @@ exports.getAll = async (req, res) => {
   }
 };
 
-exports.getAllKeywords = async (req, res) => {
+exports.getOneKeyword = async (req, res) => {
+  const { id } = req.params;
   try {
-    const data = await masterclassController.getAllKeywords();
+    const data = await masterclassController.getOneKeyword(id);
     if (data.length === 0) {
       return res.status(404).send("Aucun mot-clé trouvé");
     }
