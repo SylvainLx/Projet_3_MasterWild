@@ -80,11 +80,11 @@ export default function Home() {
       </div>
       <div className="search-exemples">
         <div className="first-block">
-          <h2>Exemples recherches métiers</h2>
+          <h2>Découvrez de nombreux métiers ...</h2>
           <CarouselSearch />
         </div>
         <div className="second-block">
-          <h2>Exemples recherches thématiques</h2>
+          <h2>... et différents domaines technologiques.</h2>
           <CarouselSearch />
         </div>
       </div>

@@ -139,7 +139,6 @@
 }
 
 .divMastHome{
-  background-color: var(--optionnal-text);
   border-radius: 15px;
   padding: 2em 1em;
   display: flex;
@@ -167,6 +166,8 @@
   background-color: var(--main-red);
   font-family: "Raleway", sans-serif;
   color: white;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .info-wsc {
@@ -178,11 +179,21 @@
 }
 
 .intro-wsc {
-  padding: 2.3em 0.4em 2em 0.4em;
+  padding: 2.3em 0.4em 0em 0.4em;
   font-size: var(--M);
   color: var(--primary-text);
   text-align: center;
   line-height: 1.5em;
+}
+
+.picIntro-wsc {
+  max-width: 100%;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.down-page {
+  margin: 1em;
 }
 /*END Mobile Version */
 
@@ -191,6 +202,11 @@
   .top-page {
     margin: 1em;
     margin-left: 8em;
+  }
+
+  .down-page {
+    margin-right: 3em;
+    margin-left: 3em;
   }
 
   .info-top {
@@ -203,6 +219,7 @@
     justify-content: flex-start;
     text-align: left;
     line-height: 1.2em;
+    margin-left: .5em;
   }
 
   .logo-top img {
@@ -228,6 +245,10 @@
     text-align: left;
     padding-left: 2em;
     padding-right: 15em;
+  }
+
+  .divMastHome {
+  background-color: white;
   }
 
   .flex-button {
@@ -283,8 +304,7 @@
   .first-block {
     background-color: var(--optionnal-text);
     border-radius: 20px;
-    margin: 3em 0 10em 0;
-    height: 30em;
+    margin: 3em 0;
   }
 
   .first-block > h2 {
@@ -298,8 +318,7 @@
   .second-block {
     background-color: var(--optionnal-text);
     border-radius: 20px;
-    margin-bottom: 10em;
-    height: 30em;
+    margin-bottom: 3em;
   }
 
   .second-block > h2 {
@@ -329,13 +348,24 @@
     font-weight: 600;
     background-color: var(--main-red);
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 1em;
+    margin-top: 2em;
+    margin-left: 1.5em;
   }
 
   .button-plus:hover {
     background-color: var(--secondary-red);
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
+  }
+  .intro-wsc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .picIntro-wsc {
+    margin-left: 1em;
   }
 }
 /*END Tablet and Laptop Version */
