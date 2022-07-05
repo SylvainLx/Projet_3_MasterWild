@@ -141,6 +141,31 @@
   text-align: center;
   line-height: 1.5em;
 }
+
+.button-plus {
+  border: none;
+  border-radius: 15px;
+  padding: 6px 10px;
+  background-color: var(--main-red);
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+.info-wsc {
+  text-align: center;
+  font-size: var(--XL);
+  color: var(--primary-text);
+  font-weight: var(--bold);
+  font-family: "VarelaRound", sans-serif;
+}
+
+.intro-wsc {
+  padding: 2.3em 0.4em 2em 0.4em;
+  font-size: var(--M);
+  color: var(--primary-text);
+  text-align: center;
+  line-height: 1.5em;
+}
 /*END Mobile Version */
 
 /*START Tablet and Laptop Version */
@@ -151,6 +176,12 @@
   }
 
   .info-top {
+    justify-content: flex-start;
+    text-align: left;
+    line-height: 1.2em;
+  }
+
+  .info-wsc {
     justify-content: flex-start;
     text-align: left;
     line-height: 1.2em;
@@ -170,6 +201,14 @@
     justify-content: flex-start;
     text-align: left;
     padding-left: 0;
+    padding-right: 15em;
+  }
+
+  .intro-wsc {
+    color: var(--primary-text);
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 2em;
     padding-right: 15em;
   }
 
@@ -252,6 +291,28 @@
     font-size: var(--XL);
     text-transform: uppercase;
     font-weight: var(--extra-bold);
+  }
+
+  .pres-wsc {
+    margin: 1em;
+    margin-left: 8em;
+  }
+
+  .button-plus {
+    border: none;
+    border-radius: 40px;
+    height: 2.3rem;
+    font-size: var(--M);
+    font-weight: 600;
+    background-color: var(--main-red);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1em;
+  }
+
+  .button-plus:hover {
+    background-color: var(--secondary-red);
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
   }
 }
 /*END Tablet and Laptop Version */

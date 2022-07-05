@@ -1,8 +1,8 @@
 export default function IntroWCS() {
   return (
     <div className="top-page">
-      <h3 className="info-top">Qui sommes-nous ?</h3>
-      <div className="intro-text">
+      <h3 className="info-wsc">Qui sommes-nous ?</h3>
+      <div className="intro-wsc">
         <p>
           La Wild Code School est une école européenne qui propose des
           programmes de formation tout au long de la vie aux métiers Tech à
@@ -28,7 +28,7 @@ export default function IntroWCS() {
           target="_blank"
           rel="noreferrer"
         >
-          <button type="button" className="button-discover">
+          <button type="button" className="button-plus">
             En savoir plus
           </button>
         </a>
