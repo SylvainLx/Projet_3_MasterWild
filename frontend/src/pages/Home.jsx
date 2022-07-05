@@ -1,3 +1,5 @@
+import IntroHome from "../components/home/IntroHome";
+import IntroWCS from "../components/home/IntroWCS";
 import CarouselSearch from "../components/CarouselSearch";
 import CarouselHome from "../components/CarouselHome";
 
@@ -9,28 +11,7 @@ import "../style/Home.css";
 export default function Home() {
   return (
     <div className="container-home">
-      <div className="top-page">
-        <div>
-          <h1>
-            <p className="info-top">
-              Visionnez nos <span className="accent">masterclasses</span>,<br />
-              retrouvez nos partenaires
-            </p>
-          </h1>
-        </div>
-        <div className="intro-text">
-          <p>
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1 500s, when an unknown printer took a galley of type and
-            scrambled it to make.
-          </p>
-        </div>
-        <div className="flex-button">
-          <button type="button" className="button-discover">
-            découvrez masterwild
-          </button>
-        </div>
-      </div>
+      <IntroHome />
       <div className="carousel-home">
         <CarouselHome />
       </div>
@@ -89,6 +70,7 @@ export default function Home() {
           <CarouselSearch />
         </div>
       </div>
+      <IntroWCS />
     </div>
   );
 }

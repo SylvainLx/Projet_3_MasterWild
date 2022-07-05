@@ -145,10 +145,14 @@
 
 /*START Tablet and Laptop Version */
 @media screen and (min-width: 767.98px) {
+  .top-page {
+    margin: 1em;
+    margin-left: 8em;
+  }
+
   .info-top {
     justify-content: flex-start;
     text-align: left;
-    padding: 1.5em 1em 0 1em;
     line-height: 1.2em;
   }
 
@@ -165,11 +169,11 @@
     color: var(--primary-text);
     justify-content: flex-start;
     text-align: left;
-    padding: 1.5em 15em 1em 2em;
+    padding-left: 0;
+    padding-right: 15em;
   }
 
   .flex-button {
-    margin-left: 2em;
     flex-direction: row;
     justify-content: flex-start;
   }
