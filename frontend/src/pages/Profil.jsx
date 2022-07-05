@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import MyProfil from "../components/profil/MyProfil";
-import MyMCFavoritesList from "../components/MyMCFavoritesList";
+import MyMCFavoritesList from "../components/profil/MyMCFavoritesList";
 import "../style/Profil.css";
 
 export default function Profil() {
