@@ -103,6 +103,7 @@ export default function Inscription() {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={postUser}
+          validateOnMount
         >
           {(formik) => (
             <form className="formInsc">
@@ -145,21 +146,20 @@ export default function Inscription() {
                   component="span"
                 />
               </div>
-              <input
-                type="text"
-                className="login-input"
-                placeholder="Email"
-                onChange={handleMail}
-                required
-              />
               <div className="passInput">
-                <input
-                  className="inputPassText"
-                  type={show ? "password" : "text"}
-                  placeholder="Mot de passe"
-                  onChange={handlePassword}
-                  required
-                />
+                <div onChange={handleLastname}>
+                  <Field
+                    name="password"
+                    placeholder="Mot de passe"
+                    type={show ? "password" : "text"}
+                    className="inputPassText"
+                  />
+                  <ErrorMessage
+                    name="password"
+                    className="text-danger"
+                    component="span"
+                  />
+                </div>
                 <button
                   className="buttonShow"
                   type="button"
@@ -172,16 +172,23 @@ export default function Inscription() {
                   )}
                 </button>
               </div>
-              <label htmlFor="CGV" className="checkBinsc">
-                <input
-                  className="blabla"
-                  type="checkbox"
-                  name="name"
-                  id="CGV"
-                  required
+              <div className="checkBinsc">
+                <Field name="gcu" type="checkbox" className="blabla" id="gcu" />
+                <label className="custom-control-label" htmlFor="gcu">
+                  J'accepte{" "}
+                  <a
+                    href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
+                    _target="blank"
+                  >
+                    les conditions d'utilisation
+                  </a>
+                </label>
+                <ErrorMessage
+                  name="gcu"
+                  className="text-danger"
+                  component="div"
                 />
-                J'accepte les conditions générales.
-              </label>
+              </div>
               <label htmlFor="NsL" className="checkBinsc">
                 <input
                   className="blabla"
@@ -193,7 +200,11 @@ export default function Inscription() {
                 Je souhaite recevoir la newsletter.
               </label>
               <Link className="linkInsc" to="/">
-                <button type="submit" className="login-button">
+                <button
+                  type="submit"
+                  className="login-button"
+                  disabled={!formik.isValid || formik.isSubmitting}
+                >
                   Je m'inscris
                 </button>
               </Link>
