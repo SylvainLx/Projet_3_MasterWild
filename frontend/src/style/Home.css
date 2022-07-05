@@ -349,7 +349,7 @@
     background-color: var(--main-red);
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
     margin-top: 2em;
-    margin-left: 1.5em;
+    margin-left: 6em;
   }
 
   .button-plus:hover {
