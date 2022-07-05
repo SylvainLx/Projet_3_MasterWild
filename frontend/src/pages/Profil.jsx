@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import MyProfil from "../components/MyProfil";
+import MyProfil from "../components/profil/MyProfil";
 import MyMCFavoritesList from "../components/MyMCFavoritesList";
 import "../style/Profil.css";
 
@@ -22,7 +22,7 @@ export default function Profil() {
           onClick={mcFavoriteChange}
           className={`ongletLeft ${selectOnglet ? "ongletLeftActive" : ""}`}
         >
-          Mes Masterclass
+          Mes favoris
         </button>
         <button
           type="button"
@@ -30,7 +30,7 @@ export default function Profil() {
           className={`ongletRight ${!selectOnglet ? "ongletRightActive" : ""}`}
         >
           {" "}
-          Mon Profil
+          Mon profil
         </button>
       </div>
 
