@@ -48,6 +48,18 @@
   justify-content: center;
 }
 
+.flex-mbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.vmasthome {
+  background-color: #f99797bd;
+  padding-bottom: 2em;
+  border-radius: 15px;
+}
+
 .button-discover {
   border: none;
   border-radius: 15px;
@@ -58,13 +70,14 @@
 }
 
 .home-mosaic {
+  padding-top: 1em;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(3, 32.95%);
 }
 
 .square {
-  background-color: var(--main-red);
+  background-color: var(--secondary-red);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -76,7 +89,7 @@
 }
 
 .text {
-  color: var(--primary-text);
+  color: var(--optionnal-text);
   text-align: right;
   font-size: var(--S);
 }
@@ -97,7 +110,7 @@
 }
 
 .square-two {
-  background-color: var(--main-blue);
+  background-color: var(--secondary-red);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -105,7 +118,7 @@
 }
 
 .text-turn {
-  color: var(--primary-text);
+  color: var(--optionnal-text);
   text-align: left;
   font-size: var(--S);
 }
@@ -215,6 +228,11 @@
   .flex-button {
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  .flex-mbutton {
+    flex-direction: row;
+    justify-content: center;
   }
 
   .button-discover {
