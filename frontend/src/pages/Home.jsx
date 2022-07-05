@@ -61,7 +61,8 @@ export default function Home() {
             <source src={flower} type="video/webm" />
             <track default kind="captions" srcLang="en" />
           </video>
-          <div className="vmasthome">
+          <div className="divMastHome">
+            <h3 className="info-wsc">Un large choix de contenu</h3>
             <p className="video-desc">
               Parcourez l'ensemble de nos masterclasses. La Wild Code School
               vous propose des domaines variés à découvrir, grâce à nos
