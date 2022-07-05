@@ -135,10 +135,10 @@
 
 .video-sample-area {
   margin-top: 1.5em;
-  background-color: #f99797bd;
+  background-color: #f9979777;
 }
 
-.divMastHome{
+.divMastHome {
   border-radius: 15px;
   padding: 2em 1em;
   display: flex;
@@ -188,12 +188,16 @@
 
 .picIntro-wsc {
   max-width: 100%;
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .down-page {
   margin: 1em;
+}
+
+.wildMonitor {
+  display: none;
 }
 /*END Mobile Version */
 
@@ -202,6 +206,14 @@
   .top-page {
     margin: 1em;
     margin-left: 8em;
+  }
+
+  .wildMonitor {
+    display: block;
+    margin-right: 2em;
+  }
+  .introHomeMasterwild {
+    display: flex;
   }
 
   .down-page {
@@ -219,7 +231,7 @@
     justify-content: flex-start;
     text-align: left;
     line-height: 1.2em;
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
 
   .logo-top img {
@@ -236,7 +248,7 @@
     justify-content: flex-start;
     text-align: left;
     padding-left: 0;
-    padding-right: 15em;
+    padding-right: 5em;
   }
 
   .intro-wsc {
@@ -248,7 +260,7 @@
   }
 
   .divMastHome {
-  background-color: white;
+    background-color: white;
   }
 
   .flex-button {
