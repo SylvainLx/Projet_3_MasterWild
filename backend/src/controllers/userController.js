@@ -1,65 +1,29 @@
 const userDataAccess = require("../models/userDataAccess");
 const { hashPassword } = require("../helpers/argonHelper");
-const { yupUserCheck } = require("../helpers/yupUserCheck");
 
 exports.addOne = async (req, res) => {
   const { password, email } = req.body;
 
-
-  try {
-    await yupUserCheck(req.body);
-  } catch (err) {
-    res.status(500).send({ err });
-  }
-  hashPassword(password)
-    .then((hash) => {
-      userDataAccess
-        .createOne({
-          ...req.body,
-          password: hash,
-        })
-        .then((user) => console.error(user))
-        .then(() => res.status(201).json({ ...req.body }))
-        .catch((err) => {
-          res.status(500).send({ err });
-        });
-    })
-    .catch((err) => res.status(500).send({ err }));
+  userDataAccess.findByEmail(email).then((user) => {
+    if (user) {
+      res.status(500).send("This email alredy exist");
+    }
+    hashPassword(password)
+      .then((hash) => {
+        userDataAccess
+          .createOne({
+            ...req.body,
+            password: hash,
+          })
+          .then((newUser) => console.error(newUser))
+          .then(() => res.status(201).json({ ...req.body }))
+          .catch((err) => {
+            res.status(500).send({ err });
+          });
+      })
+      .catch((err) => res.status(500).send({ err }));
+  });
 };
-// validationErrors = Movie.validate(req.body, false);
-// if (validationErrors) {
-//  return Promise.reject('INVALID_DATA');
-// } else {
-//   userDataAccess.findByEmail(email).then((user) => {
-//   if (user) {
-//     return Promise.reject('This email alredy exist');
-//   }
-// })
-//   hashPassword(password)
-//     .then((hash) => {
-//       userDataAccess
-//         .createOne({
-//           firstname,
-//           lastname,
-//           email,
-//           password: hash,
-//         })
-//         .then((user) => {
-//           if (validationErrors) return Promise.reject('INVALID_DATA');
-//           return Movie.update(req.params.id, req.body);})
-//         .then(() => res.status(201).json({ ...existingMovie, ...req.body }))
-//         .catch((err) => {
-//           console.error(err);
-//           res.status(500).send({ err });
-//         });
-//     })
-//     .catch((err) => res.status(500).send({ err }));
-// } else {
-//   res.status(401).send("Error");
-// }
-// }
-//
-// };
 
 exports.getOne = (req, res) => {
   const userId = parseInt(req.params.id, 10);
@@ -95,19 +59,6 @@ exports.deleteOne = (req, res) => {
 exports.updateOne = (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const { password } = req.body;
-
-  // let schema = yup.object().shape({
-  //   firstname: yup.string().required(),
-  //   lastname: yup.string().required(),
-  //   email: yup.string().email().required(),
-  //   password: yup.string().min(8).required(),
-  //   birthday: yup.date(),
-  // });
-
-  // schema.isValid({ user })
-  //  .then(function (valid) {
-  //    valid;
-  //  });
 
   if (password) {
     hashPassword(password)

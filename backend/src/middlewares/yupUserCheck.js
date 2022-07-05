@@ -1,6 +1,6 @@
 const yup = require("yup");
 
-const yupUserCheck = async (obj) => {
+const yupUserCheck = async (req, res, next) => {
   const schema = yup.object().shape({
     firstname: yup.string().required(),
     lastname: yup.string().required(),
@@ -9,7 +9,12 @@ const yupUserCheck = async (obj) => {
     birthday: yup.date(),
   });
 
-  return schema.validate(obj);
+  try {
+    await schema.validate(req.body, { abortEarly: false });
+    return next();
+  } catch (err) {
+    return res.status(500).send({ err });
+  }
 };
 
 module.exports = { yupUserCheck };
