@@ -1,8 +1,7 @@
 import { React, useState } from "react";
 import EditProfil from "./EditProfil";
-import "../style/MyProfil.css";
+import "../../style/MyProfil.css";
 import ChangePassword from "./ChangePassword";
-import ChangeAutORenewal from "./ChangeAutoRenewal";
 
 export default function MyProfil() {
   const [editProfil, setEditProfil] = useState(0);
@@ -15,12 +14,6 @@ export default function MyProfil() {
 
   const EditPasswordOpen = () => {
     setEditPassword(!editPassword);
-  };
-
-  const [autoReneval, setAutoReneval] = useState(0);
-
-  const AutoRenevalOpen = () => {
-    setAutoReneval(!autoReneval);
   };
 
   return (
@@ -93,30 +86,6 @@ export default function MyProfil() {
         Changer mon mot de passe
       </button>
       {editPassword ? <ChangePassword /> : ""}
-      <div className="my-subscription-plan">
-        <h1 className="inter-titre">Ma Formule</h1>
-        <div className="text-abonnement">
-          <p>Vous êtes actuellement abonné Premium jusqu'au 26/08/2024</p>
-          <p>
-            renouvellement automatique :{" "}
-            <span className="autosub-green">activé</span>{" "}
-          </p>
-        </div>
-        <a className="button-link" href="/">
-          <button className="button-blue button-profil" type="button">
-            Changer ma formule
-          </button>
-        </a>
-
-        <button
-          onClick={AutoRenevalOpen}
-          className="button-grey button-profil"
-          type="button"
-        >
-          Désactiver mon renouvelement automatique
-        </button>
-        {autoReneval ? <ChangeAutORenewal /> : ""}
-      </div>
     </div>
   );
 }

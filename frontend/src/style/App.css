@@ -148,8 +148,8 @@ table {
 /* VARIABLES */
 :root {
   /*Colors*/
-  --main-red: #f99797;
-  --secondary-red: #f76c6c;
+  --main-red: #f76c6c;
+  --secondary-red: #f99797;
   --primary-text: #39424e;
   --secondary-text: #c8c8c8;
   --optionnal-text: #f1f1f1;
