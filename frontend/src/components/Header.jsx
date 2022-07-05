@@ -16,7 +16,7 @@ const navlinklist = [
   {
     to: "/inscription",
 
-    text: "Inscription",
+    text: "Inscription / Connexion",
   },
 
   {
@@ -29,12 +29,6 @@ const navlinklist = [
     to: "/search",
 
     text: "Search",
-  },
-
-  {
-    to: "/paiement",
-
-    text: "Paiement",
   },
 
   {
