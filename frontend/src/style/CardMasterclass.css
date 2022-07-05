@@ -100,7 +100,6 @@
   .voir-vid {
     width: 23em;
   }
-
   .voir-vid:hover {
     background-color: var(--secondary-red);
     cursor: pointer;
@@ -118,11 +117,5 @@
 
   .voir-vid {
     width: 23.5em;
-  }
-
-  .voir-vid:hover {
-    background-color: var(--secondary-red);
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
   }
 }
