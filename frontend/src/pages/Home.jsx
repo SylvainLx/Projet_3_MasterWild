@@ -1,33 +1,17 @@
+import IntroHome from "../components/home/IntroHome";
+import IntroWCS from "../components/home/IntroWCS";
 import CarouselSearch from "../components/CarouselSearch";
 import CarouselHome from "../components/CarouselHome";
-import SubscribeCard from "../components/SubscribeCard";
 
 import Harry from "../assets/harryroselmack.png";
 import Xavier from "../assets/xavierniel.png";
-import LogoBleu from "../assets/logoattente.png";
 import flower from "../assets/flower.webm";
-import Checked from "../assets/checked.png";
-import CheckedInactive from "../assets/checkedinactive.png";
 import "../style/Home.css";
 
 export default function Home() {
   return (
     <div className="container-home">
-      <div className="top-page">
-        <div className="logo-top">
-          <h1>
-            <img src={LogoBleu} alt="logo-inspiraction" />
-          </h1>
-        </div>
-        <div className="intro-text">
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1 500s, when an unknown printer took a galley of type
-            and scrambled it to make.
-          </p>
-        </div>
-      </div>
+      <IntroHome />
       <div className="carousel-home">
         <CarouselHome />
       </div>
@@ -77,165 +61,16 @@ export default function Home() {
         </div>
       </div>
       <div className="search-exemples">
-        <div className="blue-block">
-          <h2>
-            Exemples recherches <span className="lettrine-search">m</span>étiers
-          </h2>
+        <div className="first-block">
+          <h2>Exemples recherches métiers</h2>
           <CarouselSearch />
         </div>
-        <div className="red-block">
-          <h2>
-            Exemples recherches <span className="lettrine-search">t</span>
-            hématiques
-          </h2>
+        <div className="second-block">
+          <h2>Exemples recherches thématiques</h2>
           <CarouselSearch />
         </div>
       </div>
-
-      <div id="link-subscribe">
-        <div className="subscribe-mobile">
-          <SubscribeCard />
-        </div>
-        <div className="subscribing-area">
-          <h2>2 Offres au choix</h2>
-          <div className="subscribe-container">
-            <div className="subscribe">
-              <div className="subscribe-flex">
-                <div className="subscribe-title">
-                  <h3>Vidéo à la demande</h3>
-                  <p>
-                    5,99€ /<span> vidéo</span>
-                  </p>
-                </div>
-              </div>
-              <div className="options-grid">
-                <div className="box-1">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-2">
-                  <p>option une</p>
-                </div>
-                <div className="box-3">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-4">
-                  <p>option deux</p>
-                </div>
-                <div className="box-5">
-                  <img
-                    className="check-logo"
-                    src={CheckedInactive}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-6">
-                  <p>option trois</p>
-                </div>
-                <div className="box-7">
-                  <img
-                    className="check-logo"
-                    src={CheckedInactive}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-8">
-                  <p>option quatre</p>
-                </div>
-                <div className="box-9">
-                  <img
-                    className="check-logo"
-                    src={CheckedInactive}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-10">
-                  <p>option cinq</p>
-                </div>
-              </div>
-              <div className="flex-button">
-                <button type="button" className="subscribe-button">
-                  Je choisis cette offre
-                </button>
-              </div>
-            </div>
-            <div className="subscribe">
-              <div className="subscribe-flex">
-                <div className="subscribe-title">
-                  <h3>Abonnement mensuel</h3>
-                  <p>
-                    14,99€ /<span> mois</span>
-                  </p>
-                </div>
-              </div>
-              <div className="options-grid">
-                <div className="box-1">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-2">
-                  <p>option une</p>
-                </div>
-                <div className="box-3">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-4">
-                  <p>option deux</p>
-                </div>
-                <div className="box-5">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-6">
-                  <p>option trois</p>
-                </div>
-                <div className="box-7">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-8">
-                  <p>option quatre</p>
-                </div>
-                <div className="box-9">
-                  <img
-                    className="check-logo"
-                    src={Checked}
-                    alt="logo checked"
-                  />
-                </div>
-                <div className="box-10">
-                  <p>option cinq</p>
-                </div>
-              </div>
-              <div className="flex-button">
-                <button type="button" className="subscribe-button">
-                  Je choisis cette offre
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <IntroWCS />
     </div>
   );
 }

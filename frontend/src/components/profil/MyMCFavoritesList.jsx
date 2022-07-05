@@ -1,7 +1,7 @@
 import { React } from "react";
-import VideoSample from "./VideoSample";
-import "../style/MyMCFavoritesList.css";
-import "../style/VideoSample.css";
+import VideoSample from "../VideoSample";
+import "../../style/MyMCFavoritesList.css";
+import "../../style/VideoSample.css";
 
 export default function MyMCFavoritesList() {
   const videoExemple = [
@@ -27,7 +27,7 @@ export default function MyMCFavoritesList() {
       srcPicture: "src/assets/harryroselmack.png",
     },
     {
-      name: "Nom de la Masterclasse",
+      name: "Nom de la Masterclass",
       summary:
         "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
       duration: 7,
@@ -36,7 +36,7 @@ export default function MyMCFavoritesList() {
   ];
 
   return (
-    <div>
+    <div className="show-favorite-videos">
       {videoExemple.map(({ name, summary, duration, srcPicture }) => (
         <VideoSample
           key={name}

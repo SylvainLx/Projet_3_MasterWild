@@ -1,0 +1,11 @@
+@media screen and (min-width: 479.98px) {
+  .show-favorite-videos {
+    margin: 1.5em;
+  }
+}
+
+@media screen and (min-width: 1199.98px) {
+  .show-favorite-videos {
+    margin: 1.5em 5em;
+  }
+}
