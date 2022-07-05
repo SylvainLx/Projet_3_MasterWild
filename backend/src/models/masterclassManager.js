@@ -26,6 +26,14 @@ exports.getOneKeyword = async (Id) => {
   }
 };
 
+exports.getAllKeyword = async () => {
+  try {
+    return await prisma.keyword.findMany();
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
 exports.getOne = async (Id) => {
   try {
     return await prisma.masterclass.findUnique({
@@ -59,8 +67,8 @@ exports.createOne = async (masterclass, file) => {
         source: masterclass.source,
         category: {
           connectOrCreate: {
-            where: { name: masterclass.speciality },
-            create: { name: masterclass.speciality },
+            where: { name: masterclass.theme },
+            create: { name: masterclass.theme },
           },
         },
         keywords: {
@@ -91,7 +99,7 @@ exports.editOne = async (Id, data) => {
   try {
     return await prisma.masterclass.update({
       where: { Id: parseInt(Id, 10) },
-      data,
+      data: { ...data },
     });
   } finally {
     await prisma.$disconnect();

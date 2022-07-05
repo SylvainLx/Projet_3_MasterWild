@@ -13,5 +13,6 @@ router.put("/masterclass/:id", masterclassController.editOne);
 router.delete("/masterclass/:id", masterclassController.deleteOne);
 
 router.get("/keyword/:id", masterclassController.getOneKeyword);
+router.get("/keywords", masterclassController.getAllKeyword);
 
 module.exports = router;

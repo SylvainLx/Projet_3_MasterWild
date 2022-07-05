@@ -98,6 +98,19 @@ exports.getOneKeyword = async (req, res) => {
   }
 };
 
+exports.getAllKeyword = async (req, res) => {
+  try {
+    const data = await masterclassController.getAllKeyword();
+    if (data.length === 0) {
+      return res.status(404).send("Aucun mot-clé trouvé");
+    }
+    return res.status(200).json({ data });
+  } catch (e) {
+    console.warn(e);
+    return res.sendStatus(500);
+  }
+};
+
 exports.editOne = async (req, res) => {
   const { id } = req.params;
   console.warn(req.body);
@@ -107,7 +120,6 @@ exports.editOne = async (req, res) => {
   if (!exitingMasterclass) {
     return res.sendStatus(404);
   }
-
   try {
     const masterclassUpdated = await masterclassController.editOne(
       id,
