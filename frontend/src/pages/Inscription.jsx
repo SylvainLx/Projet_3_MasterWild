@@ -4,7 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 
 import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
-import Picto from "../assets/pictures/PICTOS_WCS-11.png";
+import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
+import Login from "../assets/pictures/peopleLogin.jpg";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
 
@@ -64,12 +65,14 @@ export default function Inscription() {
         <div className="divPicIntro">
           <img className="picStar" src={Pattern} alt="logo wild code school" />
         </div>
-        <div className="divPicIntrobis">
-          <img className="picStar" src={Picto} alt="logo wild code school" />
+        <div>
+          <img className="picLogin" src={Login} alt="login" />
         </div>
         <form className="formInsc" onSubmit={postUser}>
           <h2 className="titleInscbis">
-            <p>S'inscrire</p>
+            <p>
+              <span className="accent">S</span>'inscrire
+            </p>
           </h2>
           <input
             type="text"
@@ -135,6 +138,9 @@ export default function Inscription() {
           </Link>
         </form>
         <div className="secoPart">
+          <div className="divPicIntrobis">
+            <img className="picStar" src={Logo} alt="logo wild code school" />
+          </div>
           <div className="goInscrip">
             <p className="textInsc">Déjà un compte ?</p>
             <Link className="linkInsc" to="/connexion">
