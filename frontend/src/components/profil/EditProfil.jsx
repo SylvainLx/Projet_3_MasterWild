@@ -1,43 +1,55 @@
 import { React } from "react";
-import "../style/MyProfil.css";
+import "../../style/MyProfil.css";
 
-export default function ChangePassword() {
+export default function EditProfil() {
   return (
     <div className="my-profil">
       <table className="user-table">
         <tbody>
           <tr>
-            <td>Password actuel :</td>
+            <td>Nom :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="nom"
                 size="30"
-                value=""
+                value="Dupont"
               />
             </td>
           </tr>
           <tr>
-            <td>Nouveau password :</td>
+            <td>Prénom :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="prenom"
-                value=""
+                value="Léo"
                 size="30"
               />
             </td>
           </tr>
           <tr>
-            <td>Confirmation :</td>
+            <td>Email :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="email"
-                value=""
+                value="léo.dupont@gmail.com"
+                size="30"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Date de naissance :</td>
+            <td>
+              <input
+                readOnly="readonly"
+                type="text"
+                name="date de naissance"
+                value="02/10/1987"
                 size="30"
               />
             </td>
@@ -47,9 +59,6 @@ export default function ChangePassword() {
       <div className="cont-valid-button">
         <button className="button-blue button-profil" type="button">
           Valider
-        </button>
-        <button className="button-grey button-profil" type="button">
-          Abbandonner
         </button>
       </div>
     </div>

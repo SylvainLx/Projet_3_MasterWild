@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-spring-3d-carousel";
-import Harry from "../assets/harryroselmack.png";
-import Xavier from "../assets/xavierniel.png";
-import Hugo from "../assets/hugoclement.png";
+import Andrea from "../assets/pictures/homepage/adreaturcu.png";
+import Agnes from "../assets/pictures/homepage/agnescrepet.png";
+import Garance from "../assets/pictures/homepage/garancelhyvernay.png";
+import Jeremy from "../assets/pictures/homepage/jeremylitaize.png";
+import Joris from "../assets/pictures/homepage/jorisliberati.png";
+import Julien from "../assets/pictures/homepage/julienboyer.png";
 
 export default function CarouselHome() {
   const carouselOptions = {
@@ -18,27 +21,27 @@ export default function CarouselHome() {
   const slides = [
     {
       key: 1,
-      content: <img src={Harry} alt="1" />,
+      content: <img src={Andrea} alt="1" />,
     },
     {
       key: 2,
-      content: <img src={Xavier} alt="2" />,
+      content: <img src={Joris} alt="2" />,
     },
     {
       key: 3,
-      content: <img src={Harry} alt="3" />,
+      content: <img src={Garance} alt="3" />,
     },
     {
       key: 4,
-      content: <img src={Hugo} alt="4" />,
+      content: <img src={Jeremy} alt="4" />,
     },
     {
       key: 5,
-      content: <img src={Harry} alt="5" />,
+      content: <img src={Agnes} alt="5" />,
     },
     {
       key: 6,
-      content: <img src={Xavier} alt="6" />,
+      content: <img src={Julien} alt="6" />,
     },
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };
@@ -49,7 +52,7 @@ export default function CarouselHome() {
   }, [showArrows]);
 
   return (
-    <div style={{ width: "80%", height: "400px", margin: "4rem auto" }}>
+    <div style={{ width: "80%", height: "300px", margin: "2rem auto" }}>
       <Carousel
         className="carousel-style"
         slides={slides}

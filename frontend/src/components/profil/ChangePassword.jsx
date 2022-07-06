@@ -1,55 +1,43 @@
 import { React } from "react";
-import "../style/MyProfil.css";
+import "../../style/MyProfil.css";
 
-export default function EditProfil() {
+export default function ChangePassword() {
   return (
     <div className="my-profil">
       <table className="user-table">
         <tbody>
           <tr>
-            <td>Nom :</td>
+            <td>Mot de passe actuel :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="nom"
                 size="30"
-                value="Dupont"
+                value=""
               />
             </td>
           </tr>
           <tr>
-            <td>Prénom :</td>
+            <td>Nouveau mot de passe :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="prenom"
-                value="Léo"
+                value=""
                 size="30"
               />
             </td>
           </tr>
           <tr>
-            <td>Email :</td>
+            <td>Confirmation :</td>
             <td>
               <input
                 readOnly="readonly"
                 type="text"
                 name="email"
-                value="léo.dupont@gmail.com"
-                size="30"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Date de naissance :</td>
-            <td>
-              <input
-                readOnly="readonly"
-                type="text"
-                name="date de naissance"
-                value="02/10/1987"
+                value=""
                 size="30"
               />
             </td>
@@ -59,9 +47,6 @@ export default function EditProfil() {
       <div className="cont-valid-button">
         <button className="button-blue button-profil" type="button">
           Valider
-        </button>
-        <button className="button-grey button-profil" type="button">
-          Abbandonner
         </button>
       </div>
     </div>
