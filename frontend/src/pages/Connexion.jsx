@@ -30,7 +30,11 @@ export default function Connexion() {
   return (
     <div>
       <div className="introSeConnecter">
-        <h2 className="titleConnexion">Se connecter</h2>
+        <h2 className="titleConnexion">
+          <p>
+            <span className="accent">C</span>onnexion
+          </p>
+        </h2>
       </div>
       <div className="pageCo">
         <div className="divPicConnexion">
@@ -41,7 +45,9 @@ export default function Connexion() {
         </div>
         <form className="formConnection">
           <h2 className="titleInscbis">
-            <p>Se connecter</p>
+            <p>
+              <span className="accent">C</span>onnexion
+            </p>
           </h2>
           <input
             type="text"
