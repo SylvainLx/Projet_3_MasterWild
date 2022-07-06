@@ -11,7 +11,6 @@ exports.login = (req, res) => {
     } else {
       verifyPassword(password, user.password).then((verification) => {
         if (verification) {
-          // delete user.password;
           const token = encodeJWT(user);
           res.cookie("auth_token", token, { httpOnly: true, secure: false });
           res.status(200).json({ username: user.firstname });
