@@ -152,8 +152,8 @@
 }
 
 .video-desc {
-  padding: 2rem;
-  font-size: var(--S);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   color: var(--primary-text);
   text-align: center;
   line-height: 1.5em;
@@ -335,10 +335,11 @@
 
   .second-block > h2 {
     color: var(--primary-text);
-    padding: 0.8em 0 0 1em;
+    padding: 0.8em 1em 0 1em;
     font-family: "VarelaRound", sans-serif;
     font-size: var(--L);
     font-weight: var(--bold);
+    text-align: end;
   }
 
   .lettrine-search {
