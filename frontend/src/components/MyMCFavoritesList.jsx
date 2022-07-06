@@ -1,49 +1,29 @@
-import { React } from "react";
+/* eslint-disable camelcase */
+import { useState, useEffect } from "react";
 import VideoSample from "./VideoSample";
 import "../style/MyMCFavoritesList.css";
 import "../style/VideoSample.css";
+import api from "../services/endpoint";
+
+const userId = 1;
 
 export default function MyMCFavoritesList() {
-  const videoExemple = [
-    {
-      name: "Titre de la Vidéo",
-      summary:
-        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-      duration: 45,
-      srcPicture: "src/assets/harryroselmack.png",
-    },
-    {
-      name: "Nom de la Vidéo",
-      summary:
-        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-      duration: 30,
-      srcPicture: "src/assets/harryroselmack.png",
-    },
-    {
-      name: "Titre de la Masterclass",
-      summary:
-        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-      duration: 15,
-      srcPicture: "src/assets/harryroselmack.png",
-    },
-    {
-      name: "Nom de la Masterclasse",
-      summary:
-        "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-      duration: 7,
-      srcPicture: "src/assets/harryroselmack.png",
-    },
-  ];
+  const [favoriteList, setFavoriteList] = useState([]);
+
+  useEffect(() => {
+    api.get(`/api/favorite/${userId}`).then((res) => {
+      if (res.data.length !== 0) {
+        setFavoriteList(res.data);
+      }
+    });
+  }, []);
 
   return (
     <div>
-      {videoExemple.map(({ name, summary, duration, srcPicture }) => (
+      {favoriteList.map(({ masterclass_Id }) => (
         <VideoSample
-          key={name}
-          name={name}
-          summary={summary}
-          duration={duration}
-          srcPicture={srcPicture}
+          masterclassId={masterclass_Id}
+          key={`${masterclass_Id}_${userId}`}
         />
       ))}
     </div>
