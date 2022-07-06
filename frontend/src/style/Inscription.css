@@ -3,7 +3,7 @@
 .introSinscrire {
   color: var(--primary-text);
   display: flex;
-  justify-content: end;
+  text-align: center;
   margin: 1em;
 }
 
@@ -12,6 +12,10 @@
   font-family: "VarelaRound", sans-serif;
   margin-right: 1rem;
   font-weight: var(--bold);
+}
+
+.accent {
+  color: var(--main-red);
 }
 
 .titleInscbis {
@@ -45,8 +49,8 @@
 }
 
 .login-input {
-  width: 15em;
-  height: 1.7em;
+  width: 23em;
+  height: 2.5em;
   padding-left: 10px;
   font-size: var(--S);
   background: white;
@@ -56,8 +60,8 @@
 }
 
 .passInput {
-  width: 15.2em;
-  height: 1.9em;
+  width: 23.2em;
+  height: 2.7em;
   padding-left: 10px;
   margin-top: 0.5em;
   margin-bottom: 1.5em;
@@ -86,6 +90,7 @@
 }
 
 .inputPassText {
+  width: 100%;
   border: none;
   font-size: var(--S);
 }
@@ -126,15 +131,17 @@
 /* partie inscription*/
 
 .secoPart {
-  padding-top: 1em;
+  padding-top: .5em;
 }
 
 .goInscrip {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin: 1em 2em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-top: 1px solid var(--main-red);
 }
 
 /* Media querie */

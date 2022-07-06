@@ -55,7 +55,9 @@ export default function Inscription() {
     <div>
       <div className="introSinscrire">
         <h2 className="titleInsc">
-          <p>S'inscrire</p>
+          <p>
+            <span className="accent">Inscription</span> en Ligne
+          </p>
         </h2>
       </div>
       <div className="pageInsc">
@@ -124,11 +126,11 @@ export default function Inscription() {
               id="NsL"
               required
             />
-            Je souhaite recevoir la newsletter.
+            Je souhaite recevoir la Wild Flash.
           </label>
           <Link className="linkInsc" to="/">
             <button type="submit" className="login-button">
-              je m'inscris
+              Je m'inscris
             </button>
           </Link>
         </form>
@@ -137,7 +139,7 @@ export default function Inscription() {
             <p className="textInsc">Déjà un compte ?</p>
             <Link className="linkInsc" to="/connexion">
               <button type="submit" className="login-button">
-                se connecter
+                Je me connecte
               </button>
             </Link>
           </div>
