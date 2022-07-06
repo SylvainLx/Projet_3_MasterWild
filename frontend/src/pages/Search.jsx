@@ -5,9 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 
 import LogoSearch from "../assets/search.png";
-import Logo from "../assets/logoattente.png";
 import ArrowDown from "../assets/arrowdown.png";
-import ArrowLeft from "../assets/arrowleft.png";
+import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
 
 export default function Search() {
@@ -45,7 +44,6 @@ export default function Search() {
 
   return (
     <div className="search-page">
-      <img className="inspiractionLogo" src={Logo} alt="Logo InspirAction" />
       <div className="div-title">
         <h2 className="title">
           Les <span className="span-title">M</span>asterclass
@@ -76,31 +74,35 @@ export default function Search() {
               <h3 className="hematiques">HEMATIQUE</h3>
             </div>
             {showTheme ? (
-              <img src={ArrowDown} alt="arrowdown" className="logo-arrow" />
+              <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
             ) : (
-              <img src={ArrowLeft} alt="arrowleft" className="logo-arrow" />
+              <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
             )}
           </button>{" "}
           {showTheme && (
             <div className="result-theme">
               <ul className="list-theme">
-                <li>Art & Entertainment</li>
-                <li>Music</li>
-                <li>Writing</li>
-                <li>Food</li>
-                <li>Business</li>
-                <li>Design & Style</li>
-                <li>Sport & Gaming</li>
-                <li>Science & Tech</li>
-                <li>Community & Gouvernment</li>
-                <li>Wellness</li>
+                <li>Freelance</li>
+                <li>Startup</li>
+                <li>Méthodes agiles</li>
+                <li>Cybersécurité</li>
+                <li>Data</li>
+                <li>IA</li>
+                <li>Machine Learning & Deep learning</li>
+                <li>RGPD</li>
+                <li>UX/UI Design</li>
+                <li>No code</li>
+                <li>PHP</li>
+                <li>JavaScript</li>
+                <li>Angular</li>
+                <li>SEO</li>
+                <li>Blockchain</li>
               </ul>
             </div>
           )}
         </div>
 
         <div className="search-metier">
-          {" "}
           <button
             className="btnSearchMetier"
             type="button"
@@ -113,11 +115,11 @@ export default function Search() {
               <h3 className="etiers">ETIERS</h3>
             </div>
             {showMetiers ? (
-              <img src={ArrowDown} alt="arrowdown" className="logo-arrow" />
+              <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
             ) : (
-              <img src={ArrowLeft} alt="arrowleft" className="logo-arrow" />
+              <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
             )}
-          </button>{" "}
+          </button>
           {showMetiers && (
             <div className="result-metier">
               {" "}
