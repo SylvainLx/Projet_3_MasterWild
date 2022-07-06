@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 
-import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
-import Picto from "../assets/pictures/PICTOS_WCS-11.png";
+import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
+import Login from "../assets/pictures/peopleLogin.jpg";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
 import "../style/Connexion.css";
@@ -30,18 +30,21 @@ export default function Connexion() {
   return (
     <div>
       <div className="introSeConnecter">
-        <h2 className="titleConnexion">Se connecter</h2>
+        <h2 className="titleConnexion">
+          <p>
+            <span className="accent">C</span>onnexion
+          </p>
+        </h2>
       </div>
       <div className="pageCo">
-        <div className="divPicConnexion">
-          <img className="picStar" src={Pattern} alt="Hugo Clément" />
-        </div>
         <div className="divPicConnexionbis">
-          <img className="picStar" src={Picto} alt="logo wild code school" />
+          <img className="logoWild" src={Login} alt="logo wild code school" />
         </div>
         <form className="formConnection">
           <h2 className="titleInscbis">
-            <p>Se connecter</p>
+            <p>
+              <span className="accent">C</span>onnexion
+            </p>
           </h2>
           <input
             type="text"
@@ -110,6 +113,9 @@ export default function Connexion() {
           </div>
         </form>
         <div className="secPart">
+          <div className="divPicIntrobis">
+            <img className="logoWildR" src={Logo} alt="logo wild code school" />
+          </div>
           <div className="goInscrip">
             <p className="textConnex">Pas encore de compte ?</p>
             <Link className="linkInsc" to="/inscription">
