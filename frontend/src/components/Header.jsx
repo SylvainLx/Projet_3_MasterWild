@@ -28,25 +28,25 @@ const navlinklist = [
   {
     to: "/search",
 
-    text: "Search",
+    text: "Recherche / Filtres",
   },
 
   {
     to: "/profil",
 
-    text: "Profil",
+    text: "Mon Profil",
   },
 
   {
     to: "/contact",
 
-    text: "Contact",
+    text: "FAQ / Contact",
   },
 
   {
     to: "/admin",
 
-    text: "Admin",
+    text: "Administrateur",
   },
 ];
 
