@@ -15,12 +15,17 @@
 }
 .linkFooter:hover {
   text-decoration: underline;
+  color: var(--main-red);
+}
+
+.linkwsc {
+  padding-bottom: 1em;
 }
 
 .logoFooter {
   display: block;
   margin: 0 auto;
-  padding: 2em;
+  padding: 2em 2em 1em 2em;
   max-width: 50%;
 }
 
@@ -34,7 +39,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1em;
+  padding-top: 1.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  border-top: 1px solid var(--optionnal-text);
 }
 
 .listIconesRS {
@@ -60,18 +68,27 @@
 .logo-width {
   max-width: 40%;
 }
+.addresswsc {
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 2em;
+  border-top: 1px solid var(--optionnal-text);
+}
 /* media querie */
 
 @media screen and (min-width: 767.98px) {
   .footer {
     flex-direction: row;
-    justify-content: space-evenly;
-    height: 20em;
+    justify-content: space-between;
     margin-top: 0;
   }
 
   .divLogoFooter {
     width: 30%;
+  }
+
+  .linkwsc {
+    height: 100%;
   }
 
   .linkIntern {
@@ -81,13 +98,19 @@
 
   .listeRSfooter {
     padding-top: 0;
+    width: 40%;
   }
 
   .linksFooter {
     align-items: baseline;
   }
 
+  .listeRes {
+    margin-top: 2em;
+  }
+
   .listIconesRS {
+    margin: 0;
     padding-top: 0;
     padding-bottom: 0;
   }

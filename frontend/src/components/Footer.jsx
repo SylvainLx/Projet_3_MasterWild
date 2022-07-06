@@ -16,14 +16,23 @@ export default function Footer() {
           <img className="logoFooter" src={Logo} alt="logo aspiraction" />
         </NavLink>
       </div>
-      <div>
+      <div className="linkwsc">
         <ul className="linksFooter">
           <NavLink className="linkFooter" to="/contact">
             <li className="linkIntern">Foire aux questions</li>
           </NavLink>
-          <NavLink className="linkFooter" to="/">
-            <li className="linkIntern">Mentions légales</li>
-          </NavLink>
+          <a
+            className="linkFooter"
+            href="https://www.wildcodeschool.com/fr-FR/condition-generales-utilisation"
+          >
+            <li className="linkIntern">Conditions Générales d’Utilisation</li>
+          </a>
+          <a
+            className="linkFooter"
+            href="https://www.wildcodeschool.com/fr-FR/charte-donnees-personnelles"
+          >
+            <li className="linkIntern">Charte Données personnelles</li>
+          </a>
         </ul>
       </div>
       <div className="listeRSfooter">
@@ -98,6 +107,11 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+      </div>
+      <div className="addresswsc">
+        18 rue de la gare 28480 La Loupe
+        <br />
+        <br />© 2013-2022 Wild Code School. Tous droits réservés
       </div>
     </div>
   );
