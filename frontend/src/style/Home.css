@@ -48,6 +48,13 @@
   justify-content: center;
 }
 
+.flex-mbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 1em;
+}
+
 .button-discover {
   border: none;
   border-radius: 15px;
@@ -58,13 +65,14 @@
 }
 
 .home-mosaic {
+  padding-top: 1em;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(3, 32.95%);
 }
 
 .square {
-  background-color: var(--main-red);
+  background-color: var(--secondary-red);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -76,7 +84,7 @@
 }
 
 .text {
-  color: var(--primary-text);
+  color: var(--optionnal-text);
   text-align: right;
   font-size: var(--S);
 }
@@ -97,7 +105,7 @@
 }
 
 .square-two {
-  background-color: var(--main-blue);
+  background-color: var(--secondary-red);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -105,7 +113,7 @@
 }
 
 .text-turn {
-  color: var(--primary-text);
+  color: var(--optionnal-text);
   text-align: left;
   font-size: var(--S);
 }
@@ -127,6 +135,15 @@
 
 .video-sample-area {
   margin-top: 1.5em;
+  background-color: #f9979777;
+}
+
+.divMastHome {
+  border-radius: 15px;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .video-sample video {
@@ -135,11 +152,52 @@
 }
 
 .video-desc {
-  padding: 2rem;
-  font-size: var(--S);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   color: var(--primary-text);
   text-align: center;
   line-height: 1.5em;
+}
+
+.button-plus {
+  border: none;
+  border-radius: 15px;
+  padding: 6px 10px;
+  background-color: var(--main-red);
+  font-family: "Raleway", sans-serif;
+  color: white;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.info-wsc {
+  text-align: center;
+  font-size: var(--XL);
+  color: var(--primary-text);
+  font-weight: var(--bold);
+  font-family: "VarelaRound", sans-serif;
+}
+
+.intro-wsc {
+  padding: 2.3em 0.4em 0em 0.4em;
+  font-size: var(--M);
+  color: var(--primary-text);
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.picIntro-wsc {
+  max-width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.down-page {
+  margin: 1em;
+}
+
+.wildMonitor {
+  display: none;
 }
 /*END Mobile Version */
 
@@ -150,10 +208,30 @@
     margin-left: 8em;
   }
 
+  .wildMonitor {
+    display: block;
+    margin-right: 2em;
+  }
+  .introHomeMasterwild {
+    display: flex;
+  }
+
+  .down-page {
+    margin-right: 3em;
+    margin-left: 3em;
+  }
+
   .info-top {
     justify-content: flex-start;
     text-align: left;
     line-height: 1.2em;
+  }
+
+  .info-wsc {
+    justify-content: flex-start;
+    text-align: left;
+    line-height: 1.2em;
+    margin-left: 0.5em;
   }
 
   .logo-top img {
@@ -170,12 +248,29 @@
     justify-content: flex-start;
     text-align: left;
     padding-left: 0;
+    padding-right: 5em;
+  }
+
+  .intro-wsc {
+    color: var(--primary-text);
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 2em;
     padding-right: 15em;
+  }
+
+  .divMastHome {
+    background-color: white;
   }
 
   .flex-button {
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  .flex-mbutton {
+    flex-direction: row;
+    justify-content: center;
   }
 
   .button-discover {
@@ -221,8 +316,7 @@
   .first-block {
     background-color: var(--optionnal-text);
     border-radius: 20px;
-    margin: 3em 0 10em 0;
-    height: 30em;
+    margin: 3em 0;
   }
 
   .first-block > h2 {
@@ -236,22 +330,55 @@
   .second-block {
     background-color: var(--optionnal-text);
     border-radius: 20px;
-    margin-bottom: 10em;
-    height: 30em;
+    margin-bottom: 3em;
   }
 
   .second-block > h2 {
     color: var(--primary-text);
-    padding: 0.8em 0 0 1em;
+    padding: 0.8em 1em 0 1em;
     font-family: "VarelaRound", sans-serif;
     font-size: var(--L);
     font-weight: var(--bold);
+    text-align: end;
   }
 
   .lettrine-search {
     font-size: var(--XL);
     text-transform: uppercase;
     font-weight: var(--extra-bold);
+  }
+
+  .pres-wsc {
+    margin: 1em;
+    margin-left: 8em;
+  }
+
+  .button-plus {
+    border: none;
+    border-radius: 40px;
+    height: 2.3rem;
+    font-size: var(--M);
+    font-weight: 600;
+    background-color: var(--main-red);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 2em;
+    margin-left: 6em;
+  }
+
+  .button-plus:hover {
+    background-color: var(--secondary-red);
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
+  }
+  .intro-wsc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .picIntro-wsc {
+    margin-left: 1em;
   }
 }
 /*END Tablet and Laptop Version */

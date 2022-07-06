@@ -31,7 +31,7 @@ export default function CardMasterclass() {
       </div>
       <div className="button-start">
         <button type="button" className="voir-vid">
-          visionner la masterclass
+          Voir cette masterclass
         </button>
       </div>
     </div>

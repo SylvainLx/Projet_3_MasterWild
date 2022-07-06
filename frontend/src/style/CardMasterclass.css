@@ -3,8 +3,7 @@
 /* STRUCTURE CARD */
 .card-container {
   max-width: 80%;
-  max-height: 30%;
-  background-color: var(--optionnal-text);
+  background-color: white;
   margin: 1em auto;
   padding: 0.8em;
   border-radius: 10px;
