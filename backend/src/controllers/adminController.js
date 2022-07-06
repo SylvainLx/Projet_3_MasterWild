@@ -113,17 +113,15 @@ exports.getAllKeyword = async (req, res) => {
 
 exports.editOne = async (req, res) => {
   const { id } = req.params;
-  console.warn(req.body);
-
   const exitingMasterclass = await masterclassController.getOne(id);
-
   if (!exitingMasterclass) {
     return res.sendStatus(404);
   }
   try {
     const masterclassUpdated = await masterclassController.editOne(
       id,
-      req.body
+      req.body,
+      req.file
     );
     return res
       .status(200)

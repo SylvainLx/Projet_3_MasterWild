@@ -26,37 +26,51 @@ export default function EditMasterclass({
   };
 
   const [photo, setPhoto] = useState([]);
-  const [title, setTitle] = useState("");
-  const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
-  const [source, setSource] = useState("");
-  const [theme, setTheme] = useState("");
-  const [keyword, setKeyword] = useState("");
-  const [speciality, setSpeciality] = useState("");
+  const [title, setTitle] = useState(titles);
+  const [name, setName] = useState(names);
+  const [desc, setDesc] = useState(descs);
+  const [source, setSource] = useState(sources);
+  const [theme, setTheme] = useState(themes);
+  const [keyword, setKeyword] = useState(keywords);
+  const [speciality, setSpeciality] = useState(specialities);
 
   const editMasterclass = (e) => {
     e.preventDefault();
+    const formData = new FormData();
 
-    axios.put(`http://localhost:5001/api/admin/masterclass/${Id}`, {
-      photo,
-      title,
-      name,
-      desc,
-      source,
-      theme,
-      keyword,
-      speciality,
-    });
+    formData.append("title", title);
+    formData.append("name", name);
+    formData.append("source", source);
+    formData.append("file", name);
+    formData.append("description", desc);
+    formData.append("speciality", speciality);
+    formData.append("theme", theme);
+    formData.append("keyword", keyword);
+    formData.append("file", photo[0]);
+
+    axios.put(
+      `http://localhost:5001/api/admin/masterclass/${Id}`,
+
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
   };
+
+  const mapKeywords = keywords.map((key) => key.keyword.name);
+
   return (
     <form className="form-masterclass" onSubmit={editMasterclass}>
-      <label htmlFor="title">
+      <label htmlFor="title" className="labelTitle">
         <input
-          className="input"
+          className="input i-title"
           type="text"
           name="title"
           onChange={(e) => setTitle(e.target.value)}
-          placeholder={titles}
+          value={title}
         />
       </label>
       <label htmlFor="name">
@@ -65,7 +79,7 @@ export default function EditMasterclass({
           type="text"
           name="name"
           onChange={(e) => setName(e.target.value)}
-          placeholder={names}
+          value={name}
         />
       </label>
       <label htmlFor="speciality">
@@ -74,7 +88,7 @@ export default function EditMasterclass({
           type="text"
           name="speciality"
           onChange={(e) => setSpeciality(e.target.value)}
-          placeholder={specialities}
+          value={speciality}
         />
       </label>
       <label htmlFor="source">
@@ -83,7 +97,7 @@ export default function EditMasterclass({
           type="text"
           name="source"
           onChange={(e) => setSource(e.target.value)}
-          placeholder={sources}
+          value={source}
         />
       </label>
       <label htmlFor="category">
@@ -92,7 +106,7 @@ export default function EditMasterclass({
           type="text"
           name="category"
           onChange={(e) => setTheme(e.target.value)}
-          placeholder={themes}
+          value={theme}
         />
       </label>
       <label htmlFor="keyword">
@@ -101,7 +115,7 @@ export default function EditMasterclass({
           type="text"
           name="keyword"
           onChange={(e) => setKeyword(e.target.value)}
-          placeholder={keywords}
+          value={mapKeywords}
         />
       </label>
       <label htmlFor="logo_source">
@@ -118,10 +132,11 @@ export default function EditMasterclass({
           type="text"
           name="description"
           onChange={(e) => setDesc(e.target.value)}
-          placeholder={descs}
+          value={desc}
         />
       </label>
       <input className="btnSend" type="submit" value="Modifier" />
+      <input className="btnSend" type="submit" value="Supprimer" />
     </form>
   );
 }

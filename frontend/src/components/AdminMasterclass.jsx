@@ -29,12 +29,6 @@ export default function AdminMasterclass() {
     setFilterMasterclass(e.target.value);
   };
 
-  const handleDelete = (e) => {
-    const id = e.target.getAttribute("data-id");
-
-    axios.delete(`http://localhost:5001/api/admin/masterclass/${id}`);
-  };
-
   return (
     <div className="admin-masterclass">
       <section className="showMasterclass">
@@ -60,6 +54,7 @@ export default function AdminMasterclass() {
                 titles={elem.title}
                 names={elem.entreprise.name}
                 specialities={elem.entreprise.speciality}
+                keywords={elem.keywords}
                 descs={elem.description}
                 sources={elem.source}
                 themes={elem.category.name}
@@ -67,16 +62,6 @@ export default function AdminMasterclass() {
               />
             </div>
           ))}
-        <div className="buttonPutDelete">
-          <button className="btnPut" type="button">
-            Modifier
-          </button>
-        </div>
-        <div className="buttonPutDelete">
-          <button onClick={handleDelete} className="btnDel" type="button">
-            Supprimer
-          </button>
-        </div>
       </section>
       <section className="sample-video">
         <VideoSample
