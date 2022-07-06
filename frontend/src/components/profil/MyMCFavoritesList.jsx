@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import { useState, useEffect } from "react";
-import VideoSample from "./VideoSample";
-import "../style/MyMCFavoritesList.css";
-import "../style/VideoSample.css";
-import api from "../services/endpoint";
+import VideoSample from "../VideoSample";
+import "../../style/MyMCFavoritesList.css";
+import "../../style/VideoSample.css";
+import api from "../../services/endpoint";
 
 const userId = 1;
 

@@ -17,13 +17,6 @@
   align-items: center;
 }
 
-.my-subscription-plan {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .user-table {
   max-width: 900px;
   width: 100%;
@@ -33,117 +26,56 @@
   align-items: center;
 }
 
-.text-abonnement {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.autosub-green {
-  color: rgb(56, 205, 56);
-  font-weight: 1000;
-}
-
-.text-abonnement p {
-  text-align: center;
-  margin: 20px 0 20px 0;
-  font-size: large;
-}
-
 .user-table tr {
   font-weight: 600;
-  width: 95%;
-  padding: 0.5em;
+  padding: 0.3em;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.user-table td {
+  width: 100%;
+  color: var(--primary-text);
+  font-size: 0.8em;
+}
+
 .user-table tr td {
-  width: 70%;
   display: flex;
   align-items: center;
 }
 
 .user-table tr td input {
-  border: 1px solid black;
-  width: 95%;
-}
-
-.button-blue {
-  background-color: var(--main-blue);
-}
-
-.button-red {
-  background-color: var(--main-red);
-}
-
-.button-grey {
-  background-color: var(--optionnal-text);
-}
-
-.button-pink {
-  background-color: var(--secondary-red);
+  height: 1.7em;
+  width: 90%;
+  padding-left: 10px;
+  font-size: var(--S);
+  background: white;
+  border: 1px solid var(--secondary-text);
+  border-radius: 4px;
+  color: var(--primary-text);
 }
 
 .button-profil {
-  width: 90%;
-  max-width: 470px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding: 0.5rem 2.5rem;
-  border-radius: 2rem;
-  border: 1px solid transparent;
-  color: #ffffff;
-  font-size: medium;
-  letter-spacing: 1px;
-  font-weight: var(--semi-bold);
-  transition: all 0.15s linear;
+  border: none;
+  border-radius: 15px;
+  padding: 6px 10px;
+  background-color: var(--main-red);
+  font-family: "Raleway", sans-serif;
+  color: white;
+  margin: 0.6em;
 }
 
-.button-profil:hover {
-  background-color: var(--primary-text);
-  border-color: var(--main-blue);
-  color: var(--main-blue);
-  transform: translateY(-5px) scale(1.05);
-}
+@media screen and (min-width: 767.98px) {
+  .button-profil {
+    font-weight: 600;
+    background-color: var(--main-red);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
 
-.button-profil:active {
-  background-color: transparent;
-  border-color: var(--main-blue);
-  color: var(--main-blue);
-  transform: translateY(5px) scale(0.95);
-}
-
-.button-profil:disabled {
-  background-color: rgba(255, 255, 255, 0.16);
-  color: #8e8e93;
-  border-color: #8e8e93;
-}
-
-.text-auto-renewal {
-  text-align: center;
-  margin: 20px 0 20px 0;
-  font-size: medium;
-}
-
-.button-link {
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.cont-valid-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .button-profil:hover {
+    background-color: var(--secondary-red);
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
+  }
 }

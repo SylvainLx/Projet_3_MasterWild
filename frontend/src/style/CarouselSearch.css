@@ -15,17 +15,3 @@
   padding: 0 4.2em 0 4.2em;
   scroll-snap-align: start;
 }
-
-.carousel-items::-webkit-scrollbar-track {
-  background-color: #f5f5f5;
-}
-
-.carousel-items::-webkit-scrollbar {
-  height: 8px;
-  background-color: #f5f5f5;
-}
-
-.carousel-items::-webkit-scrollbar-thumb {
-  background-color: var(--button-color);
-  border-radius: 3px;
-}
