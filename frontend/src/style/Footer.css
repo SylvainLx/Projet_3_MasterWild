@@ -69,10 +69,22 @@
   max-width: 40%;
 }
 .addresswsc {
+  line-height: 2em;
+  background-color: var(--primary-text);
+  color: white;
   text-align: center;
-  padding-top: 1.5em;
+  font-size: var(--S);
+  max-width: 100%;
+
+  padding-right: 1.5em;
   padding-bottom: 2em;
+  padding-left: 1.5em;
+}
+.paddresswsc {
+  padding-top: 1.5em;
   border-top: 1px solid var(--optionnal-text);
+  margin-left: 1em;
+  margin-right: 1em;
 }
 /* media querie */
 
@@ -89,6 +101,7 @@
 
   .linkwsc {
     height: 100%;
+    padding-bottom: 0;
   }
 
   .linkIntern {
@@ -97,6 +110,7 @@
   }
 
   .listeRSfooter {
+    border: none;
     padding-top: 0;
     width: 40%;
   }
