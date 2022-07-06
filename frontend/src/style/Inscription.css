@@ -52,7 +52,6 @@
   background: white;
   border: 1px solid var(--secondary-text);
   border-radius: 4px;
-  margin: 0.5em;
 }
 
 .passInput {
@@ -139,13 +138,14 @@
 
 /* Verification Form */
 .text-danger {
-  color: red;
+  color: var(--main-red);
   font-size: var(--XS);
 }
 
 .verif-form {
   display: flex;
   flex-direction: column;
+  margin: 0.5em;
 }
 
 /* Media querie */

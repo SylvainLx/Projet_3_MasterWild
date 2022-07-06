@@ -58,11 +58,10 @@ export default function Inscription() {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
-  const postUser = (e) => {
-    e.preventDefault();
+  const postUser = () => {
     try {
       axios
-        .post("http://localhost:4000/api/users", {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
           firstname,
           lastname,
           email,
@@ -70,7 +69,7 @@ export default function Inscription() {
         })
         .then((response) => {
           setUser(response.data);
-          navigate("/search");
+          navigate("/connexion");
         });
     } catch (error) {
       console.error(error);
@@ -108,7 +107,7 @@ export default function Inscription() {
           validateOnMount
         >
           {(formik) => (
-            <form className="formInsc">
+            <Form className="formInsc">
               <h2 className="titleInscbis">
                 <p>S'inscrire</p>
               </h2>
@@ -125,7 +124,7 @@ export default function Inscription() {
                   component="span"
                 />
               </div>
-              <div onChange={handleFirstname}>
+              <div onChange={handleFirstname} className="verif-form">
                 <Field
                   name="firstname"
                   placeholder="Prénom"
@@ -138,7 +137,7 @@ export default function Inscription() {
                   component="span"
                 />
               </div>
-              <div onChange={handleMail}>
+              <div onChange={handleMail} className="verif-form">
                 <Field
                   name="email"
                   placeholder="Email"
@@ -152,7 +151,7 @@ export default function Inscription() {
                 />
               </div>
               <div className="passInput">
-                <div onChange={handlePassword}>
+                <div onChange={handlePassword} className="verif-form">
                   <Field
                     name="password"
                     placeholder="Mot de passe"
@@ -177,6 +176,32 @@ export default function Inscription() {
                   )}
                 </button>
               </div>
+              <div className="passInput">
+                <div className="verif-form">
+                  <Field
+                    name="passwordConfirmation"
+                    placeholder="Confirmation"
+                    type={show ? "password" : "text"}
+                    className="inputPassText"
+                  />
+                  <ErrorMessage
+                    name="passwordConfirmation"
+                    className="text-danger"
+                    component="span"
+                  />
+                </div>
+                <button
+                  className="buttonShow"
+                  type="button"
+                  onClick={handleClick}
+                >
+                  {show ? (
+                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                  ) : (
+                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                  )}
+                </button>
+              </div>
               <div className="checkBinsc">
                 <Field
                   name="gcu"
@@ -184,20 +209,22 @@ export default function Inscription() {
                   className="cgv-check"
                   id="gcu"
                 />
-                <label className="custom-control-label" htmlFor="gcu">
-                  J'accepte{" "}
-                  <a
-                    href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
-                    _target="blank"
-                  >
-                    les conditions d'utilisation
-                  </a>
-                </label>
-                <ErrorMessage
-                  name="gcu"
-                  className="text-danger"
-                  component="div"
-                />
+                <div className="verif-form">
+                  <label className="custom-control-label" htmlFor="gcu">
+                    J'accepte{" "}
+                    <a
+                      href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
+                      _target="blank"
+                    >
+                      les conditions d'utilisation
+                    </a>
+                  </label>
+                  <ErrorMessage
+                    name="gcu"
+                    className="text-danger"
+                    component="div"
+                  />
+                </div>
               </div>
               <label htmlFor="NsL" className="checkBinsc">
                 <input
@@ -205,27 +232,24 @@ export default function Inscription() {
                   type="checkbox"
                   name="name"
                   id="NsL"
-                  required
                 />
                 Je souhaite recevoir la newsletter.
               </label>
-              <Link className="linkInsc" to="/">
-                <button
-                  type="submit"
-                  className="login-button"
-                  disabled={!formik.isValid || formik.isSubmitting}
-                >
-                  Je m'inscris
-                </button>
-              </Link>
-            </form>
+              <button
+                type="submit"
+                className="login-button"
+                disabled={!formik.isValid || formik.isSubmitting}
+              >
+                Je m'inscris
+              </button>
+            </Form>
           )}
         </Formik>
         <div className="secoPart">
           <div className="goInscrip">
             <p className="textInsc">Déjà un compte ?</p>
             <Link className="linkInsc" to="/connexion">
-              <button type="submit" className="login-button">
+              <button type="button" className="login-button">
                 se connecter
               </button>
             </Link>
