@@ -95,7 +95,7 @@ exports.createOne = async (masterclass, file) => {
   }
 };
 
-exports.editOne = async (Id, masterclass, file) => {
+exports.editOne = async (id, masterclass, file) => {
   const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
     keyword: {
       connectOrCreate: {
@@ -105,34 +105,32 @@ exports.editOne = async (Id, masterclass, file) => {
     },
   }));
   try {
-    return await prisma.masterclass.update({
-      where: { Id: parseInt(Id, 10) },
-      data: {
-        title: masterclass.title,
-        description: masterclass.description,
-        source: masterclass.source,
-        category: {
-          connectOrCreate: {
-            where: { name: masterclass.theme },
-            create: { name: masterclass.theme },
-          },
+    return await prisma.$transaction([
+      prisma.masterclass.update({
+        where: { Id: parseInt(id, 10) },
+        data: {
+          title: masterclass.title,
+          description: masterclass.description,
+          source: masterclass.source,
         },
-        keywords: {
-          create: keywordsFormated,
+      }),
+      prisma.entreprise.update({
+        where: { name: masterclass.name },
+        data: {
+          name: masterclass.name,
+          speciality: masterclass.speciality,
+          logo_source: file.filename,
+          logo_name: file.destination,
         },
-        entreprise: {
-          connectOrCreate: {
-            where: { name: masterclass.name },
-            create: {
-              name: masterclass.name,
-              speciality: masterclass.speciality,
-              logo_source: file.filename,
-              logo_name: file.destination,
-            },
-          },
-        },
-      },
-    });
+      }),
+      prisma.category.update({
+        where: { name: masterclass.theme },
+        create: { name: masterclass.theme },
+      }),
+      prisma.keywords.update({
+        create: keywordsFormated,
+      }),
+    ]);
   } finally {
     await prisma.$disconnect();
   }

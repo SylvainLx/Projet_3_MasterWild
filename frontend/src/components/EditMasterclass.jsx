@@ -59,6 +59,10 @@ export default function EditMasterclass({
       }
     );
   };
+  const deleteMasterclass = (e) => {
+    e.preventDefault();
+    axios.delete(`http://localhost:5001/api/admin/masterclass/${Id}`);
+  };
 
   const mapKeywords = keywords.map((key) => key.keyword.name);
 
@@ -136,7 +140,12 @@ export default function EditMasterclass({
         />
       </label>
       <input className="btnSend" type="submit" value="Modifier" />
-      <input className="btnSend" type="submit" value="Supprimer" />
+      <input
+        className="btnSend"
+        type="submit"
+        value="Supprimer"
+        onClick={deleteMasterclass}
+      />
     </form>
   );
 }
