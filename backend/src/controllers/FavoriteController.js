@@ -19,7 +19,7 @@ exports.getFavorite = (req, res) => {
     .findFavorite(userId)
     .then((favorites) => {
       if (favorites.length === 0) {
-        res.sendStatus(404);
+        res.send([]);
       } else {
         res.send(favorites);
       }
