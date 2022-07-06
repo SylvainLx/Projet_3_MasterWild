@@ -7,13 +7,17 @@
   width: 40%;
   height: 50px;
   font-size: large;
+  font-family: "VarelaRound", sans-serif;
   display: flex;
-  background-color: var(--main-blue);
-  color: var(--primary-text);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 3px #f99797;
+  background-color: transparent;
+  color: var(--main-red);
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
 }
 
 .ongletLeftActive {
@@ -21,25 +25,33 @@
   height: 50px;
   font-size: x-large;
   display: flex;
-  background-color: var(--main-red);
-  color: var(--primary-text);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 3px #f76c6c;
+  color: var(--secondary-red);
+  font-weight: var(--semi-bold);
+  background-color: transparent;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
 }
 
 .ongletRight {
   width: 40%;
   height: 50px;
   font-size: large;
+  font-family: "VarelaRound", sans-serif;
   display: flex;
-  background-color: var(--main-blue);
-  color: var(--primary-text);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 3px #f99797;
+  background-color: transparent;
+  color: var(--main-red);
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
 }
 
 .ongletRightActive {
@@ -47,10 +59,13 @@
   height: 50px;
   font-size: x-large;
   display: flex;
-  background-color: var(--main-red);
-  color: var(--primary-text);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 3px #f76c6c;
+  font-weight: var(--semi-bold);
+  color: var(--secondary-red);
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
 }

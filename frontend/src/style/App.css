@@ -124,36 +124,35 @@ table {
 }
 
 @font-face {
-  font-family: "Open Sans";
-  src: url("../assets/OpenSans-Regular.ttf");
-  font-weight: normal;
+  font-family: "VarelaRound";
   font-style: normal;
-  font-display: swap;
+  font-weight: normal;
+  src: local("VarelaRound-Regular"),
+    url("../assets/fonts/VarelaRound-Regular.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Roboto";
-  src: url("../assets/Roboto-Regular.ttf");
-  font-weight: normal;
+  font-family: "Raleway";
   font-style: normal;
-  font-display: swap;
+  font-weight: normal;
+  src: local("Raleway-Regular"),
+    url("../assets/fonts/Raleway-Regular.ttf") format("truetype");
 }
 
 .App {
-  background-color: #fafafa;
-  font-family: Roboto, sans-serif;
+  background-color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 
 /* VARIABLES */
 :root {
   /*Colors*/
-  --main-red: #ef4957;
-  --main-blue: #1738ce;
-  --secondary-red: rgba(239, 73, 87, 0.6);
-  --secondary-blue: rgba(23, 56, 206, 0.6);
-  --button-color: #dadada;
-  --primary-text: white;
-  --secondary-text: #1f1f1f;
-  --optionnal-text: gray;
+  --main-red: #f76c6c;
+  --secondary-red: #f99797;
+  --primary-text: #39424e;
+  --secondary-text: #c8c8c8;
+  --optionnal-text: #f1f1f1;
 
   /* Font-Weight */
   --black: 900;
@@ -163,11 +162,10 @@ table {
   --regular: 400;
 
   /* Font-Size */
-  --XL: clamp(2rem, 3.5vw, 4rem);
-  --L: clamp(1.25rem, 3vw, 2.25rem);
-  --M: clamp(1.25rem, 2vw, 2.25rem);
-  --S: clamp(1rem, 1.5vw, 2rem);
-  --XS: clamp(0.75rem, 1vw, 1rem);
+  --XL: 40px;
+  --L: 31.5px;
+  --M: 18px;
+  --S: 12px;
 
   /*Breakpoints 
   @media screen and (min-width: 479.98px)
