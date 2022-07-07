@@ -118,7 +118,7 @@ exports.editOne = async (id, masterclass, file) => {
           },
         },
         keywords: {
-          create: keywordsFormated,
+          update: keywordsFormated,
         },
         entreprise: {
           connectOrCreate: {
