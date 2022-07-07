@@ -1,14 +1,21 @@
 @import "../style/App.css";
 
+.main-div-contact{
+  font-family: "VarelaRound", sans-serif;
+}
+
 .introContact {
   background-color: var(--main-blue);
   color: var(--primary-text);
-  display: flex;
-  justify-content: end;
+  text-align: center;
+  height: 5rem;
+  padding-top: 1em;
+  padding-bottom: .5em;
 }
 .titleContact {
   font-size: var(--XL);
-  margin-right: 1rem;
+  font-weight: var(--bold);
+  margin: 1rem;
 }
 .monoLetter {
   font-size: 200%;
@@ -20,29 +27,42 @@
 /* listFAQ */
 
 .popularQuestions {
-  background-color: var(--secondary-red);
+  background-color: var(--optionnal-text);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-left: .5em;
+  margin-right: .5em;
   padding-top: 1.2em;
   padding-bottom: 1.2em;
+  border-radius: 40px;
+}
+.pfaq{
+  font-size: var(--L);
+  font-family: "VarelaRound", sans-serif;
+  color: var(--primary-text);
+  margin-inline: 1em;
+  margin-bottom: .5em;
 }
 
 .selectQuestions {
-  background-color: var(--main-red);
-  font-size: var(--M);
+  background-color: rgba(245, 207, 206);
   border: none;
+  text-align: center;
+  font-size: var(--M);
+  font-family: "VarelaRound", sans-serif;
   color: var(--primary-text);
   margin-bottom: 1em;
   padding: 0.2em;
   max-width: 100%;
+  border-radius: 5px;
 }
 
 .answerDiv {
-  font-size: var(--L);
+  font-size: var(--M);
   color: var(--primary-text);
   margin-inline: 1em;
+  text-align: center;
 }
 
 /* formContact */
@@ -52,6 +72,9 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 1em;
 }
 
 .askContact {
@@ -65,10 +88,11 @@
 }
 
 .pAsk {
-  font-size: var(--S);
+  font-size: var(--M);
   font-weight: var(--bold);
   color: var(--main-red);
   padding-bottom: 1em;
+  text-align: center;
 }
 
 .askButton {
@@ -88,6 +112,7 @@
   letter-spacing: 1px;
   font-weight: var(--semi-bold);
   max-width: 100%;
+  font-family: "VarelaRound", sans-serif;
 }
 
 .formHidden {
@@ -102,9 +127,11 @@
   align-self: center;
   flex-direction: column;
   width: 100%;
+  border-radius: 40px;
 }
 
 .contactInput {
+  height: 1.7em;
   margin-inline: auto;
   margin-bottom: 1em;
   width: 80%;
@@ -112,6 +139,7 @@
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-family: "VarelaRound", sans-serif;
 }
 
 .contactButton {
@@ -133,10 +161,11 @@
   transition: all 0.15s linear;
   cursor: pointer;
   max-width: 60%;
+  font-family: "VarelaRound", sans-serif;
 }
 
 .contactButton:hover {
-  background-color: var(--primary-text);
+  background-color: var(--optionnal-text);
   border-color: var(--main-red);
   color: var(--main-red);
   transform: translateY(-5px) scale(1.05);
@@ -150,21 +179,16 @@
 }
 
 .contactButton:disabled {
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: var(--secondary-red);
   color: #8e8e93;
   border-color: #8e8e93;
 }
-.introFaq {
-  padding-left: 1em;
-  padding-bottom: 1em;
-  color: var(--primary-text);
-  font-size: var(--M);
-}
+
 /* Media queries */
 
 @media screen and (max-width: 767.98px) {
   .titleFaq,
-  .mosaicPicStar {
+  .imglongin {
     display: none;
   }
 }
@@ -173,25 +197,33 @@
   .pageFAQ {
     display: flex;
   }
-  .picFAQmobile {
-    display: none;
+  .pfaq{
+    padding-top: .7em;
+    padding-bottom: .3em;
   }
-
+  .titleContact {
+    text-align: end;
+    margin-right: 1.5em;
+  }
+  .imglongin{
+    margin-left: .5em;
+    margin-bottom: 1em;
+  }
+  .popularQuestions{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
   .answerDiv {
     text-align: center;
     width: 80%;
-    font-size: var(--M);
   }
   .askContact {
     flex-direction: row;
     align-content: center;
     width: 100%;
-    background-color: var(--secondary-red);
   }
   .pAsk {
     padding-bottom: 0;
-    color: var(--primary-text);
-    font-size: var(--M);
   }
   .askButton {
     margin-inline: 0;
@@ -200,7 +232,6 @@
   }
   .formHidden {
     padding-top: 1.2em;
-    padding-bottom: 1em;
     background-color: var(--secondary-red);
     display: flex;
     align-self: center;
@@ -208,6 +239,11 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    margin-inline: 1em;
+    border-radius: 40px
+  }
+  .divFormContact{
+    margin-inline: 1.5em;
   }
   .formContact {
     padding-top: 1.2em;
@@ -245,5 +281,12 @@
   .mosaicStarHidden {
     max-width: 100%;
     opacity: 0;
+  }
+  .contactInput{
+    padding: .3em;
+    height: 2em;
+  }
+  .contactButton{
+    margin-top: 2em;
   }
 }
