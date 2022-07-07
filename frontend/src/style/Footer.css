@@ -1,9 +1,10 @@
 .footer {
-  background-color: #1738ce;
+  background-color: var(--primary-text);
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
   font-size: var(--S);
   font-weight: 600;
 }
@@ -14,10 +15,18 @@
 }
 .linkFooter:hover {
   text-decoration: underline;
+  color: var(--main-red);
+}
+
+.linkwsc {
+  padding-bottom: 1em;
 }
 
 .logoFooter {
-  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 2em 2em 1em 2em;
+  max-width: 50%;
 }
 
 .linksFooter {
@@ -30,19 +39,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1em;
+  padding-top: 1.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  border-top: 1px solid var(--optionnal-text);
 }
 
 .listIconesRS {
   display: flex;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  margin: 1em 2em;
+  justify-content: center;
 }
 
 .liIcone {
-  margin-left: 1em;
-  margin-right: 1em;
+  text-align: center;
 }
+
 .liIcone:hover {
   transform: translateY(-5px) scale(1.05);
 }
@@ -51,37 +65,71 @@
   margin-bottom: 0.7em;
 }
 
+.logo-width {
+  max-width: 40%;
+}
+.addresswsc {
+  line-height: 2em;
+  background-color: var(--primary-text);
+  color: white;
+  text-align: center;
+  font-size: var(--S);
+  max-width: 100%;
+
+  padding-right: 1.5em;
+  padding-bottom: 2em;
+  padding-left: 1.5em;
+}
+.paddresswsc {
+  padding-top: 1.5em;
+  border-top: 1px solid var(--optionnal-text);
+  margin-left: 1em;
+  margin-right: 1em;
+}
 /* media querie */
 
 @media screen and (min-width: 767.98px) {
   .footer {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 0;
   }
+
   .divLogoFooter {
-    width: 15%;
+    width: 30%;
   }
+
+  .linkwsc {
+    height: 100%;
+    padding-bottom: 0;
+  }
+
   .linkIntern {
     margin-top: 0.7em;
     margin-bottom: 0.7em;
   }
+
   .listeRSfooter {
+    border: none;
     padding-top: 0;
+    width: 40%;
   }
-  .listeRes {
-    padding-top: 1em;
-  }
+
   .linksFooter {
     align-items: baseline;
   }
+
+  .listeRes {
+    margin-top: 2em;
+  }
+
   .listIconesRS {
+    margin: 0;
     padding-top: 0;
     padding-bottom: 0;
   }
-  .logoFacebook,
-  .logoInstagram,
-  .logoTwitter {
-    height: 3em;
+
+  .logo-width {
+    max-width: 30%;
   }
 }

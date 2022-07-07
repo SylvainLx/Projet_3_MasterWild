@@ -1,3 +1,14 @@
+header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 999;
+}
+
+.container-header {
+  box-shadow: 0px 10px 14px -1px rgb(0 0 0 / 10%);
+}
+
 .full-desktop-header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -41,7 +52,7 @@
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: var(--main-red);
+  background: var(--secondary-red);
 }
 
 /* Position and sizing of clickable cross button */
@@ -52,7 +63,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: var(--primary-text);
+  background: white;
 }
 
 /*
@@ -66,7 +77,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: var(--main-blue);
+  background: var(--secondary-red);
   padding: 2em 0.5em 0;
   font-size: 1.15em;
 }
@@ -80,8 +91,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Individual item */
 .bm-item {
-  font-size: xx-large;
-  color: var(--primary-text);
+  color: var(--optionnal-text);
+  font-family: "VarelaRound", sans-serif;
+  font-size: 1.8rem;
+  font-weight: var(--bold);
   text-decoration: none;
   display: inline-block;
   padding-bottom: 1.3em;
@@ -98,33 +111,36 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   .navlink-menu-right {
     margin: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 
   .logo-header img {
-    width: 15vw;
+    width: 12vw;
   }
 
   .menu-right-icon {
-    width: 3vw;
+    width: 2.2vw;
   }
-
   /* Individual item */
   .bm-item {
-    color: var(--primary-text);
-    font-size: 1rem;
+    color: var(--optionnal-text);
+    font-family: "VarelaRound", sans-serif;
+    font-size: 1.3rem;
     text-decoration: none;
     display: inline-block;
     padding-top: 0.8em;
   }
 
   .bm-item:hover {
-    color: var(--optionnal-text);
+    color: white;
   }
 
   .bm-burger-button {
     position: absolute;
-    width: 4em;
-    height: 3.4em;
+    width: 2.5em;
+    height: 2em;
     top: 0;
     bottom: 0;
     left: 30px;
@@ -133,6 +149,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 @media screen and (min-width: 2000px) {
+  .logo-header img {
+    width: 12vw;
+  }
+
+  .menu-right-icon {
+    width: 2.2vw;
+  }
+
   .bm-burger-button {
     width: 8em;
     height: 6.8em;
