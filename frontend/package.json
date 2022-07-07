@@ -22,6 +22,7 @@
     "react-router-dom": "^6.3.0",
     "react-select": "^5.3.2",
     "react-spring-3d-carousel": "^1.2.1",
+    "template-fullstack": "file:..",
     "yup": "^0.32.11"
   },
   "devDependencies": {

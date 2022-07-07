@@ -166,6 +166,7 @@ table {
   --L: 31.5px;
   --M: 18px;
   --S: 12px;
+  --XS: 9px;
 
   /*Breakpoints 
   @media screen and (min-width: 479.98px)
