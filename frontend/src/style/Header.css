@@ -111,6 +111,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   .navlink-menu-right {
     margin: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 
   .logo-header img {
