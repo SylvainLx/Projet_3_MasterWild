@@ -98,37 +98,42 @@ exports.createOne = async (masterclass, file) => {
 exports.editOne = async (id, masterclass, file) => {
   const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
     keyword: {
-      where: { name: word },
-      data: { name: word },
+      connectOrCreate: {
+        where: { name: word },
+        create: { name: word },
+      },
     },
   }));
   try {
-    return await prisma.$transaction([
-      prisma.masterclass.update({
-        where: { Id: parseInt(id, 10) },
-        data: {
-          title: masterclass.title,
-          description: masterclass.description,
-          source: masterclass.source,
+    return await prisma.masterclass.update({
+      where: { Id: parseInt(id, 10) },
+      data: {
+        title: masterclass.title,
+        description: masterclass.description,
+        source: masterclass.source,
+        category: {
+          connectOrCreate: {
+            where: { name: masterclass.theme },
+            create: { name: masterclass.theme },
+          },
         },
-      }),
-      prisma.category.update({
-        where: { name: masterclass.theme },
-        data: { name: masterclass.theme },
-      }),
-      prisma.entreprise.update({
-        where: { name: masterclass.name },
-        data: {
-          name: masterclass.name,
-          speciality: masterclass.speciality,
-          logo_source: file.filename,
-          logo_name: file.destination,
+        keywords: {
+          deleteMany: {},
+          create: keywordsFormated,
         },
-      }),
-      prisma.keyword.update({
-        data: { name: keywordsFormated },
-      }),
-    ]);
+        entreprise: {
+          connectOrCreate: {
+            where: { name: masterclass.name },
+            create: {
+              name: masterclass.name,
+              speciality: masterclass.speciality,
+              logo_source: file.filename,
+              logo_name: file.destination,
+            },
+          },
+        },
+      },
+    });
   } finally {
     await prisma.$disconnect();
   }

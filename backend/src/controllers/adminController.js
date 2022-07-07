@@ -117,7 +117,14 @@ exports.editOne = async (req, res) => {
   if (!exitingMasterclass) {
     return res.sendStatus(404);
   }
+
   try {
+    await fs.promises.unlink(
+      path.join(
+        __dirname,
+        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_source}`
+      )
+    );
     const masterclassUpdated = await masterclassController.editOne(
       id,
       req.body,
