@@ -3,7 +3,7 @@
 .introSeConnecter {
   color: var(--primary-text);
   display: flex;
-  justify-content: end;
+  justify-content: center;
   margin: 1em;
 }
 
@@ -12,10 +12,6 @@
   font-family: "VarelaRound", sans-serif;
   margin-right: 1rem;
   font-weight: var(--bold);
-}
-
-.picStar {
-  max-width: 100%;
 }
 
 .divPicConnexion {
@@ -174,6 +170,9 @@
 /* Media querie */
 
 @media screen and (min-width: 767.98px) {
+  .introSeConnecter {
+    display: none;
+  }
   .titleConnexion {
     display: none;
   }
@@ -184,16 +183,13 @@
     font-weight: var(--bold);
     color: var(--primary-text);
   }
-
-  .divPicConnexion {
-    display: none;
-  }
-
   .divPicConnexionbis {
     display: block;
     justify-self: center;
   }
-
+  .formConnection {
+    width: 50%;
+  }
   .pageCo {
     display: flex;
     flex-direction: row;
@@ -216,5 +212,21 @@
     width: 35rem;
     height: 2.5rem;
     margin-bottom: 2rem;
+  }
+  .linkInsc {
+    margin-bottom: 1.5em;
+  }
+  .login-button,
+  .textConnex {
+    font-size: var(--M);
+  }
+  .logoWild {
+    display: flex;
+    height: 80%;
+    padding: 0.5em;
+  }
+  .logoWildR {
+    width: 35%;
+    height: 35%;
   }
 }
