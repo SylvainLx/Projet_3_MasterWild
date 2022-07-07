@@ -82,21 +82,21 @@ export default function Search() {
           {showTheme && (
             <div className="result-theme">
               <ul className="list-theme">
-                <li>Freelance</li>
-                <li>Startup</li>
-                <li>Méthodes agiles</li>
-                <li>Cybersécurité</li>
-                <li>Data</li>
-                <li>IA</li>
-                <li>Machine Learning & Deep learning</li>
-                <li>RGPD</li>
-                <li>UX/UI Design</li>
-                <li>No code</li>
-                <li>PHP</li>
-                <li>JavaScript</li>
-                <li>Angular</li>
-                <li>SEO</li>
-                <li>Blockchain</li>
+                <li className="li-theme">Freelance</li>
+                <li className="li-theme">Startup</li>
+                <li className="li-theme">Méthodes agiles</li>
+                <li className="li-theme">Cybersécurité</li>
+                <li className="li-theme">Data</li>
+                <li className="li-theme">IA</li>
+                <li className="li-theme">Machine Learning & Deep learning</li>
+                <li className="li-theme">RGPD</li>
+                <li className="li-theme">UX/UI Design</li>
+                <li className="li-theme">No code</li>
+                <li className="li-theme">PHP</li>
+                <li className="li-theme">JavaScript</li>
+                <li className="li-theme">Angular</li>
+                <li className="li-theme">SEO</li>
+                <li className="li-theme">Blockchain</li>
               </ul>
             </div>
           )}
@@ -104,7 +104,7 @@ export default function Search() {
 
         <div className="search-metier">
           <button
-            className="btnSearchMetier"
+            className={showMetiers ? "btnSearchMetier" : "btnsearchmetier"}
             type="button"
             onClick={handleShowMetiers}
           >
@@ -112,7 +112,7 @@ export default function Search() {
             <div>
               <h3 className="recherche">Recherche par</h3>
 
-              <h3 className="etiers">ETIERS</h3>
+              <h3 className="etiers">ETIER</h3>
             </div>
             {showMetiers ? (
               <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
@@ -122,25 +122,34 @@ export default function Search() {
           </button>
           {showMetiers && (
             <div className="result-metier">
-              {" "}
               <ul className="list-metier">
-                <li>Dirigeants</li>
-                <li>Entrepreneurs</li>
-                <li>Journalistes</li>
-                <li>Politiques</li>
-                <li>Artistes</li>
-                <li>Sportifs</li>
+                <li className="li-theme">DevOps Engineer</li>
+                <li className="li-theme">Frontend Engineer</li>
+                <li className="li-theme">Backend Engineer</li>
+                <li className="li-theme">Entrepreneur</li>
+                <li className="li-theme">Data Scientist</li>
+                <li className="li-theme">Consultant</li>
+                <li className="li-theme">UX Designer</li>
+                <li className="li-theme">Spécialiste Marketing</li>
+                <li className="li-theme">Data Analyst</li>
               </ul>
             </div>
           )}
         </div>
       </section>
-      <section className="result-masterclass">
-        <CardMasterclass />
-        <CardMasterclass />
-        <CardMasterclass />
-        <CardMasterclass />
-      </section>
+      <div className="result-mastersearch">
+        <section className="result-masterclass">
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+          <CardMasterclass />
+        </section>
+      </div>
     </div>
   );
 }
