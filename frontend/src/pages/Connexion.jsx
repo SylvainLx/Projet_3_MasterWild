@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import CurrentUserContext from "../contexts/currentUser";
 
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
 import Login from "../assets/pictures/peopleLogin.jpg";
@@ -42,6 +43,8 @@ export default function Connexion() {
 
   const navigate = useNavigate();
 
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+
   function openModal() {
     setIsOpen(true);
   }
@@ -69,8 +72,9 @@ export default function Connexion() {
           { withCredentials: true }
         )
         .then((response) => {
-          console.error(response);
-          localStorage.setItem("user", JSON.stringify(response.data));
+          console.log(response.data);
+          setUserProfil([...userProfil, response.data.email]);
+
           navigate("/search");
         });
     } catch (error) {

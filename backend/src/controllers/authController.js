@@ -13,7 +13,7 @@ exports.login = (req, res) => {
         if (verification) {
           const token = encodeJWT(user);
           res.cookie("auth_token", token, { httpOnly: true, secure: false });
-          res.status(200).json({ username: user.firstname });
+          res.status(201).json({ ...user });
         } else {
           res.status(401).send("Invalid credentials");
         }

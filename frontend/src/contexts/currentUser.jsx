@@ -6,18 +6,18 @@ export default CurrentUserContext;
 
 // eslint-disable-next-line react/prop-types
 export function CurrentUserContextProvider({ children }) {
-  const [userProfil, setUserProfil] = useState(null);
+  const [userProfil, setUserProfil] = useState([]);
 
-  const value = useMemo(
-    () => ({
-      userProfil,
-      setUserProfil,
-    }),
-    [userProfil]
-  );
+  // const value = useMemo(
+  //   () => ({
+  //     userProfil,
+  //     setUserProfil,
+  //   }),
+  //   [userProfil]
+  // );
 
   return (
-    <CurrentUserContext.Provider value={value}>
+    <CurrentUserContext.Provider value={{ userProfil, setUserProfil }}>
       {children}
     </CurrentUserContext.Provider>
   );

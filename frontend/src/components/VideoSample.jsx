@@ -52,15 +52,22 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
     }
   };
 
+  const toto = `${masterclass.source}`
+
   return (
     <section>
       <div className="container-video">
         {addVideo === true ? (
           <div>
-            <video controls width="1500" className="video">
-              <source src={masterclass.source} type="video/webm" />
-              <track default kind="captions" srcLang="en" />
-            </video>
+            <iframe
+              width="1268"
+              height="713"
+              src={toto}
+              title={masterclass.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         ) : (
           ""
