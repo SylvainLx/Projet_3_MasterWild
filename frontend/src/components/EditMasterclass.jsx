@@ -33,7 +33,6 @@ export default function EditMasterclass({
   const [theme, setTheme] = useState(themes);
   const [keyword, setKeyword] = useState(keywords);
   const [speciality, setSpeciality] = useState(specialities);
-
   const editMasterclass = (e) => {
     e.preventDefault();
     const formData = new FormData();

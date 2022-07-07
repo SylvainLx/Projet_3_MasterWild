@@ -59,7 +59,7 @@ export default function AdminMasterclass() {
                 sources={elem.source}
                 themes={elem.category.name}
                 Id={elem.Id}
-              />
+              />{" "}
             </div>
           ))}
       </section>
