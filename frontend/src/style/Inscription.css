@@ -148,6 +148,18 @@
   border-top: 1px solid var(--main-red);
 }
 
+/* Verification Form */
+.text-danger {
+  color: var(--main-red);
+  font-size: var(--XS);
+}
+
+.verif-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em;
+}
+
 /* Media querie */
 
 @media screen and (min-width: 767.98px) {
