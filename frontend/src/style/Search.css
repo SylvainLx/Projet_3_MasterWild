@@ -4,9 +4,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-.inspiractionLogo {
-  width: 100%;
+  font-family: "VarelaRound", sans-serif;
 }
 
 /* Title Masterclass */
@@ -16,13 +14,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 1em;
+  padding-bottom: .5em;
 }
 
 .title {
   color: var(--main-blue);
   font-size: var(--XL);
   font-weight: var(--bold);
-
   margin: 1rem;
 }
 .span-title {
@@ -37,6 +36,8 @@
 .search-bar {
   height: 2rem;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center; 
 }
 .searching {
   background-color: rgba(218, 212, 212, 0.691);
@@ -53,8 +54,16 @@
   border: none;
   background-color: transparent;
 }
+
 /* Search Select Theme */
+
+.search-theme{
+  padding-top: .5em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
 .btnSearchTheme {
+  font-family: "VarelaRound", sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -64,30 +73,47 @@
   height: 10rem;
   background-color: var(--main-red);
   border: none;
+  border-radius: 40px 40px 0px 0px;
 }
 .letter-t {
-  color: var(--main-blue);
+  color: whitesmoke;
   font-size: 5rem;
-  padding-bottom: 1rem;
+  margin-right: 0.1em;
 }
 .letters {
   display: flex;
   margin-top: 1.4rem;
 }
 .recherche {
-  color: var(--primary-text);
+  color: black;
   font-weight: var(--bold);
+  font-size: var(--M);
 }
 .hematiques {
-  color: var(--main-blue);
+  color: whitesmoke;
   font-weight: var(--bold);
+  font-size: var(--M);
+  margin-top: 0.3em;
 }
 .logo-arrow {
   display: flex;
   align-self: center;
+  margin-left: 2em;
 }
+.logo-arrow:hover {
+  cursor: pointer;
+}
+
 /* Search Select Jobs */
+
+.search-metier{
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-bottom: .5em;
+}
+
 .btnSearchMetier {
+  font-family: "VarelaRound", sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -95,20 +121,35 @@
   text-align: left;
   width: 100%;
   height: 10rem;
-  background-color: var(--main-blue);
   border: none;
+}
+.btnsearchmetier{
+  font-family: "VarelaRound", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  height: 10rem;
+  border: none;
+  border-radius: 0px 0px 40px 40px;
 }
 .letter-m {
   color: var(--main-red);
   font-size: 5rem;
-  padding-bottom: 1rem;
+  margin-right: 0.1em;
 }
 
 .etiers {
   color: var(--main-red);
   font-weight: var(--bold);
+  font-size: var(--M);
+  margin-top: 0.3em;
 }
+
 /* Result Search Theme */
+
 .list-theme {
   background-color: var(--secondary-red);
   color: var(--primary-text);
@@ -116,19 +157,21 @@
   padding: 1rem;
   line-height: 2rem;
 }
+.li-theme:hover {
+  color: whitesmoke;
+  text-decoration: underline;
+  cursor: pointer;
+}
 /* Result Search Jobs */
 .list-metier {
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-red);
   color: var(--primary-text);
   font-weight: var(--bold);
   padding: 1rem;
   line-height: 2rem;
+  border-radius: 0px 0px 40px 40px;
 }
 /* Result Search Section */
-
-.metiers {
-  color: var(--secondary-blue);
-}
 
 .result-masterclass {
   display: flex;
@@ -138,9 +181,6 @@
 }
 
 @media screen and (min-width: 767.98px) {
-  .inspiractionLogo {
-    display: none;
-  }
   .list-theme,
   .list-metier {
     display: grid;
@@ -149,8 +189,20 @@
   }
   .result-masterclass {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     width: 100%;
+  }
+  .search-theme, .search-metier{
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+  .result-mastersearch{
+    display: flex;
+    margin-bottom: 1em;
+  }
+  .card-container {
+    margin-right: 2em;
+    margin-left: 2em;
   }
 }
