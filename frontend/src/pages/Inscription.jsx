@@ -6,7 +6,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
-import Picto from "../assets/pictures/PICTOS_WCS-11.png";
+import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
+import Login from "../assets/pictures/peopleLogin.jpg";
 import OpenEye from "../assets/visOn.png";
 import ClosedEye from "../assets/visOff.png";
 
@@ -90,15 +91,17 @@ export default function Inscription() {
     <div>
       <div className="introSinscrire">
         <h2 className="titleInsc">
-          <p>S'inscrire</p>
+          <p>
+            <span className="accent">Inscription</span> en Ligne
+          </p>
         </h2>
       </div>
       <div className="pageInsc">
         <div className="divPicIntro">
           <img className="picStar" src={Pattern} alt="logo wild code school" />
         </div>
-        <div className="divPicIntrobis">
-          <img className="picStar" src={Picto} alt="logo wild code school" />
+        <div>
+          <img className="picLogin" src={Login} alt="login" />
         </div>
         <Formik
           initialValues={initialValues}
@@ -210,13 +213,13 @@ export default function Inscription() {
                   id="gcu"
                 />
                 <div className="verif-form">
-                  <label className="custom-control-label" htmlFor="gcu">
+                  <label className="checkBinsc" htmlFor="CGV">
                     J'accepte{" "}
                     <a
                       href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
                       _target="blank"
                     >
-                      les conditions d'utilisation
+                      les conditions générales.
                     </a>
                   </label>
                   <ErrorMessage
@@ -233,7 +236,7 @@ export default function Inscription() {
                   name="name"
                   id="NsL"
                 />
-                Je souhaite recevoir la newsletter.
+                Je souhaite recevoir la Wild Flash.
               </label>
               <button
                 type="submit"
@@ -246,11 +249,14 @@ export default function Inscription() {
           )}
         </Formik>
         <div className="secoPart">
+          <div className="divPicIntrobis">
+            <img className="picStar" src={Logo} alt="logo wild code school" />
+          </div>
           <div className="goInscrip">
             <p className="textInsc">Déjà un compte ?</p>
             <Link className="linkInsc" to="/connexion">
               <button type="button" className="login-button">
-                se connecter
+                Je me connecte
               </button>
             </Link>
           </div>

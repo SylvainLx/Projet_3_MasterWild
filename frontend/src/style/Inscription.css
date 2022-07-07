@@ -3,7 +3,7 @@
 .introSinscrire {
   color: var(--primary-text);
   display: flex;
-  justify-content: end;
+  text-align: center;
   margin: 1em;
 }
 
@@ -12,6 +12,10 @@
   font-family: "VarelaRound", sans-serif;
   margin-right: 1rem;
   font-weight: var(--bold);
+}
+
+.accent {
+  color: var(--main-red);
 }
 
 .titleInscbis {
@@ -35,6 +39,10 @@
   object-fit: cover;
 }
 
+.picLogin {
+  display: none;
+}
+
 /* partie connexion*/
 
 .formInsc {
@@ -45,18 +53,19 @@
 }
 
 .login-input {
-  width: 15em;
-  height: 1.7em;
+  width: 23em;
+  height: 2.5em;
   padding-left: 10px;
   font-size: var(--S);
   background: white;
   border: 1px solid var(--secondary-text);
   border-radius: 4px;
+  margin: 0.5em;
 }
 
 .passInput {
-  width: 15.2em;
-  height: 1.9em;
+  width: 23.2em;
+  height: 2.7em;
   padding-left: 10px;
   margin-top: 0.5em;
   margin-bottom: 1.5em;
@@ -85,6 +94,7 @@
 }
 
 .inputPassText {
+  width: 100%;
   border: none;
   font-size: var(--S);
 }
@@ -125,15 +135,17 @@
 /* partie inscription*/
 
 .secoPart {
-  padding-top: 1em;
+  padding-top: .5em;
 }
 
 .goInscrip {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin: 1em 2em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  border-top: 1px solid var(--main-red);
 }
 
 /* Verification Form */
@@ -151,15 +163,23 @@
 /* Media querie */
 
 @media screen and (min-width: 767.98px) {
-  .titleInsc {
+  .introSinscrire {
     display: none;
   }
   .titleInscbis {
+    padding-bottom: 1em;
     display: block;
     font-family: "VarelaRound", sans-serif;
-    font-size: var(--L);
+    font-size: var(--XL);
     font-weight: var(--bold);
     color: var(--primary-text);
+  }
+
+  .picLogin{
+    display: flex;
+    height: 80%;
+    padding-left: .5em;
+    padding-bottom: .5em;
   }
 
   .divPicIntro {
@@ -167,24 +187,34 @@
   }
 
   .divPicIntrobis {
-    display: block;
-    justify-self: center;
+    display: contents;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
   }
 
   .pageInsc {
+    padding-top: .5em;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
   .picStar {
-    width: 90%;
-    height: 190%;
-    margin-bottom: 2em;
+    width: 40%;
+    height: 40%;
   }
 
+  .passInput {
+    margin-bottom: 3em;
+  }
+.checkBinsc {
+  font-size: var(--M);
+}
   .formInsc {
     width: 50%;
+    margin-top: 0;
+    padding-bottom: 2em;
   }
   .cgv-check {
     height: 1.2em;
@@ -198,8 +228,11 @@
     justify-content: center;
     align-items: center;
   }
-
   .login-button {
+    border-radius: 1em;
+    padding: .5em 1em;
+    font-size: var(--M);
+    margin-top: 1.5em;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }
   .login-button:hover {
@@ -207,5 +240,13 @@
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
     color: white;
+  }
+  .goInscrip{
+    width: 25em;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+  }
+  .textInsc{
+    font-size: var(--M);
   }
 }
