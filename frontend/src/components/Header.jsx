@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router";
 import "../style/Header.css";
 
 import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
@@ -14,7 +16,7 @@ const navlinklist = [
   },
 
   {
-    to: "/inscription",
+    to: "/connexion",
 
     text: "Inscription / Connexion",
   },
@@ -51,6 +53,26 @@ const navlinklist = [
 ];
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    try {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`, {
+          withCredentials: true,
+        })
+        .then(() => {
+          localStorage.clear();
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <header>
       <div className="container-header">
@@ -74,13 +96,17 @@ export default function Header() {
           </NavLink>
 
           <div className="menu-right">
-            <NavLink className="navlink-menu-right" to="/connexion">
+            <button
+              type="button"
+              onClick={logOut}
+              className="navlink-menu-right"
+            >
               <img
                 className="menu-right-icon"
                 src={loginIcon}
                 alt="logowhite"
               />
-            </NavLink>
+            </button>
             <NavLink className="navlink-menu-right" to="/profil">
               <img
                 className="menu-right-icon"
