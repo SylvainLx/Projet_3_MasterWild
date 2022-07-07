@@ -22,11 +22,6 @@ export default function ListFAQ() {
       answer:
         "MasterWild est une plateforme entièrement gratuite! Vous pouvez voir et revoir nos masterclasses en illimité !",
     },
-    {
-      id: "5",
-      answer:
-        "Vous pouvez résilier votre abonnement depuis votre espace personnel ou bien en contactant le service client.",
-    },
   ];
 
   return (
@@ -36,7 +31,6 @@ export default function ListFAQ() {
         <option value="2">Qu'est-ce que MasterWild ?</option>
         <option value="3">Où regarder les vidéos ?</option>
         <option value="4">Est-ce un service payant ?</option>
-        <option value="5">Comment résilier mon abonnement ?</option>
       </select>
       {answersFaq
         .filter((resp) => resp.id === selectedOption)
