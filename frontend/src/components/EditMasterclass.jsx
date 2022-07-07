@@ -31,7 +31,9 @@ export default function EditMasterclass({
   const [desc, setDesc] = useState(descs);
   const [source, setSource] = useState(sources);
   const [theme, setTheme] = useState(themes);
-  const [keyword, setKeyword] = useState(keywords);
+  const [keyword, setKeyword] = useState(
+    keywords.map((key) => key.keyword.name)
+  );
   const [speciality, setSpeciality] = useState(specialities);
   const editMasterclass = (e) => {
     e.preventDefault();
@@ -62,8 +64,6 @@ export default function EditMasterclass({
     e.preventDefault();
     axios.delete(`http://localhost:5001/api/admin/masterclass/${Id}`);
   };
-
-  const mapKeywords = keywords.map((key) => key.keyword.name);
 
   return (
     <form className="form-masterclass" onSubmit={editMasterclass}>
@@ -118,7 +118,7 @@ export default function EditMasterclass({
           type="text"
           name="keyword"
           onChange={(e) => setKeyword(e.target.value)}
-          value={mapKeywords}
+          value={keyword}
         />
       </label>
       <label htmlFor="logo_source">
