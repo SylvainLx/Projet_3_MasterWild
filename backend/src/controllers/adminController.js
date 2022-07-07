@@ -150,7 +150,7 @@ exports.deleteOne = async (req, res) => {
     await fs.promises.unlink(
       path.join(
         __dirname,
-        `../../public/data/uploads/${removed.entreprise.logo_name}`
+        `../../public/data/uploads/${removed.entreprise.logo_source}`
       )
     );
     return res
