@@ -1,5 +1,14 @@
 const categoryController = require("../models/categoryDataAccess");
 
+exports.createOne = async (req, res) => {
+  if (!req.body) {
+    res.sendStatus(400);
+  } else {
+    const data = await categoryController.createOne(req.body);
+    res.status(201).json(data);
+  }
+};
+
 exports.getOne = async (req, res) => {
   const { id } = req.params;
   try {

@@ -2,6 +2,16 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
+exports.createOne = async (data) => {
+  try {
+    return await prisma.category.create({
+      data: { ...data },
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
 exports.getAll = async () => {
   try {
     return await prisma.category.findMany();
