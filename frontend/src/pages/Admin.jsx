@@ -28,35 +28,35 @@ export default function Admin() {
         <p className="text-dashboard">
           <span className="span-number">150</span>
           <br />
-          Clients
+          Utilisateurs
         </p>
         <p className="text-dashboard">
           <span className="span-number">75</span>
           <br />
-          Abonnés
+          Entreprises
         </p>
         <p className="text-dashboard">
           <span className="span-number">43</span>
           <br />
-          Masterclass
+          Catégories
         </p>
         <p className="text-dashboard">
           <span className="span-number">240</span>
           <br />
-          Ventes
+          Masterclasses
         </p>
       </section>
       <section className="selectTask">
         <div className="select-clients">
           <button className="btn-blue" type="button" onClick={handleClients}>
             {" "}
-            <span className="span-task">C</span>lients
+            <span className="span-task">U</span>tilisateurs
           </button>
         </div>
         <div className="select-masterclass">
           <button className="btn-red" type="button" onClick={handleMasterclass}>
             {" "}
-            <span className="span-task">M</span>asterclass
+            <span className="span-task">M</span>asterclasses
           </button>
         </div>
       </section>
