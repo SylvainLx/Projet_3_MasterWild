@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -11,24 +11,13 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required("L'adresse e-mail est obligatoire")
     .email("Veuillez entrer une adresse e-mail valide"),
-  password: Yup.string()
-    .required("Le mot de passe est obligatoire")
-    .min(8, "Le mot de passe doit avoir 8 caractères"),
-  passwordConfirmation: Yup.string().oneOf(
-    [Yup.ref("password")],
-    "Les mots de passe ne correspondent pas"
-  ),
-  gcu: Yup.boolean().oneOf(
-    [true],
-    "Veuillez accepter les conditions d'utilisation"
-  ),
 });
 
 export default function EditProfil() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [user, setUser] = useState("");
 
   const handleFirstname = (e) => {
     setFirstname(e.target.value);
@@ -39,9 +28,12 @@ export default function EditProfil() {
   const handleMail = (e) => {
     setEmail(e.target.value);
   };
-  const handleBirthday = (e) => {
-    setBirthday(e.target.value);
-  };
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`).then((res) => {
+      setUser(res.data);
+    });
+  });
 
   const postUser = () => {
     try {
@@ -50,7 +42,6 @@ export default function EditProfil() {
           firstname,
           lastname,
           email,
-          birthday,
         })
         .then((res) => {
           res.sendStatus(200);
@@ -60,17 +51,9 @@ export default function EditProfil() {
     }
   };
 
-  const initialValues = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    birthday: "",
-  };
-
   return (
     <div className="my-profil">
       <Formik
-        initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={postUser}
         validateOnMount
@@ -81,7 +64,7 @@ export default function EditProfil() {
             <div onChange={handleLastname} className="verif-form">
               <Field
                 name="lastname"
-                value="Nom"
+                placeholder={user.lastname}
                 type="text"
                 size="30"
                 className="login-input"
@@ -96,13 +79,13 @@ export default function EditProfil() {
               <p>Prénom :</p>
               <Field
                 name="firstname"
-                value="Prénom"
+                value={user.firstname}
                 type="text"
                 size="30"
                 className="login-input"
               />
               <ErrorMessage
-                name="lastname"
+                name="firstname"
                 className="text-danger"
                 component="span"
               />
@@ -111,28 +94,13 @@ export default function EditProfil() {
               <p>Email :</p>
               <Field
                 name="email"
-                value="léo.dupont@gmail.com"
+                value={user.email}
                 type="text"
                 size="30"
                 className="login-input"
               />
               <ErrorMessage
-                name="lastname"
-                className="text-danger"
-                component="span"
-              />
-            </div>
-            <div onChange={handleBirthday} className="verif-form">
-              <p>Date de naissance :</p>
-              <Field
-                name="birthday"
-                value="02/10/1987"
-                type="text"
-                size="30"
-                className="login-input"
-              />
-              <ErrorMessage
-                name="lastname"
+                name="email"
                 className="text-danger"
                 component="span"
               />

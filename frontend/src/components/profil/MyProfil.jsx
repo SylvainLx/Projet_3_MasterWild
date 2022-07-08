@@ -56,18 +56,6 @@ export default function MyProfil() {
               />
             </td>
           </tr>
-          <tr>
-            <td>Date de naissance :</td>
-            <td>
-              <input
-                readOnly="readonly"
-                type="text"
-                name="date de naissance"
-                value="02/10/1987"
-                size="30"
-              />
-            </td>
-          </tr>
         </tbody>
       </table>
       <button
