@@ -3,21 +3,12 @@ import "../style/App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import VideoSample from "./VideoSample";
 import AddMasterclass from "./AddMasterclass";
 import EditMasterclass from "./EditMasterclass";
 
 export default function AdminMasterclass() {
   const [showMasterclass, setShowMasterclass] = useState([]);
   const [filterMasterclass, setFilterMasterclass] = useState("");
-
-  const videoExemple = {
-    name: "Nom de la Vidéo",
-    summary:
-      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-    duration: 45,
-    srcPicture: "src/assets/harryroselmack.png",
-  };
 
   useEffect(() => {
     axios.get("http://localhost:5001/api/admin/masterclass").then((res) => {
@@ -62,15 +53,6 @@ export default function AdminMasterclass() {
               />{" "}
             </div>
           ))}
-      </section>
-      <section className="sample-video">
-        <VideoSample
-          addVideo
-          name={videoExemple.name}
-          summary={videoExemple.summary}
-          duration={videoExemple.duration}
-          srcPicture={videoExemple.srcPicture}
-        />
       </section>
       <section className="add-masterclass">
         <AddMasterclass />
