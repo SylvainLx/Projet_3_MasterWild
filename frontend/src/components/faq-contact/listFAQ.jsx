@@ -9,35 +9,28 @@ export default function ListFAQ() {
   const answersFaq = [
     {
       id: "2",
-      answer: "INSPIR/ACTION est une plateforme de masterclass.",
+      answer:
+        "MasterWild est une plateforme de masterclasses animées par notre communauté tech d’entreprises partenaires.",
     },
     {
       id: "3",
-      answer: "Les vidéos sont disponibles en ligne sur la plateforme.",
+      answer:
+        "Les vidéos sont disponibles en ligne sur la plateforme. Avec MasterWild, vous pouvez apprendre et être inspiré à tout moment, n'importe où, y compris sur votre smartphone, votre ordinateur personnel, Apple TV, Chromecast...",
     },
     {
       id: "4",
       answer:
-        "Vous pouvez choisir d'opter pour de la VOD ou bien un abonnement mensuel donnant accès à l'ensemble des masterclass.",
-    },
-    {
-      id: "5",
-      answer:
-        "Vous pouvez résilier votre abonnement depuis votre espace personnel ou bien en contactant le service client.",
+        "MasterWild est une plateforme entièrement gratuite! Vous pouvez voir et revoir nos masterclasses en illimité !",
     },
   ];
 
   return (
     <div className="popularQuestions">
-      <h3 className="introFaq">
-        Retrouvez les questions les plus populaires dans notre Foire Aux
-        Questions.
-      </h3>
+      <p className="pfaq">La réponse à toutes vos questions est ici !</p>
       <select className="selectQuestions" onChange={handleChange}>
-        <option value="2">Qu'est-ce qu'INSPIR/ACTION ?</option>
+        <option value="2">Qu'est-ce que MasterWild ?</option>
         <option value="3">Où regarder les vidéos ?</option>
-        <option value="4">Quel offre choisir ?</option>
-        <option value="5">Comment résilier mon abonnement ?</option>
+        <option value="4">Est-ce un service payant ?</option>
       </select>
       {answersFaq
         .filter((resp) => resp.id === selectedOption)
