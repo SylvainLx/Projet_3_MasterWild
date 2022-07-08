@@ -44,8 +44,8 @@ model masterclass {
   description   String                    @db.VarChar(3000)
   entreprise_Id Int?
   category_Id   Int?
-  entreprise    entreprise?               @relation(fields: [entreprise_Id], references: [Id], onDelete: SetNull)
-  category      category?                 @relation(fields: [category_Id], references: [Id], onDelete: SetNull)
+  entreprise    entreprise?               @relation(fields: [entreprise_Id], references: [Id], onDelete: SetNull, onUpdate: Cascade)
+  category      category?                 @relation(fields: [category_Id], references: [Id], onDelete: SetNull, onUpdate: Cascade)
   favorite      favorite[]
   keywords      masterclass_has_keyword[]
 }
@@ -53,8 +53,8 @@ model masterclass {
 model masterclass_has_keyword {
   masterclass_Id Int
   keyword_Id     Int
-  keyword        keyword     @relation(fields: [keyword_Id], references: [Id], onDelete: Cascade, onUpdate: NoAction)
-  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: Cascade, onUpdate: NoAction)
+  keyword        keyword     @relation(fields: [keyword_Id], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  masterclass    masterclass @relation(fields: [masterclass_Id], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@id([masterclass_Id, keyword_Id])
 }
