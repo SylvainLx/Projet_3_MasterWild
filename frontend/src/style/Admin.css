@@ -1,5 +1,6 @@
 .container-admin {
   color: var(--primary-text);
+ font-family: "VarelaRound", sans-serif;
 }
 /* Blue Bar */
 .title-admin {
@@ -13,13 +14,14 @@
 .span-A {
   font-size: 200%;
   font-weight: var(--bold);
+  color: var(--main-red)
 }
 /* DashBoard */
 .dashboard {
-  background-color: var(--main-red);
-  width: 100vw;
+  background-color: var(--secondary-red);
+  border-radius: 3rem;
   height: 20rem;
-  margin-top: 1rem;
+  margin: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -35,6 +37,8 @@
 }
 /* Select Client / Masterclass */
 .btn-red {
+  font-family: "VarelaRound", sans-serif;
+
   border: none;
   background-color: var(--main-red);
   color: var(--primary-text);
@@ -42,8 +46,9 @@
 }
 
 .btn-blue {
+  font-family: "VarelaRound", sans-serif;
   border: none;
-  background-color: var(--main-blue);
+  background-color: var(--secondary-text);
   color: var(--primary-text);
   font-size: var(--M);
 }
@@ -51,8 +56,8 @@
 .selectTask {
   display: flex;
   justify-content: space-around;
-  margin-top: 1rem;
-  width: 100%;
+  margin: 1rem;
+  gap: 1rem;
 }
 
 .span-task {
@@ -61,7 +66,8 @@
 }
 
 .select-clients {
-  background-color: var(--main-blue);
+  border-radius: 3rem;
+  background-color: var(--secondary-text);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,6 +75,7 @@
   height: 3.5rem;
 }
 .select-masterclass {
+  border-radius: 3rem;
   background-color: var(--main-red);
   display: flex;
   justify-content: center;
@@ -78,13 +85,16 @@
 }
 /* AdminAbonne */
 .showClients {
-  background-color: var(--secondary-blue);
-  width: 100%;
+  box-shadow: 1px;
+  border-radius: 3rem;
+  margin: 1rem;
+  background-color: var(--optionnal-text);
   height: 50vh;
   margin-top: 1rem;
 }
 
 .buttonClient {
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -105,6 +115,7 @@
 }
 
 .choose-clients {
+  background-color: var(--secondary-red);
   width: 75%;
   border: solid 1px var(--main-blue);
   color: black;
@@ -117,13 +128,14 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 50vh;
+  height: 65vh;
   margin-bottom: 1rem;
 }
 
 .selectmaster {
-  width: 75%;
+  width: 80%;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .thematique,
@@ -149,7 +161,7 @@
 .btnDel,
 .btnSend,
 .btnAbonne {
-  background-color: var(--main-blue);
+  background-color: var(--secondary-red);
   border-radius: 5rem;
   width: 10rem;
   height: 2rem;
@@ -170,10 +182,12 @@
   flex-direction: column;
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .input {
-  margin-bottom: 1rem;
+  font-family: "VarelaRound", sans-serif;
+
   padding-left: 1rem;
   border: 1px solid var(--main-blue);
   border-radius: 1rem;
@@ -227,11 +241,14 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2;
     justify-items: center;
+    height: 43rem;
   }
+  .selectmaster {
+    grid-column-start: span 2;  }
   .btnPut,
   .btnDel,
   .btnSend {
-    width: 20rem;
+    width: 5rem;
     height: 3rem;
   }
   .form-masterclass {
@@ -247,14 +264,20 @@
     width: 100%;
     height: 8rem;
   }
+  .labelTitle {
+    grid-column-start: span 2;
+  }
+  .i-title, .i-desc {
+    width: 93vw;
+  }
   .desc {
     padding-right: 1rem;
+    padding-left: 1rem;
     height: 10rem;
-    width: 95vw;
+    width: 94vw;
     grid-column-start: span 2;
   }
   .btnSend {
-    grid-column-start: span 2;
-    width: 45rem;
+    width: 25rem;
   }
 }
