@@ -58,6 +58,9 @@ export default function AdminMasterclass() {
             </div>
           ))}
       </section>
+      <p className="p-action-masterclass">
+        <span className="span-action-m">Ajouter</span> une masterclasse :
+      </p>
       <section className="add-masterclass">
         <AddMasterclass />
       </section>

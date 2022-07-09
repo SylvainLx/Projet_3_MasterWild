@@ -244,12 +244,15 @@
   gap: 1rem;
 }
 
+.divAdd-masterclass{
+  background-color: var(--optionnal-text);
+  border-radius: 40px;
+}
+
 .formAdd-masterclass{
   flex-direction: column;
   display: flex;
   align-items: center;
-  background-color: var(--optionnal-text);
-  border-radius: 40px;
   gap: 1rem;
   padding-top: 1em;
 }
@@ -303,6 +306,7 @@
 }
 
 @media (min-width: 767.98px) {
+
   .p-action-masterclass{
     margin-top: 1.5em;
     margin-bottom: 1em;
@@ -392,6 +396,29 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: baseline;
+  }
+  .add-masterclass{
+    margin-bottom: 2.5em;
+  }
+  .formAdd-masterclass{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: baseline;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding-top: 1.5em;
+  }
+  .btnPostMasterclass{
+    justify-self: end;
+    margin-bottom: 2em;
+    border: 1px solid var(--main-red);
+  }
+  .btnPostMasterclass:hover{
+    background-color: white;
+    color: var(--main-red);
+    border: 1px solid var(--main-red);
   }
   .labelTitle {
     grid-column-start: span 2;

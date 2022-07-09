@@ -40,14 +40,11 @@ export default function AddMasterclass() {
   };
 
   return (
-    <div>
-      <p className="p-action-masterclass">
-        <span className="span-action-m">Ajouter</span> une masterclasse :
-      </p>
+    <div className="divAdd-masterclass">
       <form className="formAdd-masterclass" onSubmit={handlePost}>
-        <label htmlFor="title">
+        <label className="labelTitle" htmlFor="title">
           <input
-            className="input"
+            className="i-title"
             type="text"
             name="title"
             onChange={(e) => setTitle(e.target.value)}
@@ -109,7 +106,7 @@ export default function AddMasterclass() {
         </label>
         <label className="desc" htmlFor="description">
           <textarea
-            className="input i-desc"
+            className="i-desc"
             type="text"
             name="description"
             onChange={(e) => setDesc(e.target.value)}
