@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
 
 import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
 import Login from "../assets/pictures/peopleLogin.jpg";
-import OpenEye from "../assets/visOn.png";
-import ClosedEye from "../assets/visOff.png";
 
 import "../style/Inscription.css";
 
@@ -153,13 +152,13 @@ export default function Inscription() {
                   component="span"
                 />
               </div>
-              <div className="passInput">
+              <div className="container-password">
                 <div onChange={handlePassword} className="verif-form">
                   <Field
                     name="password"
                     placeholder="Mot de passe"
                     type={show ? "password" : "text"}
-                    className="inputPassText"
+                    className="login-input"
                   />
                   <ErrorMessage
                     name="password"
@@ -173,19 +172,19 @@ export default function Inscription() {
                   onClick={handleClick}
                 >
                   {show ? (
-                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
                   ) : (
-                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEye alt="icone eye" size="1.7em" />
                   )}
                 </button>
               </div>
-              <div className="passInput">
+              <div className="container-password">
                 <div className="verif-form">
                   <Field
                     name="passwordConfirmation"
                     placeholder="Confirmation"
                     type={show ? "password" : "text"}
-                    className="inputPassText"
+                    className="login-input"
                   />
                   <ErrorMessage
                     name="passwordConfirmation"
@@ -199,45 +198,47 @@ export default function Inscription() {
                   onClick={handleClick}
                 >
                   {show ? (
-                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
                   ) : (
-                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEye alt="icone eye" size="1.7em" />
                   )}
                 </button>
               </div>
-              <div className="checkBinsc">
-                <Field
-                  name="gcu"
-                  type="checkbox"
-                  className="cgv-check"
-                  id="gcu"
-                />
-                <div className="verif-form">
-                  <label className="checkBinsc" htmlFor="CGV">
-                    J'accepte{" "}
-                    <a
-                      href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
-                      _target="blank"
-                    >
-                      les conditions générales.
-                    </a>
-                  </label>
-                  <ErrorMessage
+              <div className="container-checkbox">
+                <div className="checkBinsc">
+                  <Field
                     name="gcu"
-                    className="text-danger"
-                    component="div"
+                    type="checkbox"
+                    className="cgv-check"
+                    id="gcu"
                   />
+                  <div>
+                    <label htmlFor="CGV">
+                      J'accepte{" "}
+                      <a
+                        href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
+                        _target="blank"
+                      >
+                        <span>les conditions générales.</span>
+                      </a>
+                    </label>
+                    <ErrorMessage
+                      name="gcu"
+                      className="text-danger"
+                      component="div"
+                    />
+                  </div>
                 </div>
+                <label htmlFor="NsL" className="checkBinsc">
+                  <input
+                    className="cgv-check"
+                    type="checkbox"
+                    name="name"
+                    id="NsL"
+                  />
+                  Je souhaite recevoir la Wild Flash.
+                </label>
               </div>
-              <label htmlFor="NsL" className="checkBinsc">
-                <input
-                  className="cgv-check"
-                  type="checkbox"
-                  name="name"
-                  id="NsL"
-                />
-                Je souhaite recevoir la Wild Flash.
-              </label>
               <button
                 type="submit"
                 className="login-button"
