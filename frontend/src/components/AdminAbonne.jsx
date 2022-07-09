@@ -16,14 +16,14 @@ export default function AdminAbonne() {
     setShowAbonne(!true);
   };
   const optionsAbonne = [
-    { value: "Abonne 1", label: "Utilisateur 1" },
-    { value: "Abonne 2", label: "Utilisateur 2" },
-    { value: "Abonne 3", label: "Utilisateur 3" },
+    { value: "Utilisateur 1", label: "Utilisateur 1" },
+    { value: "Utilisateur 2", label: "Utilisateur 2" },
+    { value: "Utilisateur 3", label: "Utilisateur 3" },
   ];
   const optionsNonAbonne = [
-    { value: "Non Abonne 1", label: "Administrateur 1" },
-    { value: "Non Abonne 2", label: "Administrateur 2" },
-    { value: "Non Abonne 3", label: "Administrateur 3" },
+    { value: "Administrateur 1", label: "Administrateur 1" },
+    { value: "Administrateur 2", label: "Administrateur 2" },
+    { value: "Administrateur 3", label: "Administrateur 3" },
   ];
 
   const customStyleAbonne = {

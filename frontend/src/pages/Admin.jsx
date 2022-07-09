@@ -1,6 +1,7 @@
 import "../style/Admin.css";
 import "../style/App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import AdminAbonne from "../components/AdminAbonne";
 import AdminMasterclass from "../components/AdminMasterclass";
@@ -8,6 +9,8 @@ import AdminMasterclass from "../components/AdminMasterclass";
 export default function Admin() {
   const [showClients, setShowClients] = useState(true);
   const [showMasterclass, setShowMasterclass] = useState(false);
+  const [masterclassDashboard, setMasterclassDashboard] = useState([]);
+  const [usersDashboard, setUsersDashboard] = useState([]);
 
   const handleClients = () => {
     setShowClients((current) => !current);
@@ -17,6 +20,22 @@ export default function Admin() {
     setShowMasterclass((current) => !current);
     setShowClients(!true);
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:5001/api/admin/masterclass").then((res) => {
+      setMasterclassDashboard(res.data.data);
+    });
+    axios.get("http://localhost:5001/api/user").then((res) => {
+      setUsersDashboard(res.data);
+    });
+  }, []);
+
+  const masterclassQuantity = masterclassDashboard.length;
+  const usersQuantity = usersDashboard.length;
+  const employeQuantity = usersDashboard.filter(
+    (employe) => employe.role === "pro"
+  );
+
   return (
     <div className="container-admin">
       <section className="title-admin">
@@ -26,36 +45,29 @@ export default function Admin() {
       </section>
       <section className="dashboard">
         <p className="text-dashboard">
-          <span className="span-number">150</span>
+          <span className="span-number">{usersQuantity}</span>
           <br />
           Utilisateurs
         </p>
         <p className="text-dashboard">
-          <span className="span-number">75</span>
+          <span className="span-number">{employeQuantity.length}</span>
           <br />
           Entreprises
         </p>
-        <p className="text-dashboard">
-          <span className="span-number">43</span>
+        <p className="text-dashboard text-masterclass">
+          <span className="span-number">{masterclassQuantity}</span>
           <br />
-          Catégories
-        </p>
-        <p className="text-dashboard">
-          <span className="span-number">240</span>
-          <br />
-          Masterclasses
+          Masterclass
         </p>
       </section>
       <section className="selectTask">
         <div className="select-clients">
           <button className="btn-blue" type="button" onClick={handleClients}>
-            {" "}
             <span className="span-task">U</span>tilisateurs
           </button>
         </div>
         <div className="select-masterclass">
           <button className="btn-red" type="button" onClick={handleMasterclass}>
-            {" "}
             <span className="span-task">M</span>asterclasses
           </button>
         </div>
