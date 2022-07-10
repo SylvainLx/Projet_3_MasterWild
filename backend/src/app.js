@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+require("dotenv").config();
 
 const app = express();
 
@@ -30,6 +31,8 @@ const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
+const entrepriseRoutes = require("./routes/entrepriseRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 
 app.use("/api", router);
 
@@ -37,6 +40,8 @@ router.use("/admin", adminRoutes);
 router.use("/user", userRoutes);
 router.use("/auth", authRoutes);
 router.use("/favorite", favoriteRoutes);
+router.use("/entreprise", entrepriseRoutes);
+router.use("/category", categoryRoutes);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {

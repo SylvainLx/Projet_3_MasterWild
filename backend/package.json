@@ -10,6 +10,8 @@
     "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .js ."
   },
+  "prisma": {
+    "seed": "node prisma/seedCategory.js"  },
   "keywords": [],
   "author": "",
   "license": "ISC",
