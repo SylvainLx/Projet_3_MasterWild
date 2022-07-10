@@ -1,37 +1,41 @@
+/* eslint-disable react/prop-types */
 import "../style/CardMasterclass.css";
-import Pattern from "../assets/pictures/patter-rose-2.png";
-import LogoIntervenant from "../assets/pictures/logo-HD-fond-transparent.png";
 
-export default function CardMasterclass() {
+export default function CardMasterclass({ mastercard }) {
   return (
     <div className="card-container">
       <div className="top-card">
         <div className="inter">
-          <p>intervenant</p>
+          <p>{mastercard.entreprise.name}</p>
         </div>
         <div className="logo-wild">
-          <img src={Pattern} alt="logo simple wild" className="logo1" />
+          <img
+            src={mastercard.entreprise.logo_name}
+            alt="logo simple wild"
+            className="logo1"
+          />
         </div>
       </div>
       <div className="contenu-card">
         <div className="logo-inter">
-          <img src={LogoIntervenant} alt="logo simple wild" className="logo2" />
+          <img
+            src={mastercard.entreprise.logo_source}
+            alt="logo simple wild"
+            className="logo2"
+          />
         </div>
         <div className="title-desc">
           <div className="title-card">
-            <h2>IA et nouvelles technologies</h2>
+            <h2>{mastercard.title}</h2>
           </div>
           <div className="desc-card">
-            <p>
-              Découverte d'une entreprise dans le domaine de l'intelligence
-              artificielle.
-            </p>
+            <p>{mastercard.description}</p>
           </div>
         </div>
       </div>
       <div className="button-start">
         <button type="button" className="voir-vid">
-          Voir cette masterclass
+          Voir
         </button>
       </div>
     </div>

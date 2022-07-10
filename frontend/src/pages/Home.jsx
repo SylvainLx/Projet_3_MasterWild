@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import IntroHome from "../components/home/IntroHome";
 import IntroWCS from "../components/home/IntroWCS";
@@ -11,6 +13,17 @@ import flower from "../assets/flower.webm";
 import "../style/Home.css";
 
 export default function Home() {
+  const [listMasterclass, setListMasterclass] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+        // console.log(res.data.data);
+      });
+  }, []);
+
   return (
     <div className="container-home">
       <IntroHome />
@@ -80,13 +93,17 @@ export default function Home() {
       </div>
       <div className="search-exemples">
         <div className="first-block">
-          <h2>Découvrez de nombreux métiers ...</h2>
-          <CarouselSearch />
+          {listMasterclass.map((mastercard) => (
+            <CarouselSearch key={mastercard.id} mastercard={mastercard} />
+          ))}
         </div>
-        <div className="second-block">
+
+        {/* <div className="second-block">
           <h2>... et différents domaines technologiques.</h2>
-          <CarouselSearch />
-        </div>
+          {listMasterclass.map((mastercard) => (
+            <CarouselSearch key={mastercard.id} mastercard={mastercard} />
+          ))}
+        </div> */}
       </div>
       <IntroWCS />
     </div>
