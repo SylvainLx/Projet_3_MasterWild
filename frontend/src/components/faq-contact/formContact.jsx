@@ -26,7 +26,7 @@ export default function FormContact() {
         "VdOV_IwA2lbDCrvNf"
       )
       .then((response) => {
-        console.log(response.text, "ok cest bon");
+        setMessage(response.text, "ok cest bon");
       });
   };
 
