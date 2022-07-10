@@ -22,16 +22,20 @@ export default function Admin() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5001/api/admin/masterclass").then((res) => {
-      setMasterclassDashboard(res.data.data);
-    });
-    axios.get("http://localhost:5001/api/user").then((res) => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setMasterclassDashboard(res.data.data);
+      });
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`).then((res) => {
       setUsersDashboard(res.data);
     });
   }, []);
 
   const masterclassQuantity = masterclassDashboard.length;
-  const usersQuantity = usersDashboard.length;
+  const usersQuantity = usersDashboard.filter(
+    (users) => users.role !== "pro" && users.role !== "admin"
+  );
   const employeQuantity = usersDashboard.filter(
     (employe) => employe.role === "pro"
   );
@@ -45,7 +49,7 @@ export default function Admin() {
       </section>
       <section className="dashboard">
         <p className="text-dashboard">
-          <span className="span-number">{usersQuantity}</span>
+          <span className="span-number">{usersQuantity.length}</span>
           <br />
           Utilisateurs
         </p>
@@ -74,7 +78,9 @@ export default function Admin() {
           </button>
         </div>
       </section>
-      {showClients && <AdminAbonne />}
+      {showClients && (
+        <AdminAbonne users={usersQuantity} professionals={employeQuantity} />
+      )}
       {showMasterclass && <AdminMasterclass />}
     </div>
   );

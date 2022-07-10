@@ -1,48 +1,22 @@
 import "../style/Admin.css";
 import "../style/App.css";
 import { useState } from "react";
-import Select from "react-select";
+import PropTypes from "prop-types";
 
-export default function AdminAbonne() {
-  const [showAbonne, setShowAbonne] = useState(true);
+export default function AdminAbonne({ users, professionals }) {
+  AdminAbonne.propTypes = {
+    users: PropTypes.string.isRequired,
+    professionals: PropTypes.string.isRequired,
+  };
+  const [selectUsers, setSelectUsers] = useState(true);
   const [showNonAbonne, setShowNonAbonne] = useState(false);
-
   const handleAbonne = () => {
-    setShowAbonne((current) => !current);
+    setSelectUsers((current) => !current);
     setShowNonAbonne(!true);
   };
   const handleNonAbonne = () => {
     setShowNonAbonne((current) => !current);
-    setShowAbonne(!true);
-  };
-  const optionsAbonne = [
-    { value: "Abonne 1", label: "Abonne 1" },
-    { value: "Abonne 2", label: "Abonne 2" },
-    { value: "Abonne 3", label: "Abonne 3" },
-  ];
-  const optionsNonAbonne = [
-    { value: "Non Abonne 1", label: "Non Abonne 1" },
-    { value: "Non Abonne 2", label: "Non Abonne 2" },
-    { value: "Non Abonne 3", label: "Non Abonne 3" },
-  ];
-
-  const customStyleAbonne = {
-    control: (base) => ({
-      ...base,
-      backgroundColor: "var(--secondary-blue)",
-      border: 0,
-    }),
-    dropdownIndicator: () => ({
-      color: "white",
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: "white",
-    }),
-    menu: () => ({
-      marginTop: "0",
-      background: "var(--secondary-blue)",
-    }),
+    setSelectUsers(!true);
   };
 
   return (
@@ -57,40 +31,38 @@ export default function AdminAbonne() {
         </button>
       </div>
 
-      {showAbonne && (
+      {selectUsers && (
         <div className="abonnes">
-          <Select
+          <select
+            name="showUsers"
             className="choose-clients"
-            styles={customStyleAbonne}
-            options={optionsAbonne}
             placeholder="Selection Abonné"
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary25: "var(--main-blue)",
-                primary: "var(--main-blue)",
-              },
-            })}
-          />
+          >
+            {" "}
+            <option value="">Liste des Utilisateurs</option>
+            {users.map((user) => (
+              <option value={user.name} key={user.Id}>
+                {user.Id} - {user.lastname} {user.firstname}
+              </option>
+            ))}
+          </select>
         </div>
       )}
       {showNonAbonne && (
         <div className="non-abonnes">
-          <Select
+          <select
+            name="showUsers"
             className="choose-clients"
-            styles={customStyleAbonne}
-            options={optionsNonAbonne}
-            placeholder="Selection Non Abonné"
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary25: "var(--main-blue)",
-                primary: "var(--main-blue)",
-              },
-            })}
-          />
+            placeholder="Selection Abonné"
+          >
+            {" "}
+            <option value="">Liste des Entreprises</option>
+            {professionals.map((pro) => (
+              <option value={pro.name} key={pro.Id}>
+                {pro.Id} - {pro.lastname} {pro.firstname}
+              </option>
+            ))}
+          </select>
         </div>
       )}
     </section>
