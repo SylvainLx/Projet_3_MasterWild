@@ -2,7 +2,7 @@ import "../style/Search.css";
 import "../style/App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 import LogoSearch from "../assets/search.png";
 import ArrowDown from "../assets/arrowdown.png";
@@ -11,11 +11,11 @@ import CardMasterclass from "../components/CardMasterclass";
 
 export default function Search() {
   const [showTheme, setShowTheme] = useState(false);
-  const [showMetiers, setShowMetiers] = useState(false);
+  const [showEntreprise, setShowEntreprise] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
   const [searchCategory, setSearchCategory] = useState([]);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleShowTheme = (e) => {
     setShowTheme((current) => !current);
@@ -24,28 +24,28 @@ export default function Search() {
       setSearchCategory(response.data.data);
     });
   };
-  const handleShowMetiers = () => {
-    setShowMetiers((current) => !current);
+  const handleShowEntreprise = () => {
+    setShowEntreprise((current) => !current);
   };
   const handleSearch = () => {
     setSearchBar(!searchBar);
   };
 
-  function filterSearch(filter) {
-    localStorage.setItem("user", JSON.stringify(filter));
-  }
+  // function filterSearch(filter) {
+  //   localStorage.setItem("user", JSON.stringify(filter));
+  // }
 
-  const getSearch = (e) => {
-    e.preventDefault();
-    axios
-      .get("http://localhost:4000/api/search", {
-        searchBar,
-      })
-      .then((response) => {
-        filterSearch(response.data);
-        navigate("/search");
-      });
-  };
+  // const getSearch = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .get("http://localhost:4000/api/search", {
+  //       searchBar,
+  //     })
+  //     .then((response) => {
+  //       filterSearch(response.data);
+  //       navigate("/search");
+  //     });
+  // };
 
   const [listMasterclass, setListMasterclass] = useState([]);
 
@@ -54,6 +54,16 @@ export default function Search() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
       .then((res) => {
         setListMasterclass(res.data.data);
+      });
+  }, []);
+
+  const [listEntreprise, setListEntreprise] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprise`)
+      .then((res) => {
+        setListEntreprise(res.data.data);
       });
   }, []);
 
@@ -72,7 +82,7 @@ export default function Search() {
             placeholder="Rechercher"
             onChange={handleSearch}
           />
-          <button className="btnlogo" type="button" onClick={getSearch}>
+          <button className="btnlogo" type="button">
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
         </div>
@@ -93,7 +103,7 @@ export default function Search() {
             ) : (
               <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
             )}
-          </button>{" "}
+          </button>
           {showTheme && (
             <div className="result-theme">
               <ul className="list-theme">
@@ -109,34 +119,28 @@ export default function Search() {
 
         <div className="search-metier">
           <button
-            className={showMetiers ? "btnSearchMetier" : "btnsearchmetier"}
+            className={showEntreprise ? "btnSearchMetier" : "btnsearchmetier"}
             type="button"
-            onClick={handleShowMetiers}
+            onClick={handleShowEntreprise}
           >
-            <span className="letter-m">M</span>
+            <span className="letter-m">E</span>
             <div>
               <h3 className="recherche">Recherche par</h3>
 
-              <h3 className="etiers">ETIER</h3>
+              <h3 className="etiers">NTREPRISE</h3>
             </div>
-            {showMetiers ? (
+            {showEntreprise ? (
               <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
             ) : (
               <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
             )}
           </button>
-          {showMetiers && (
+          {showEntreprise && (
             <div className="result-metier">
               <ul className="list-metier">
-                <li className="li-theme">DevOps Engineer</li>
-                <li className="li-theme">Frontend Engineer</li>
-                <li className="li-theme">Backend Engineer</li>
-                <li className="li-theme">Entrepreneur</li>
-                <li className="li-theme">Data Scientist</li>
-                <li className="li-theme">Consultant</li>
-                <li className="li-theme">UX Designer</li>
-                <li className="li-theme">Spécialiste Marketing</li>
-                <li className="li-theme">Data Analyst</li>
+                {listEntreprise.map((entreprise) => (
+                  <li className="li-theme">{entreprise.name}</li>
+                ))}
               </ul>
             </div>
           )}
