@@ -4,7 +4,9 @@ import "../style/CardMasterclass.css";
 export default function CardMasterclass({ mastercard }) {
   return (
     <div className="card-container">
-      <p className="pCardNameEntreprise">{mastercard.entreprise.name}</p>
+      <p className="pCardNameEntreprise">
+        {mastercard.entreprise.name} ( {mastercard.entreprise.speciality} )
+      </p>
       <div className="contenu-card">
         <img
           src={mastercard.entreprise.logo_source}
