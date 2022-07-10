@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Masterclass from "../pages/Masterclass";
-// import Profil from "../pages/Profil";
+import Profil from "../pages/Profil";
 import Contact from "../pages/Contact";
 import Admin from "../pages/Admin";
 import Connexion from "../pages/Connexion";
@@ -18,7 +18,7 @@ export default function Main() {
 
         <Route path="/search" element={<Search />} />
         <Route path="/masterclass" element={<Masterclass />} />
-        {/* <Route path="/profil" element={<Profil />} /> */}
+        <Route path="/profil" element={<Profil />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />}>
           <Route path="abonne" element={<AdminAbonne />} />
