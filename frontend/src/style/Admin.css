@@ -98,7 +98,6 @@
 }
 
 .buttonClient {
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -108,14 +107,40 @@
 
 .abonnes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .non-abonnes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.usersList, .proList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 2rem;
+  margin-top: 3rem;
+  background-color: white;
+  color: var(--primary-text);
+  border-radius: 2rem;
+  width: 70%;
+  height: 9rem;
+  padding-left: 2rem;
+  box-shadow: 5px 5px 10px var(--secondary-text);
+  -webkit-transform: scale(1.01); /* Safari and Chrome */
+  -moz-transform: scale(1.01); /* Firefox */
+  -ms-transform: scale(1.01); /* IE 9 */
+  -o-transform: scale(1.01); /* Opera */
+  transform: scale(1.01);
+}
+
+.usersSpan, .proSpan {
+  font-style: oblique;
 }
 
 .choose-clients {
@@ -123,6 +148,9 @@
   width: 75%;
   border: solid 1px var(--main-blue);
   color: black;
+  height: 3rem;
+  padding-left: 1rem;
+  border-radius: 1rem;
 }
 /* AdminMasterclass */
 .showMasterclass {
