@@ -62,7 +62,7 @@ export default function AdminAbonne() {
             className="choose-clients"
             styles={customStyleAbonne}
             options={optionsAbonne}
-            placeholder="Selection Abonné"
+            placeholder="Selectionne un Utilisateur"
             theme={(theme) => ({
               ...theme,
               colors: {
@@ -80,7 +80,7 @@ export default function AdminAbonne() {
             className="choose-clients"
             styles={customStyleAbonne}
             options={optionsNonAbonne}
-            placeholder="Selection Non Abonné"
+            placeholder="Selectionne un Administrateur"
             theme={(theme) => ({
               ...theme,
               colors: {
