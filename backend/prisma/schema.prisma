@@ -67,5 +67,6 @@ model user {
   password      String     @db.VarChar(3000)
   birthday_date DateTime?  @db.DateTime(0)
   role          String?    @db.VarChar(3000)
+  professional  Boolean    @db.TinyInt @default(false)
   favorite      favorite[]
 }

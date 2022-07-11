@@ -1,9 +1,10 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useContext } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import * as Yup from "yup";
+import CurrentUserContext from "../../contexts/currentUser";
 
 import "../../style/MyProfil.css";
 
@@ -23,9 +24,10 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function EditProfil() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+  const [firstname, setFirstname] = useState(userProfil.firstname);
+  const [lastname, setLastname] = useState(userProfil.lastname);
+  const [email, setEmail] = useState(userProfil.email);
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -35,31 +37,28 @@ export default function EditProfil() {
   const [show, setShow] = useState(true);
   const handleClick = () => setShow(!show);
 
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`).then((res) => {
-      setFirstname(res.data.firstname);
-      setLastname(res.data.lastname);
-      setEmail(res.data.email);
-    });
-  }, []);
-
   const postUser = () => {
     try {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`, {
+        .put(`${import.meta.env.VITE_BACKEND_URL}/api/user/${userProfil.Id}`, {
           firstname,
           lastname,
           email,
           password: newPassword,
         })
         .then(() => {
+          setUserProfil({
+            ...userProfil,
+            firstname,
+            lastname,
+            email,
+          });
           navigate("/search");
         });
     } catch (error) {
       console.error(error);
     }
   };
-  console.error(firstname, lastname, email, newPassword);
 
   return (
     <div className="my-profil">
@@ -161,7 +160,7 @@ export default function EditProfil() {
 
                   <Field
                     name="password"
-                    type="text"
+                    type={show ? "password" : "text"}
                     size="30"
                     className="modify-input"
                   />
@@ -187,7 +186,7 @@ export default function EditProfil() {
                   </p>
                   <Field
                     name="newPassword"
-                    type="text"
+                    type={show ? "password" : "text"}
                     size="30"
                     className="modify-input"
                   />
@@ -217,7 +216,7 @@ export default function EditProfil() {
                   </p>
                   <Field
                     name="passwordConfirmation"
-                    type="text"
+                    type={show ? "password" : "text"}
                     size="30"
                     className="modify-input"
                   />
