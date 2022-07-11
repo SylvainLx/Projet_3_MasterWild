@@ -78,7 +78,7 @@
   margin-bottom: 0.5em;
 }
 
-.checkBinsc span{
+.checkBinsc span {
   padding-left: 0.3em;
 }
 
@@ -117,7 +117,7 @@
 /* partie inscription*/
 
 .secoPart {
-  padding-top: .5em;
+  padding-top: 0.5em;
 }
 
 .goInscrip {
@@ -125,15 +125,15 @@
   flex-direction: column;
   align-items: center;
   margin: 1em 2em;
-  padding-top: .5em;
-  padding-bottom: .5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border-top: 1px solid var(--main-red);
 }
 
 .container-password {
- display: flex;
- align-items: center;
- margin-left: 2.3em;
+  display: flex;
+  align-items: center;
+  margin-left: 2.3em;
 }
 
 .container-checkbox {
@@ -168,11 +168,11 @@
     color: var(--primary-text);
   }
 
-  .picLogin{
+  .picLogin {
     display: flex;
     height: 80%;
-    padding-left: .5em;
-    padding-bottom: .5em;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
   }
 
   .divPicIntro {
@@ -187,7 +187,7 @@
   }
 
   .pageInsc {
-    padding-top: .5em;
+    padding-top: 0.5em;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -198,9 +198,9 @@
     height: 40%;
   }
 
-.checkBinsc {
-  font-size: var(--M);
-}
+  .checkBinsc {
+    font-size: var(--M);
+  }
   .formInsc {
     width: 50%;
     margin-top: 0;
@@ -220,7 +220,7 @@
   }
   .login-button {
     border-radius: 1em;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     font-size: var(--M);
     margin-top: 1.5em;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
@@ -231,12 +231,12 @@
     box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
     color: white;
   }
-  .goInscrip{
+  .goInscrip {
     width: 25em;
     padding-top: 2.5em;
     padding-bottom: 2.5em;
   }
-  .textInsc{
+  .textInsc {
     font-size: var(--M);
   }
 }
