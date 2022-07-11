@@ -2,6 +2,8 @@ import "../style/Admin.css";
 
 import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AddMasterclass() {
   const [photo, setPhoto] = useState([]);
@@ -38,6 +40,8 @@ export default function AddMasterclass() {
       }
     );
   };
+
+  const ToastAddMasterclass = () => toast("Masterclass ajouté !");
 
   return (
     <div className="divAdd-masterclass">
@@ -113,7 +117,12 @@ export default function AddMasterclass() {
             placeholder="Description de la masterclass"
           />
         </label>
-        <input className="btnPostMasterclass" type="submit" />
+        <input
+          className="btnPostMasterclass"
+          type="submit"
+          onClick={ToastAddMasterclass}
+        />
+        <ToastContainer />
       </form>
     </div>
   );

@@ -2,6 +2,8 @@ import "../style/Admin.css";
 import "../style/App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { CSVLink } from "react-csv";
 import PropTypes from "prop-types";
 import UsersList from "./UsersList";
@@ -38,6 +40,8 @@ export default function AdminAbonne({ users, professionals }) {
       setExcel(res.data);
     });
   }, []);
+
+  const ToastExcel = () => toast("Donées téléchargées !");
 
   return (
     <section className="showClients">
@@ -96,9 +100,10 @@ export default function AdminAbonne({ users, professionals }) {
             ))}
         </div>
       )}
-      <CSVLink data={excel} className="excel">
+      <CSVLink data={excel} className="excel" onClick={ToastExcel}>
         Exporter les données
       </CSVLink>
+      <ToastContainer />
     </section>
   );
 }

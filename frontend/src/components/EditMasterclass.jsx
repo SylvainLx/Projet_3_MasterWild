@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { useState } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function EditMasterclass({
   titles,
   names,
@@ -60,12 +63,17 @@ export default function EditMasterclass({
       }
     );
   };
+  const ToastDeleteMasterclass = () => toast("Masterclass supprimée !");
+
   const deleteMasterclass = (e) => {
     e.preventDefault();
     axios.delete(
       `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
     );
+    ToastDeleteMasterclass();
   };
+
+  const ToastEditMasterclass = () => toast("Masterclass modifiée !");
 
   return (
     <div>
@@ -141,7 +149,13 @@ export default function EditMasterclass({
             value={desc}
           />
         </label>
-        <input className="btnPut" type="submit" value="Modifier" />
+        <input
+          className="btnPut"
+          type="submit"
+          value="Modifier"
+          onClick={ToastEditMasterclass}
+        />{" "}
+        <ToastContainer />
       </form>{" "}
       <input
         className="btnDel"
