@@ -32,6 +32,7 @@ const authRoutes = require("./routes/authRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
 const entrepriseRoutes = require("./routes/entrepriseRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
+const excelRoutes = require("./routes/excelRoutes");
 
 app.use("/api", router);
 
@@ -41,6 +42,7 @@ router.use("/auth", authRoutes);
 router.use("/favorite", favoriteRoutes);
 router.use("/entreprise", entrepriseRoutes);
 router.use("/category", categoryRoutes);
+router.use("/excel", excelRoutes);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {

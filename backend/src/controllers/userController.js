@@ -47,6 +47,13 @@ exports.getAll = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
+exports.getAllExcel = (req, res) => {
+  userDataAccess
+    .findAllExcel()
+    .then((users) => res.send(users))
+    .catch((err) => res.status(500).send(err));
+};
+
 exports.deleteOne = (req, res) => {
   const userId = parseInt(req.params.id, 10);
 

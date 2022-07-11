@@ -1,6 +1,8 @@
 import "../style/Admin.css";
 import "../style/App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { CSVLink } from "react-csv";
 import PropTypes from "prop-types";
 import UsersList from "./UsersList";
 import ProList from "./ProList";
@@ -13,6 +15,7 @@ export default function AdminAbonne({ users, professionals }) {
   const [selectUsers, setSelectUsers] = useState(true);
   const [showNonAbonne, setShowNonAbonne] = useState(false);
   const [filterUsers, setFilterUsers] = useState([]);
+  const [excel, setExcel] = useState([]);
   const [filterPro, setFilterPro] = useState([]);
   const handleAbonne = () => {
     setSelectUsers((current) => !current);
@@ -29,6 +32,13 @@ export default function AdminAbonne({ users, professionals }) {
   const handleProFilter = (e) => {
     setFilterPro(e.target.value);
   };
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/excel`).then((res) => {
+      setExcel(res.data);
+    });
+  }, []);
+
   return (
     <section className="showClients">
       <div className="buttonClient">
@@ -64,7 +74,6 @@ export default function AdminAbonne({ users, professionals }) {
             ))}
         </div>
       )}
-
       {showNonAbonne && (
         <div className="non-abonnes">
           <select
@@ -88,6 +97,9 @@ export default function AdminAbonne({ users, professionals }) {
             ))}
         </div>
       )}
+      <CSVLink data={excel} className="excel">
+        Exporter les données
+      </CSVLink>
     </section>
   );
 }

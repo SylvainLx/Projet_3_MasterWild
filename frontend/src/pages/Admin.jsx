@@ -39,7 +39,6 @@ export default function Admin() {
   const employeQuantity = usersDashboard.filter(
     (employe) => employe.role === "pro"
   );
-
   return (
     <div className="container-admin">
       <section className="title-admin">
