@@ -8,6 +8,14 @@
 
 /*START Mobile Version*/
 
+.partnairPics {
+  text-align: center;
+  margin-top: 1em;
+  font-size: var(--L);
+  color: var(--primary-text);
+  font-weight: var(--bold);
+}
+
 @media screen and (max-width: 767.98px) {
   .carousel-home {
     display: none;
@@ -68,6 +76,7 @@
 .home-mosaic {
   padding-top: 1em;
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(3, 32.95%);
 }
@@ -80,8 +89,8 @@
   padding: 2em;
 }
 
-.square-pic > img {
-  max-width: 100%;
+.square-pic {
+  width: 100%;
 }
 
 .text {

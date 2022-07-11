@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import VideoSample from "../components/VideoSample";
-import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
 export default function Masterclass() {
@@ -8,12 +7,6 @@ export default function Masterclass() {
     <div className="masterclass">
       <div className="container-masterclass">
         <VideoSample masterclassId={1} addVideo />
-        <div className="suggestions">
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-        </div>
       </div>
       <div className="go-to-search">
         <NavLink to="/search" className="global-return-button">
