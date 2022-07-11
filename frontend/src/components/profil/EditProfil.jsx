@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import * as Yup from "yup";
 
@@ -30,6 +31,9 @@ export default function EditProfil() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   const navigate = useNavigate();
+
+  const [show, setShow] = useState(true);
+  const handleClick = () => setShow(!show);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`).then((res) => {
@@ -135,57 +139,97 @@ export default function EditProfil() {
                   component="span"
                 />
               </div>
-              <div
-                className="verif-form"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              >
-                <p>Mot de passe actuel :</p>
-                <Field
-                  name="password"
-                  type="text"
-                  size="30"
-                  className="login-input"
-                />
+              <div className="container-password-profil">
+                <div
+                  className="verif-form"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                >
+                  <p>Mot de passe actuel :</p>
+                  <Field
+                    name="password"
+                    type="text"
+                    size="30"
+                    className="login-input"
+                  />
+                </div>
+                <button
+                  className="buttonShow"
+                  type="button"
+                  onClick={handleClick}
+                >
+                  {show ? (
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
+                  ) : (
+                    <FaRegEye alt="icone eye" size="1.7em" />
+                  )}
+                </button>
               </div>
-              <div
-                className="verif-form"
-                onChange={(e) => {
-                  setNewPassword(e.target.value);
-                }}
-              >
-                <p>Nouveau mot de passe :</p>
-                <Field
-                  name="newPassword"
-                  type="text"
-                  size="30"
-                  className="login-input"
-                />
+
+              <div className="container-password-profil">
+                <div
+                  className="verif-form"
+                  onChange={(e) => {
+                    setNewPassword(e.target.value);
+                  }}
+                >
+                  <p>Nouveau mot de passe :</p>
+                  <Field
+                    name="newPassword"
+                    type="text"
+                    size="30"
+                    className="login-input"
+                  />
+                </div>
                 <ErrorMessage
                   name="newPassword"
                   className="text-danger"
                   component="span"
                 />
+                <button
+                  className="buttonShow"
+                  type="button"
+                  onClick={handleClick}
+                >
+                  {show ? (
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
+                  ) : (
+                    <FaRegEye alt="icone eye" size="1.7em" />
+                  )}
+                </button>
               </div>
-              <div
-                className="verif-form"
-                onChange={(e) => {
-                  setPasswordConfirmation(e.target.value);
-                }}
-              >
-                <p>Confirmation du mot de passe :</p>
-                <Field
-                  name="passwordConfirmation"
-                  type="text"
-                  size="30"
-                  className="login-input"
-                />
-                <ErrorMessage
-                  name="passwordConfirmation"
-                  className="text-danger"
-                  component="span"
-                />
+              <div className="container-password-profil">
+                <div
+                  className="verif-form"
+                  onChange={(e) => {
+                    setPasswordConfirmation(e.target.value);
+                  }}
+                >
+                  <p>Confirmation du mot de passe :</p>
+                  <Field
+                    name="passwordConfirmation"
+                    type="text"
+                    size="30"
+                    className="login-input"
+                  />
+                  <ErrorMessage
+                    name="passwordConfirmation"
+                    className="text-danger"
+                    component="span"
+                  />
+                </div>
+                <button
+                  className="buttonShow"
+                  type="button"
+                  onClick={handleClick}
+                >
+                  {show ? (
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
+                  ) : (
+                    <FaRegEye alt="icone eye" size="1.7em" />
+                  )}
+                </button>
               </div>
               <div className="cont-valid-button">
                 <button

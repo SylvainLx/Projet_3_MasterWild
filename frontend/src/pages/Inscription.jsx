@@ -216,7 +216,7 @@ export default function Inscription() {
                     <label htmlFor="CGV">
                       J'accepte{" "}
                       <a
-                        href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
+                        href="https://www.wildcodeschool.com/fr-FR/condition-generales-utilisation"
                         _target="blank"
                       >
                         <span>les conditions générales.</span>
