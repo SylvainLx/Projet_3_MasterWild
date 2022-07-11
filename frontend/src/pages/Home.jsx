@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import IntroHome from "../components/home/IntroHome";
 import IntroWCS from "../components/home/IntroWCS";
-import CarouselSearch from "../components/CarouselSearch";
+import CardMasterclass from "../components/CardMasterclass";
 import CarouselHome from "../components/CarouselHome";
 import Andrea from "../assets/pictures/homepage/adreaturcu.png";
 import Julien from "../assets/pictures/homepage/julienboyer.png";
@@ -11,10 +13,23 @@ import flower from "../assets/flower.webm";
 import "../style/Home.css";
 
 export default function Home() {
+  const [listMasterclass, setListMasterclass] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
+
   return (
     <div className="container-home">
       <IntroHome />
       <div className="carousel-home">
+        <h2 className="partnairPics">
+          Ils nous font <span className="accent">confiance</span> :
+        </h2>
         <CarouselHome />
       </div>
       <div className="home-mosaic">
@@ -81,11 +96,24 @@ export default function Home() {
       <div className="search-exemples">
         <div className="first-block">
           <h2>Découvrez de nombreux métiers ...</h2>
-          <CarouselSearch />
+          <ul className="carousel-items">
+            {listMasterclass.map((mastercard) => (
+              <li className="carousel-item">
+                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              </li>
+            ))}
+          </ul>
         </div>
+
         <div className="second-block">
           <h2>... et différents domaines technologiques.</h2>
-          <CarouselSearch />
+          <ul className="carousel-items">
+            {listMasterclass.map((mastercard) => (
+              <li className="carousel-item">
+                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <IntroWCS />

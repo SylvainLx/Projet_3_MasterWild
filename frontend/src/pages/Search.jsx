@@ -1,6 +1,6 @@
 import "../style/Search.css";
 import "../style/App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -46,6 +46,16 @@ export default function Search() {
         navigate("/search");
       });
   };
+
+  const [listMasterclass, setListMasterclass] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
 
   return (
     <div className="search-page">
@@ -132,18 +142,14 @@ export default function Search() {
           )}
         </div>
       </section>
-      <div className="result-mastersearch">
-        <section className="result-masterclass">
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-        </section>
+      <div className="res-search">
+        <ul className="result-mastersearch">
+          {listMasterclass.map((mastercard) => (
+            <li className="testli">
+              <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

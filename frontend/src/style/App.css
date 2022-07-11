@@ -158,7 +158,7 @@ table {
 /* VARIABLES */
 :root {
   /*Colors*/
-  --main-red: #f76c6c;
+  --main-red: rgb(247, 108, 108);
   --secondary-red: #f99797;
   --primary-text: #39424e;
   --secondary-text: #c8c8c8;
