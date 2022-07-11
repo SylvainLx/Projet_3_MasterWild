@@ -122,7 +122,7 @@ exports.editOne = async (req, res) => {
     await fs.promises.unlink(
       path.join(
         __dirname,
-        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_name}`
+        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_source}`
       )
     );
     const masterclassUpdated = await masterclassController.editOne(
