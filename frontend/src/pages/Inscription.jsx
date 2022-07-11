@@ -39,6 +39,7 @@ export default function Inscription() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [professional, setProfessional] = useState(false);
   const navigate = useNavigate();
 
   const handleFirstname = (e) => {
@@ -53,6 +54,9 @@ export default function Inscription() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
+  const handlePro = () => {
+    setProfessional(true);
+  };
 
   function setUser(user) {
     localStorage.setItem("user", JSON.stringify(user));
@@ -66,6 +70,7 @@ export default function Inscription() {
           lastname,
           email,
           password,
+          professional,
         })
         .then((response) => {
           setUser(response.data);
@@ -84,6 +89,7 @@ export default function Inscription() {
     passwordConfirmation: "",
     gcu: false,
     newsletter: false,
+    professional: false,
   };
 
   return (
@@ -113,6 +119,19 @@ export default function Inscription() {
               <h2 className="titleInscbis">
                 <p>S'inscrire</p>
               </h2>
+              <label
+                htmlFor="professional"
+                className="checkBinsc"
+                onChange={handlePro}
+              >
+                <input
+                  className="cgv-check"
+                  type="checkbox"
+                  name="professional"
+                  id="professional"
+                />
+                Je suis un professionnel.
+              </label>
               <div onChange={handleLastname} className="verif-form">
                 <Field
                   name="lastname"
