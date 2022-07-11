@@ -1,5 +1,7 @@
+import { CurrentUserContextProvider } from "./contexts/currentUser";
+
 import Header from "./components/Header";
-import Routes from "./components/Routes";
+import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 import "./style/App.css";
@@ -7,9 +9,11 @@ import "./style/App.css";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes />
-      <Footer />
+      <CurrentUserContextProvider>
+        <Header />
+        <Main />
+        <Footer />
+      </CurrentUserContextProvider>
     </div>
   );
 }

@@ -136,13 +136,13 @@
 }
 /* AdminMasterclass */
 
-.p-action-masterclass{
+.p-action-masterclass {
   text-align: center;
   font-size: var(--L);
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
-.span-action-m{
+.span-action-m {
   color: var(--main-red);
 }
 .showMasterclass {
@@ -227,7 +227,7 @@
   font-family: "VarelaRound", sans-serif;
   background-color: var(--secondary-red);
   border-radius: 5rem;
-  padding: .5rem;
+  padding: 0.5rem;
   color: var(--primary-text);
   border: none;
   font-size: var(--M);
@@ -248,12 +248,12 @@
   gap: 1rem;
 }
 
-.divAdd-masterclass{
+.divAdd-masterclass {
   background-color: var(--optionnal-text);
   border-radius: 40px;
 }
 
-.formAdd-masterclass{
+.formAdd-masterclass {
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -261,7 +261,7 @@
   padding-top: 1em;
 }
 
-.btnPostMasterclass{
+.btnPostMasterclass {
   font-family: "VarelaRound", sans-serif;
   background-color: var(--main-red);
   font-weight: var(--bold);
@@ -283,10 +283,10 @@
   width: 70vw;
   height: 2rem;
   color: var(--secondary-text);
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
-.i-title{
+.i-title {
   font-family: "VarelaRound", sans-serif;
   padding-left: 1rem;
   border: 1px solid var(--main-blue);
@@ -294,10 +294,10 @@
   width: 70vw;
   height: 2rem;
   color: var(--secondary-text);
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
-.i-desc{
+.i-desc {
   font-family: "VarelaRound", sans-serif;
   padding-left: 1rem;
   border: 1px solid var(--main-blue);
@@ -305,48 +305,48 @@
   width: 70vw;
   min-height: 10em;
   color: var(--secondary-text);
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 @media (min-width: 767.98px) {
-
-  .p-action-masterclass{
+  .p-action-masterclass {
     margin-top: 1.5em;
     margin-bottom: 1em;
   }
-  .showMasterclass{
+  .showMasterclass {
     padding-bottom: 0.5em;
   }
-  .btnDel:hover{
+  .btnDel:hover {
     background-color: var(--optionnal-text);
     color: var(--main-red);
   }
-  .btnPut{
+  .btnPut {
     margin-bottom: 1.5em;
   }
-  .btnPut:hover{
+  .btnPut:hover {
     background-color: var(--optionnal-text);
     color: var(--main-red);
   }
-  .i-desc{
+  .i-desc {
     width: 75vw;
   }
-  .i-title{
+  .i-title {
     width: 75vw;
   }
-  .input{
+  .input {
     width: 35vw;
-    margin: .5em;
+    margin: 0.5em;
   }
-  .btnAbonne{
+  .btnAbonne {
     min-width: 12em;
   }
-  .container-admin{
+  .container-admin {
     margin-left: 2.5em;
     margin-right: 2.5em;
   }
-  .btn-blue, .btn-red{
+  .btn-blue,
+  .btn-red {
     min-width: 15em;
   }
   .title {
@@ -392,7 +392,7 @@
     margin-top: 2rem;
     grid-column-start: span 2;
   }
-  .selectTask{
+  .selectTask {
     margin-bottom: 2em;
   }
   .form-masterclass {
@@ -401,10 +401,10 @@
     justify-items: center;
     align-items: baseline;
   }
-  .add-masterclass{
+  .add-masterclass {
     margin-bottom: 2.5em;
   }
-  .formAdd-masterclass{
+  .formAdd-masterclass {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
@@ -414,12 +414,12 @@
     width: 80%;
     padding-top: 1.5em;
   }
-  .btnPostMasterclass{
+  .btnPostMasterclass {
     justify-self: end;
     margin-bottom: 2em;
     border: 1px solid var(--main-red);
   }
-  .btnPostMasterclass:hover{
+  .btnPostMasterclass:hover {
     background-color: white;
     color: var(--main-red);
     border: 1px solid var(--main-red);
@@ -430,5 +430,4 @@
   .desc {
     grid-column-start: span 2;
   }
-
 }
