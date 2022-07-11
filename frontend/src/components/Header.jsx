@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
@@ -10,52 +10,51 @@ import Logo from "../assets/pictures/LOGOS_WCS_Plan de travail 1.png";
 import loginIcon from "../assets/pictures/login.png";
 import UserProfile from "../assets/pictures/profile.png";
 
-const navlinklist = [
-  {
-    to: "/",
-
-    text: "Home",
-  },
-
-  {
-    to: "/connexion",
-
-    text: "Inscription / Connexion",
-  },
-
-  {
-    to: "/masterclass",
-
-    text: "Masterclass",
-  },
-
-  {
-    to: "/search",
-
-    text: "Recherche / Filtres",
-  },
-
-  {
-    to: "/profil",
-
-    text: "Mon Profil",
-  },
-
-  {
-    to: "/contact",
-
-    text: "FAQ / Contact",
-  },
-
-  {
-    to: "/admin",
-
-    text: "Administrateur",
-  },
-];
-
 export default function Header() {
-  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+  const navlinklist = [
+    {
+      to: "/",
+
+      text: "Home",
+    },
+
+    {
+      to: "/connexion",
+
+      text: "Inscription / Connexion",
+    },
+
+    {
+      to: "/masterclass",
+
+      text: "Masterclass",
+    },
+
+    {
+      to: "/search",
+
+      text: "Recherche / Filtres",
+    },
+
+    {
+      to: "/profil",
+
+      text: "Mon Profil",
+    },
+
+    {
+      to: "/contact",
+
+      text: "FAQ / Contact",
+    },
+
+    {
+      to: "/admin",
+
+      text: "Administrateur",
+    },
+  ];
+  const { setUserProfil } = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -77,10 +76,10 @@ export default function Header() {
     }
   };
 
-  const handleClickUserFavorites = () => {
-    // eslint-disable-next-line no-restricted-syntax
-    console.log(userProfil);
-  };
+  // const handleClickUserFavorites = () => {
+  //   // eslint-disable-next-line no-restricted-syntax
+  //   console.log(userProfil);
+  // };
 
   return (
     <header>
@@ -89,14 +88,14 @@ export default function Header() {
           <div className="mobile-burger">
             <BurgerMenu>
               {navlinklist.map((navlink) => (
-                <NavLink
+                <Link
                   key={navlink.text}
                   onClick={{ menuOpen: !menuOpen }}
                   className="menu-item"
                   to={navlink.to}
                 >
                   {navlink.text}
-                </NavLink>
+                </Link>
               ))}
             </BurgerMenu>
           </div>
@@ -116,9 +115,9 @@ export default function Header() {
                 alt="logowhite"
               />
             </button>
-            <button type="button" onClick={handleClickUserFavorites}>
+            {/* <button type="button" onClick={handleClickUserFavorites}>
               __User Favorites__
-            </button>
+            </button> */}
             <NavLink className="navlink-menu-right" to="/profil">
               <img
                 className="menu-right-icon"

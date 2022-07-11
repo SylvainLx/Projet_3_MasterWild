@@ -1,14 +1,24 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import CurrentUserContext from "../contexts/currentUser";
 import VideoSample from "../components/VideoSample";
 import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
 export default function Masterclass() {
+  const { userProfil } = useContext(CurrentUserContext);
+  const handleClickUserFavorites = () => {
+    // eslint-disable-next-line no-restricted-syntax
+    console.log(userProfil);
+  };
   return (
     <div className="masterclass">
       <div className="container-masterclass">
         <VideoSample masterclassId={1} addVideo />
         <div className="suggestions">
+          <button type="button" onClick={handleClickUserFavorites}>
+            __User Favorites__
+          </button>
           <CardMasterclass />
           <CardMasterclass />
           <CardMasterclass />
