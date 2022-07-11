@@ -119,19 +119,6 @@ export default function Inscription() {
               <h2 className="titleInscbis">
                 <p>S'inscrire</p>
               </h2>
-              <label
-                htmlFor="professional"
-                className="checkBinsc"
-                onChange={handlePro}
-              >
-                <input
-                  className="cgv-check"
-                  type="checkbox"
-                  name="professional"
-                  id="professional"
-                />
-                Je suis un professionnel.
-              </label>
               <div onChange={handleLastname} className="verif-form">
                 <Field
                   name="lastname"
@@ -224,6 +211,19 @@ export default function Inscription() {
                 </button>
               </div>
               <div className="container-checkbox">
+                <label
+                  htmlFor="professional"
+                  className="checkBinsc"
+                  onChange={handlePro}
+                >
+                  <input
+                    className="cgv-check"
+                    type="checkbox"
+                    name="professional"
+                    id="professional"
+                  />
+                  Je suis un professionnel.
+                </label>
                 <div className="checkBinsc">
                   <Field
                     name="gcu"
@@ -232,7 +232,7 @@ export default function Inscription() {
                     id="gcu"
                   />
                   <div>
-                    <label htmlFor="CGV">
+                    <label htmlFor="CGV" required>
                       J'accepte{" "}
                       <a
                         href="https://www.wildcodeschool.com/fr-FR/condition-generales-utilisation"
