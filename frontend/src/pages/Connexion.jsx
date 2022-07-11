@@ -4,13 +4,12 @@ import Modal from "react-modal";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
 import CurrentUserContext from "../contexts/currentUser";
 
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
 import Login from "../assets/pictures/peopleLogin.jpg";
-import OpenEye from "../assets/visOn.png";
-import ClosedEye from "../assets/visOff.png";
 import "../style/Connexion.css";
 
 const customStyles = {
@@ -113,6 +112,7 @@ export default function Connexion() {
                   placeholder="Email"
                   type="email"
                   className="login-input"
+                  required
                 />
                 <ErrorMessage
                   name="email"
@@ -120,13 +120,13 @@ export default function Connexion() {
                   component="span"
                 />
               </div>
-              <div className="passInput">
+              <div className="container-password">
                 <div onChange={handlePassword} className="verif-form">
                   <Field
                     name="password"
                     placeholder="Mot de passe"
                     type={show ? "password" : "text"}
-                    className="inputPassText"
+                    className="login-input"
                   />
                   <ErrorMessage
                     name="password"
@@ -140,9 +140,9 @@ export default function Connexion() {
                   onClick={handleClick}
                 >
                   {show ? (
-                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
                   ) : (
-                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEye alt="icone eye" size="1.7em" />
                   )}
                 </button>
               </div>

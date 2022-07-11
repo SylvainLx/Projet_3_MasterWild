@@ -10,6 +10,9 @@
     "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .js ."
   },
+  "prisma": {
+    "seed": "node prisma/seedCategory.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -25,6 +28,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
     "process-nextick-args": "^2.0.1",
+    "template-fullstack": "file:..",
     "yup": "^0.32.11"
   },
   "rules": {

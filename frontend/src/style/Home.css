@@ -3,6 +3,7 @@
 .container-home {
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 0.5em;
 }
 
 /*START Mobile Version*/
@@ -243,6 +244,26 @@
     display: none;
   }
 
+  .partnairPics {
+    text-align: center;
+    font-family: "VarelaRound", sans-serif;
+    font-size: var(--L);
+    font-weight: var(--bold);
+    margin-top: 2em;
+  }
+
+  .carousel-items {
+    display: flex;
+    overflow-x: scroll;
+    padding: 2rem 0;
+    scroll-snap-type: x mandatory;
+  }
+
+  .carousel-item {
+    flex: 1 0 250px;
+    scroll-snap-align: start;
+  }
+
   .intro-text {
     color: var(--primary-text);
     justify-content: flex-start;
@@ -260,6 +281,7 @@
   }
 
   .divMastHome {
+    margin: 1em;
     background-color: white;
   }
 
@@ -287,6 +309,11 @@
     background-color: var(--secondary-red);
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
+  }
+
+  .video-sample-area {
+    margin: 1.5em 2em 0 2em;
+    border-radius: 40px;
   }
 
   .video-sample {

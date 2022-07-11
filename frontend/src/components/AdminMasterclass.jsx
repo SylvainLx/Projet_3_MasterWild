@@ -3,7 +3,6 @@ import "../style/App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import VideoSample from "./VideoSample";
 import AddMasterclass from "./AddMasterclass";
 import EditMasterclass from "./EditMasterclass";
 
@@ -23,6 +22,10 @@ export default function AdminMasterclass() {
 
   return (
     <div className="admin-masterclass">
+      <p className="p-action-masterclass">
+        <span className="span-action-m">Modifier</span> ou{" "}
+        <span className="span-action-m">Supprimer</span> une masterclasse :
+      </p>
       <section className="showMasterclass">
         <select
           name="showMasterclass"
@@ -30,7 +33,7 @@ export default function AdminMasterclass() {
           onChange={handleFilter}
           className="selectmaster"
         >
-          <option value="">Selectionne ta Masterclass</option>
+          <option value="">Selectionne la Masterclasse</option>
           {showMasterclass.map((masterclass) => (
             <option value={masterclass.title} key={masterclass.Id}>
               {masterclass.title}
@@ -51,13 +54,13 @@ export default function AdminMasterclass() {
                 sources={elem.source}
                 themes={elem.category.name}
                 Id={elem.Id}
-              />{" "}
+              />
             </div>
           ))}
       </section>
-      <section className="sample-video">
-        <VideoSample masterclassId={1} addVideo />
-      </section>
+      <p className="p-action-masterclass">
+        <span className="span-action-m">Ajouter</span> une masterclasse :
+      </p>
       <section className="add-masterclass">
         <AddMasterclass />
       </section>

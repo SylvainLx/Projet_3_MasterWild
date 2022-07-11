@@ -1,6 +1,6 @@
 import "../style/Search.css";
 import "../style/App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -13,11 +13,16 @@ export default function Search() {
   const [showTheme, setShowTheme] = useState(false);
   const [showMetiers, setShowMetiers] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
+  const [searchCategory, setSearchCategory] = useState([]);
 
   const navigate = useNavigate();
 
-  const handleShowTheme = () => {
+  const handleShowTheme = (e) => {
     setShowTheme((current) => !current);
+    e.preventDefault();
+    axios.get("http://localhost:5001/api/category").then((response) => {
+      setSearchCategory(response.data.data);
+    });
   };
   const handleShowMetiers = () => {
     setShowMetiers((current) => !current);
@@ -41,6 +46,16 @@ export default function Search() {
         navigate("/search");
       });
   };
+
+  const [listMasterclass, setListMasterclass] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
 
   return (
     <div className="search-page">
@@ -82,21 +97,11 @@ export default function Search() {
           {showTheme && (
             <div className="result-theme">
               <ul className="list-theme">
-                <li className="li-theme">Freelance</li>
-                <li className="li-theme">Startup</li>
-                <li className="li-theme">Méthodes agiles</li>
-                <li className="li-theme">Cybersécurité</li>
-                <li className="li-theme">Data</li>
-                <li className="li-theme">IA</li>
-                <li className="li-theme">Machine Learning & Deep learning</li>
-                <li className="li-theme">RGPD</li>
-                <li className="li-theme">UX/UI Design</li>
-                <li className="li-theme">No code</li>
-                <li className="li-theme">PHP</li>
-                <li className="li-theme">JavaScript</li>
-                <li className="li-theme">Angular</li>
-                <li className="li-theme">SEO</li>
-                <li className="li-theme">Blockchain</li>
+                {searchCategory.map((category) => (
+                  <li key={category.Id} className="li-theme">
+                    {category.name}
+                  </li>
+                ))}
               </ul>
             </div>
           )}
@@ -137,18 +142,14 @@ export default function Search() {
           )}
         </div>
       </section>
-      <div className="result-mastersearch">
-        <section className="result-masterclass">
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-        </section>
+      <div className="res-search">
+        <ul className="result-mastersearch">
+          {listMasterclass.map((mastercard) => (
+            <li className="testli">
+              <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -1,20 +1,25 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import axios from "axios";
 import EditProfil from "./EditProfil";
 import "../../style/MyProfil.css";
-import ChangePassword from "./ChangePassword";
 
 export default function MyProfil() {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
   const [editProfil, setEditProfil] = useState(0);
 
   const EditProfilOpen = () => {
     setEditProfil(!editProfil);
   };
 
-  const [editPassword, setEditPassword] = useState(0);
-
-  const EditPasswordOpen = () => {
-    setEditPassword(!editPassword);
-  };
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`).then((res) => {
+      setFirstname(res.data.firstname);
+      setLastname(res.data.lastname);
+      setEmail(res.data.email);
+    });
+  });
 
   return (
     <div className="my-profil">
@@ -24,11 +29,12 @@ export default function MyProfil() {
             <td>Nom :</td>
             <td>
               <input
+                onChange={(e) => setLastname(e.target.value)}
                 readOnly="readonly"
                 type="text"
                 name="nom"
                 size="30"
-                value="Dupont"
+                value={lastname}
               />
             </td>
           </tr>
@@ -36,10 +42,11 @@ export default function MyProfil() {
             <td>Prénom :</td>
             <td>
               <input
+                onChange={(e) => setFirstname(e.target.value)}
                 readOnly="readonly"
                 type="text"
                 name="prenom"
-                value="Léo"
+                value={firstname}
                 size="30"
               />
             </td>
@@ -48,22 +55,11 @@ export default function MyProfil() {
             <td>Email :</td>
             <td>
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 readOnly="readonly"
                 type="text"
                 name="email"
-                value="léo.dupont@gmail.com"
-                size="30"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Date de naissance :</td>
-            <td>
-              <input
-                readOnly="readonly"
-                type="text"
-                name="date de naissance"
-                value="02/10/1987"
+                value={email}
                 size="30"
               />
             </td>
@@ -78,14 +74,6 @@ export default function MyProfil() {
         Editer mon profil
       </button>
       {editProfil ? <EditProfil /> : ""}
-      <button
-        onClick={EditPasswordOpen}
-        className="button-red button-profil"
-        type="button"
-      >
-        Changer mon mot de passe
-      </button>
-      {editPassword ? <ChangePassword /> : ""}
     </div>
   );
 }
