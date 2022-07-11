@@ -16,14 +16,14 @@ export default function AdminAbonne() {
     setShowAbonne(!true);
   };
   const optionsAbonne = [
-    { value: "Abonne 1", label: "Abonne 1" },
-    { value: "Abonne 2", label: "Abonne 2" },
-    { value: "Abonne 3", label: "Abonne 3" },
+    { value: "Utilisateur 1", label: "Utilisateur 1" },
+    { value: "Utilisateur 2", label: "Utilisateur 2" },
+    { value: "Utilisateur 3", label: "Utilisateur 3" },
   ];
   const optionsNonAbonne = [
-    { value: "Non Abonne 1", label: "Non Abonne 1" },
-    { value: "Non Abonne 2", label: "Non Abonne 2" },
-    { value: "Non Abonne 3", label: "Non Abonne 3" },
+    { value: "Administrateur 1", label: "Administrateur 1" },
+    { value: "Administrateur 2", label: "Administrateur 2" },
+    { value: "Administrateur 3", label: "Administrateur 3" },
   ];
 
   const customStyleAbonne = {
@@ -48,12 +48,11 @@ export default function AdminAbonne() {
   return (
     <section className="showClients">
       <div className="buttonClient">
-        {" "}
         <button className="btnAbonne" type="button" onClick={handleAbonne}>
-          Abonnés
+          Utilisateurs
         </button>
         <button className="btnAbonne" type="button" onClick={handleNonAbonne}>
-          Non-Abonnés
+          Administrateurs
         </button>
       </div>
 
@@ -63,7 +62,7 @@ export default function AdminAbonne() {
             className="choose-clients"
             styles={customStyleAbonne}
             options={optionsAbonne}
-            placeholder="Selection Abonné"
+            placeholder="Selectionne un Utilisateur"
             theme={(theme) => ({
               ...theme,
               colors: {
@@ -81,7 +80,7 @@ export default function AdminAbonne() {
             className="choose-clients"
             styles={customStyleAbonne}
             options={optionsNonAbonne}
-            placeholder="Selection Non Abonné"
+            placeholder="Selectionne un Administrateur"
             theme={(theme) => ({
               ...theme,
               colors: {
