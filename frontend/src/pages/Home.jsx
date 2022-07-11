@@ -27,7 +27,6 @@ export default function Home() {
         setListMasterclass(res.data.data);
       });
   }, []);
-  // console.log(listMasterclass);
   return (
     <div className="container-home">
       <IntroHome />
