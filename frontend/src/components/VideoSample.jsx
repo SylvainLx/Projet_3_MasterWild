@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import CurrentUserContext from "../contexts/currentUser";
 import "../style/VideoSample.css";
 import api from "../services/endpoint";
 
-const userId = 1;
-
 export default function VideoSample({ masterclassId, addVideo = false }) {
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+
   VideoSample.defaultProps = {
     addVideo: false,
   };
@@ -14,63 +15,52 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
     masterclassId: PropTypes.number.isRequired,
     addVideo: PropTypes.bool,
   };
-  const [masterclass, setMasterclass] = useState([]);
-  const [favoriteAsk, setFavoriteAsk] = useState(0);
-  const [isFavorite, setIsFavorite] = useState(0);
 
-  const favoritecheck = () => {
-    api.get(`/api/favorite/${userId}`).then((res) => {
-      setFavoriteAsk(
-        res.data.filter((favorite) => favorite.masterclass_Id === 1).length
-      );
-    });
-  };
+  const [masterclass, setMasterclass] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const masterclassContent = () => {
+  useEffect(() => {
     api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
       setMasterclass(res.data.currentMasterclass);
+
+      if (userProfil.favorites.indexOf(res.data.currentMasterclass.Id) !== -1) {
+        setIsFavorite(true);
+      }
     });
-  };
-
-  useEffect(() => {
-    masterclassContent();
-    console.error(masterclass);
   }, []);
-
-  useEffect(() => {
-    favoritecheck();
-    setIsFavorite(favoriteAsk);
-  });
 
   const handleClickFavorite = () => {
     if (!isFavorite) {
-      api.post(`/api/favorite/${userId}/${masterclassId}`);
+      api.post(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+      userProfil.favorites.push(masterclass.Id);
+      setUserProfil({ ...userProfil, favorites: userProfil.favorites });
       setIsFavorite(true);
     } else {
-      api.delete(`/api/favorite/${userId}/${masterclassId}`);
+      api.delete(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+      const favoriteIndex = userProfil.favorites.indexOf(masterclass.Id);
+      userProfil.favorites.splice(favoriteIndex, 1);
+      setUserProfil({ ...userProfil, favorites: userProfil.favorites });
       setIsFavorite(false);
     }
   };
 
-  const toto = `${masterclass.source}`
-
   return (
     <section>
       <div className="container-video">
-        {addVideo === true ? (
+        {addVideo && (
           <div>
             <iframe
-              width="1268"
-              height="713"
-              src={toto}
               title={masterclass.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              controlsList="nodownload"
+              style={{
+                width: "50vw",
+                height: "28vw",
+                left: "0px",
+                top: "0px",
+              }}
+              src={masterclass.source}
             />
           </div>
-        ) : (
-          ""
         )}
         <div className="description-video">
           <div>

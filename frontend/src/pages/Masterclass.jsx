@@ -1,14 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import CurrentUserContext from "../contexts/currentUser";
 import VideoSample from "../components/VideoSample";
 import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
 export default function Masterclass() {
-  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
-
-  console.error(userProfil);
   return (
     <div className="masterclass">
       <div className="container-masterclass">

@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
+import CurrentUserContext from "../contexts/currentUser";
 import "../style/Header.css";
 
-import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
 import Logo from "../assets/pictures/LOGOS_WCS_Plan de travail 1.png";
 import loginIcon from "../assets/pictures/login.png";
 import UserProfile from "../assets/pictures/profile.png";
@@ -53,6 +55,7 @@ const navlinklist = [
 ];
 
 export default function Header() {
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -62,6 +65,7 @@ export default function Header() {
           withCredentials: true,
         })
         .then(() => {
+          setUserProfil({});
           localStorage.clear();
           navigate("/");
         })
@@ -71,6 +75,11 @@ export default function Header() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleClickUserFavorites = () => {
+    // eslint-disable-next-line no-restricted-syntax
+    console.log(userProfil);
   };
 
   return (
@@ -106,6 +115,9 @@ export default function Header() {
                 src={loginIcon}
                 alt="logowhite"
               />
+            </button>
+            <button type="button" onClick={handleClickUserFavorites}>
+              __User Favorites__
             </button>
             <NavLink className="navlink-menu-right" to="/profil">
               <img

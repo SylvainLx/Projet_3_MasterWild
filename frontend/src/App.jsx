@@ -8,13 +8,13 @@ import "./style/App.css";
 
 function App() {
   return (
-    <CurrentUserContextProvider>
-      <div className="App">
+    <div className="App">
+      <CurrentUserContextProvider>
         <Header />
         <Main />
         <Footer />
-      </div>
-    </CurrentUserContextProvider>
+      </CurrentUserContextProvider>
+    </div>
   );
 }
 

@@ -43,7 +43,7 @@ export default function Connexion() {
 
   const navigate = useNavigate();
 
-  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+  const { setUserProfil } = useContext(CurrentUserContext);
 
   function openModal() {
     setIsOpen(true);
@@ -72,9 +72,8 @@ export default function Connexion() {
           { withCredentials: true }
         )
         .then((response) => {
-          console.log(response.data);
-          setUserProfil([...userProfil, response.data.email]);
-
+          setUserProfil(response.data);
+          localStorage.setItem("user", JSON.stringify(response.data));
           navigate("/search");
         });
     } catch (error) {

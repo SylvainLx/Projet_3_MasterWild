@@ -1,6 +1,6 @@
 .container-admin {
   color: var(--primary-text);
- font-family: "VarelaRound", sans-serif;
+  font-family: "VarelaRound", sans-serif;
 }
 /* Blue Bar */
 .title-admin {
@@ -14,7 +14,7 @@
 .span-A {
   font-size: 200%;
   font-weight: var(--bold);
-  color: var(--main-red)
+  color: var(--main-red);
 }
 /* DashBoard */
 .dashboard {
@@ -94,7 +94,6 @@
 }
 
 .buttonClient {
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -244,7 +243,8 @@
     height: 43rem;
   }
   .selectmaster {
-    grid-column-start: span 2;  }
+    grid-column-start: span 2;
+  }
   .btnPut,
   .btnDel,
   .btnSend {
@@ -267,7 +267,8 @@
   .labelTitle {
     grid-column-start: span 2;
   }
-  .i-title, .i-desc {
+  .i-title,
+  .i-desc {
     width: 93vw;
   }
   .desc {
