@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-
 import emailjs from "@emailjs/browser";
 
 export default function FormContact() {
@@ -16,13 +15,7 @@ export default function FormContact() {
     email,
     message,
   });
-  // const form = useRef({
-  //   entreprises: entreprise,
-  //   lastname: lastName,
-  //   firstname: firstName,
-  //   mail: email,
-  //   messages: message,
-  // });
+
   const postContact = (e) => {
     e.preventDefault();
 
@@ -60,36 +53,36 @@ export default function FormContact() {
       >
         <input
           type="text"
-          id="entreprise"
-          className="contactInput entreprise"
+          name="entreprise"
+          className="contactInput"
           placeholder="Nom de l'entreprise"
           onChange={(e) => setEntreprise(e.target.value)}
         />
         <input
           type="text"
-          id="lastName"
-          className="contactInput lastName"
+          name="lastName"
+          className="contactInput"
           placeholder="Nom"
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
           type="text"
-          id="firstName"
-          className="contactInput firstName"
+          name="firstName"
+          className="contactInput"
           placeholder="Prénom"
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
           type="text"
-          id="email"
-          className="contactInput email"
+          name="email"
+          className="contactInput"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <textarea
           type="text"
-          id="message"
-          className="contactInput message"
+          name="message"
+          className="contactInput"
           placeholder="C'est à vous !"
           onChange={(e) => setMessage(e.target.value)}
         />
