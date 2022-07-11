@@ -22,10 +22,12 @@ export default function Admin() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5001/api/admin/masterclass").then((res) => {
-      setMasterclassDashboard(res.data.data);
-    });
-    axios.get("http://localhost:5001/api/user").then((res) => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setMasterclassDashboard(res.data.data);
+      });
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`).then((res) => {
       setUsersDashboard(res.data);
     });
   }, []);
