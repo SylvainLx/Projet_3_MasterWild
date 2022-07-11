@@ -98,20 +98,37 @@ exports.getOneKeyword = async (req, res) => {
   }
 };
 
+exports.getAllKeyword = async (req, res) => {
+  try {
+    const data = await masterclassController.getAllKeyword();
+    if (data.length === 0) {
+      return res.status(404).send("Aucun mot-clé trouvé");
+    }
+    return res.status(200).json({ data });
+  } catch (e) {
+    console.warn(e);
+    return res.sendStatus(500);
+  }
+};
+
 exports.editOne = async (req, res) => {
   const { id } = req.params;
-  console.warn(req.body);
-
   const exitingMasterclass = await masterclassController.getOne(id);
-
   if (!exitingMasterclass) {
     return res.sendStatus(404);
   }
 
   try {
+    await fs.promises.unlink(
+      path.join(
+        __dirname,
+        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_source}`
+      )
+    );
     const masterclassUpdated = await masterclassController.editOne(
       id,
-      req.body
+      req.body,
+      req.file
     );
     return res
       .status(200)
@@ -133,7 +150,7 @@ exports.deleteOne = async (req, res) => {
     await fs.promises.unlink(
       path.join(
         __dirname,
-        `../../public/data/uploads/${removed.entreprise.logo_name}`
+        `../../public/data/uploads/${removed.entreprise.logo_source}`
       )
     );
     return res
