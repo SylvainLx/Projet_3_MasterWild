@@ -40,79 +40,81 @@ export default function AddMasterclass() {
   };
 
   return (
-    <form className="form-masterclass" onSubmit={handlePost}>
-      <label htmlFor="title">
-        <input
-          className="input"
-          type="text"
-          name="title"
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Titre de la masterclass"
-        />
-      </label>
-      <label htmlFor="name">
-        <input
-          className="input"
-          type="text"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Nom de l'entreprisee"
-        />
-      </label>
-      <label htmlFor="speciality">
-        <input
-          className="input"
-          type="text"
-          name="speciality"
-          onChange={(e) => setSpeciality(e.target.value)}
-          placeholder="Spécialité - domaine"
-        />
-      </label>
-      <label htmlFor="source">
-        <input
-          className="input"
-          type="text"
-          name="source"
-          onChange={(e) => setSource(e.target.value)}
-          placeholder="Lien YT de la video"
-        />
-      </label>
-      <label htmlFor="category">
-        <input
-          className="input"
-          type="text"
-          name="category"
-          onChange={(e) => setTheme(e.target.value)}
-          placeholder="Thématique"
-        />
-      </label>
-      <label htmlFor="keyword">
-        <input
-          className="input"
-          type="text"
-          name="keyword"
-          onChange={(e) => setKeyword(e.target.value)}
-          placeholder="Mots Clés"
-        />
-      </label>
-      <label htmlFor="logo_source">
-        <input
-          onChange={(e) => setPhoto(e.target.files)}
-          className="input"
-          type="file"
-          name="logo_source"
-        />
-      </label>
-      <label className="desc" htmlFor="description">
-        <textarea
-          className="input i-desc"
-          type="text"
-          name="description"
-          onChange={(e) => setDesc(e.target.value)}
-          placeholder="Description de la masterclass"
-        />
-      </label>
-      <input className="btnSend" type="submit" />
-    </form>
+    <div className="divAdd-masterclass">
+      <form className="formAdd-masterclass" onSubmit={handlePost}>
+        <label className="labelTitle" htmlFor="title">
+          <input
+            className="i-title"
+            type="text"
+            name="title"
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Titre de la masterclass"
+          />
+        </label>
+        <label htmlFor="name">
+          <input
+            className="input"
+            type="text"
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Nom de l'entreprisee"
+          />
+        </label>
+        <label htmlFor="speciality">
+          <input
+            className="input"
+            type="text"
+            name="speciality"
+            onChange={(e) => setSpeciality(e.target.value)}
+            placeholder="Spécialité - domaine"
+          />
+        </label>
+        <label htmlFor="source">
+          <input
+            className="input"
+            type="text"
+            name="source"
+            onChange={(e) => setSource(e.target.value)}
+            placeholder="Lien YT de la video"
+          />
+        </label>
+        <label htmlFor="category">
+          <input
+            className="input"
+            type="text"
+            name="category"
+            onChange={(e) => setTheme(e.target.value)}
+            placeholder="Thématique"
+          />
+        </label>
+        <label htmlFor="keyword">
+          <input
+            className="input"
+            type="text"
+            name="keyword"
+            onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Mots Clés"
+          />
+        </label>
+        <label htmlFor="logo_source">
+          <input
+            onChange={(e) => setPhoto(e.target.files)}
+            className="input"
+            type="file"
+            name="logo_source"
+          />
+        </label>
+        <label className="desc" htmlFor="description">
+          <textarea
+            className="i-desc"
+            type="text"
+            name="description"
+            onChange={(e) => setDesc(e.target.value)}
+            placeholder="Description de la masterclass"
+          />
+        </label>
+        <input className="btnPostMasterclass" type="submit" />
+      </form>
+    </div>
   );
 }
