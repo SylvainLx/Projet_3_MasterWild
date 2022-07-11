@@ -32,6 +32,10 @@
   font-size: var(--M);
 }
 
+.text-masterclass {
+  grid-column-start: span 3;
+}
+
 .span-number {
   font-size: var(--XL);
 }
@@ -171,7 +175,7 @@
 }
 /* Add a Masterclass */
 .add-masterclass {
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-text);
   width: 100%;
   height: 60vh;
   padding-top: 2rem;
