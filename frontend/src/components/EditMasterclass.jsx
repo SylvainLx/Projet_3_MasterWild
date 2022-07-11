@@ -50,7 +50,7 @@ export default function EditMasterclass({
     formData.append("file", photo[0]);
 
     axios.put(
-      `http://localhost:5001/api/admin/masterclass/${Id}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
 
       formData,
       {
@@ -62,7 +62,9 @@ export default function EditMasterclass({
   };
   const deleteMasterclass = (e) => {
     e.preventDefault();
-    axios.delete(`http://localhost:5001/api/admin/masterclass/${Id}`);
+    axios.delete(
+      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
+    );
   };
 
   return (
