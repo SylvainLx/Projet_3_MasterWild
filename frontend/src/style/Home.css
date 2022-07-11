@@ -3,12 +3,12 @@
 .container-home {
   width: 100%;
   margin: 0 auto;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 /*START Mobile Version*/
 
-.partnairPics{
+.partnairPics {
   text-align: center;
   margin-top: 1em;
   font-size: var(--L);
@@ -89,8 +89,8 @@
   padding: 2em;
 }
 
-.square-pic{
-width: 100%;
+.square-pic {
+  width: 100%;
 }
 
 .text {
@@ -253,7 +253,7 @@ width: 100%;
     display: none;
   }
 
-  .partnairPics{
+  .partnairPics {
     text-align: center;
     font-family: "VarelaRound", sans-serif;
     font-size: var(--L);
@@ -267,12 +267,11 @@ width: 100%;
     padding: 2rem 0;
     scroll-snap-type: x mandatory;
   }
-  
+
   .carousel-item {
     flex: 1 0 250px;
     scroll-snap-align: start;
   }
-  
 
   .intro-text {
     color: var(--primary-text);
@@ -321,7 +320,7 @@ width: 100%;
     box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
   }
 
-  .video-sample-area{
+  .video-sample-area {
     margin: 1.5em 2em 0 2em;
     border-radius: 40px;
   }
