@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { slide as BurgerMenu, menuOpen } from "react-burger-menu";
+import { slide as BurgerMenu } from "react-burger-menu";
 import CurrentUserContext from "../contexts/currentUser";
 import "../style/Header.css";
 
@@ -76,11 +76,6 @@ export default function Header() {
     }
   };
 
-  // const handleClickUserFavorites = () => {
-  //   // eslint-disable-next-line no-restricted-syntax
-  //   console.log(userProfil);
-  // };
-
   return (
     <header>
       <div className="container-header">
@@ -90,7 +85,7 @@ export default function Header() {
               {navlinklist.map((navlink) => (
                 <Link
                   key={navlink.text}
-                  onClick={{ menuOpen: !menuOpen }}
+                  // onClick={{ menuOpen: !menuOpen }}
                   className="menu-item"
                   to={navlink.to}
                 >
@@ -115,9 +110,6 @@ export default function Header() {
                 alt="logowhite"
               />
             </button>
-            {/* <button type="button" onClick={handleClickUserFavorites}>
-              __User Favorites__
-            </button> */}
             <NavLink className="navlink-menu-right" to="/profil">
               <img
                 className="menu-right-icon"
