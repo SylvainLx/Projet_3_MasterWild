@@ -2,7 +2,6 @@ import "../style/Search.css";
 import "../style/App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
 
 import LogoSearch from "../assets/search.png";
 import ArrowDown from "../assets/arrowdown.png";
@@ -12,10 +11,7 @@ import CardMasterclass from "../components/CardMasterclass";
 export default function Search() {
   const [showTheme, setShowTheme] = useState(false);
   const [showEntreprise, setShowEntreprise] = useState(false);
-  const [searchBar, setSearchBar] = useState(false);
   const [searchCategory, setSearchCategory] = useState([]);
-
-  const navigate = useNavigate();
 
   const handleShowTheme = (e) => {
     setShowTheme((current) => !current);
@@ -26,25 +22,6 @@ export default function Search() {
   };
   const handleShowEntreprise = () => {
     setShowEntreprise((current) => !current);
-  };
-  const handleSearch = () => {
-    setSearchBar(!searchBar);
-  };
-
-  function filterSearch(filter) {
-    localStorage.setItem("user", JSON.stringify(filter));
-  }
-
-  const getSearch = (e) => {
-    e.preventDefault();
-    axios
-      .get("http://localhost:4000/api/search", {
-        searchBar,
-      })
-      .then((response) => {
-        filterSearch(response.data);
-        navigate("/search");
-      });
   };
 
   const [listMasterclass, setListMasterclass] = useState([]);
@@ -76,13 +53,8 @@ export default function Search() {
       </div>
       <section className="search-section">
         <div className="search-bar">
-          <input
-            className="searching"
-            type="text"
-            placeholder="Rechercher"
-            onChange={handleSearch}
-          />
-          <button className="btnlogo" type="button" onClick={getSearch}>
+          <input className="searching" type="text" placeholder="Rechercher" />
+          <button className="btnlogo" type="button">
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
         </div>
