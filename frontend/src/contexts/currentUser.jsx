@@ -6,9 +6,7 @@ export default CurrentUserContext;
 
 // eslint-disable-next-line react/prop-types
 export function CurrentUserContextProvider({ children }) {
-  const [userProfil, setUserProfil] = useState(
-    JSON.parse(localStorage.getItem("user"))
-  );
+  const [userProfil, setUserProfil] = useState();
 
   const value = useMemo(
     () => ({
