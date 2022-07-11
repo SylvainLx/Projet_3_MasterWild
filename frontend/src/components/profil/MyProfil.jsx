@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 import EditProfil from "./EditProfil";
+import ProfilePic from "../../assets/pictures/pexels-canva-studio-3153204.jpg";
 import "../../style/MyProfil.css";
 
 export default function MyProfil() {
@@ -23,11 +24,16 @@ export default function MyProfil() {
 
   return (
     <div className="my-profil">
+      <img
+        className="logo-profile"
+        src={ProfilePic}
+        alt="logo wild code school"
+      />
       <table className="user-table">
         <tbody>
           <tr>
-            <td>Nom :</td>
-            <td>
+            <p>Nom :</p>
+            <td className="input-profile">
               <input
                 onChange={(e) => setLastname(e.target.value)}
                 readOnly="readonly"
@@ -39,8 +45,8 @@ export default function MyProfil() {
             </td>
           </tr>
           <tr>
-            <td>Prénom :</td>
-            <td>
+            <p>Prénom :</p>
+            <td className="input-profile">
               <input
                 onChange={(e) => setFirstname(e.target.value)}
                 readOnly="readonly"
@@ -52,8 +58,8 @@ export default function MyProfil() {
             </td>
           </tr>
           <tr>
-            <td>Email :</td>
-            <td>
+            <p>Email :</p>
+            <td className="input-profile">
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 readOnly="readonly"
@@ -65,14 +71,14 @@ export default function MyProfil() {
             </td>
           </tr>
         </tbody>
+        <button
+          onClick={EditProfilOpen}
+          className="button-pink button-profil"
+          type="button"
+        >
+          Editer mon profil
+        </button>
       </table>
-      <button
-        onClick={EditProfilOpen}
-        className="button-pink button-profil"
-        type="button"
-      >
-        Editer mon profil
-      </button>
       {editProfil ? <EditProfil /> : ""}
     </div>
   );

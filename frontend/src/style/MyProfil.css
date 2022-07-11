@@ -11,21 +11,25 @@
   margin: 1em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-
-.user-table tr {
-  font-weight: 600;
-  padding: 0.3em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .user-table td {
   width: 100%;
+  font-size: em;
+}
+
+.user-table p {
+  font-weight: 600;
+  padding-bottom: 5px;
   color: var(--primary-text);
-  font-size: 0.8em;
+}
+
+.buttonShow p {
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  font-size: 10px;
 }
 
 .user-table tr td {
@@ -34,14 +38,18 @@
 }
 
 .user-table tr td input {
-  height: 1.7em;
-  width: 90%;
+  height: 2em;
+  width: 100%;
   padding-left: 10px;
-  font-size: var(--S);
+  font-size: 0.9em;
   background: white;
   border: 1px solid var(--secondary-text);
   border-radius: 4px;
-  color: var(--primary-text);
+  color: var(--primary-red);
+}
+
+.input-profile {
+  padding-bottom: 10px;
 }
 
 .button-profil {
@@ -49,7 +57,6 @@
   border-radius: 15px;
   padding: 6px 10px;
   background-color: var(--main-red);
-  font-family: "Raleway", sans-serif;
   color: white;
   margin: 0.6em;
 }
@@ -59,7 +66,33 @@
   align-items: center;
 }
 
+.modify-input {
+  height: 2em;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 0.9em;
+  background: white;
+  border: 1px solid var(--secondary-text);
+  border-radius: 4px;
+  color: var(--primary-red);
+}
+
+.logo-profile {
+  display: none;
+}
+
 @media screen and (min-width: 767.98px) {
+  .logo-profile {
+    display: block;
+    padding: 0.5em;
+    width: 35%;
+    height: 35%;
+  }
+
+  .my-profil {
+    flex-direction: row;
+  }
+
   .button-profil {
     font-weight: 600;
     background-color: var(--main-red);

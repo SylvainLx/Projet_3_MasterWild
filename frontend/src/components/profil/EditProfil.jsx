@@ -78,9 +78,9 @@ export default function EditProfil() {
           validateOnMount
         >
           {(formik) => (
-            <Form className="formProfil">
+            <Form className="user-table">
               <div
-                className="verif-form"
+                className="input-profile"
                 onChange={(e) => {
                   setLastname(e.target.value);
                 }}
@@ -91,7 +91,7 @@ export default function EditProfil() {
                   value={formik.values.lastname}
                   type="text"
                   size="30"
-                  className="login-input"
+                  className="modify-input"
                 />
                 <ErrorMessage
                   name="lastname"
@@ -111,7 +111,7 @@ export default function EditProfil() {
                   value={formik.values.firstname}
                   type="text"
                   size="30"
-                  className="login-input"
+                  className="modify-input"
                 />
                 <ErrorMessage
                   name="firstname"
@@ -131,7 +131,7 @@ export default function EditProfil() {
                   value={formik.values.email}
                   type="email"
                   size="30"
-                  className="login-input"
+                  className="modify-input"
                 />
                 <ErrorMessage
                   name="email"
@@ -146,25 +146,26 @@ export default function EditProfil() {
                     setPassword(e.target.value);
                   }}
                 >
-                  <p>Mot de passe actuel :</p>
+                  <p>
+                    Mot de passe actuel :{" "}
+                    <span className="no-bold">
+                      <button
+                        className="buttonShow"
+                        type="button"
+                        onClick={handleClick}
+                      >
+                        {show ? <p>show</p> : <p>hide</p>}
+                      </button>
+                    </span>
+                  </p>
+
                   <Field
                     name="password"
                     type="text"
                     size="30"
-                    className="login-input"
+                    className="modify-input"
                   />
                 </div>
-                <button
-                  className="buttonShow"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  {show ? (
-                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
-                  ) : (
-                    <FaRegEye alt="icone eye" size="1.7em" />
-                  )}
-                </button>
               </div>
 
               <div className="container-password-profil">
@@ -174,12 +175,21 @@ export default function EditProfil() {
                     setNewPassword(e.target.value);
                   }}
                 >
-                  <p>Nouveau mot de passe :</p>
+                  <p>
+                    Nouveau mot de passe :{" "}
+                    <button
+                      className="buttonShow"
+                      type="button"
+                      onClick={handleClick}
+                    >
+                      {show ? <p>show</p> : <p>hide</p>}
+                    </button>
+                  </p>
                   <Field
                     name="newPassword"
                     type="text"
                     size="30"
-                    className="login-input"
+                    className="modify-input"
                   />
                 </div>
                 <ErrorMessage
@@ -187,17 +197,6 @@ export default function EditProfil() {
                   className="text-danger"
                   component="span"
                 />
-                <button
-                  className="buttonShow"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  {show ? (
-                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
-                  ) : (
-                    <FaRegEye alt="icone eye" size="1.7em" />
-                  )}
-                </button>
               </div>
               <div className="container-password-profil">
                 <div
@@ -206,12 +205,21 @@ export default function EditProfil() {
                     setPasswordConfirmation(e.target.value);
                   }}
                 >
-                  <p>Confirmation du mot de passe :</p>
+                  <p>
+                    Validation du mot de passe :{" "}
+                    <button
+                      className="buttonShow"
+                      type="button"
+                      onClick={handleClick}
+                    >
+                      {show ? <p>show</p> : <p>hide</p>}
+                    </button>
+                  </p>
                   <Field
                     name="passwordConfirmation"
                     type="text"
                     size="30"
-                    className="login-input"
+                    className="modify-input"
                   />
                   <ErrorMessage
                     name="passwordConfirmation"
@@ -219,17 +227,6 @@ export default function EditProfil() {
                     component="span"
                   />
                 </div>
-                <button
-                  className="buttonShow"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  {show ? (
-                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
-                  ) : (
-                    <FaRegEye alt="icone eye" size="1.7em" />
-                  )}
-                </button>
               </div>
               <div className="cont-valid-button">
                 <button
