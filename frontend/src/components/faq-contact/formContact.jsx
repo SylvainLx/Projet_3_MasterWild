@@ -27,7 +27,7 @@ export default function FormContact() {
         "service_58kecic",
         "template_8vvb84j",
         form.current,
-        "VdOV_IwA2lbDCrvNf"
+        `${import.meta.env.EMAIL_JS_ID}`
       )
       .then((response) => {
         setMessage(response.text, "ok cest bon");
