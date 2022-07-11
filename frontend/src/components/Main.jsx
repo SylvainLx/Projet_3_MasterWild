@@ -24,7 +24,7 @@ export default function Main() {
           <Route path="abonne" element={<AdminAbonne />} />
           <Route path="editmasterclass" element={<AdminMasterclass />} />
         </Route>
-        <Route path="/admin" element={<Admin />} />
+
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
       </Routes>
