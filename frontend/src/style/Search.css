@@ -179,6 +179,12 @@
   justify-content: space-between;
   width: 100%;
 }
+.result-mastersearch{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
 
 @media screen and (min-width: 767.98px) {
   .list-theme,
@@ -198,8 +204,12 @@
     margin-right: 2em;
   }
   .result-mastersearch{
-    display: flex;
-    margin-bottom: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    width: 100%;
   }
   .card-container {
     margin-right: 2em;

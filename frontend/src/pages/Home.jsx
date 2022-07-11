@@ -1,59 +1,52 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
+
 import IntroHome from "../components/home/IntroHome";
 import IntroWCS from "../components/home/IntroWCS";
-import CarouselSearch from "../components/CarouselSearch";
+import CardMasterclass from "../components/CardMasterclass";
 import CarouselHome from "../components/CarouselHome";
-import Andrea from "../assets/pictures/homepage/adreaturcu.png";
-import Julien from "../assets/pictures/homepage/julienboyer.png";
-import Agnes from "../assets/pictures/homepage/agnescrepet.png";
+
+import Solutions909 from "../assets/logo_partenaires/solutions909.jpeg";
+import Anssi from "../assets/logo_partenaires/anssi.png";
+import Mydatafit from "../assets/logo_partenaires/mydatafit.jpeg";
+import Alectio from "../assets/logo_partenaires/alectio.png";
+import Keyrus from "../assets/logo_partenaires/keyrus.png";
+import Tricky from "../assets/logo_partenaires/tricky.png";
 
 import flower from "../assets/flower.webm";
 import "../style/Home.css";
 
 export default function Home() {
+  const [listMasterclass, setListMasterclass] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
   return (
     <div className="container-home">
       <IntroHome />
+      <h2 className="partnairPics">
+        Ils nous font <span className="accent">confiance</span> :
+      </h2>
       <div className="carousel-home">
         <CarouselHome />
       </div>
       <div className="home-mosaic">
-        <div className="square">
-          <div className="text">
-            <p className="p-grid">Andreea</p>
-            <p className="p-grid">Turcu</p>
-            <p className="p-grid">
-              Data Scientist | Solution Leader - Data Robot
-            </p>
-          </div>
-        </div>
-        <div className="square-pic">
-          <img src={Andrea} alt="logo-inspiraction" />
-        </div>
-        <div className="square-pic">
-          <img src={Julien} alt="logo-inspiraction" />
-        </div>
-        <div className="square-two">
-          <div className="text-turn">
-            <p className="p-grid-turn">Julien</p>
-            <p className="p-grid-turn">Boyer</p>
-            <p className="p-grid-turn">
-              Consultant React/VueJS NodeJS/Symfony | Co-Founder Taiwa
-            </p>
-          </div>
-        </div>
-        <div className="square">
-          <div className="text">
-            <p className="p-grid">Agnès</p>
-            <p className="p-grid">Crépet</p>
-            <p className="p-grid">
-              Head of Software Longevity | IT - Fairphone
-            </p>
-          </div>
-        </div>
-        <div className="square-pic">
-          <img src={Agnes} alt="logo-inspiraction" />
-        </div>
+        <img className="square-pic" src={Alectio} alt="logo-solutions909" />
+        <img
+          className="square-pic"
+          src={Solutions909}
+          alt="logo-solutions909"
+        />
+        <img className="square-pic" src={Mydatafit} alt="logo-mydatafit" />
+        <img className="square-pic" src={Tricky} alt="logo-solutions909" />
+        <img className="square-pic" src={Keyrus} alt="logo-solutions909" />
+        <img className="square-pic" src={Anssi} alt="logo-anssi" />
       </div>
       <div className="video-sample-area">
         <div className="video-sample">
@@ -81,11 +74,31 @@ export default function Home() {
       <div className="search-exemples">
         <div className="first-block">
           <h2>Découvrez de nombreux métiers ...</h2>
-          <CarouselSearch />
+          <ul className="carousel-items">
+            {listMasterclass
+              .filter(
+                (mastercard) => mastercard.entreprise.speciality === "Solutions"
+              )
+              .map((mastercard) => (
+                <li className="carousel-item">
+                  <CardMasterclass
+                    key={mastercard.id}
+                    mastercard={mastercard}
+                  />
+                </li>
+              ))}
+          </ul>
         </div>
+
         <div className="second-block">
           <h2>... et différents domaines technologiques.</h2>
-          <CarouselSearch />
+          <ul className="carousel-items">
+            {listMasterclass.map((mastercard) => (
+              <li className="carousel-item">
+                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <IntroWCS />
