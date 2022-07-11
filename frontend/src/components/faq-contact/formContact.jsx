@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+
 import emailjs from "@emailjs/browser";
 
 export default function FormContact() {
@@ -8,7 +9,20 @@ export default function FormContact() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+  const form = useRef({
+    entreprise,
+    lastName,
+    firstName,
+    email,
+    message,
+  });
+  // const form = useRef({
+  //   entreprises: entreprise,
+  //   lastname: lastName,
+  //   firstname: firstName,
+  //   mail: email,
+  //   messages: message,
+  // });
   const postContact = (e) => {
     e.preventDefault();
 
@@ -16,13 +30,7 @@ export default function FormContact() {
       .sendForm(
         "service_58kecic",
         "template_8vvb84j",
-        {
-          entreprises: entreprise,
-          lastname: lastName,
-          firstname: firstName,
-          mail: email,
-          messages: message,
-        }.current,
+        form.current,
         "VdOV_IwA2lbDCrvNf"
       )
       .then((response) => {
@@ -47,34 +55,41 @@ export default function FormContact() {
         required
         onSubmit={postContact}
         method="post"
+        ref={form}
+        id="form"
       >
         <input
           type="text"
-          className="contactInput"
+          id="entreprise"
+          className="contactInput entreprise"
           placeholder="Nom de l'entreprise"
           onChange={(e) => setEntreprise(e.target.value)}
         />
         <input
           type="text"
-          className="contactInput"
+          id="lastName"
+          className="contactInput lastName"
           placeholder="Nom"
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
           type="text"
-          className="contactInput"
+          id="firstName"
+          className="contactInput firstName"
           placeholder="Prénom"
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
           type="text"
-          className="contactInput"
+          id="email"
+          className="contactInput email"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <textarea
           type="text"
-          className="contactInput"
+          id="message"
+          className="contactInput message"
           placeholder="C'est à vous !"
           onChange={(e) => setMessage(e.target.value)}
         />

@@ -22,7 +22,6 @@ export default function Home() {
         setListMasterclass(res.data.data);
       });
   }, []);
-
   return (
     <div className="container-home">
       <IntroHome />
@@ -98,7 +97,7 @@ export default function Home() {
           <h2>Découvrez de nombreux métiers ...</h2>
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
-              <li className="carousel-item">
+              <li className="carousel-item" key={mastercard.id}>
                 <CardMasterclass key={mastercard.id} mastercard={mastercard} />
               </li>
             ))}
@@ -109,7 +108,7 @@ export default function Home() {
           <h2>... et différents domaines technologiques.</h2>
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
-              <li className="carousel-item">
+              <li className="carousel-item" key={mastercard.id}>
                 <CardMasterclass key={mastercard.id} mastercard={mastercard} />
               </li>
             ))}

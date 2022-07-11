@@ -66,85 +66,87 @@ export default function EditMasterclass({
   };
 
   return (
-    <form className="form-masterclass" onSubmit={editMasterclass}>
-      <label htmlFor="title" className="labelTitle">
-        <input
-          className="i-title"
-          type="text"
-          name="title"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-        />
-      </label>
-      <label htmlFor="name">
-        <input
-          className="input"
-          type="text"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-      </label>
-      <label htmlFor="speciality">
-        <input
-          className="input"
-          type="text"
-          name="speciality"
-          onChange={(e) => setSpeciality(e.target.value)}
-          value={speciality}
-        />
-      </label>
-      <label htmlFor="source">
-        <input
-          className="input"
-          type="text"
-          name="source"
-          onChange={(e) => setSource(e.target.value)}
-          value={source}
-        />
-      </label>
-      <label htmlFor="category">
-        <input
-          className="input"
-          type="text"
-          name="category"
-          onChange={(e) => setTheme(e.target.value)}
-          value={theme}
-        />
-      </label>
-      <label htmlFor="keyword">
-        <input
-          className="input"
-          type="text"
-          name="keyword"
-          onChange={(e) => setKeyword(e.target.value)}
-          value={keyword}
-        />
-      </label>
-      <label htmlFor="logo_source">
-        <input
-          onChange={(e) => setPhoto(e.target.files)}
-          className="input"
-          type="file"
-          name="logo_source"
-        />
-      </label>
-      <label className="desc" htmlFor="description">
-        <textarea
-          className="i-desc"
-          type="text"
-          name="description"
-          onChange={(e) => setDesc(e.target.value)}
-          value={desc}
-        />
-      </label>
-      <input className="btnPut" type="submit" value="Modifier" />
+    <div>
+      <form className="form-masterclass" onSubmit={editMasterclass}>
+        <label htmlFor="title" className="labelTitle">
+          <input
+            className="i-title"
+            type="text"
+            name="title"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
+        </label>
+        <label htmlFor="name">
+          <input
+            className="input"
+            type="text"
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+        </label>
+        <label htmlFor="speciality">
+          <input
+            className="input"
+            type="text"
+            name="speciality"
+            onChange={(e) => setSpeciality(e.target.value)}
+            value={speciality}
+          />
+        </label>
+        <label htmlFor="source">
+          <input
+            className="input"
+            type="text"
+            name="source"
+            onChange={(e) => setSource(e.target.value)}
+            value={source}
+          />
+        </label>
+        <label htmlFor="category">
+          <input
+            className="input"
+            type="text"
+            name="category"
+            onChange={(e) => setTheme(e.target.value)}
+            value={theme}
+          />
+        </label>
+        <label htmlFor="keyword">
+          <input
+            className="input"
+            type="text"
+            name="keyword"
+            onChange={(e) => setKeyword(e.target.value)}
+            value={keyword}
+          />
+        </label>
+        <label htmlFor="logo_source">
+          <input
+            onChange={(e) => setPhoto(e.target.files)}
+            className="input"
+            type="file"
+            name="logo_source"
+          />
+        </label>
+        <label className="desc" htmlFor="description">
+          <textarea
+            className="i-desc"
+            type="text"
+            name="description"
+            onChange={(e) => setDesc(e.target.value)}
+            value={desc}
+          />
+        </label>
+        <input className="btnPut" type="submit" value="Modifier" />
+      </form>{" "}
       <input
         className="btnDel"
         type="submit"
         value="Supprimer"
         onClick={deleteMasterclass}
       />
-    </form>
+    </div>
   );
 }
