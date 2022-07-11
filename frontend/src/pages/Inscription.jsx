@@ -39,6 +39,7 @@ export default function Inscription() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [professional, setProfessional] = useState(false);
   const navigate = useNavigate();
 
   const handleFirstname = (e) => {
@@ -53,6 +54,9 @@ export default function Inscription() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
+  const handlePro = () => {
+    setProfessional(true);
+  };
 
   function setUser(user) {
     localStorage.setItem("user", JSON.stringify(user));
@@ -66,6 +70,7 @@ export default function Inscription() {
           lastname,
           email,
           password,
+          professional,
         })
         .then((response) => {
           setUser(response.data);
@@ -84,6 +89,7 @@ export default function Inscription() {
     passwordConfirmation: "",
     gcu: false,
     newsletter: false,
+    professional: false,
   };
 
   return (
@@ -205,6 +211,19 @@ export default function Inscription() {
                 </button>
               </div>
               <div className="container-checkbox">
+                <label
+                  htmlFor="professional"
+                  className="checkBinsc"
+                  onChange={handlePro}
+                >
+                  <input
+                    className="cgv-check"
+                    type="checkbox"
+                    name="professional"
+                    id="professional"
+                  />
+                  Je suis un professionnel.
+                </label>
                 <div className="checkBinsc">
                   <Field
                     name="gcu"
@@ -213,7 +232,7 @@ export default function Inscription() {
                     id="gcu"
                   />
                   <div>
-                    <label htmlFor="CGV">
+                    <label htmlFor="CGV" required>
                       J'accepte{" "}
                       <a
                         href="https://www.wildcodeschool.com/fr-FR/condition-generales-utilisation"
