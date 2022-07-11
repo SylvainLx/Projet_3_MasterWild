@@ -122,7 +122,7 @@ exports.editOne = async (req, res) => {
     await fs.promises.unlink(
       path.join(
         __dirname,
-        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_source}`
+        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_name}`
       )
     );
     const masterclassUpdated = await masterclassController.editOne(
@@ -150,7 +150,7 @@ exports.deleteOne = async (req, res) => {
     await fs.promises.unlink(
       path.join(
         __dirname,
-        `../../public/data/uploads/${removed.entreprise.logo_source}`
+        `../../public/data/uploads/${removed.entreprise.logo_name}`
       )
     );
     return res
