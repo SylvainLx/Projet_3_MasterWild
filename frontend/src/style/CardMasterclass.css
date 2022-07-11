@@ -39,8 +39,7 @@
 .logo2 {
   align-self: center;
   width: 4em;
-  height: 4em;
-  border: 1px solid black;
+  height: auto;
   margin-left: 0.5em;
 }
 
@@ -92,9 +91,6 @@
     width: 25em;
     height: 14em;
   }
-  .logo2 {
-    padding-left: 0.8em;
-  }
   .voir-vid:hover {
     background-color: var(--secondary-red);
     cursor: pointer;
@@ -104,8 +100,5 @@
 @media screen and (min-width: 1199.98px) {
   .card-container {
     margin: 1em 0;
-  }
-  .logo2 {
-    padding-left: 0.8em;
   }
 }

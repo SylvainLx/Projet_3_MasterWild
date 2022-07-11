@@ -9,8 +9,10 @@ export default function CardMasterclass({ mastercard }) {
       </p>
       <div className="contenu-card">
         <img
-          src={mastercard.entreprise.logo_source}
-          alt="logo simple wild"
+          src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+            mastercard.entreprise.logo_name
+          }`}
+          alt="logo entreprise"
           className="logo2"
         />
         <div className="title-desc">
