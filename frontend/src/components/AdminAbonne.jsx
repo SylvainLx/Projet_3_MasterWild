@@ -42,12 +42,11 @@ export default function AdminAbonne({ users, professionals }) {
   return (
     <section className="showClients">
       <div className="buttonClient">
-        {" "}
         <button className="btnAbonne" type="button" onClick={handleAbonne}>
-          Abonnés
+          Utilisateurs
         </button>
         <button className="btnAbonne" type="button" onClick={handleNonAbonne}>
-          Non-Abonnés
+          Administrateurs
         </button>
       </div>
       {selectUsers && (

@@ -69,7 +69,7 @@ export default function EditMasterclass({
     <form className="form-masterclass" onSubmit={editMasterclass}>
       <label htmlFor="title" className="labelTitle">
         <input
-          className="input i-title"
+          className="i-title"
           type="text"
           name="title"
           onChange={(e) => setTitle(e.target.value)}
@@ -131,16 +131,16 @@ export default function EditMasterclass({
       </label>
       <label className="desc" htmlFor="description">
         <textarea
-          className="input i-desc"
+          className="i-desc"
           type="text"
           name="description"
           onChange={(e) => setDesc(e.target.value)}
           value={desc}
         />
       </label>
-      <input className="btnSend" type="submit" value="Modifier" />
+      <input className="btnPut" type="submit" value="Modifier" />
       <input
-        className="btnSend"
+        className="btnDel"
         type="submit"
         value="Supprimer"
         onClick={deleteMasterclass}

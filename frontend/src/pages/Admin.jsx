@@ -66,14 +66,12 @@ export default function Admin() {
       <section className="selectTask">
         <div className="select-clients">
           <button className="btn-blue" type="button" onClick={handleClients}>
-            {" "}
-            <span className="span-task">C</span>lients
+            <span className="span-task">U</span>tilisateurs
           </button>
         </div>
         <div className="select-masterclass">
           <button className="btn-red" type="button" onClick={handleMasterclass}>
-            {" "}
-            <span className="span-task">M</span>asterclass
+            <span className="span-task">M</span>asterclasses
           </button>
         </div>
       </section>
