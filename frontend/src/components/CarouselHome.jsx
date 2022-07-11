@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-spring-3d-carousel";
-import Andrea from "../assets/pictures/homepage/adreaturcu.png";
-import Agnes from "../assets/pictures/homepage/agnescrepet.png";
-import Garance from "../assets/pictures/homepage/garancelhyvernay.png";
-import Jeremy from "../assets/pictures/homepage/jeremylitaize.png";
-import Joris from "../assets/pictures/homepage/jorisliberati.png";
-import Julien from "../assets/pictures/homepage/julienboyer.png";
+
+import Solutions909 from "../assets/logo_partenaires/solutions909.jpeg";
+import Anssi from "../assets/logo_partenaires/anssi.png";
+import Mydatafit from "../assets/logo_partenaires/mydatafit.jpeg";
+import Alectio from "../assets/logo_partenaires/alectio.png";
+import Keyrus from "../assets/logo_partenaires/keyrus.png";
+import Tricky from "../assets/logo_partenaires/tricky.png";
 
 export default function CarouselHome() {
   const carouselOptions = {
@@ -21,27 +22,27 @@ export default function CarouselHome() {
   const slides = [
     {
       key: 1,
-      content: <img src={Andrea} alt="1" />,
+      content: <img src={Solutions909} alt="1" />,
     },
     {
       key: 2,
-      content: <img src={Joris} alt="2" />,
+      content: <img src={Anssi} alt="2" />,
     },
     {
       key: 3,
-      content: <img src={Garance} alt="3" />,
+      content: <img src={Mydatafit} alt="3" />,
     },
     {
       key: 4,
-      content: <img src={Jeremy} alt="4" />,
+      content: <img src={Alectio} alt="4" />,
     },
     {
       key: 5,
-      content: <img src={Agnes} alt="5" />,
+      content: <img src={Keyrus} alt="5" />,
     },
     {
       key: 6,
-      content: <img src={Julien} alt="6" />,
+      content: <img src={Tricky} alt="6" />,
     },
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };

@@ -2,6 +2,7 @@
 
 /* STRUCTURE CARD */
 .card-container {
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,6 +20,11 @@
   transform: scale(1.01);
 }
 
+.pPresEntreprise {
+  display: flex;
+  flex-direction: column;
+}
+
 .pCardNameEntreprise {
   font-family: "VarelaRound", sans-serif;
   font-weight: var(--bold);
@@ -26,26 +32,38 @@
   text-transform: uppercase;
   color: var(--main-red);
   text-align: initial;
-  padding: 1em;
+}
+
+.pCardSpecialityEntreprise {
+  padding-top: 0.5em;
+  font-family: "VarelaRound", sans-serif;
+  font-weight: var(--bold);
+  font-size: var(--S);
+  text-transform: uppercase;
+  color: var(--main-red);
+  text-align: initial;
 }
 
 .contenu-card {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   color: var(--primary-text);
-  gap: .5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--main-red);
 }
 
 .logo2 {
   align-self: center;
-  width: 4em;
-  height: auto;
-  margin-left: 0.5em;
+  width: auto;
+  height: 3em;
+  max-width: 10em;
 }
 
 .title-desc {
   display: flex;
   flex-direction: column;
+  padding-top: 0.5em;
 }
 
 .title-card {
@@ -68,7 +86,6 @@
 .button-start {
   text-align: center;
   margin-top: 1em;
-  margin-bottom: 1em;
 }
 
 .voir-vid {
@@ -84,10 +101,9 @@
   padding-bottom: 1em;
 }
 
-
 /* MEDIA QUERIES */
 @media screen and (min-width: 767.98px) {
-  .card-container{
+  .card-container {
     width: 25em;
     height: 14em;
   }
@@ -95,6 +111,9 @@
     background-color: var(--secondary-red);
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
+  }
+  .res-search{
+    width: 100%;
   }
 }
 @media screen and (min-width: 1199.98px) {
