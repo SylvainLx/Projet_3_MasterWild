@@ -28,7 +28,7 @@ export default function AddMasterclass() {
     formData.append("file", photo[0]);
 
     axios.post(
-      "http://localhost:5001/api/admin/masterclass",
+      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
 
       formData,
       {

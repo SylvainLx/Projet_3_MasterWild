@@ -1,7 +1,35 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function FormContact() {
   const [open, setOpen] = useState(false);
+  const [entreprise, setEntreprise] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const form = useRef({
+    entreprise,
+    lastName,
+    firstName,
+    email,
+    message,
+  });
+
+  const postContact = (e) => {
+    e.preventDefault();
+    emailjs.init(`${import.meta.env.VITE_EMAILJS_ID}`);
+    emailjs
+      .sendForm(
+        `${import.meta.env.VITE_SERVICE_ID}`,
+        `${import.meta.env.VITE_TEMPLATE_ID}`,
+        form.current,
+        `${import.meta.env.VITE_EMAILJS_ID}`
+      )
+      .then((response) => {
+        setMessage(response.text, "ok cest bon");
+      });
+  };
 
   return (
     <div className="divFormContact">
@@ -15,19 +43,48 @@ export default function FormContact() {
           Contactez-nous !
         </button>
       </div>
-      <form className={open ? "formContact" : "formHidden"} required>
+      <form
+        className={open ? "formContact" : "formHidden"}
+        required
+        onSubmit={postContact}
+        method="post"
+        ref={form}
+        id="form"
+      >
         <input
           type="text"
+          name="entreprise"
           className="contactInput"
           placeholder="Nom de l'entreprise"
+          onChange={(e) => setEntreprise(e.target.value)}
         />
-        <input type="text" className="contactInput" placeholder="Nom" />
-        <input type="text" className="contactInput" placeholder="Prénom" />
-        <input type="text" className="contactInput" placeholder="Email" />
+        <input
+          type="text"
+          name="lastName"
+          className="contactInput"
+          placeholder="Nom"
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <input
+          type="text"
+          name="firstName"
+          className="contactInput"
+          placeholder="Prénom"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input
+          type="text"
+          name="email"
+          className="contactInput"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <textarea
           type="text"
+          name="message"
           className="contactInput"
           placeholder="C'est à vous !"
+          onChange={(e) => setMessage(e.target.value)}
         />
         <button type="submit" className="contactButton">
           Envoyer
