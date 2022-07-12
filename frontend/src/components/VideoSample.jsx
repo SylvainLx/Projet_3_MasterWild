@@ -28,7 +28,7 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
         setIsFavorite(true);
       }
     });
-  }, []);
+  }, [masterclassId]);
 
   useEffect(() => {
     api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {

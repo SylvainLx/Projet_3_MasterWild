@@ -124,6 +124,7 @@ export default function Header() {
                 alt="logowhite"
               />
             </button>
+
             <NavLink className="navlink-menu-right" to="/profil">
               <img
                 className="menu-right-icon"
