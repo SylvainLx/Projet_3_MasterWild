@@ -21,13 +21,13 @@ export default function FormContact() {
 
   const postContact = (e) => {
     e.preventDefault();
-
+    emailjs.init(`${import.meta.env.VITE_EMAILJS_ID}`);
     emailjs
       .sendForm(
-        "service_58kecic",
-        "template_8vvb84j",
+        `${import.meta.env.VITE_SERVICE_ID}`,
+        `${import.meta.env.VITE_TEMPLATE_ID}`,
         form.current,
-        `${import.meta.env.EMAIL_JS_ID}`
+        `${import.meta.env.VITE_EMAILJS_ID}`
       )
       .then((response) => {
         setMessage(response.text, "ok cest bon");
