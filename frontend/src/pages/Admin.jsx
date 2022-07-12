@@ -33,11 +33,12 @@ export default function Admin() {
   }, []);
 
   const masterclassQuantity = masterclassDashboard.length;
-  const usersQuantity = usersDashboard.length;
+  const usersQuantity = usersDashboard.filter(
+    (users) => users.role !== "pro" && users.role !== "admin"
+  );
   const employeQuantity = usersDashboard.filter(
     (employe) => employe.role === "pro"
   );
-
   return (
     <div className="container-admin">
       <section className="title-admin">
@@ -47,7 +48,7 @@ export default function Admin() {
       </section>
       <section className="dashboard">
         <p className="text-dashboard">
-          <span className="span-number">{usersQuantity}</span>
+          <span className="span-number">{usersQuantity.length}</span>
           <br />
           Utilisateurs
         </p>
@@ -74,7 +75,9 @@ export default function Admin() {
           </button>
         </div>
       </section>
-      {showClients && <AdminAbonne />}
+      {showClients && (
+        <AdminAbonne users={usersQuantity} professionals={employeQuantity} />
+      )}
       {showMasterclass && <AdminMasterclass />}
     </div>
   );

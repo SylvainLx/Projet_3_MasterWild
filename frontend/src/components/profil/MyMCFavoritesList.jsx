@@ -9,10 +9,11 @@ export default function MyMCFavoritesList() {
   const { userProfil } = useContext(CurrentUserContext);
 
   return (
-    <div>
+    <div className="show-favorite-videos">
       {userProfil.favorites ? (
         userProfil.favorites.map((favorite) => (
           <VideoSample
+            addButton
             masterclassId={favorite}
             key={`${favorite}_${userProfil.Id}`}
           />

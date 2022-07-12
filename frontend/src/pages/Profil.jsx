@@ -22,15 +22,18 @@ export default function Profil() {
           onClick={mcFavoriteChange}
           className={`ongletLeft ${selectOnglet ? "ongletLeftActive" : ""}`}
         >
-          Mes favoris
+          <p>
+            Mes <span className="accent">F</span>avoris
+          </p>
         </button>
         <button
           type="button"
           onClick={profilChange}
           className={`ongletRight ${!selectOnglet ? "ongletRightActive" : ""}`}
         >
-          {" "}
-          Mon profil
+          <p>
+            Mon <span className="accent">P</span>rofil
+          </p>
         </button>
       </div>
 

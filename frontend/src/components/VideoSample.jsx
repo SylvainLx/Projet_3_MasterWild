@@ -1,23 +1,31 @@
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
 import CurrentUserContext from "../contexts/currentUser";
 import "../style/VideoSample.css";
 import api from "../services/endpoint";
 
-export default function VideoSample({ masterclassId, addVideo = false }) {
+export default function VideoSample({
+  masterclassId,
+  addVideo = false,
+  addButton = false,
+}) {
   const { userProfil, setUserProfil } = useContext(CurrentUserContext);
 
   VideoSample.defaultProps = {
     addVideo: false,
+    addButton: false,
   };
 
   VideoSample.propTypes = {
     masterclassId: PropTypes.number.isRequired,
     addVideo: PropTypes.bool,
+    addButton: PropTypes.bool,
   };
 
   const [masterclass, setMasterclass] = useState({});
   const [isFavorite, setIsFavorite] = useState(false);
+  const [entreprise, setEntreprise] = useState(false);
 
   useEffect(() => {
     api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
@@ -27,7 +35,13 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
         setIsFavorite(true);
       }
     });
-  }, []);
+  }, [masterclassId]);
+
+  useEffect(() => {
+    api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {
+      setEntreprise(res.data.currentEntreprise);
+    });
+  }, [masterclass]);
 
   const handleClickFavorite = () => {
     if (!isFavorite) {
@@ -44,31 +58,46 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
     }
   };
 
+  const mastercardLink = `/masterclass/${masterclassId}`;
+
+  const nav = useNavigate();
+
+  const goToMasterclass = () => {
+    nav(mastercardLink);
+  };
+
   return (
     <section>
       <div className="container-video">
         {addVideo && (
-          <div>
-            <iframe
-              title={masterclass.title}
-              controlsList="nodownload"
-              style={{
-                width: "50vw",
-                height: "28vw",
-                left: "0px",
-                top: "0px",
-              }}
-              src={masterclass.source}
-            />
-          </div>
+          <iframe
+            className="video"
+            title={masterclass.title}
+            controlsList="nodownload"
+            src={masterclass.source}
+          />
         )}
         <div className="description-video">
-          <div>
-            <img src="" alt="Celebrity's portrait" className="picture-video" />
-          </div>
+          <img
+            className="picture-video"
+            src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+              entreprise.logo_name
+            }`}
+            alt={entreprise.name}
+          />
+
           <div className="text">
             <div className="text-top">
               <h1 className="title-video">{masterclass.title}</h1>
+              {addButton && (
+                <button
+                  type="button"
+                  className="voir-vid"
+                  onClick={goToMasterclass}
+                >
+                  Voir
+                </button>
+              )}
               <button
                 type="button"
                 className={isFavorite ? "isFavorite" : "notFavorite"}
