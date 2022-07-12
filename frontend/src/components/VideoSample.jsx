@@ -29,32 +29,45 @@ export default function VideoSample({
 
   useEffect(() => {
     api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
-      setMasterclass(res.data.currentMasterclass);
+      setMasterclass({
+        ...res.data.currentMasterclass,
+        source: `https://www.youtube-nocookie.com/embed/${res.data.currentMasterclass.source
+          .split("/")
+          .pop()
+          .split("=")
+          .pop()}`,
+      });
 
-      if (userProfil.favorites.indexOf(res.data.currentMasterclass.Id) !== -1) {
+      if (
+        userProfil?.favorites?.indexOf(res.data.currentMasterclass.Id) !== -1
+      ) {
         setIsFavorite(true);
       }
     });
   }, [masterclassId]);
 
   useEffect(() => {
-    api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {
-      setEntreprise(res.data.currentEntreprise);
-    });
+    if (masterclass.entreprise_Id) {
+      api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {
+        setEntreprise(res.data.currentEntreprise);
+      });
+    }
   }, [masterclass]);
 
   const handleClickFavorite = () => {
-    if (!isFavorite) {
-      api.post(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
-      userProfil.favorites.push(masterclass.Id);
-      setUserProfil({ ...userProfil, favorites: userProfil.favorites });
-      setIsFavorite(true);
-    } else {
-      api.delete(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
-      const favoriteIndex = userProfil.favorites.indexOf(masterclass.Id);
-      userProfil.favorites.splice(favoriteIndex, 1);
-      setUserProfil({ ...userProfil, favorites: userProfil.favorites });
-      setIsFavorite(false);
+    if (userProfil.favorites !== undefined) {
+      if (!isFavorite) {
+        api.post(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+        userProfil.favorites.push(masterclass.Id);
+        setUserProfil({ ...userProfil, favorites: userProfil.favorites });
+        setIsFavorite(true);
+      } else {
+        api.delete(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+        const favoriteIndex = userProfil.favorites.indexOf(masterclass.Id);
+        userProfil.favorites.splice(favoriteIndex, 1);
+        setUserProfil({ ...userProfil, favorites: userProfil.favorites });
+        setIsFavorite(false);
+      }
     }
   };
 
@@ -80,9 +93,12 @@ export default function VideoSample({
         <div className="description-video">
           <img
             className="picture-video"
-            src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
-              entreprise.logo_name
-            }`}
+            src={
+              entreprise.logo_name &&
+              `${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+                entreprise.logo_name
+              }`
+            }
             alt={entreprise.name}
           />
 
