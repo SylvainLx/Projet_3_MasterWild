@@ -1,19 +1,26 @@
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
 import CurrentUserContext from "../contexts/currentUser";
 import "../style/VideoSample.css";
 import api from "../services/endpoint";
 
-export default function VideoSample({ masterclassId, addVideo = false }) {
+export default function VideoSample({
+  masterclassId,
+  addVideo = false,
+  addButton = false,
+}) {
   const { userProfil, setUserProfil } = useContext(CurrentUserContext);
 
   VideoSample.defaultProps = {
     addVideo: false,
+    addButton: false,
   };
 
   VideoSample.propTypes = {
     masterclassId: PropTypes.number.isRequired,
     addVideo: PropTypes.bool,
+    addButton: PropTypes.bool,
   };
 
   const [masterclass, setMasterclass] = useState({});
@@ -51,6 +58,14 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
     }
   };
 
+  const mastercardLink = `/masterclass/${masterclassId}`;
+
+  const nav = useNavigate();
+
+  const goToMasterclass = () => {
+    nav(mastercardLink);
+  };
+
   return (
     <section>
       <div className="container-video">
@@ -74,6 +89,15 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
           <div className="text">
             <div className="text-top">
               <h1 className="title-video">{masterclass.title}</h1>
+              {addButton && (
+                <button
+                  type="button"
+                  className="voir-vid"
+                  onClick={goToMasterclass}
+                >
+                  Voir
+                </button>
+              )}
               <button
                 type="button"
                 className={isFavorite ? "isFavorite" : "notFavorite"}
