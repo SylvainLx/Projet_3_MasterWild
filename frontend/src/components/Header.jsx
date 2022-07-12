@@ -16,45 +16,46 @@ export default function Header() {
       to: "/",
 
       text: "Home",
+      isRequiered: [],
     },
 
     {
       to: "/connexion",
 
       text: "Inscription / Connexion",
-    },
-
-    {
-      to: "/masterclass",
-
-      text: "Masterclass",
+      isRequiered: [],
     },
 
     {
       to: "/search",
 
-      text: "Recherche / Filtres",
+      text: "Masterclasses",
+      isRequiered: ["user", "admin"],
     },
 
     {
       to: "/profil",
 
       text: "Mon Profil",
+      isRequiered: ["user", "admin"],
     },
 
     {
       to: "/contact",
 
       text: "FAQ / Contact",
+      isRequiered: ["user", "admin"],
     },
 
     {
       to: "/admin",
 
       text: "Administrateur",
+      isRequiered: ["admin"],
     },
   ];
-  const { setUserProfil } = useContext(CurrentUserContext);
+
+  const { setUserProfil, userProfil } = useContext(CurrentUserContext);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -82,42 +83,64 @@ export default function Header() {
         <div className="full-desktop-header">
           <div className="mobile-burger">
             <BurgerMenu>
-              {navlinklist.map((navlink) => (
-                <Link
-                  key={navlink.text}
-                  // onClick={{ menuOpen: !menuOpen }}
-                  className="menu-item"
-                  to={navlink.to}
-                >
-                  {navlink.text}
-                </Link>
-              ))}
+              {navlinklist.map(
+                (navlink) =>
+                  (navlink.isRequiered.includes(userProfil?.role) ||
+                    navlink.isRequiered.length === 0) && (
+                    <Link
+                      key={navlink.text}
+                      // onClick={{ menuOpen: !menuOpen }}
+                      className="bm-item menu-item"
+                      to={navlink.to}
+                    >
+                      {navlink.text}
+                    </Link>
+                  )
+              )}
+              {userProfil?.role && (
+                <ul>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={logOut}
+                      className="navlink-menu-right"
+                    >
+                      <img
+                        className="menu-right-icon"
+                        src={loginIcon}
+                        alt="logowhite"
+                      />
+                    </button>
+                  </li>
+                </ul>
+              )}
             </BurgerMenu>
           </div>
           <NavLink className="logo-header" to="/">
             <img src={Logo} alt="logowhite" />
           </NavLink>
-
-          <div className="menu-right">
-            <button
-              type="button"
-              onClick={logOut}
-              className="navlink-menu-right"
-            >
-              <img
-                className="menu-right-icon"
-                src={loginIcon}
-                alt="logowhite"
-              />
-            </button>
-            <NavLink className="navlink-menu-right" to="/profil">
-              <img
-                className="menu-right-icon"
-                src={UserProfile}
-                alt="logowhite"
-              />
-            </NavLink>
-          </div>
+          {userProfil?.role && (
+            <div className="menu-right">
+              <button
+                type="button"
+                onClick={logOut}
+                className="navlink-menu-right"
+              >
+                <img
+                  className="menu-right-icon"
+                  src={loginIcon}
+                  alt="logowhite"
+                />
+              </button>
+              <NavLink className="navlink-menu-right" to="/profil">
+                <img
+                  className="menu-right-icon"
+                  src={UserProfile}
+                  alt="logowhite"
+                />
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </header>

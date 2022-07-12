@@ -40,6 +40,8 @@ export default function Inscription() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [professional, setProfessional] = useState(false);
+  const [company, setCompany] = useState();
+
   const navigate = useNavigate();
 
   const handleFirstname = (e) => {
@@ -57,6 +59,9 @@ export default function Inscription() {
   const handlePro = () => {
     setProfessional(true);
   };
+  const handleCompany = (e) => {
+    setCompany(e.target.value);
+  };
 
   function setUser(user) {
     localStorage.setItem("user", JSON.stringify(user));
@@ -71,6 +76,7 @@ export default function Inscription() {
           email,
           password,
           professional,
+          company,
         })
         .then((response) => {
           setUser(response.data);
@@ -90,6 +96,7 @@ export default function Inscription() {
     gcu: false,
     newsletter: false,
     professional: false,
+    company: "",
   };
 
   return (
@@ -141,6 +148,19 @@ export default function Inscription() {
                 />
                 <ErrorMessage
                   name="firstname"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
+              <div onChange={handleCompany} className="verif-form">
+                <Field
+                  name="company"
+                  placeholder="Si vous êtes un professionel, nom de l'entreprise"
+                  type="text"
+                  className="login-input"
+                />
+                <ErrorMessage
+                  name="company"
                   className="text-danger"
                   component="span"
                 />
