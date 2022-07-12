@@ -26,7 +26,13 @@ export default function Masterclass() {
   return (
     <div className="masterclass">
       <div className="container-masterclass">
-        <VideoSample masterclassId={1} addVideo />
+        <VideoSample
+          addVideo
+          name={videoExemple.name}
+          summary={videoExemple.summary}
+          duration={videoExemple.duration}
+          srcPicture={videoExemple.srcPicture}
+        />
         <div className="suggestions">
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
