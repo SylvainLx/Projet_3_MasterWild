@@ -11,36 +11,43 @@ import CardMasterclass from "../components/CardMasterclass";
 export default function Search() {
   const [showTheme, setShowTheme] = useState(false);
   const [showEntreprise, setShowEntreprise] = useState(false);
-  const [searchCategory, setSearchCategory] = useState([]);
 
-  const handleShowTheme = (e) => {
+  const handleShowTheme = () => {
     setShowTheme((current) => !current);
-    e.preventDefault();
-    axios.get("http://localhost:5001/api/category").then((response) => {
-      setSearchCategory(response.data.data);
-    });
   };
   const handleShowEntreprise = () => {
     setShowEntreprise((current) => !current);
   };
 
-  const [listMasterclass, setListMasterclass] = useState([]);
-
+  const [searchCategory, setSearchCategory] = useState([]);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
       .then((res) => {
-        setListMasterclass(res.data.data);
+        setSearchCategory(res.data.data);
       });
   }, []);
 
   const [listEntreprise, setListEntreprise] = useState([]);
-
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprise`)
       .then((res) => {
         setListEntreprise(res.data.data);
+      });
+  }, []);
+
+  const [filter, setFilter] = useState([]);
+  const handleChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const [listMasterclass, setListMasterclass] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
       });
   }, []);
 
@@ -80,9 +87,17 @@ export default function Search() {
             <div className="result-theme">
               <ul className="list-theme">
                 {searchCategory.map((category) => (
-                  <li key={category.Id} className="li-theme">
+                  <button
+                    type="button"
+                    tabIndex={0}
+                    key={category.Id}
+                    className="li-theme"
+                    onClick={handleChange}
+                    onKeyPress={handleChange}
+                    value={category.name}
+                  >
                     {category.name}
-                  </li>
+                  </button>
                 ))}
               </ul>
             </div>
@@ -111,7 +126,17 @@ export default function Search() {
             <div className="result-metier">
               <ul className="list-metier">
                 {listEntreprise.map((entreprise) => (
-                  <li className="li-theme">{entreprise.name}</li>
+                  <button
+                    type="button"
+                    tabIndex={0}
+                    key={entreprise.Id}
+                    className="li-theme"
+                    onClick={handleChange}
+                    onKeyPress={handleChange}
+                    value={entreprise.name}
+                  >
+                    {entreprise.name}
+                  </button>
                 ))}
               </ul>
             </div>
@@ -120,11 +145,17 @@ export default function Search() {
       </section>
       <div className="res-search">
         <ul className="result-mastersearch">
-          {listMasterclass.map((mastercard) => (
-            <li className="testli">
-              <CardMasterclass key={mastercard.id} mastercard={mastercard} />
-            </li>
-          ))}
+          {listMasterclass
+            .filter(
+              (mastercard) =>
+                mastercard.entreprise.name === filter ||
+                mastercard.category.name === filter
+            )
+            .map((mastercard) => (
+              <li className="testli">
+                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              </li>
+            ))}
         </ul>
       </div>
     </div>
