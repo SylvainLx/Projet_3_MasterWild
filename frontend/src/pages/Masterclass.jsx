@@ -7,7 +7,8 @@ import "../style/Masterclass.css";
 
 export default function Masterclass() {
   const [listMasterclass, setListMasterclass] = useState([]);
-  const paramMasterclassId = useParams();
+  const params = useParams();
+  const paramMasterId = parseInt(params.masterclassId, 10);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
@@ -19,10 +20,7 @@ export default function Masterclass() {
   return (
     <div className="masterclass">
       <div className="container-masterclass">
-        <VideoSample
-          masterclassId={paramMasterclassId.masterclassId}
-          addVideo
-        />
+        <VideoSample masterclassId={paramMasterId} addVideo />
         <div className="suggestions">
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
