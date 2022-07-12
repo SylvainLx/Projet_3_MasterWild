@@ -97,6 +97,7 @@ export default function Search() {
                     value={category.name}
                   >
                     {category.name}
+                    <span className="separation"> | </span>
                   </button>
                 ))}
               </ul>
@@ -136,6 +137,7 @@ export default function Search() {
                     value={entreprise.name}
                   >
                     {entreprise.name}
+                    <span className="separation"> | </span>
                   </button>
                 ))}
               </ul>
