@@ -9,14 +9,16 @@
 }
 .video {
   width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 /* PARTIE DESCRIPTIVE DE LA VIDEO */
 .description-video {
   padding: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 .picture-video {
-  width: 20vh;
   display: none;
 }
 .text-top {
@@ -72,10 +74,6 @@
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 479.98px) {
-  .title-video {
-    margin-top: 0.5em;
-    font-size: 2.3em;
-  }
   .description-video {
     padding: 0;
   }
@@ -94,5 +92,13 @@
 @media screen and (min-width: 767.98px) {
   .title-video {
     font-size: 2rem;
+  }
+  .text-top {
+    padding: 1em 0;
+  }
+  .picture-video {
+    margin: 0.5rem;
+    width: 20vh;
+    display: initial;
   }
 }
