@@ -1,10 +1,5 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import {
-  SERVICE_ID,
-  TEMPLATE_ID,
-  EMAILJS_ID,
-} from "../../services/emailVariable";
 
 export default function FormContact() {
   const [open, setOpen] = useState(false);
@@ -23,9 +18,14 @@ export default function FormContact() {
 
   const postContact = (e) => {
     e.preventDefault();
-
+    emailjs.init(`${import.meta.env.VITE_EMAILJS_ID}`);
     emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, EMAILJS_ID)
+      .sendForm(
+        `${import.meta.env.VITE_SERVICE_ID}`,
+        `${import.meta.env.VITE_TEMPLATE_ID}`,
+        form.current,
+        `${import.meta.env.VITE_EMAILJS_ID}`
+      )
       .then((response) => {
         setMessage(response.text, "ok cest bon");
       });
