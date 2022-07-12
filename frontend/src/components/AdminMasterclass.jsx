@@ -11,9 +11,11 @@ export default function AdminMasterclass() {
   const [filterMasterclass, setFilterMasterclass] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5001/api/admin/masterclass").then((res) => {
-      setShowMasterclass(res.data.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setShowMasterclass(res.data.data);
+      });
   }, []);
 
   const handleFilter = (e) => {
