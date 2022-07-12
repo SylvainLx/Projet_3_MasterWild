@@ -15,24 +15,11 @@ export default function Masterclass() {
         setListMasterclass(res.data.data);
       });
   }, []);
-  const videoExemple = {
-    name: "Nom de la Vidéo",
-    summary:
-      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-    duration: 45,
-    srcPicture: "src/assets/harryroselmack.png",
-  };
 
   return (
     <div className="masterclass">
       <div className="container-masterclass">
-        <VideoSample
-          addVideo
-          name={videoExemple.name}
-          summary={videoExemple.summary}
-          duration={videoExemple.duration}
-          srcPicture={videoExemple.srcPicture}
-        />
+        <VideoSample masterclassId={3} addVideo />
         <div className="suggestions">
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
