@@ -154,8 +154,8 @@ export default function Search() {
                 mastercard.category.name === filter
             )
             .map((mastercard) => (
-              <li className="testli">
-                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              <li className="testli" key={mastercard.Id}>
+                <CardMasterclass key={mastercard.Id} mastercard={mastercard} />
               </li>
             ))}
         </ul>
