@@ -1,32 +1,33 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import VideoSample from "../components/VideoSample";
 import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
 export default function Masterclass() {
-  const videoExemple = {
-    name: "Nom de la Vidéo",
-    summary:
-      "Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non culpa quod cum temporibus. Lorem ipsum dolor sit amet. Id quod deleniti non non culpa quod cum temporibus.",
-    duration: 45,
-    srcPicture: "src/assets/harryroselmack.png",
-  };
+  const [listMasterclass, setListMasterclass] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
 
   return (
     <div className="masterclass">
       <div className="container-masterclass">
-        <VideoSample
-          addVideo
-          name={videoExemple.name}
-          summary={videoExemple.summary}
-          duration={videoExemple.duration}
-          srcPicture={videoExemple.srcPicture}
-        />
+        <VideoSample masterclassId={3} addVideo />
         <div className="suggestions">
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
+          <ul className="carousel-items">
+            {listMasterclass.map((mastercard) => (
+              <li className="carousel-item">
+                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <div className="go-to-search">

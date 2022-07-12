@@ -15,7 +15,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 1em;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 .title {
@@ -37,7 +37,7 @@
   height: 2rem;
   margin-bottom: 2rem;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 .searching {
   background-color: rgba(218, 212, 212, 0.691);
@@ -57,8 +57,8 @@
 
 /* Search Select Theme */
 
-.search-theme{
-  padding-top: .5em;
+.search-theme {
+  padding-top: 0.5em;
   margin-left: 1em;
   margin-right: 1em;
 }
@@ -106,10 +106,10 @@
 
 /* Search Select Jobs */
 
-.search-metier{
+.search-metier {
   margin-left: 1em;
   margin-right: 1em;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 .btnSearchMetier {
@@ -123,7 +123,7 @@
   height: 10rem;
   border: none;
 }
-.btnsearchmetier{
+.btnsearchmetier {
   font-family: "VarelaRound", sans-serif;
   display: flex;
   flex-direction: row;
@@ -179,7 +179,7 @@
   justify-content: space-between;
   width: 100%;
 }
-.result-mastersearch{
+.result-mastersearch {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -199,18 +199,18 @@
     justify-content: space-between;
     width: 100%;
   }
-  .search-theme, .search-metier{
+  .search-theme,
+  .search-metier {
     margin-left: 2em;
     margin-right: 2em;
   }
-  .result-mastersearch{
+  .result-mastersearch {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     width: 100%;
-    grid-column-gap: 1.5em;
   }
   .card-container {
     margin-right: 2em;

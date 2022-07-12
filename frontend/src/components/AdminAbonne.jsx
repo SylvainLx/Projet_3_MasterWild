@@ -1,49 +1,47 @@
 import "../style/Admin.css";
 import "../style/App.css";
-import { useState } from "react";
-import Select from "react-select";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { CSVLink } from "react-csv";
+import PropTypes from "prop-types";
+import UsersList from "./UsersList";
+import ProList from "./ProList";
 
-export default function AdminAbonne() {
-  const [showAbonne, setShowAbonne] = useState(true);
+export default function AdminAbonne({ users, professionals }) {
+  AdminAbonne.propTypes = {
+    users: PropTypes.string.isRequired,
+    professionals: PropTypes.string.isRequired,
+  };
+  const [selectUsers, setSelectUsers] = useState(true);
   const [showNonAbonne, setShowNonAbonne] = useState(false);
-
+  const [filterUsers, setFilterUsers] = useState([]);
+  const [excel, setExcel] = useState([]);
+  const [filterPro, setFilterPro] = useState([]);
   const handleAbonne = () => {
-    setShowAbonne((current) => !current);
+    setSelectUsers((current) => !current);
     setShowNonAbonne(!true);
   };
   const handleNonAbonne = () => {
     setShowNonAbonne((current) => !current);
-    setShowAbonne(!true);
+    setSelectUsers(!true);
   };
-  const optionsAbonne = [
-    { value: "Utilisateur 1", label: "Utilisateur 1" },
-    { value: "Utilisateur 2", label: "Utilisateur 2" },
-    { value: "Utilisateur 3", label: "Utilisateur 3" },
-  ];
-  const optionsNonAbonne = [
-    { value: "Administrateur 1", label: "Administrateur 1" },
-    { value: "Administrateur 2", label: "Administrateur 2" },
-    { value: "Administrateur 3", label: "Administrateur 3" },
-  ];
 
-  const customStyleAbonne = {
-    control: (base) => ({
-      ...base,
-      backgroundColor: "var(--secondary-blue)",
-      border: 0,
-    }),
-    dropdownIndicator: () => ({
-      color: "white",
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: "white",
-    }),
-    menu: () => ({
-      marginTop: "0",
-      background: "var(--secondary-blue)",
-    }),
+  const handleFilter = (e) => {
+    setFilterUsers(e.target.value);
   };
+  const handleProFilter = (e) => {
+    setFilterPro(e.target.value);
+  };
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/excel`).then((res) => {
+      setExcel(res.data);
+    });
+  }, []);
+
+  const ToastExcel = () => toast.success("Donées téléchargées !");
 
   return (
     <section className="showClients">
@@ -55,43 +53,67 @@ export default function AdminAbonne() {
           Administrateurs
         </button>
       </div>
-
-      {showAbonne && (
+      {selectUsers && (
         <div className="abonnes">
-          <Select
+          <select
+            name="showUsers"
             className="choose-clients"
-            styles={customStyleAbonne}
-            options={optionsAbonne}
-            placeholder="Selectionne un Utilisateur"
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary25: "var(--main-blue)",
-                primary: "var(--main-blue)",
-              },
-            })}
-          />
+            placeholder="Selection Abonné"
+            onChange={handleFilter}
+          >
+            {" "}
+            <option value="">Liste des Utilisateurs</option>
+            {users.map((user) => (
+              <option value={user.lastname} key={user.Id}>
+                {user.Id} - {user.lastname} {user.firstname}
+              </option>
+            ))}
+          </select>
+          {users
+            .filter((filtered) => filtered.lastname === filterUsers)
+            // console.log(users)
+            .map((elem) => (
+              <UsersList users={elem} key={elem.Id} />
+            ))}
         </div>
       )}
       {showNonAbonne && (
         <div className="non-abonnes">
-          <Select
+          <select
+            name="showUsers"
             className="choose-clients"
-            styles={customStyleAbonne}
-            options={optionsNonAbonne}
-            placeholder="Selectionne un Administrateur"
-            theme={(theme) => ({
-              ...theme,
-              colors: {
-                ...theme.colors,
-                primary25: "var(--main-blue)",
-                primary: "var(--main-blue)",
-              },
-            })}
-          />
+            placeholder="Selection Abonné"
+            onChange={handleProFilter}
+          >
+            {" "}
+            <option value="">Liste des Entreprises</option>
+            {professionals.map((pro) => (
+              <option value={pro.firstname} key={pro.Id}>
+                {pro.Id} - {pro.lastname} {pro.firstname}
+              </option>
+            ))}
+          </select>
+          {professionals
+            .filter((filtered) => filtered.firstname === filterPro)
+            .map((elem) => (
+              <ProList pro={elem} key={elem.Id} />
+            ))}
         </div>
       )}
+      <CSVLink data={excel} className="excel" onClick={ToastExcel}>
+        Exporter les données
+      </CSVLink>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 }

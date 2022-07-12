@@ -1,6 +1,6 @@
 @import "../style/App.css";
 
-.main-div-contact{
+.main-div-contact {
   font-family: "VarelaRound", sans-serif;
 }
 
@@ -10,7 +10,7 @@
   text-align: center;
   height: 5rem;
   padding-top: 1em;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 .titleContact {
   font-size: var(--XL);
@@ -31,18 +31,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: .5em;
-  margin-right: .5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   padding-top: 1.2em;
   padding-bottom: 1.2em;
   border-radius: 40px;
 }
-.pfaq{
+.pfaq {
   font-size: var(--L);
   font-family: "VarelaRound", sans-serif;
   color: var(--primary-text);
   margin-inline: 1em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .selectQuestions {
@@ -197,19 +197,19 @@
   .pageFAQ {
     display: flex;
   }
-  .pfaq{
-    padding-top: .7em;
-    padding-bottom: .3em;
+  .pfaq {
+    padding-top: 0.7em;
+    padding-bottom: 0.3em;
   }
   .titleContact {
     text-align: end;
     margin-right: 1.5em;
   }
-  .imglongin{
-    margin-left: .5em;
+  .imglongin {
+    margin-left: 0.5em;
     margin-bottom: 1em;
   }
-  .popularQuestions{
+  .popularQuestions {
     margin-left: 1.5em;
     margin-right: 1.5em;
   }
@@ -240,9 +240,9 @@
     height: 100%;
     width: 100%;
     margin-inline: 1em;
-    border-radius: 40px
+    border-radius: 40px;
   }
-  .divFormContact{
+  .divFormContact {
     margin-inline: 1.5em;
   }
   .formContact {
@@ -282,11 +282,11 @@
     max-width: 100%;
     opacity: 0;
   }
-  .contactInput{
-    padding: .3em;
+  .contactInput {
+    padding: 0.3em;
     height: 2em;
   }
-  .contactButton{
+  .contactButton {
     margin-top: 2em;
   }
 }

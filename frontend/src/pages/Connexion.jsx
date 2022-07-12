@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import axios from "axios";
@@ -6,6 +6,9 @@ import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CurrentUserContext from "../contexts/currentUser";
 
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
 import Login from "../assets/pictures/peopleLogin.jpg";
@@ -41,6 +44,8 @@ export default function Connexion() {
 
   const navigate = useNavigate();
 
+  const { setUserProfil } = useContext(CurrentUserContext);
+
   function openModal() {
     setIsOpen(true);
   }
@@ -68,7 +73,7 @@ export default function Connexion() {
           { withCredentials: true }
         )
         .then((response) => {
-          console.error(response);
+          setUserProfil(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
           navigate("/search");
         });
@@ -76,6 +81,9 @@ export default function Connexion() {
       console.error(error);
     }
   };
+
+  const ToastConnexion = () => toast.success("Connexion réussie !");
+  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
 
   return (
     <div>
@@ -143,9 +151,24 @@ export default function Connexion() {
                   )}
                 </button>
               </div>
-              <button type="submit" className="login-button">
+              <button
+                type="submit"
+                className="login-button"
+                onClick={ToastConnexion}
+              >
                 Se connecter
               </button>
+              <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
 
               <button className="textConnex" type="button" onClick={openModal}>
                 Mot de Passe oublié ?
@@ -183,9 +206,21 @@ export default function Connexion() {
                       className="login-button"
                       type="submit"
                       disabled={!formik.isValid || formik.isSubmitting}
+                      onClick={ToastEditPassword}
                     >
                       Enregistrer
                     </button>
+                    <ToastContainer
+                      position="bottom-right"
+                      autoClose={4000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                    />
                   </form>
                 </Modal>
               </div>

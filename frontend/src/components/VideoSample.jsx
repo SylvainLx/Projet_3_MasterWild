@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import CurrentUserContext from "../contexts/currentUser";
 import "../style/VideoSample.css";
 import api from "../services/endpoint";
 
-const userId = 1;
-
 export default function VideoSample({ masterclassId, addVideo = false }) {
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+
   VideoSample.defaultProps = {
     addVideo: false,
   };
@@ -14,40 +15,38 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
     masterclassId: PropTypes.number.isRequired,
     addVideo: PropTypes.bool,
   };
-  const [masterclass, setMasterclass] = useState([]);
-  const [favoriteAsk, setFavoriteAsk] = useState(0);
-  const [isFavorite, setIsFavorite] = useState(0);
 
-  const favoritecheck = () => {
-    api.get(`/api/favorite/${userId}`).then((res) => {
-      setFavoriteAsk(
-        res.data.filter((favorite) => favorite.masterclass_Id === 1).length
-      );
-    });
-  };
-
-  const masterclassContent = () => {
-    api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
-      setMasterclass(res.data.currentMasterclass);
-    });
-  };
+  const [masterclass, setMasterclass] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [entreprise, setEntreprise] = useState(false);
 
   useEffect(() => {
-    masterclassContent();
-    console.error(masterclass);
+    api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
+      setMasterclass(res.data.currentMasterclass);
+
+      if (userProfil.favorites.indexOf(res.data.currentMasterclass.Id) !== -1) {
+        setIsFavorite(true);
+      }
+    });
   }, []);
 
   useEffect(() => {
-    favoritecheck();
-    setIsFavorite(favoriteAsk);
-  });
+    api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {
+      setEntreprise(res.data.currentEntreprise);
+    });
+  }, [masterclass]);
 
   const handleClickFavorite = () => {
     if (!isFavorite) {
-      api.post(`/api/favorite/${userId}/${masterclassId}`);
+      api.post(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+      userProfil.favorites.push(masterclass.Id);
+      setUserProfil({ ...userProfil, favorites: userProfil.favorites });
       setIsFavorite(true);
     } else {
-      api.delete(`/api/favorite/${userId}/${masterclassId}`);
+      api.delete(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+      const favoriteIndex = userProfil.favorites.indexOf(masterclass.Id);
+      userProfil.favorites.splice(favoriteIndex, 1);
+      setUserProfil({ ...userProfil, favorites: userProfil.favorites });
       setIsFavorite(false);
     }
   };
@@ -55,20 +54,23 @@ export default function VideoSample({ masterclassId, addVideo = false }) {
   return (
     <section>
       <div className="container-video">
-        {addVideo === true ? (
-          <div>
-            <video controls width="1500" className="video">
-              <source src={masterclass.source} type="video/webm" />
-              <track default kind="captions" srcLang="en" />
-            </video>
-          </div>
-        ) : (
-          ""
+        {addVideo && (
+          <iframe
+            className="video"
+            title={masterclass.title}
+            controlsList="nodownload"
+            src={masterclass.source}
+          />
         )}
         <div className="description-video">
-          <div>
-            <img src="" alt="Celebrity's portrait" className="picture-video" />
-          </div>
+          <img
+            className="picture-video"
+            src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+              entreprise.logo_name
+            }`}
+            alt={entreprise.name}
+          />
+
           <div className="text">
             <div className="text-top">
               <h1 className="title-video">{masterclass.title}</h1>

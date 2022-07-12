@@ -1,9 +1,12 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useContext } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CurrentUserContext from "../../contexts/currentUser";
 
 import "../../style/MyProfil.css";
 
@@ -23,9 +26,10 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function EditProfil() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
+  const [firstname, setFirstname] = useState(userProfil.firstname);
+  const [lastname, setLastname] = useState(userProfil.lastname);
+  const [email, setEmail] = useState(userProfil.email);
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -35,31 +39,31 @@ export default function EditProfil() {
   const [show, setShow] = useState(true);
   const handleClick = () => setShow(!show);
 
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`).then((res) => {
-      setFirstname(res.data.firstname);
-      setLastname(res.data.lastname);
-      setEmail(res.data.email);
-    });
-  }, []);
+  const ToastEditProfil = () => toast.success("Modification enregistrée !");
 
   const postUser = () => {
     try {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`, {
+        .put(`${import.meta.env.VITE_BACKEND_URL}/api/user/${userProfil.Id}`, {
           firstname,
           lastname,
           email,
           password: newPassword,
         })
         .then(() => {
+          setUserProfil({
+            ...userProfil,
+            firstname,
+            lastname,
+            email,
+          });
           navigate("/search");
+          ToastEditProfil();
         });
     } catch (error) {
       console.error(error);
     }
   };
-  console.error(firstname, lastname, email, newPassword);
 
   return (
     <div className="my-profil">
@@ -78,9 +82,9 @@ export default function EditProfil() {
           validateOnMount
         >
           {(formik) => (
-            <Form className="formProfil">
+            <Form className="user-table">
               <div
-                className="verif-form"
+                className="input-profile"
                 onChange={(e) => {
                   setLastname(e.target.value);
                 }}
@@ -91,7 +95,7 @@ export default function EditProfil() {
                   value={formik.values.lastname}
                   type="text"
                   size="30"
-                  className="login-input"
+                  className="modify-input"
                 />
                 <ErrorMessage
                   name="lastname"
@@ -111,7 +115,7 @@ export default function EditProfil() {
                   value={formik.values.firstname}
                   type="text"
                   size="30"
-                  className="login-input"
+                  className="modify-input"
                 />
                 <ErrorMessage
                   name="firstname"
@@ -131,7 +135,7 @@ export default function EditProfil() {
                   value={formik.values.email}
                   type="email"
                   size="30"
-                  className="login-input"
+                  className="modify-input"
                 />
                 <ErrorMessage
                   name="email"
@@ -146,25 +150,26 @@ export default function EditProfil() {
                     setPassword(e.target.value);
                   }}
                 >
-                  <p>Mot de passe actuel :</p>
+                  <p>
+                    Mot de passe actuel :{" "}
+                    <span className="no-bold">
+                      <button
+                        className="buttonShow"
+                        type="button"
+                        onClick={handleClick}
+                      >
+                        {show ? <p>show</p> : <p>hide</p>}
+                      </button>
+                    </span>
+                  </p>
+
                   <Field
                     name="password"
-                    type="text"
+                    type={show ? "password" : "text"}
                     size="30"
-                    className="login-input"
+                    className="modify-input"
                   />
                 </div>
-                <button
-                  className="buttonShow"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  {show ? (
-                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
-                  ) : (
-                    <FaRegEye alt="icone eye" size="1.7em" />
-                  )}
-                </button>
               </div>
 
               <div className="container-password-profil">
@@ -174,12 +179,21 @@ export default function EditProfil() {
                     setNewPassword(e.target.value);
                   }}
                 >
-                  <p>Nouveau mot de passe :</p>
+                  <p>
+                    Nouveau mot de passe :{" "}
+                    <button
+                      className="buttonShow"
+                      type="button"
+                      onClick={handleClick}
+                    >
+                      {show ? <p>show</p> : <p>hide</p>}
+                    </button>
+                  </p>
                   <Field
                     name="newPassword"
-                    type="text"
+                    type={show ? "password" : "text"}
                     size="30"
-                    className="login-input"
+                    className="modify-input"
                   />
                 </div>
                 <ErrorMessage
@@ -187,17 +201,6 @@ export default function EditProfil() {
                   className="text-danger"
                   component="span"
                 />
-                <button
-                  className="buttonShow"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  {show ? (
-                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
-                  ) : (
-                    <FaRegEye alt="icone eye" size="1.7em" />
-                  )}
-                </button>
               </div>
               <div className="container-password-profil">
                 <div
@@ -206,12 +209,21 @@ export default function EditProfil() {
                     setPasswordConfirmation(e.target.value);
                   }}
                 >
-                  <p>Confirmation du mot de passe :</p>
+                  <p>
+                    Validation du mot de passe :{" "}
+                    <button
+                      className="buttonShow"
+                      type="button"
+                      onClick={handleClick}
+                    >
+                      {show ? <p>show</p> : <p>hide</p>}
+                    </button>
+                  </p>
                   <Field
                     name="passwordConfirmation"
-                    type="text"
+                    type={show ? "password" : "text"}
                     size="30"
-                    className="login-input"
+                    className="modify-input"
                   />
                   <ErrorMessage
                     name="passwordConfirmation"
@@ -219,17 +231,6 @@ export default function EditProfil() {
                     component="span"
                   />
                 </div>
-                <button
-                  className="buttonShow"
-                  type="button"
-                  onClick={handleClick}
-                >
-                  {show ? (
-                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
-                  ) : (
-                    <FaRegEye alt="icone eye" size="1.7em" />
-                  )}
-                </button>
               </div>
               <div className="cont-valid-button">
                 <button
@@ -239,6 +240,17 @@ export default function EditProfil() {
                 >
                   Valider
                 </button>
+                <ToastContainer
+                  position="bottom-right"
+                  autoClose={4000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
               </div>
             </Form>
           )}

@@ -1,78 +1,74 @@
-import { React, useState, useEffect } from "react";
-import axios from "axios";
+import { React, useState, useContext } from "react";
+import CurrentUserContext from "../../contexts/currentUser";
 import EditProfil from "./EditProfil";
+import ProfilePic from "../../assets/pictures/pexels-canva-studio-3153204.jpg";
 import "../../style/MyProfil.css";
 
 export default function MyProfil() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
+  const { userProfil } = useContext(CurrentUserContext);
   const [editProfil, setEditProfil] = useState(0);
 
   const EditProfilOpen = () => {
     setEditProfil(!editProfil);
   };
 
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/1`).then((res) => {
-      setFirstname(res.data.firstname);
-      setLastname(res.data.lastname);
-      setEmail(res.data.email);
-    });
-  });
-
   return (
     <div className="my-profil">
+      <img
+        className="logo-profile"
+        src={ProfilePic}
+        alt="logo wild code school"
+      />
       <table className="user-table">
+        <h2 className="titleInscbis">
+          <span className="accent">I</span>nformations
+        </h2>
         <tbody>
           <tr>
-            <td>Nom :</td>
-            <td>
+            <p>Nom :</p>
+            <td className="input-profile">
               <input
-                onChange={(e) => setLastname(e.target.value)}
                 readOnly="readonly"
                 type="text"
                 name="nom"
                 size="30"
-                value={lastname}
+                value={userProfil.lastname}
               />
             </td>
           </tr>
           <tr>
-            <td>Prénom :</td>
-            <td>
+            <p>Prénom :</p>
+            <td className="input-profile">
               <input
-                onChange={(e) => setFirstname(e.target.value)}
                 readOnly="readonly"
                 type="text"
                 name="prenom"
-                value={firstname}
+                value={userProfil.firstname}
                 size="30"
               />
             </td>
           </tr>
           <tr>
-            <td>Email :</td>
-            <td>
+            <p>Email :</p>
+            <td className="input-profile">
               <input
-                onChange={(e) => setEmail(e.target.value)}
                 readOnly="readonly"
                 type="text"
                 name="email"
-                value={email}
+                value={userProfil.email}
                 size="30"
               />
             </td>
           </tr>
         </tbody>
+        <button
+          onClick={EditProfilOpen}
+          className="button-pink button-profil"
+          type="button"
+        >
+          Editer mon profil
+        </button>
       </table>
-      <button
-        onClick={EditProfilOpen}
-        className="button-pink button-profil"
-        type="button"
-      >
-        Editer mon profil
-      </button>
       {editProfil ? <EditProfil /> : ""}
     </div>
   );
