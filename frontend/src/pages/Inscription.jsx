@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
@@ -67,6 +69,8 @@ export default function Inscription() {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
+  const ToastInscription = () => toast.success("Inscription validée !");
+
   const postUser = () => {
     try {
       axios
@@ -81,6 +85,7 @@ export default function Inscription() {
         .then((response) => {
           setUser(response.data);
           navigate("/connexion");
+          ToastInscription();
         });
     } catch (error) {
       console.error(error);
@@ -285,6 +290,17 @@ export default function Inscription() {
               >
                 Je m'inscris
               </button>
+              <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
             </Form>
           )}
         </Formik>

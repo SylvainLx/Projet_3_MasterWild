@@ -10,12 +10,14 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "axios": "^0.27.2",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-burger-menu": "^3.0.8",
+    "react-csv": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0",
     "react-modal": "^3.15.1",
@@ -23,6 +25,7 @@
     "react-router-dom": "^6.3.0",
     "react-select": "^5.3.2",
     "react-spring-3d-carousel": "^1.2.1",
+    "react-toastify": "^9.0.5",
     "template-fullstack": "file:..",
     "yup": "^0.32.11"
   },
