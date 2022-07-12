@@ -80,9 +80,9 @@ export default function Home() {
                 (mastercard) => mastercard.entreprise.speciality === "Solutions"
               )
               .map((mastercard) => (
-                <li className="carousel-item" key={mastercard.id}>
+                <li className="carousel-item" key={mastercard.Id}>
                   <CardMasterclass
-                    key={mastercard.id}
+                    key={mastercard.Id}
                     mastercard={mastercard}
                   />
                 </li>
@@ -94,8 +94,8 @@ export default function Home() {
           <h2>... et différents domaines technologiques.</h2>
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
-              <li className="carousel-item" key={mastercard.id}>
-                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+              <li className="carousel-item" key={mastercard.Id}>
+                <CardMasterclass key={mastercard.Id} mastercard={mastercard} />
               </li>
             ))}
           </ul>
