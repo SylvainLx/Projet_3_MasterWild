@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { slide as BurgerMenu } from "react-burger-menu";
+import { FiLogOut } from "react-icons/fi";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +11,6 @@ import CurrentUserContext from "../contexts/currentUser";
 import "../style/Header.css";
 
 import Logo from "../assets/pictures/LOGOS_WCS_Plan de travail 1.png";
-import loginIcon from "../assets/pictures/login.png";
 import UserProfile from "../assets/pictures/profile.png";
 
 export default function Header() {
@@ -117,21 +117,13 @@ export default function Header() {
                   )
               )}
               {userProfil?.role && (
-                <ul>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={logOut}
-                      className="navlink-menu-right"
-                    >
-                      <img
-                        className="menu-right-icon"
-                        src={loginIcon}
-                        alt="logowhite"
-                      />
-                    </button>
-                  </li>
-                </ul>
+                <button
+                  type="submit"
+                  onClick={logOut}
+                  className="btn-logout bm-item"
+                >
+                  <FiLogOut size="1.5em" />
+                </button>
               )}
             </BurgerMenu>
           </div>
@@ -145,11 +137,7 @@ export default function Header() {
                 onClick={logOut}
                 className="navlink-menu-right"
               >
-                <img
-                  className="menu-right-icon"
-                  src={loginIcon}
-                  alt="logowhite"
-                />
+                <FiLogOut size="2.2vw" color="#c7c8c7" />
               </button>
               <ToastContainer
                 position="bottom-right"

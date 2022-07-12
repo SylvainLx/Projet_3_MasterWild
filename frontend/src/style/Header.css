@@ -101,6 +101,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding-bottom: 1.3em;
 }
 
+.btn-logout {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  /* margin: 1.5em 0 0 -0.3em; */
+}
+
+.logout-navbar {
+  width: 1.3em;
+  margin-right: 1em;
+}
+
 @media screen and (min-width: 767.98px) {
   .menu-right {
     display: flex;
