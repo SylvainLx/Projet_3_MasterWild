@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { useState } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function EditMasterclass({
   titles,
   names,
@@ -35,6 +38,9 @@ export default function EditMasterclass({
     keywords.map((key) => key.keyword.name)
   );
   const [speciality, setSpeciality] = useState(specialities);
+
+  const ToastEditMasterclass = () => toast.success("Masterclass modifiée !");
+
   const editMasterclass = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -49,22 +55,27 @@ export default function EditMasterclass({
     formData.append("keyword", keyword);
     formData.append("file", photo[0]);
 
-    axios.put(
-      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
 
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => ToastEditMasterclass());
   };
+  const ToastDeleteMasterclass = () => toast.success("Masterclass supprimée !");
+
   const deleteMasterclass = (e) => {
     e.preventDefault();
     axios.delete(
       `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
     );
+    ToastDeleteMasterclass();
   };
 
   return (
@@ -141,7 +152,18 @@ export default function EditMasterclass({
             value={desc}
           />
         </label>
-        <input className="btnPut" type="submit" value="Modifier" />
+        <input className="btnPut" type="submit" value="Modifier" />{" "}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </form>{" "}
       <input
         className="btnDel"

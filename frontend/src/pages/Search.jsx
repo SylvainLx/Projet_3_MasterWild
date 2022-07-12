@@ -111,7 +111,9 @@ export default function Search() {
             <div className="result-metier">
               <ul className="list-metier">
                 {listEntreprise.map((entreprise) => (
-                  <li className="li-theme">{entreprise.name}</li>
+                  <li className="li-theme" key={entreprise.Id}>
+                    {entreprise.name}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -121,7 +123,7 @@ export default function Search() {
       <div className="res-search">
         <ul className="result-mastersearch">
           {listMasterclass.map((mastercard) => (
-            <li className="testli">
+            <li className="testli" key={mastercard.Id}>
               <CardMasterclass key={mastercard.id} mastercard={mastercard} />
             </li>
           ))}
