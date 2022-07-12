@@ -20,6 +20,9 @@ export default function MyProfil() {
         alt="logo wild code school"
       />
       <table className="user-table">
+        <h2 className="titleInscbis">
+          <span className="accent">I</span>nformations
+        </h2>
         <tbody>
           <tr>
             <p>Nom :</p>

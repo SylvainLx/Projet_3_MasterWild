@@ -94,7 +94,7 @@
   }
 
   .button-profil {
-    font-weight: 600;
+    font-family: "Raleway", sans-serif;
     background-color: var(--main-red);
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }

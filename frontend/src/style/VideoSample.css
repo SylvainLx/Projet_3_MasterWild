@@ -14,6 +14,8 @@
 /* PARTIE DESCRIPTIVE DE LA VIDEO */
 .description-video {
   padding: 10px;
+  border-bottom: solid 1.5px #f99797;
+  margin-bottom: 1em;
 }
 .picture-video {
   width: 20vh;
@@ -27,7 +29,7 @@
   align-content: center;
 }
 .title-video {
-  font-size: var(--M);
+  font-size: 1.3em;
   color: var(--primary-text);
   text-align: center;
   font-family: "VarelaRound", sans-serif;
@@ -62,6 +64,7 @@
   text-align: start;
   padding: 0 1em;
   line-height: normal;
+  margin-bottom: 1em;
 }
 .time-video {
   font-size: 0.8rem;
