@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router";
 /* eslint-disable react/prop-types */
 import "../style/CardMasterclass.css";
 
 export default function CardMasterclass({ mastercard }) {
+  const mastercardLink = `/masterclass/${mastercard.Id}`;
+  const nav = useNavigate();
+
+  const goToMasterclass = () => {
+    nav(mastercardLink);
+  };
+
   return (
     <div className="card-container">
       <div className="contenu-card">
@@ -25,7 +33,7 @@ export default function CardMasterclass({ mastercard }) {
         <p className="overflow-ellipsis">{mastercard.description}</p>
       </div>
       <div className="button-start">
-        <button type="button" className="voir-vid">
+        <button type="button" className="voir-vid" onClick={goToMasterclass}>
           Voir
         </button>
       </div>

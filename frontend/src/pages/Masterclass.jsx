@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import VideoSample from "../components/VideoSample";
 import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
 export default function Masterclass() {
   const [listMasterclass, setListMasterclass] = useState([]);
-
+  const params = useParams();
+  const paramMasterId = parseInt(params.masterclassId, 10);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
@@ -19,7 +20,7 @@ export default function Masterclass() {
   return (
     <div className="masterclass">
       <div className="container-masterclass">
-        <VideoSample masterclassId={3} addVideo />
+        <VideoSample masterclassId={paramMasterId} addVideo />
         <div className="suggestions">
           <ul className="carousel-items">
             {listMasterclass.map((mastercard) => (
