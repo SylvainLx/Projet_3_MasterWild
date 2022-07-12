@@ -13,6 +13,7 @@ export default function MyMCFavoritesList() {
       {userProfil.favorites ? (
         userProfil.favorites.map((favorite) => (
           <VideoSample
+            addButton
             masterclassId={favorite}
             key={`${favorite}_${userProfil.Id}`}
           />

@@ -132,7 +132,8 @@
   align-items: center;
 }
 
-.usersList, .proList {
+.usersList,
+.proList {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,7 +153,8 @@
   transform: scale(1.01);
 }
 
-.usersSpan, .proSpan {
+.usersSpan,
+.proSpan {
   font-style: oblique;
 }
 
@@ -175,13 +177,12 @@
   text-align: center;
   color: white;
   border-radius: 2rem;
-  background-color:#649641;
+  background-color: #649641;
   width: 10rem;
   height: 3rem;
   text-decoration: none;
   margin-right: 2rem;
   margin-top: 23rem;
-
 }
 /* AdminMasterclass */
 
