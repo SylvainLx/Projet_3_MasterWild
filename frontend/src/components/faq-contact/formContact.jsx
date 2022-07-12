@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function FormContact() {
   const [open, setOpen] = useState(false);
   const [entreprise, setEntreprise] = useState("");
@@ -30,6 +33,8 @@ export default function FormContact() {
         setMessage(response.text, "ok cest bon");
       });
   };
+
+  const ToastExcel = () => toast.success("Demande bien envoyée !");
 
   return (
     <div className="divFormContact">
@@ -86,9 +91,20 @@ export default function FormContact() {
           placeholder="C'est à vous !"
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button type="submit" className="contactButton">
+        <button type="submit" className="contactButton" onClick={ToastExcel}>
           Envoyer
         </button>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </form>
     </div>
   );

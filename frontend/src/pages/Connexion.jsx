@@ -6,6 +6,8 @@ import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CurrentUserContext from "../contexts/currentUser";
 
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
@@ -80,6 +82,9 @@ export default function Connexion() {
     }
   };
 
+  const ToastConnexion = () => toast.success("Connexion réussie !");
+  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
+
   return (
     <div>
       <div className="introSeConnecter">
@@ -146,9 +151,24 @@ export default function Connexion() {
                   )}
                 </button>
               </div>
-              <button type="submit" className="login-button">
+              <button
+                type="submit"
+                className="login-button"
+                onClick={ToastConnexion}
+              >
                 Se connecter
               </button>
+              <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
 
               <button className="textConnex" type="button" onClick={openModal}>
                 Mot de Passe oublié ?
@@ -186,9 +206,21 @@ export default function Connexion() {
                       className="login-button"
                       type="submit"
                       disabled={!formik.isValid || formik.isSubmitting}
+                      onClick={ToastEditPassword}
                     >
                       Enregistrer
                     </button>
+                    <ToastContainer
+                      position="bottom-right"
+                      autoClose={4000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                    />
                   </form>
                 </Modal>
               </div>

@@ -145,6 +145,16 @@ table {
   font-weight: 500;
 }
 
+#content-wrap {
+  min-height: calc(100vh - 280px);
+}
+
+@media screen and (min-width: 767.98px) {
+  #content-wrap {
+    min-height: calc(100vh - 205px);
+  }
+}
+
 /* VARIABLES */
 :root {
   /*Colors*/

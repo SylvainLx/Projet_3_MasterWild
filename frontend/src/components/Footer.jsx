@@ -10,7 +10,7 @@ import Linkedin from "../assets/pictures/linkedin.png";
 
 export default function Footer() {
   return (
-    <>
+    <div className="container-footer">
       <div className="footer">
         <div className="divLogoFooter">
           <NavLink className="linkFooter" to="/">
@@ -124,6 +124,6 @@ export default function Footer() {
           droits réservés
         </p>
       </div>
-    </>
+    </div>
   );
 }

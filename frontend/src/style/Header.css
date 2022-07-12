@@ -12,6 +12,7 @@ header {
 .full-desktop-header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  max-height: 100px;
 }
 
 .mobile-burger {
