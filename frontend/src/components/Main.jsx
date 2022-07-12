@@ -18,6 +18,7 @@ export default function Main() {
 
         <Route path="/search" element={<Search />} />
         <Route path="/masterclass" element={<Masterclass />} />
+        <Route path="/masterclass/:masterclassId" element={<Masterclass />} />
         <Route path="/profil" element={<Profil />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />}>
