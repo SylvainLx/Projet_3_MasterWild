@@ -3,6 +3,9 @@ import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { slide as BurgerMenu } from "react-burger-menu";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CurrentUserContext from "../contexts/currentUser";
 import "../style/Header.css";
 
@@ -56,6 +59,7 @@ export default function Header() {
   ];
   const { setUserProfil } = useContext(CurrentUserContext);
   const navigate = useNavigate();
+  const ToastLogout = () => toast.success("A bientôt !");
 
   const logOut = () => {
     try {
@@ -67,6 +71,7 @@ export default function Header() {
           setUserProfil({});
           localStorage.clear();
           navigate("/");
+          ToastLogout();
         })
         .catch((error) => {
           console.error(error);
@@ -110,6 +115,17 @@ export default function Header() {
                 alt="logowhite"
               />
             </button>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={4000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <NavLink className="navlink-menu-right" to="/profil">
               <img
                 className="menu-right-icon"

@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CurrentUserContext from "../../contexts/currentUser";
 
 import "../../style/MyProfil.css";
@@ -37,6 +39,8 @@ export default function EditProfil() {
   const [show, setShow] = useState(true);
   const handleClick = () => setShow(!show);
 
+  const ToastEditProfil = () => toast.success("Modification enregistrée !");
+
   const postUser = () => {
     try {
       axios
@@ -54,6 +58,7 @@ export default function EditProfil() {
             email,
           });
           navigate("/search");
+          ToastEditProfil();
         });
     } catch (error) {
       console.error(error);
@@ -238,6 +243,17 @@ export default function EditProfil() {
                 >
                   Valider
                 </button>
+                <ToastContainer
+                  position="bottom-right"
+                  autoClose={4000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
               </div>
             </Form>
           )}

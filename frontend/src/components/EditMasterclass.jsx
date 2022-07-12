@@ -38,6 +38,9 @@ export default function EditMasterclass({
     keywords.map((key) => key.keyword.name)
   );
   const [speciality, setSpeciality] = useState(specialities);
+
+  const ToastEditMasterclass = () => toast.success("Masterclass modifiée !");
+
   const editMasterclass = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -52,18 +55,20 @@ export default function EditMasterclass({
     formData.append("keyword", keyword);
     formData.append("file", photo[0]);
 
-    axios.put(
-      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
 
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => ToastEditMasterclass());
   };
-  const ToastDeleteMasterclass = () => toast("Masterclass supprimée !");
+  const ToastDeleteMasterclass = () => toast.success("Masterclass supprimée !");
 
   const deleteMasterclass = (e) => {
     e.preventDefault();
@@ -72,8 +77,6 @@ export default function EditMasterclass({
     );
     ToastDeleteMasterclass();
   };
-
-  const ToastEditMasterclass = () => toast("Masterclass modifiée !");
 
   return (
     <div>
@@ -149,13 +152,18 @@ export default function EditMasterclass({
             value={desc}
           />
         </label>
-        <input
-          className="btnPut"
-          type="submit"
-          value="Modifier"
-          onClick={ToastEditMasterclass}
-        />{" "}
-        <ToastContainer />
+        <input className="btnPut" type="submit" value="Modifier" />{" "}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </form>{" "}
       <input
         className="btnDel"

@@ -41,7 +41,7 @@ export default function AdminAbonne({ users, professionals }) {
     });
   }, []);
 
-  const ToastExcel = () => toast("Donées téléchargées !");
+  const ToastExcel = () => toast.success("Donées téléchargées !");
 
   return (
     <section className="showClients">
@@ -103,7 +103,17 @@ export default function AdminAbonne({ users, professionals }) {
       <CSVLink data={excel} className="excel" onClick={ToastExcel}>
         Exporter les données
       </CSVLink>
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 }

@@ -34,7 +34,7 @@ export default function FormContact() {
       });
   };
 
-  const ToastExcel = () => toast("Demande bien envoyée !");
+  const ToastExcel = () => toast.success("Demande bien envoyée !");
 
   return (
     <div className="divFormContact">
@@ -94,7 +94,17 @@ export default function FormContact() {
         <button type="submit" className="contactButton" onClick={ToastExcel}>
           Envoyer
         </button>
-        <ToastContainer />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </form>
     </div>
   );

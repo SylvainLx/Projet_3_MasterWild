@@ -15,6 +15,8 @@ export default function AddMasterclass() {
   const [keyword, setKeyword] = useState("");
   const [speciality, setSpeciality] = useState("");
 
+  const ToastAddMasterclass = () => toast.success("Masterclass ajouté !");
+
   const handlePost = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -29,19 +31,19 @@ export default function AddMasterclass() {
     formData.append("keyword", keyword);
     formData.append("file", photo[0]);
 
-    axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
+    axios
+      .post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
 
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => ToastAddMasterclass());
   };
-
-  const ToastAddMasterclass = () => toast("Masterclass ajouté !");
 
   return (
     <div className="divAdd-masterclass">
@@ -117,12 +119,18 @@ export default function AddMasterclass() {
             placeholder="Description de la masterclass"
           />
         </label>
-        <input
-          className="btnPostMasterclass"
-          type="submit"
-          onClick={ToastAddMasterclass}
+        <input className="btnPostMasterclass" type="submit" />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
         />
-        <ToastContainer />
       </form>
     </div>
   );
