@@ -9,6 +9,7 @@ import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
 
 export default function Search() {
+  // Show div showTheme & showEntreprise
   const [showTheme, setShowTheme] = useState(false);
   const [showEntreprise, setShowEntreprise] = useState(false);
 
@@ -19,6 +20,19 @@ export default function Search() {
     setShowEntreprise((current) => !current);
   };
 
+  // Search bar
+  const [filterSearch, setFilterSearch] = useState([]);
+
+  const [, setListKeywords] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/keywords`)
+      .then((res) => {
+        setListKeywords(res.data.data);
+      });
+  }, []);
+
+  // Lists categories and entreprises
   const [searchCategory, setSearchCategory] = useState([]);
   useEffect(() => {
     axios
@@ -37,6 +51,7 @@ export default function Search() {
       });
   }, []);
 
+  // Filter by category or entreprise & show mastercards
   const [filter, setFilter] = useState([]);
   const handleChange = (e) => {
     setFilter(e.target.value);
@@ -60,7 +75,12 @@ export default function Search() {
       </div>
       <section className="search-section">
         <div className="search-bar">
-          <input className="searching" type="text" placeholder="Rechercher" />
+          <input
+            className="searching"
+            type="text"
+            placeholder="Chercher une entreprise, une thématique, un mot-clé..."
+            onChange={(e) => setFilterSearch(e.target.value)}
+          />
           <button className="btnlogo" type="button">
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
@@ -150,8 +170,13 @@ export default function Search() {
           {listMasterclass
             .filter(
               (mastercard) =>
+                mastercard.keywords
+                  .map((toto) => toto.keyword.name)
+                  .includes(filterSearch) ||
                 mastercard.entreprise.name === filter ||
-                mastercard.category.name === filter
+                mastercard.category.name === filter ||
+                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.category.name.includes(filterSearch)
             )
             .map((mastercard) => (
               <li className="testli" key={mastercard.Id}>
