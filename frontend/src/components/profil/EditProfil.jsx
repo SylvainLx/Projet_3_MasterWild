@@ -1,7 +1,6 @@
 import { React, useState, useContext } from "react";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
