@@ -95,7 +95,7 @@ exports.createOne = async (masterclass, file) => {
   }
 };
 
-exports.editOne = async (id, masterclass, file) => {
+exports.editOne = async (id, masterclass) => {
   const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
     keyword: {
       connectOrCreate: {
@@ -127,8 +127,6 @@ exports.editOne = async (id, masterclass, file) => {
             create: {
               name: masterclass.name,
               speciality: masterclass.speciality,
-              logo_source: file.filename,
-              logo_name: file.destination,
             },
           },
         },

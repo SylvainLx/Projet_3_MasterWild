@@ -78,8 +78,8 @@ export default function Connexion() {
         .then((response) => {
           setUserProfil(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
-          navigate("/search");
           ToastConnexion();
+          navigate("/search");
         });
     } catch (error) {
       console.error(error);
@@ -166,7 +166,6 @@ export default function Connexion() {
                 draggable
                 pauseOnHover
               />
-
               <button className="textConnex" type="button" onClick={openModal}>
                 Mot de Passe oublié ?
               </button>
@@ -207,23 +206,13 @@ export default function Connexion() {
                     >
                       Enregistrer
                     </button>
-                    <ToastContainer
-                      position="bottom-right"
-                      autoClose={4000}
-                      hideProgressBar={false}
-                      newestOnTop={false}
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover
-                    />
                   </form>
                 </Modal>
-              </div>
+              </div>{" "}
             </Form>
           )}
         </Formik>
+
         <div className="secPart">
           <div className="divPicIntrobis">
             <img className="logoWildR" src={Logo} alt="logo wild code school" />

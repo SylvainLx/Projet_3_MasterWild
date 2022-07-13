@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 export default function EditMasterclass({
   titles,
   names,
-  specialities,
   descs,
   sources,
   keywords,
@@ -20,7 +19,6 @@ export default function EditMasterclass({
   EditMasterclass.propTypes = {
     titles: PropTypes.string.isRequired,
     names: PropTypes.string.isRequired,
-    specialities: PropTypes.string.isRequired,
     descs: PropTypes.string.isRequired,
     sources: PropTypes.string.isRequired,
     keywords: PropTypes.string.isRequired,
@@ -28,7 +26,6 @@ export default function EditMasterclass({
     Id: PropTypes.number.isRequired,
   };
 
-  const [photo, setPhoto] = useState([]);
   const [title, setTitle] = useState(titles);
   const [name, setName] = useState(names);
   const [desc, setDesc] = useState(descs);
@@ -37,7 +34,6 @@ export default function EditMasterclass({
   const [keyword, setKeyword] = useState(
     keywords.map((key) => key.keyword.name)
   );
-  const [speciality, setSpeciality] = useState(specialities);
 
   const ToastEditMasterclass = () => toast.success("Masterclass modifiée !");
 
@@ -48,12 +44,9 @@ export default function EditMasterclass({
     formData.append("title", title);
     formData.append("name", name);
     formData.append("source", source);
-    formData.append("file", name);
     formData.append("description", desc);
-    formData.append("speciality", speciality);
     formData.append("theme", theme);
     formData.append("keyword", keyword);
-    formData.append("file", photo[0]);
 
     axios
       .put(
@@ -96,16 +89,7 @@ export default function EditMasterclass({
             type="text"
             name="name"
             onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </label>
-        <label htmlFor="speciality">
-          <input
-            className="input"
-            type="text"
-            name="speciality"
-            onChange={(e) => setSpeciality(e.target.value)}
-            value={speciality}
+            value={names}
           />
         </label>
         <label htmlFor="source">
@@ -133,14 +117,6 @@ export default function EditMasterclass({
             name="keyword"
             onChange={(e) => setKeyword(e.target.value)}
             value={keyword}
-          />
-        </label>
-        <label htmlFor="logo_source">
-          <input
-            onChange={(e) => setPhoto(e.target.files)}
-            className="input"
-            type="file"
-            name="logo_source"
           />
         </label>
         <label className="desc" htmlFor="description">

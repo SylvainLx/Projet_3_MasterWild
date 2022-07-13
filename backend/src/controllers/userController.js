@@ -6,9 +6,9 @@ exports.addOne = async (req, res) => {
 
   userDataAccess.findByEmail(email).then((user) => {
     if (user) {
-      res.status(500).send("This email alredy exist");
+      return res.status(500).send("This email alredy exist");
     }
-    hashPassword(password)
+    return hashPassword(password)
       .then((hash) => {
         userDataAccess
           .createOne({
