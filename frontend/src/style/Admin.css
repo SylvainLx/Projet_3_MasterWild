@@ -167,12 +167,13 @@
   padding-left: 1rem;
   border-radius: 1rem;
 }
+.exportData{
+  display: flex;
+  justify-content: flex-end;
+}
 .excel {
-  position: absolute;
   display: flex;
   justify-content: center;
-  align-self: flex-end;
-  justify-items: flex-end;
   align-items: center;
   text-align: center;
   color: white;
@@ -181,8 +182,7 @@
   width: 10rem;
   height: 3rem;
   text-decoration: none;
-  margin-right: 2rem;
-  margin-top: 23rem;
+  margin-bottom: 1rem;
 }
 /* AdminMasterclass */
 
