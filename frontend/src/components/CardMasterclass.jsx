@@ -1,10 +1,15 @@
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import CurrentUserContext from "../contexts/currentUser";
+
 /* eslint-disable react/prop-types */
 import "../style/CardMasterclass.css";
 
 export default function CardMasterclass({ mastercard }) {
   const mastercardLink = `/masterclass/${mastercard.Id}`;
   const nav = useNavigate();
+  const { userProfil } = useContext(CurrentUserContext);
 
   const goToMasterclass = () => {
     nav(mastercardLink);
@@ -33,9 +38,17 @@ export default function CardMasterclass({ mastercard }) {
         <p className="overflow-ellipsis">{mastercard.description}</p>
       </div>
       <div className="button-start">
-        <button type="button" className="voir-vid" onClick={goToMasterclass}>
-          Voir
-        </button>
+        {userProfil ? (
+          <button type="button" className="voir-vid" onClick={goToMasterclass}>
+            Voir
+          </button>
+        ) : (
+          <NavLink to="/connexion">
+            <button type="button" className="voir-vid">
+              Voir
+            </button>
+          </NavLink>
+        )}
       </div>
     </div>
   );
