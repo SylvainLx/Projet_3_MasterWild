@@ -6,7 +6,7 @@ exports.addOne = async (req, res) => {
 
   userDataAccess.findByEmail(email).then((user) => {
     if (user) {
-      res.status(500).send("This email alredy exist");
+      return res.status(500).send("This email alredy exist");
     }
     hashPassword(password)
       .then((hash) => {
@@ -22,6 +22,7 @@ exports.addOne = async (req, res) => {
           });
       })
       .catch((err) => res.status(500).send({ err }));
+    return res.status(500).send("Wrong request");
   });
 };
 
