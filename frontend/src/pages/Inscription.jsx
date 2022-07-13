@@ -65,10 +65,6 @@ export default function Inscription() {
     setCompany(e.target.value);
   };
 
-  function setUser(user) {
-    localStorage.setItem("user", JSON.stringify(user));
-  }
-
   const ToastInscription = () => toast.success("Inscription validée !");
 
   const postUser = () => {
@@ -82,8 +78,7 @@ export default function Inscription() {
           professional,
           company,
         })
-        .then((response) => {
-          setUser(response.data);
+        .then(() => {
           navigate("/connexion");
           ToastInscription();
         });
