@@ -152,11 +152,7 @@ export default function Connexion() {
                   )}
                 </button>
               </div>
-              <button
-                type="submit"
-                className="login-button"
-                onClick={ToastConnexion}
-              >
+              <button type="submit" className="login-button">
                 Se connecter
               </button>
               <ToastContainer
