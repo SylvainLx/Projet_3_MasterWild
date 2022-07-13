@@ -90,40 +90,43 @@ export default function VideoSample({
             src={masterclass.source}
           />
         )}
+        <div className="like-button">
+          <button
+            type="button"
+            className={isFavorite ? "isFavorite" : "notFavorite"}
+            onClick={handleClickFavorite}
+          >
+            &nbsp;
+          </button>
+        </div>
         <div className="description-video">
-          <img
-            className="picture-video"
-            src={
-              entreprise.logo_name &&
-              `${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+          <div className="logo-container">
+            <img
+              className="picture-video"
+              src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
                 entreprise.logo_name
-              }`
-            }
-            alt={entreprise.name}
-          />
+              }`}
+              alt={entreprise.name}
+            />
+          </div>
 
           <div className="text">
             <div className="text-top">
               <h1 className="title-video">{masterclass.title}</h1>
-              {addButton && (
-                <button
-                  type="button"
-                  className="voir-vid"
-                  onClick={goToMasterclass}
-                >
-                  Voir
-                </button>
-              )}
-              <button
-                type="button"
-                className={isFavorite ? "isFavorite" : "notFavorite"}
-                onClick={handleClickFavorite}
-              >
-                &nbsp;
-              </button>
             </div>
             <p className="text-bottom">{masterclass.description}</p>
           </div>
+        </div>
+        <div className="button-watch">
+          {addButton && (
+            <button
+              type="button"
+              className="watch-vid"
+              onClick={goToMasterclass}
+            >
+              Voir
+            </button>
+          )}
         </div>
       </div>
     </section>
