@@ -37,7 +37,7 @@ export default function Admin() {
     (users) => users.role !== "pro" && users.role !== "admin"
   );
   const employeQuantity = usersDashboard.filter(
-    (employe) => employe.role === "pro"
+    (employe) => employe.professional === true
   );
   return (
     <div className="container-admin">

@@ -83,6 +83,7 @@ export default function Header() {
           localStorage.clear();
           navigate("/");
           ToastLogout();
+          closeSideBar();
         })
         .catch((error) => {
           console.error(error);

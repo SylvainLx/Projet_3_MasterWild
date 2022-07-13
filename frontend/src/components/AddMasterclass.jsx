@@ -15,7 +15,7 @@ export default function AddMasterclass() {
   const [keyword, setKeyword] = useState("");
   const [speciality, setSpeciality] = useState("");
 
-  const ToastAddMasterclass = () => toast.success("Masterclass ajouté !");
+  const ToastAddMasterclass = () => toast.success("Masterclass ajoutée !");
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ export default function AddMasterclass() {
             type="text"
             name="name"
             onChange={(e) => setName(e.target.value)}
-            placeholder="Nom de l'entreprisee"
+            placeholder="Nom de l'entreprise"
           />
         </label>
         <label htmlFor="speciality">
