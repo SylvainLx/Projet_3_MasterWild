@@ -61,6 +61,8 @@ export default function Connexion() {
     setPassword(e.target.value);
   };
 
+  const ToastConnexion = () => toast.success("Connexion réussie !");
+
   const searchUser = () => {
     try {
       axios
@@ -75,6 +77,7 @@ export default function Connexion() {
         .then((response) => {
           setUserProfil(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
+          ToastConnexion();
           navigate("/search");
         });
     } catch (error) {
@@ -82,7 +85,6 @@ export default function Connexion() {
     }
   };
 
-  const ToastConnexion = () => toast.success("Connexion réussie !");
   const ToastEditPassword = () => toast.success("Mot de passe modifié !");
 
   return (
@@ -151,11 +153,7 @@ export default function Connexion() {
                   )}
                 </button>
               </div>
-              <button
-                type="submit"
-                className="login-button"
-                onClick={ToastConnexion}
-              >
+              <button type="submit" className="login-button">
                 Se connecter
               </button>
               <ToastContainer
@@ -210,17 +208,6 @@ export default function Connexion() {
                     >
                       Enregistrer
                     </button>
-                    <ToastContainer
-                      position="bottom-right"
-                      autoClose={4000}
-                      hideProgressBar={false}
-                      newestOnTop={false}
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover
-                    />
                   </form>
                 </Modal>
               </div>
