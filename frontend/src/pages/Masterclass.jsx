@@ -23,7 +23,7 @@ export default function Masterclass() {
         <VideoSample masterclassId={paramMasterId} addVideo />
         <div className="suggestions">
           <ul className="carousel-items">
-            {listMasterclass.map((mastercard) => (
+            {listMasterclass?.map((mastercard) => (
               <li className="carousel-item">
                 <CardMasterclass key={mastercard.id} mastercard={mastercard} />
               </li>
