@@ -8,7 +8,7 @@ exports.addOne = async (req, res) => {
     if (user) {
       return res.status(500).send("This email alredy exist");
     }
-    hashPassword(password)
+    return hashPassword(password)
       .then((hash) => {
         userDataAccess
           .createOne({
@@ -22,7 +22,6 @@ exports.addOne = async (req, res) => {
           });
       })
       .catch((err) => res.status(500).send({ err }));
-    return res.status(500).send("Wrong request");
   });
 };
 
