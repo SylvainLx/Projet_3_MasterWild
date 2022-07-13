@@ -52,6 +52,7 @@ exports.updateOne = async (req, res) => {
       .status(200)
       .json({ "Masterclass mise à jour :": { masterclassUpdated } });
   } catch (e) {
+    console.log(e);
     return res.sendStatus(500);
   }
 };
