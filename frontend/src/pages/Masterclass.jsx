@@ -25,7 +25,7 @@ export default function Masterclass() {
           <ul className="carousel-items">
             {listMasterclass?.map((mastercard) => (
               <li className="carousel-item">
-                <CardMasterclass key={mastercard.id} mastercard={mastercard} />
+                <CardMasterclass key={mastercard.Id} mastercard={mastercard} />
               </li>
             ))}
           </ul>
