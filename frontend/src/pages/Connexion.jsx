@@ -62,6 +62,7 @@ export default function Connexion() {
   };
 
   const ToastConnexion = () => toast.success("Connexion réussie !");
+  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
 
   const searchUser = () => {
     try {
@@ -84,8 +85,6 @@ export default function Connexion() {
       console.error(error);
     }
   };
-
-  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
 
   return (
     <div>
