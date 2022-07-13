@@ -19,7 +19,7 @@
 }
 
 .title {
-  color: var(--main-blue);
+  color: var(--primary-text);
   font-size: var(--XL);
   font-weight: var(--bold);
   margin: 1rem;

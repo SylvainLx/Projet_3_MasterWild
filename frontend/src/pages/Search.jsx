@@ -61,7 +61,7 @@ export default function Search() {
     <div className="search-page">
       <div className="div-title">
         <h2 className="title">
-          Les <span className="span-title">M</span>asterclass
+          Les <span className="span-title">M</span>asterclasses
         </h2>
       </div>
       <section className="search-section">

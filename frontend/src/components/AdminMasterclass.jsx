@@ -26,7 +26,7 @@ export default function AdminMasterclass() {
     <div className="admin-masterclass">
       <p className="p-action-masterclass">
         <span className="span-action-m">Modifier</span> ou{" "}
-        <span className="span-action-m">Supprimer</span> une masterclasse :
+        <span className="span-action-m">Supprimer</span> une masterclass :
       </p>
       <section className="showMasterclass">
         <select
@@ -35,7 +35,7 @@ export default function AdminMasterclass() {
           onChange={handleFilter}
           className="selectmaster"
         >
-          <option value="">Selectionne la Masterclasse</option>
+          <option value="">Selectionne la Masterclass</option>
           {showMasterclass.map((masterclass) => (
             <option value={masterclass.title} key={masterclass.Id}>
               {masterclass.title}
@@ -61,7 +61,7 @@ export default function AdminMasterclass() {
           ))}
       </section>
       <p className="p-action-masterclass">
-        <span className="span-action-m">Ajouter</span> une masterclasse :
+        <span className="span-action-m">Ajouter</span> une masterclass :
       </p>
       <section className="add-masterclass">
         <AddMasterclass />

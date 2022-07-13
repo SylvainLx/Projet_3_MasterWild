@@ -41,7 +41,7 @@ export default function AdminAbonne({ users, professionals }) {
     });
   }, []);
 
-  const ToastExcel = () => toast.success("Donées téléchargées !");
+  const ToastExcel = () => toast.success("Données téléchargées !");
 
   return (
     <section className="showClients">
@@ -71,7 +71,6 @@ export default function AdminAbonne({ users, professionals }) {
           </select>
           {users
             .filter((filtered) => filtered.lastname === filterUsers)
-            // console.log(users)
             .map((elem) => (
               <UsersList users={elem} key={elem.Id} />
             ))}
