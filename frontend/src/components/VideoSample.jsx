@@ -38,9 +38,7 @@ export default function VideoSample({
           .pop()}`,
       });
 
-      if (
-        userProfil?.favorites?.indexOf(res.data.currentMasterclass.Id) !== -1
-      ) {
+      if (userProfil.favorites.indexOf(res.data.currentMasterclass.Id) !== -1) {
         setIsFavorite(true);
       }
     });
