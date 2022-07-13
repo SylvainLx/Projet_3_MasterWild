@@ -6,6 +6,8 @@
   flex-direction: column;
   max-width: 1500px;
   margin: auto;
+  border-bottom: solid 1.5px #f99797;
+  margin-bottom: 1em;
 }
 .video {
   width: 100%;
@@ -14,13 +16,15 @@
 
 /* PARTIE DESCRIPTIVE DE LA VIDEO */
 .description-video {
-  padding: 10px;
-  border-bottom: solid 1.5px #f99797;
-  margin-bottom: 1em;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 .picture-video {
+  display: none;
+}
+.logo-container {
   display: none;
 }
 .text-top {
@@ -37,14 +41,18 @@
   font-family: "VarelaRound", sans-serif;
   font-weight: var(--bold);
 }
+.like-button {
+  display: flex;
+  justify-content: flex-end;
+}
 .isFavorite {
   width: 30px;
   height: 30px;
   background-image: url("https://i.imgur.com/Sj89INk.png");
   background-size: 100%;
-  align-self: flex-start;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 .notFavorite {
   width: 30px;
@@ -54,6 +62,7 @@
   align-self: flex-start;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .notFavorite:hover {
@@ -65,8 +74,9 @@
   color: var(--primary-text);
   text-align: start;
   padding: 0 1em;
+  padding-bottom: 1em;
   line-height: normal;
-  margin-bottom: 1em;
+  width: 100%;
 }
 .time-video {
   font-size: 0.8rem;
@@ -75,16 +85,35 @@
   margin-right: 1em;
 }
 
+.button-watch {
+  display: flex;
+  justify-content: center;
+}
+.watch-vid {
+  border: none;
+  border-radius: 15px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: var(--main-red);
+  font-family: "Raleway", sans-serif;
+  color: white;
+  width: 6em;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 479.98px) {
-  .description-video {
-    padding: 0;
+  .watch-vid:hover {
+    background-color: var(--secondary-red);
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(77, 77, 77, 0.1);
   }
   .text-top {
     padding: 1em 0;
   }
   .text-bottom {
     padding: 0;
+    padding-bottom: 1em;
     font-size: 1.5em;
   }
   .time-video {
@@ -99,9 +128,15 @@
   .text-top {
     padding: 1em 0;
   }
+  .logo-container {
+    display: block;
+  }
   .picture-video {
-    margin: 0.5rem;
-    width: 20vh;
-    display: initial;
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 5.5em;
+    height: auto;
+    padding-right: 2em;
+    display: block;
   }
 }
