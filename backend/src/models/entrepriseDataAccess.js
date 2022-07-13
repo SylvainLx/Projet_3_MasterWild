@@ -22,7 +22,7 @@ exports.getOne = async (Id) => {
 
 exports.updateOne = async (Id, entreprise) => {
   try {
-    return await prisma.entreprise.findUnique({
+    return await prisma.entreprise.update({
       where: { Id: parseInt(Id, 10) },
       data: entreprise,
     });

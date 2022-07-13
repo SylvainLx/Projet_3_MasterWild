@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 const entrepriseController = require("../models/entrepriseDataAccess");
 
 exports.getOne = async (req, res) => {
@@ -35,18 +33,10 @@ exports.updateOne = async (req, res) => {
   if (!exitingMasterclass) {
     return res.sendStatus(404);
   }
-
   try {
-    await fs.promises.unlink(
-      path.join(
-        __dirname,
-        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_name}`
-      )
-    );
-    const masterclassUpdated = await entrepriseController.editOne(
+    const masterclassUpdated = await entrepriseController.updateOne(
       id,
-      req.body,
-      req.file
+      req.body
     );
     return res
       .status(200)
