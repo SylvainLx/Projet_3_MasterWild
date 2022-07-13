@@ -50,7 +50,7 @@ export default function AdminAbonne({ users, professionals }) {
           Utilisateurs
         </button>
         <button className="btnAbonne" type="button" onClick={handleNonAbonne}>
-          Administrateurs
+          Entreprises
         </button>
       </div>
       {selectUsers && (

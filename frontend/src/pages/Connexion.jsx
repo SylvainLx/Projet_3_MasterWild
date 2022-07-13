@@ -167,7 +167,6 @@ export default function Connexion() {
                 draggable
                 pauseOnHover
               />
-
               <button className="textConnex" type="button" onClick={openModal}>
                 Mot de Passe oublié ?
               </button>
@@ -210,10 +209,11 @@ export default function Connexion() {
                     </button>
                   </form>
                 </Modal>
-              </div>
+              </div>{" "}
             </Form>
           )}
         </Formik>
+
         <div className="secPart">
           <div className="divPicIntrobis">
             <img className="logoWildR" src={Logo} alt="logo wild code school" />

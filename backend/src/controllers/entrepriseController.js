@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const entrepriseController = require("../models/entrepriseDataAccess");
 
 exports.getOne = async (req, res) => {
@@ -23,6 +25,33 @@ exports.getAll = async (req, res) => {
     return res.status(200).json({ data });
   } catch (e) {
     console.warn(e);
+    return res.sendStatus(500);
+  }
+};
+
+exports.updateOne = async (req, res) => {
+  const { id } = req.params;
+  const exitingMasterclass = await entrepriseController.getOne(id);
+  if (!exitingMasterclass) {
+    return res.sendStatus(404);
+  }
+
+  try {
+    await fs.promises.unlink(
+      path.join(
+        __dirname,
+        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_name}`
+      )
+    );
+    const masterclassUpdated = await entrepriseController.editOne(
+      id,
+      req.body,
+      req.file
+    );
+    return res
+      .status(200)
+      .json({ "Masterclass mise à jour :": { masterclassUpdated } });
+  } catch (e) {
     return res.sendStatus(500);
   }
 };

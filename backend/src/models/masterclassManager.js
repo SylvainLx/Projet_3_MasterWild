@@ -105,7 +105,7 @@ exports.editOne = async (id, masterclass, file) => {
     },
   }));
   try {
-    return await prisma.masterclass.update({
+    return await prisma.masterclass.updateMany({
       where: { Id: parseInt(id, 10) },
       data: {
         title: masterclass.title,
