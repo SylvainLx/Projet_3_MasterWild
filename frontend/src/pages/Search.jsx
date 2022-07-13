@@ -23,15 +23,6 @@ export default function Search() {
   // Search bar
   const [filterSearch, setFilterSearch] = useState([]);
 
-  const [, setListKeywords] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/keywords`)
-      .then((res) => {
-        setListKeywords(res.data.data);
-      });
-  }, []);
-
   // Lists categories and entreprises
   const [searchCategory, setSearchCategory] = useState([]);
   useEffect(() => {
@@ -51,12 +42,12 @@ export default function Search() {
       });
   }, []);
 
-  // Filter by category or entreprise & show mastercards
-  const [filter, setFilter] = useState([]);
+  // Filter by category or entreprise
   const handleChange = (e) => {
-    setFilter(e.target.value);
+    setFilterSearch(e.target.value);
   };
 
+  // Show all CardMasterclass
   const [listMasterclass, setListMasterclass] = useState([]);
   useEffect(() => {
     axios
@@ -173,8 +164,8 @@ export default function Search() {
                 mastercard.keywords
                   .map((toto) => toto.keyword.name)
                   .includes(filterSearch) ||
-                mastercard.entreprise.name === filter ||
-                mastercard.category.name === filter ||
+                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.category.name.includes(filterSearch) ||
                 mastercard.entreprise.name.includes(filterSearch) ||
                 mastercard.category.name.includes(filterSearch)
             )
