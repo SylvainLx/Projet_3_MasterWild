@@ -1,7 +1,7 @@
 ## Concept
 
 This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+We used this template for our final project where our client was the Wild Code School.
 
 The objective of this application is to allow the wild code school to share the masterclasses that have been done with their partner companies. The school offers a large choice of videos and fields to discover.
 

@@ -44,75 +44,79 @@ export default function AdminAbonne({ users, professionals }) {
   const ToastExcel = () => toast.success("Données téléchargées !");
 
   return (
-    <section className="showClients">
-      <div className="buttonClient">
-        <button className="btnAbonne" type="button" onClick={handleAbonne}>
-          Utilisateurs
-        </button>
-        <button className="btnAbonne" type="button" onClick={handleNonAbonne}>
-          Entreprises
-        </button>
+    <>
+      <section className="showClients">
+        <div className="buttonClient">
+          <button className="btnAbonne" type="button" onClick={handleAbonne}>
+            Utilisateurs
+          </button>
+          <button className="btnAbonne" type="button" onClick={handleNonAbonne}>
+            Professionnels
+          </button>
+        </div>
+        {selectUsers && (
+          <div className="abonnes">
+            <select
+              name="showUsers"
+              className="choose-clients"
+              placeholder="Selection Abonné"
+              onChange={handleFilter}
+            >
+              {" "}
+              <option value="">Liste des Utilisateurs</option>
+              {users.map((user) => (
+                <option value={user.lastname} key={user.Id}>
+                  {user.Id} - {user.lastname} {user.firstname}
+                </option>
+              ))}
+            </select>
+            {users
+              .filter((filtered) => filtered.lastname === filterUsers)
+              .map((elem) => (
+                <UsersList users={elem} key={elem.Id} />
+              ))}
+          </div>
+        )}
+        {showNonAbonne && (
+          <div className="non-abonnes">
+            <select
+              name="showUsers"
+              className="choose-clients"
+              placeholder="Selection Abonné"
+              onChange={handleProFilter}
+            >
+              {" "}
+              <option value="">Liste des Utilisateurs Professionnels</option>
+              {professionals.map((pro) => (
+                <option value={pro.firstname} key={pro.Id}>
+                  {pro.Id} - {pro.lastname} {pro.firstname}
+                </option>
+              ))}
+            </select>
+            {professionals
+              .filter((filtered) => filtered.firstname === filterPro)
+              .map((elem) => (
+                <ProList pro={elem} key={elem.Id} />
+              ))}
+          </div>
+        )}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </section>
+      <div className="exportData">
+        <CSVLink data={excel} className="excel" onClick={ToastExcel}>
+          Exporter les données
+        </CSVLink>
       </div>
-      {selectUsers && (
-        <div className="abonnes">
-          <select
-            name="showUsers"
-            className="choose-clients"
-            placeholder="Selection Abonné"
-            onChange={handleFilter}
-          >
-            {" "}
-            <option value="">Liste des Utilisateurs</option>
-            {users.map((user) => (
-              <option value={user.lastname} key={user.Id}>
-                {user.Id} - {user.lastname} {user.firstname}
-              </option>
-            ))}
-          </select>
-          {users
-            .filter((filtered) => filtered.lastname === filterUsers)
-            .map((elem) => (
-              <UsersList users={elem} key={elem.Id} />
-            ))}
-        </div>
-      )}
-      {showNonAbonne && (
-        <div className="non-abonnes">
-          <select
-            name="showUsers"
-            className="choose-clients"
-            placeholder="Selection Abonné"
-            onChange={handleProFilter}
-          >
-            {" "}
-            <option value="">Liste des Entreprises</option>
-            {professionals.map((pro) => (
-              <option value={pro.firstname} key={pro.Id}>
-                {pro.Id} - {pro.lastname} {pro.firstname}
-              </option>
-            ))}
-          </select>
-          {professionals
-            .filter((filtered) => filtered.firstname === filterPro)
-            .map((elem) => (
-              <ProList pro={elem} key={elem.Id} />
-            ))}
-        </div>
-      )}
-      <CSVLink data={excel} className="excel" onClick={ToastExcel}>
-        Exporter les données
-      </CSVLink>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </section>
+    </>
   );
 }
