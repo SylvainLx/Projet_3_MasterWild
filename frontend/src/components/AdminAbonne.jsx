@@ -51,7 +51,7 @@ export default function AdminAbonne({ users, professionals }) {
             Utilisateurs
           </button>
           <button className="btnAbonne" type="button" onClick={handleNonAbonne}>
-            Administrateurs
+            Professionnels
           </button>
         </div>
         {selectUsers && (
@@ -86,7 +86,7 @@ export default function AdminAbonne({ users, professionals }) {
               onChange={handleProFilter}
             >
               {" "}
-              <option value="">Liste des Entreprises</option>
+              <option value="">Liste des Utilisateurs Professionnels</option>
               {professionals.map((pro) => (
                 <option value={pro.firstname} key={pro.Id}>
                   {pro.Id} - {pro.lastname} {pro.firstname}
