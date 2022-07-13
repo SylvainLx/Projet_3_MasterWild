@@ -1,7 +1,11 @@
+import { React, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import WildMonitor from "../../assets/pictures/homepage/wildmonitor.webp";
+import CurrentUserContext from "../../contexts/currentUser";
 
 export default function IntroHome() {
+  const { userProfil } = useContext(CurrentUserContext);
+
   return (
     <div className="top-page">
       <h2 className="info-top">
@@ -32,11 +36,19 @@ export default function IntroHome() {
         <img className="wildMonitor" src={WildMonitor} alt="WildMonitor" />
       </div>
       <div className="flex-button">
-        <NavLink to="/masterclass">
-          <button type="button" className="button-discover">
-            Nos masterclasses
-          </button>
-        </NavLink>
+        {userProfil ? (
+          <NavLink to="/search">
+            <button type="button" className="button-discover">
+              Nos masterclasses
+            </button>
+          </NavLink>
+        ) : (
+          <NavLink to="/connexion">
+            <button type="button" className="button-discover">
+              Nos masterclasses
+            </button>
+          </NavLink>
+        )}
       </div>
     </div>
   );

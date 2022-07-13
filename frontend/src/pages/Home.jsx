@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import CurrentUserContext from "../contexts/currentUser";
 
 import IntroHome from "../components/home/IntroHome";
 import IntroWCS from "../components/home/IntroWCS";
@@ -19,6 +20,7 @@ import "../style/Home.css";
 
 export default function Home() {
   const [listMasterclass, setListMasterclass] = useState([]);
+  const { userProfil } = useContext(CurrentUserContext);
 
   useEffect(() => {
     axios
@@ -62,11 +64,19 @@ export default function Home() {
               différents partenaires et nos nombreux intervenants.
             </p>
             <div className="flex-mbutton">
-              <NavLink to="/masterclass">
-                <button type="button" className="button-discover">
-                  Nos masterclasses
-                </button>
-              </NavLink>
+              {userProfil ? (
+                <NavLink to="/search">
+                  <button type="button" className="button-discover">
+                    Nos masterclasses
+                  </button>
+                </NavLink>
+              ) : (
+                <NavLink to="/connexion">
+                  <button type="button" className="button-discover">
+                    Nos masterclasses
+                  </button>
+                </NavLink>
+              )}
             </div>
           </div>
         </div>
