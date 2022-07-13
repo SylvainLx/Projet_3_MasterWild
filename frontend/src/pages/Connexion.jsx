@@ -61,6 +61,9 @@ export default function Connexion() {
     setPassword(e.target.value);
   };
 
+  const ToastConnexion = () => toast.success("Connexion réussie !");
+  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
+
   const searchUser = () => {
     try {
       axios
@@ -76,14 +79,12 @@ export default function Connexion() {
           setUserProfil(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
           navigate("/search");
+          ToastConnexion();
         });
     } catch (error) {
       console.error(error);
     }
   };
-
-  const ToastConnexion = () => toast.success("Connexion réussie !");
-  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
 
   return (
     <div>
@@ -151,11 +152,7 @@ export default function Connexion() {
                   )}
                 </button>
               </div>
-              <button
-                type="submit"
-                className="login-button"
-                onClick={ToastConnexion}
-              >
+              <button type="submit" className="login-button">
                 Se connecter
               </button>
               <ToastContainer

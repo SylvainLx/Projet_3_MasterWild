@@ -157,10 +157,10 @@
   padding: 1rem;
   line-height: 2rem;
 }
-.li-theme{
+.li-theme {
   border: none;
   background: none;
-  padding: .2em;
+  padding: 0.2em;
   color: var(--primary-text);
   font-size: var(--M);
 }
@@ -194,7 +194,7 @@
 }
 
 @media screen and (min-width: 767.98px) {
-  .separation{
+  .separation {
     display: none;
   }
   .list-theme,
