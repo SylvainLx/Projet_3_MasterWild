@@ -27,6 +27,25 @@ exports.getAll = async (req, res) => {
   }
 };
 
+exports.updateOne = async (req, res) => {
+  const { id } = req.params;
+  const exitingMasterclass = await entrepriseController.getOne(id);
+  if (!exitingMasterclass) {
+    return res.sendStatus(404);
+  }
+  try {
+    const masterclassUpdated = await entrepriseController.updateOne(
+      id,
+      req.body
+    );
+    return res
+      .status(200)
+      .json({ "Masterclass mise à jour :": { masterclassUpdated } });
+  } catch (e) {
+    return res.sendStatus(500);
+  }
+};
+
 exports.deleteOne = async (req, res) => {
   const id = parseInt(req.params.id, 10);
 

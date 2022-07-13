@@ -278,27 +278,28 @@ export default function Inscription() {
                   Je souhaite recevoir la Wild Flash.
                 </label>
               </div>
+
               <button
                 type="submit"
                 className="login-button"
                 disabled={!formik.isValid || formik.isSubmitting}
               >
                 Je m'inscris
+                <ToastContainer
+                  position="bottom-right"
+                  autoClose={4000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
               </button>
-              <ToastContainer
-                position="bottom-right"
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              />
             </Form>
           )}
-        </Formik>
+        </Formik>{" "}
         <div className="secoPart">
           <div className="divPicIntrobis">
             <img className="picStar" src={Logo} alt="logo wild code school" />
