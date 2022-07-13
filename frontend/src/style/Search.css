@@ -19,7 +19,7 @@
 }
 
 .title {
-  color: var(--main-blue);
+  color: var(--primary-text);
   font-size: var(--XL);
   font-weight: var(--bold);
   margin: 1rem;
@@ -157,6 +157,13 @@
   padding: 1rem;
   line-height: 2rem;
 }
+.li-theme{
+  border: none;
+  background: none;
+  padding: .2em;
+  color: var(--primary-text);
+  font-size: var(--M);
+}
 .li-theme:hover {
   color: whitesmoke;
   text-decoration: underline;
@@ -187,6 +194,9 @@
 }
 
 @media screen and (min-width: 767.98px) {
+  .separation{
+    display: none;
+  }
   .list-theme,
   .list-metier {
     display: grid;

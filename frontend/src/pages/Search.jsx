@@ -9,33 +9,31 @@ import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
 
 export default function Search() {
+  // Show div showTheme & showEntreprise
   const [showTheme, setShowTheme] = useState(false);
   const [showEntreprise, setShowEntreprise] = useState(false);
-  const [searchCategory, setSearchCategory] = useState([]);
 
-  const handleShowTheme = (e) => {
+  const handleShowTheme = () => {
     setShowTheme((current) => !current);
-    e.preventDefault();
-    axios.get("http://localhost:5001/api/category").then((response) => {
-      setSearchCategory(response.data.data);
-    });
   };
   const handleShowEntreprise = () => {
     setShowEntreprise((current) => !current);
   };
 
-  const [listMasterclass, setListMasterclass] = useState([]);
+  // Search bar
+  const [filterSearch, setFilterSearch] = useState([]);
 
+  // Lists categories and entreprises
+  const [searchCategory, setSearchCategory] = useState([]);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
       .then((res) => {
-        setListMasterclass(res.data.data);
+        setSearchCategory(res.data.data);
       });
   }, []);
 
   const [listEntreprise, setListEntreprise] = useState([]);
-
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprise`)
@@ -44,16 +42,36 @@ export default function Search() {
       });
   }, []);
 
+  // Filter by category or entreprise
+  const handleChange = (e) => {
+    setFilterSearch(e.target.value);
+  };
+
+  // Show all CardMasterclass
+  const [listMasterclass, setListMasterclass] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
+
   return (
     <div className="search-page">
       <div className="div-title">
         <h2 className="title">
-          Les <span className="span-title">M</span>asterclass
+          Les <span className="span-title">M</span>asterclasses
         </h2>
       </div>
       <section className="search-section">
         <div className="search-bar">
-          <input className="searching" type="text" placeholder="Rechercher" />
+          <input
+            className="searching"
+            type="text"
+            placeholder="Chercher une entreprise, une thématique, un mot-clé..."
+            onChange={(e) => setFilterSearch(e.target.value)}
+          />
           <button className="btnlogo" type="button">
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
@@ -80,9 +98,18 @@ export default function Search() {
             <div className="result-theme">
               <ul className="list-theme">
                 {searchCategory.map((category) => (
-                  <li key={category.Id} className="li-theme">
+                  <button
+                    type="button"
+                    tabIndex={0}
+                    key={category.Id}
+                    className="li-theme"
+                    onClick={handleChange}
+                    onKeyPress={handleChange}
+                    value={category.name}
+                  >
                     {category.name}
-                  </li>
+                    <span className="separation"> | </span>
+                  </button>
                 ))}
               </ul>
             </div>
@@ -111,9 +138,18 @@ export default function Search() {
             <div className="result-metier">
               <ul className="list-metier">
                 {listEntreprise.map((entreprise) => (
-                  <li className="li-theme" key={entreprise.Id}>
+                  <button
+                    type="button"
+                    tabIndex={0}
+                    key={entreprise.Id}
+                    className="li-theme"
+                    onClick={handleChange}
+                    onKeyPress={handleChange}
+                    value={entreprise.name}
+                  >
                     {entreprise.name}
-                  </li>
+                    <span className="separation"> | </span>
+                  </button>
                 ))}
               </ul>
             </div>
@@ -122,11 +158,22 @@ export default function Search() {
       </section>
       <div className="res-search">
         <ul className="result-mastersearch">
-          {listMasterclass.map((mastercard) => (
-            <li className="testli" key={mastercard.Id}>
-              <CardMasterclass key={mastercard.id} mastercard={mastercard} />
-            </li>
-          ))}
+          {listMasterclass
+            .filter(
+              (mastercard) =>
+                mastercard.keywords
+                  .map((toto) => toto.keyword.name)
+                  .includes(filterSearch) ||
+                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.category.name.includes(filterSearch) ||
+                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.category.name.includes(filterSearch)
+            )
+            .map((mastercard) => (
+              <li className="testli" key={mastercard.Id}>
+                <CardMasterclass key={mastercard.Id} mastercard={mastercard} />
+              </li>
+            ))}
         </ul>
       </div>
     </div>
