@@ -24,8 +24,10 @@ export default function VideoSample({
   };
 
   const [masterclass, setMasterclass] = useState({});
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [entreprise, setEntreprise] = useState(false);
+
+  const [entrepriseLogo, setEntrepriseLogo] = useState("");
+  const [entrepriseName, setEntrepriseName] = useState("");
+  const [heartClass, setHeartClass] = useState("notFavorite");
 
   useEffect(() => {
     api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
@@ -39,7 +41,9 @@ export default function VideoSample({
       });
 
       if (userProfil.favorites.indexOf(res.data.currentMasterclass.Id) !== -1) {
-        setIsFavorite(true);
+        setHeartClass("isFavorite");
+      } else {
+        setHeartClass("notFavorite");
       }
     });
   }, [masterclassId]);
@@ -47,24 +51,33 @@ export default function VideoSample({
   useEffect(() => {
     if (masterclass.entreprise_Id) {
       api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {
-        setEntreprise(res.data.currentEntreprise);
+        setEntrepriseName(
+          `${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+            res.data.currentEntreprise.name
+          }`
+        );
+        setEntrepriseLogo(
+          `${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+            res.data.currentEntreprise.logo_name
+          }`
+        );
       });
     }
   }, [masterclass]);
 
   const handleClickFavorite = () => {
     if (userProfil.favorites !== undefined) {
-      if (!isFavorite) {
+      if (heartClass === "notFavorite") {
         api.post(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
         userProfil.favorites.push(masterclass.Id);
         setUserProfil({ ...userProfil, favorites: userProfil.favorites });
-        setIsFavorite(true);
+        setHeartClass("isFavorite");
       } else {
         api.delete(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
         const favoriteIndex = userProfil.favorites.indexOf(masterclass.Id);
         userProfil.favorites.splice(favoriteIndex, 1);
         setUserProfil({ ...userProfil, favorites: userProfil.favorites });
-        setIsFavorite(false);
+        setHeartClass("notFavorite");
       }
     }
   };
@@ -91,7 +104,7 @@ export default function VideoSample({
         <div className="like-button">
           <button
             type="button"
-            className={isFavorite ? "isFavorite" : "notFavorite"}
+            className={heartClass}
             onClick={handleClickFavorite}
           >
             &nbsp;
@@ -101,10 +114,8 @@ export default function VideoSample({
           <div className="logo-container">
             <img
               className="picture-video"
-              src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
-                entreprise.logo_name
-              }`}
-              alt={entreprise.name}
+              src={entrepriseLogo}
+              alt={entrepriseName}
             />
           </div>
 
