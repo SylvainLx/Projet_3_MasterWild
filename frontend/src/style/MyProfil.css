@@ -63,7 +63,7 @@
 
 .container-password-profil {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .modify-input {
