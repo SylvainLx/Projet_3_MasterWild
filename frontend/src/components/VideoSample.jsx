@@ -1,87 +1,141 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
+import CurrentUserContext from "../contexts/currentUser";
 import "../style/VideoSample.css";
 import api from "../services/endpoint";
 
-const userId = 1;
+export default function VideoSample({
+  masterclassId,
+  addVideo = false,
+  addButton = false,
+}) {
+  const { userProfil, setUserProfil } = useContext(CurrentUserContext);
 
-export default function VideoSample({ masterclassId, addVideo = false }) {
   VideoSample.defaultProps = {
     addVideo: false,
+    addButton: false,
   };
 
   VideoSample.propTypes = {
     masterclassId: PropTypes.number.isRequired,
     addVideo: PropTypes.bool,
-  };
-  const [masterclass, setMasterclass] = useState([]);
-  const [favoriteAsk, setFavoriteAsk] = useState(0);
-  const [isFavorite, setIsFavorite] = useState(0);
-
-  const favoritecheck = () => {
-    api.get(`/api/favorite/${userId}`).then((res) => {
-      setFavoriteAsk(
-        res.data.filter((favorite) => favorite.masterclass_Id === 1).length
-      );
-    });
+    addButton: PropTypes.bool,
   };
 
-  const masterclassContent = () => {
+  const [masterclass, setMasterclass] = useState({});
+
+  const [entrepriseLogo, setEntrepriseLogo] = useState("");
+  const [entrepriseName, setEntrepriseName] = useState("");
+  const [heartClass, setHeartClass] = useState("notFavorite");
+
+  useEffect(() => {
     api.get(`api/admin/masterclass/${masterclassId}`).then((res) => {
-      setMasterclass(res.data.currentMasterclass);
+      setMasterclass({
+        ...res.data.currentMasterclass,
+        source: `https://www.youtube-nocookie.com/embed/${res.data.currentMasterclass.source
+          .split("/")
+          .pop()
+          .split("=")
+          .pop()}`,
+      });
+
+      if (userProfil.favorites.indexOf(res.data.currentMasterclass.Id) !== -1) {
+        setHeartClass("isFavorite");
+      } else {
+        setHeartClass("notFavorite");
+      }
     });
-  };
+  }, [masterclassId]);
 
   useEffect(() => {
-    masterclassContent();
-    console.error(masterclass);
-  }, []);
-
-  useEffect(() => {
-    favoritecheck();
-    setIsFavorite(favoriteAsk);
-  });
+    if (masterclass.entreprise_Id) {
+      api.get(`api/entreprise/${masterclass.entreprise_Id}`).then((res) => {
+        setEntrepriseName(
+          `${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+            res.data.currentEntreprise.name
+          }`
+        );
+        setEntrepriseLogo(
+          `${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+            res.data.currentEntreprise.logo_name
+          }`
+        );
+      });
+    }
+  }, [masterclass]);
 
   const handleClickFavorite = () => {
-    if (!isFavorite) {
-      api.post(`/api/favorite/${userId}/${masterclassId}`);
-      setIsFavorite(true);
-    } else {
-      api.delete(`/api/favorite/${userId}/${masterclassId}`);
-      setIsFavorite(false);
+    if (userProfil.favorites !== undefined) {
+      if (heartClass === "notFavorite") {
+        api.post(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+        userProfil.favorites.push(masterclass.Id);
+        setUserProfil({ ...userProfil, favorites: userProfil.favorites });
+        setHeartClass("isFavorite");
+      } else {
+        api.delete(`/api/favorite/${userProfil.Id}/${masterclass.Id}`);
+        const favoriteIndex = userProfil.favorites.indexOf(masterclass.Id);
+        userProfil.favorites.splice(favoriteIndex, 1);
+        setUserProfil({ ...userProfil, favorites: userProfil.favorites });
+        setHeartClass("notFavorite");
+      }
     }
+  };
+
+  const mastercardLink = `/masterclass/${masterclassId}`;
+
+  const nav = useNavigate();
+
+  const goToMasterclass = () => {
+    nav(mastercardLink);
   };
 
   return (
     <section>
       <div className="container-video">
-        {addVideo === true ? (
-          <div>
-            <video controls width="1500" className="video">
-              <source src={masterclass.source} type="video/webm" />
-              <track default kind="captions" srcLang="en" />
-            </video>
-          </div>
-        ) : (
-          ""
+        {addVideo && (
+          <iframe
+            className="video"
+            title={masterclass.title}
+            controlsList="nodownload"
+            src={masterclass.source}
+          />
         )}
+        <div className="like-button">
+          <button
+            type="button"
+            className={heartClass}
+            onClick={handleClickFavorite}
+          >
+            &nbsp;
+          </button>
+        </div>
         <div className="description-video">
-          <div>
-            <img src="" alt="Celebrity's portrait" className="picture-video" />
+          <div className="logo-container">
+            <img
+              className="picture-video"
+              src={entrepriseLogo}
+              alt={entrepriseName}
+            />
           </div>
+
           <div className="text">
             <div className="text-top">
               <h1 className="title-video">{masterclass.title}</h1>
-              <button
-                type="button"
-                className={isFavorite ? "isFavorite" : "notFavorite"}
-                onClick={handleClickFavorite}
-              >
-                &nbsp;
-              </button>
             </div>
             <p className="text-bottom">{masterclass.description}</p>
           </div>
+        </div>
+        <div className="button-watch">
+          {addButton && (
+            <button
+              type="button"
+              className="watch-vid"
+              onClick={goToMasterclass}
+            >
+              Voir
+            </button>
+          )}
         </div>
       </div>
     </section>

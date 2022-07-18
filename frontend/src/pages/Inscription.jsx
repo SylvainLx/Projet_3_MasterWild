@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Pattern from "../assets/pictures/PATTERN_Plan de travail 1.png";
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
 import Login from "../assets/pictures/peopleLogin.jpg";
-import OpenEye from "../assets/visOn.png";
-import ClosedEye from "../assets/visOff.png";
 
 import "../style/Inscription.css";
 
@@ -40,6 +41,9 @@ export default function Inscription() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [professional, setProfessional] = useState(false);
+  const [company, setCompany] = useState();
+
   const navigate = useNavigate();
 
   const handleFirstname = (e) => {
@@ -54,10 +58,14 @@ export default function Inscription() {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
+  const handlePro = () => {
+    setProfessional(true);
+  };
+  const handleCompany = (e) => {
+    setCompany(e.target.value);
+  };
 
-  function setUser(user) {
-    localStorage.setItem("user", JSON.stringify(user));
-  }
+  const ToastInscription = () => toast.success("Inscription validée !");
 
   const postUser = () => {
     try {
@@ -67,10 +75,12 @@ export default function Inscription() {
           lastname,
           email,
           password,
+          professional,
+          company,
         })
-        .then((response) => {
-          setUser(response.data);
+        .then(() => {
           navigate("/connexion");
+          ToastInscription();
         });
     } catch (error) {
       console.error(error);
@@ -85,6 +95,8 @@ export default function Inscription() {
     passwordConfirmation: "",
     gcu: false,
     newsletter: false,
+    professional: false,
+    company: "",
   };
 
   return (
@@ -140,6 +152,19 @@ export default function Inscription() {
                   component="span"
                 />
               </div>
+              <div onChange={handleCompany} className="verif-form">
+                <Field
+                  name="company"
+                  placeholder="Si vous êtes un professionel, nom de l'entreprise"
+                  type="text"
+                  className="login-input"
+                />
+                <ErrorMessage
+                  name="company"
+                  className="text-danger"
+                  component="span"
+                />
+              </div>
               <div onChange={handleMail} className="verif-form">
                 <Field
                   name="email"
@@ -153,13 +178,13 @@ export default function Inscription() {
                   component="span"
                 />
               </div>
-              <div className="passInput">
+              <div className="container-password">
                 <div onChange={handlePassword} className="verif-form">
                   <Field
                     name="password"
                     placeholder="Mot de passe"
                     type={show ? "password" : "text"}
-                    className="inputPassText"
+                    className="login-input"
                   />
                   <ErrorMessage
                     name="password"
@@ -173,19 +198,19 @@ export default function Inscription() {
                   onClick={handleClick}
                 >
                   {show ? (
-                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
                   ) : (
-                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEye alt="icone eye" size="1.7em" />
                   )}
                 </button>
               </div>
-              <div className="passInput">
+              <div className="container-password">
                 <div className="verif-form">
                   <Field
                     name="passwordConfirmation"
                     placeholder="Confirmation"
                     type={show ? "password" : "text"}
-                    className="inputPassText"
+                    className="login-input"
                   />
                   <ErrorMessage
                     name="passwordConfirmation"
@@ -199,55 +224,82 @@ export default function Inscription() {
                   onClick={handleClick}
                 >
                   {show ? (
-                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
                   ) : (
-                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEye alt="icone eye" size="1.7em" />
                   )}
                 </button>
               </div>
-              <div className="checkBinsc">
-                <Field
-                  name="gcu"
-                  type="checkbox"
-                  className="cgv-check"
-                  id="gcu"
-                />
-                <div className="verif-form">
-                  <label className="checkBinsc" htmlFor="CGV">
-                    J'accepte{" "}
-                    <a
-                      href="https://www.wildcodeschool.com/fr-FR?utm_campaign=FR_SEARCH+-+Marque&utm_term=wild%20code%20school&utm_source=adwords&utm_medium=ppc&hsa_grp=130792156507&hsa_src=g&hsa_cam=14821000047&hsa_ad=595760405168&hsa_ver=3&hsa_kw=wild%20code%20school&hsa_net=adwords&hsa_tgt=aud-1076963982371:kwd-440435778420&hsa_mt=p&hsa_acc=4421706736&gclid=CjwKCAjwwo-WBhAMEiwAV4dybY8c4tTC1QjQCps18MU8qam8IMJ7ocS0H2CLC7z4p0d4kSEdLtKo-RoCw2IQAvD_BwE"
-                      _target="blank"
-                    >
-                      les conditions générales.
-                    </a>
-                  </label>
-                  <ErrorMessage
-                    name="gcu"
-                    className="text-danger"
-                    component="div"
+              <div className="container-checkbox">
+                <label
+                  htmlFor="professional"
+                  className="checkBinsc"
+                  onChange={handlePro}
+                >
+                  <input
+                    className="cgv-check"
+                    type="checkbox"
+                    name="professional"
+                    id="professional"
                   />
+                  Je suis un professionnel.
+                </label>
+                <div className="checkBinsc">
+                  <Field
+                    name="gcu"
+                    type="checkbox"
+                    className="cgv-check"
+                    id="gcu"
+                  />
+                  <div>
+                    <label htmlFor="CGV" required>
+                      J'accepte{" "}
+                      <a
+                        href="https://www.wildcodeschool.com/fr-FR/condition-generales-utilisation"
+                        _target="blank"
+                      >
+                        <span>les conditions générales.</span>
+                      </a>
+                    </label>
+                    <ErrorMessage
+                      name="gcu"
+                      className="text-danger"
+                      component="div"
+                    />
+                  </div>
                 </div>
+                <label htmlFor="NsL" className="checkBinsc">
+                  <input
+                    className="cgv-check"
+                    type="checkbox"
+                    name="name"
+                    id="NsL"
+                  />
+                  Je souhaite recevoir la Wild Flash.
+                </label>
               </div>
-              <label htmlFor="NsL" className="checkBinsc">
-                <input
-                  className="cgv-check"
-                  type="checkbox"
-                  name="name"
-                  id="NsL"
-                />
-                Je souhaite recevoir la Wild Flash.
-              </label>
+
               <button
                 type="submit"
                 className="login-button"
                 disabled={!formik.isValid || formik.isSubmitting}
               >
                 Je m'inscris
+                <ToastContainer
+                  position="bottom-right"
+                  autoClose={4000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
               </button>
             </Form>
           )}
-        </Formik>
+        </Formik>{" "}
         <div className="secoPart">
           <div className="divPicIntrobis">
             <img className="picStar" src={Logo} alt="logo wild code school" />

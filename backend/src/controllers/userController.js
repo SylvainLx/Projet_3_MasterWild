@@ -6,9 +6,9 @@ exports.addOne = async (req, res) => {
 
   userDataAccess.findByEmail(email).then((user) => {
     if (user) {
-      res.status(500).send("This email alredy exist");
+      return res.status(500).send("This email alredy exist");
     }
-    hashPassword(password)
+    return hashPassword(password)
       .then((hash) => {
         userDataAccess
           .createOne({
@@ -43,6 +43,13 @@ exports.getOne = (req, res) => {
 exports.getAll = (req, res) => {
   userDataAccess
     .findAll()
+    .then((users) => res.send(users))
+    .catch((err) => res.status(500).send(err));
+};
+
+exports.getAllExcel = (req, res) => {
+  userDataAccess
+    .findAllExcel()
     .then((users) => res.send(users))
     .catch((err) => res.status(500).send(err));
 };

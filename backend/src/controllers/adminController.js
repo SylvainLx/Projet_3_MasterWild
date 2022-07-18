@@ -119,16 +119,9 @@ exports.editOne = async (req, res) => {
   }
 
   try {
-    await fs.promises.unlink(
-      path.join(
-        __dirname,
-        `../../public/data/uploads/${exitingMasterclass.entreprise.logo_source}`
-      )
-    );
     const masterclassUpdated = await masterclassController.editOne(
       id,
-      req.body,
-      req.file
+      req.body
     );
     return res
       .status(200)
@@ -150,7 +143,7 @@ exports.deleteOne = async (req, res) => {
     await fs.promises.unlink(
       path.join(
         __dirname,
-        `../../public/data/uploads/${removed.entreprise.logo_source}`
+        `../../public/data/uploads/${removed.entreprise.logo_name}`
       )
     );
     return res

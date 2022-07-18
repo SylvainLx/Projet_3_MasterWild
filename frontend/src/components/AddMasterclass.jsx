@@ -2,6 +2,8 @@ import "../style/Admin.css";
 
 import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AddMasterclass() {
   const [photo, setPhoto] = useState([]);
@@ -12,6 +14,8 @@ export default function AddMasterclass() {
   const [theme, setTheme] = useState("");
   const [keyword, setKeyword] = useState("");
   const [speciality, setSpeciality] = useState("");
+
+  const ToastAddMasterclass = () => toast.success("Masterclass ajoutée !");
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -27,92 +31,107 @@ export default function AddMasterclass() {
     formData.append("keyword", keyword);
     formData.append("file", photo[0]);
 
-    axios.post(
-      "http://localhost:5001/api/admin/masterclass",
+    axios
+      .post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
 
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then(() => ToastAddMasterclass());
   };
 
   return (
-    <form className="form-masterclass" onSubmit={handlePost}>
-      <label htmlFor="title">
-        <input
-          className="input"
-          type="text"
-          name="title"
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Titre de la masterclass"
+    <div className="divAdd-masterclass">
+      <form className="formAdd-masterclass" onSubmit={handlePost}>
+        <label className="labelTitle" htmlFor="title">
+          <input
+            className="i-title"
+            type="text"
+            name="title"
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Titre de la masterclass"
+          />
+        </label>
+        <label htmlFor="name">
+          <input
+            className="input"
+            type="text"
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Nom de l'entreprise"
+          />
+        </label>
+        <label htmlFor="speciality">
+          <input
+            className="input"
+            type="text"
+            name="speciality"
+            onChange={(e) => setSpeciality(e.target.value)}
+            placeholder="Spécialité - domaine"
+          />
+        </label>
+        <label htmlFor="source">
+          <input
+            className="input"
+            type="text"
+            name="source"
+            onChange={(e) => setSource(e.target.value)}
+            placeholder="Lien YT de la video"
+          />
+        </label>
+        <label htmlFor="category">
+          <input
+            className="input"
+            type="text"
+            name="category"
+            onChange={(e) => setTheme(e.target.value)}
+            placeholder="Thématique"
+          />
+        </label>
+        <label htmlFor="keyword">
+          <input
+            className="input"
+            type="text"
+            name="keyword"
+            onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Mots Clés"
+          />
+        </label>
+        <label htmlFor="logo_source">
+          <input
+            onChange={(e) => setPhoto(e.target.files)}
+            className="input"
+            type="file"
+            name="logo_source"
+          />
+        </label>
+        <label className="desc" htmlFor="description">
+          <textarea
+            className="i-desc"
+            type="text"
+            name="description"
+            onChange={(e) => setDesc(e.target.value)}
+            placeholder="Description de la masterclass"
+          />
+        </label>
+        <input className="btnPostMasterclass" type="submit" />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
         />
-      </label>
-      <label htmlFor="name">
-        <input
-          className="input"
-          type="text"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Nom de l'entreprisee"
-        />
-      </label>
-      <label htmlFor="speciality">
-        <input
-          className="input"
-          type="text"
-          name="speciality"
-          onChange={(e) => setSpeciality(e.target.value)}
-          placeholder="Spécialité - domaine"
-        />
-      </label>
-      <label htmlFor="source">
-        <input
-          className="input"
-          type="text"
-          name="source"
-          onChange={(e) => setSource(e.target.value)}
-          placeholder="Lien YT de la video"
-        />
-      </label>
-      <label htmlFor="category">
-        <input
-          className="input"
-          type="text"
-          name="category"
-          onChange={(e) => setTheme(e.target.value)}
-          placeholder="Thématique"
-        />
-      </label>
-      <label htmlFor="keyword">
-        <input
-          className="input"
-          type="text"
-          name="keyword"
-          onChange={(e) => setKeyword(e.target.value)}
-          placeholder="Mots Clés"
-        />
-      </label>
-      <label htmlFor="logo_source">
-        <input
-          onChange={(e) => setPhoto(e.target.files)}
-          className="input"
-          type="file"
-          name="logo_source"
-        />
-      </label>
-      <label className="desc" htmlFor="description">
-        <textarea
-          className="input i-desc"
-          type="text"
-          name="description"
-          onChange={(e) => setDesc(e.target.value)}
-          placeholder="Description de la masterclass"
-        />
-      </label>
-      <input className="btnSend" type="submit" />
-    </form>
+      </form>
+    </div>
   );
 }

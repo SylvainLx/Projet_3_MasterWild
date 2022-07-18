@@ -20,6 +20,17 @@ exports.getOne = async (Id) => {
   }
 };
 
+exports.updateOne = async (Id, entreprise) => {
+  try {
+    return await prisma.entreprise.update({
+      where: { Id: parseInt(Id, 10) },
+      data: entreprise,
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
 exports.deleteOne = async (Id) => {
   try {
     return await prisma.entreprise.delete({

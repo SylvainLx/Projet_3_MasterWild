@@ -11,9 +11,11 @@ export default function AdminMasterclass() {
   const [filterMasterclass, setFilterMasterclass] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5001/api/admin/masterclass").then((res) => {
-      setShowMasterclass(res.data.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setShowMasterclass(res.data.data);
+      });
   }, []);
 
   const handleFilter = (e) => {
@@ -22,6 +24,10 @@ export default function AdminMasterclass() {
 
   return (
     <div className="admin-masterclass">
+      <p className="p-action-masterclass">
+        <span className="span-action-m">Modifier</span> ou{" "}
+        <span className="span-action-m">Supprimer</span> une masterclass :
+      </p>
       <section className="showMasterclass">
         <select
           name="showMasterclass"
@@ -29,7 +35,7 @@ export default function AdminMasterclass() {
           onChange={handleFilter}
           className="selectmaster"
         >
-          <option value="">Selectionne ta Masterclass</option>
+          <option value="">Selectionne la Masterclass</option>
           {showMasterclass.map((masterclass) => (
             <option value={masterclass.title} key={masterclass.Id}>
               {masterclass.title}
@@ -50,10 +56,13 @@ export default function AdminMasterclass() {
                 sources={elem.source}
                 themes={elem.category.name}
                 Id={elem.Id}
-              />{" "}
+              />
             </div>
           ))}
       </section>
+      <p className="p-action-masterclass">
+        <span className="span-action-m">Ajouter</span> une masterclass :
+      </p>
       <section className="add-masterclass">
         <AddMasterclass />
       </section>

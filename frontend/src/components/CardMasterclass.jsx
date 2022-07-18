@@ -1,38 +1,54 @@
-import "../style/CardMasterclass.css";
-import Pattern from "../assets/pictures/patter-rose-2.png";
-import LogoIntervenant from "../assets/pictures/logo-HD-fond-transparent.png";
+import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import CurrentUserContext from "../contexts/currentUser";
 
-export default function CardMasterclass() {
+/* eslint-disable react/prop-types */
+import "../style/CardMasterclass.css";
+
+export default function CardMasterclass({ mastercard }) {
+  const mastercardLink = `/masterclass/${mastercard.Id}`;
+  const nav = useNavigate();
+  const { userProfil } = useContext(CurrentUserContext);
+
+  const goToMasterclass = () => {
+    nav(mastercardLink);
+  };
+
   return (
     <div className="card-container">
-      <div className="top-card">
-        <div className="inter">
-          <p>intervenant</p>
-        </div>
-        <div className="logo-wild">
-          <img src={Pattern} alt="logo simple wild" className="logo1" />
-        </div>
-      </div>
       <div className="contenu-card">
-        <div className="logo-inter">
-          <img src={LogoIntervenant} alt="logo simple wild" className="logo2" />
+        <div className="pPresEntreprise">
+          <p className="pCardNameEntreprise">{mastercard.entreprise.name}</p>
+          <p className="pCardSpecialityEntreprise">
+            ( {mastercard.entreprise.speciality} )
+          </p>
         </div>
-        <div className="title-desc">
-          <div className="title-card">
-            <h2>IA et nouvelles technologies</h2>
-          </div>
-          <div className="desc-card">
-            <p>
-              Découverte d'une entreprise dans le domaine de l'intelligence
-              artificielle.
-            </p>
-          </div>
-        </div>
+
+        <img
+          src={`${import.meta.env.VITE_BACKEND_URL}/data/uploads/${
+            mastercard.entreprise.logo_name
+          }`}
+          alt="logo entreprise"
+          className="logo2"
+        />
+      </div>
+      <div className="title-desc">
+        <h2 className="title-card">{mastercard.title}</h2>
+        <p className="overflow-ellipsis">{mastercard.description}</p>
       </div>
       <div className="button-start">
-        <button type="button" className="voir-vid">
-          Voir cette masterclass
-        </button>
+        {userProfil ? (
+          <button type="button" className="voir-vid" onClick={goToMasterclass}>
+            Voir
+          </button>
+        ) : (
+          <NavLink to="/connexion">
+            <button type="button" className="voir-vid">
+              Voir
+            </button>
+          </NavLink>
+        )}
       </div>
     </div>
   );

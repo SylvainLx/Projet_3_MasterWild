@@ -11,6 +11,7 @@ router.post("/", yupUserCheck, userController.addOne);
 router.get("/:id", userController.getOne);
 router.put("/:id", yupUserCheck, userController.updateOne);
 router.get("/", userController.getAll);
+router.get("/excel", userController.getAllExcel);
 router.delete("/:id", userController.deleteOne);
 
 module.exports = router;

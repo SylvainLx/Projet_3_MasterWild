@@ -1,31 +1,26 @@
 /* eslint-disable camelcase */
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/currentUser";
 import VideoSample from "../VideoSample";
 import "../../style/MyMCFavoritesList.css";
 import "../../style/VideoSample.css";
-import api from "../../services/endpoint";
-
-const userId = 1;
 
 export default function MyMCFavoritesList() {
-  const [favoriteList, setFavoriteList] = useState([]);
-
-  useEffect(() => {
-    api.get(`/api/favorite/${userId}`).then((res) => {
-      if (res.data.length !== 0) {
-        setFavoriteList(res.data);
-      }
-    });
-  }, []);
+  const { userProfil } = useContext(CurrentUserContext);
 
   return (
-    <div>
-      {favoriteList.map(({ masterclass_Id }) => (
-        <VideoSample
-          masterclassId={masterclass_Id}
-          key={`${masterclass_Id}_${userId}`}
-        />
-      ))}
+    <div className="show-favorite-videos">
+      {userProfil.favorites ? (
+        userProfil.favorites.map((favorite) => (
+          <VideoSample
+            addButton
+            masterclassId={favorite}
+            key={`${favorite}_${userProfil.Id}`}
+          />
+        ))
+      ) : (
+        <p>Votre liste de favori est vide.</p>
+      )}
     </div>
   );
 }

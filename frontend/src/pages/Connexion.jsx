@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CurrentUserContext from "../contexts/currentUser";
 
 import Logo from "../assets/pictures/logo-HD-fond-transparent.png";
 import Login from "../assets/pictures/peopleLogin.jpg";
-import OpenEye from "../assets/visOn.png";
-import ClosedEye from "../assets/visOff.png";
 import "../style/Connexion.css";
 
 const customStyles = {
@@ -42,6 +44,8 @@ export default function Connexion() {
 
   const navigate = useNavigate();
 
+  const { setUserProfil } = useContext(CurrentUserContext);
+
   function openModal() {
     setIsOpen(true);
   }
@@ -57,6 +61,9 @@ export default function Connexion() {
     setPassword(e.target.value);
   };
 
+  const ToastConnexion = () => toast.success("Connexion réussie !");
+  const ToastEditPassword = () => toast.success("Mot de passe modifié !");
+
   const searchUser = () => {
     try {
       axios
@@ -69,8 +76,9 @@ export default function Connexion() {
           { withCredentials: true }
         )
         .then((response) => {
-          console.error(response);
+          setUserProfil(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
+          ToastConnexion();
           navigate("/search");
         });
     } catch (error) {
@@ -110,6 +118,7 @@ export default function Connexion() {
                   placeholder="Email"
                   type="email"
                   className="login-input"
+                  required
                 />
                 <ErrorMessage
                   name="email"
@@ -117,13 +126,13 @@ export default function Connexion() {
                   component="span"
                 />
               </div>
-              <div className="passInput">
+              <div className="container-password">
                 <div onChange={handlePassword} className="verif-form">
                   <Field
                     name="password"
                     placeholder="Mot de passe"
                     type={show ? "password" : "text"}
-                    className="inputPassText"
+                    className="login-input"
                   />
                   <ErrorMessage
                     name="password"
@@ -137,16 +146,26 @@ export default function Connexion() {
                   onClick={handleClick}
                 >
                   {show ? (
-                    <img src={ClosedEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEyeSlash alt="icone eye" size="1.7em" />
                   ) : (
-                    <img src={OpenEye} alt="icone eye" className="iconeEye" />
+                    <FaRegEye alt="icone eye" size="1.7em" />
                   )}
                 </button>
               </div>
               <button type="submit" className="login-button">
                 Se connecter
               </button>
-
+              <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
               <button className="textConnex" type="button" onClick={openModal}>
                 Mot de Passe oublié ?
               </button>
@@ -183,15 +202,17 @@ export default function Connexion() {
                       className="login-button"
                       type="submit"
                       disabled={!formik.isValid || formik.isSubmitting}
+                      onClick={ToastEditPassword}
                     >
                       Enregistrer
                     </button>
                   </form>
                 </Modal>
-              </div>
+              </div>{" "}
             </Form>
           )}
         </Formik>
+
         <div className="secPart">
           <div className="divPicIntrobis">
             <img className="logoWildR" src={Logo} alt="logo wild code school" />

@@ -1,8 +1,7 @@
 import "../style/Search.css";
 import "../style/App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
 
 import LogoSearch from "../assets/search.png";
 import ArrowDown from "../assets/arrowdown.png";
@@ -10,48 +9,59 @@ import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
 
 export default function Search() {
+  // Show div showTheme & showEntreprise
   const [showTheme, setShowTheme] = useState(false);
-  const [showMetiers, setShowMetiers] = useState(false);
-  const [searchBar, setSearchBar] = useState(false);
-  const [searchCategory, setSearchCategory] = useState([]);
+  const [showEntreprise, setShowEntreprise] = useState(false);
 
-  const navigate = useNavigate();
-
-  const handleShowTheme = (e) => {
+  const handleShowTheme = () => {
     setShowTheme((current) => !current);
-    e.preventDefault();
-    axios.get("http://localhost:5001/api/category").then((response) => {
-      setSearchCategory(response.data.data);
-    });
   };
-  const handleShowMetiers = () => {
-    setShowMetiers((current) => !current);
-  };
-  const handleSearch = () => {
-    setSearchBar(!searchBar);
+  const handleShowEntreprise = () => {
+    setShowEntreprise((current) => !current);
   };
 
-  function filterSearch(filter) {
-    localStorage.setItem("user", JSON.stringify(filter));
-  }
+  // Search bar
+  const [filterSearch, setFilterSearch] = useState([]);
 
-  const getSearch = (e) => {
-    e.preventDefault();
+  // Lists categories and entreprises
+  const [searchCategory, setSearchCategory] = useState([]);
+  useEffect(() => {
     axios
-      .get("http://localhost:4000/api/search", {
-        searchBar,
-      })
-      .then((response) => {
-        filterSearch(response.data);
-        navigate("/search");
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
+      .then((res) => {
+        setSearchCategory(res.data.data);
       });
+  }, []);
+
+  const [listEntreprise, setListEntreprise] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/entreprise`)
+      .then((res) => {
+        setListEntreprise(res.data.data);
+      });
+  }, []);
+
+  // Filter by category or entreprise
+  const handleChange = (e) => {
+    setFilterSearch(e.target.value);
   };
+
+  // Show all CardMasterclass
+  const [listMasterclass, setListMasterclass] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+      .then((res) => {
+        setListMasterclass(res.data.data);
+      });
+  }, []);
 
   return (
     <div className="search-page">
       <div className="div-title">
         <h2 className="title">
-          Les <span className="span-title">M</span>asterclass
+          Les <span className="span-title">M</span>asterclasses
         </h2>
       </div>
       <section className="search-section">
@@ -59,10 +69,10 @@ export default function Search() {
           <input
             className="searching"
             type="text"
-            placeholder="Rechercher"
-            onChange={handleSearch}
+            placeholder="Chercher une entreprise, une thématique, un mot-clé..."
+            onChange={(e) => setFilterSearch(e.target.value)}
           />
-          <button className="btnlogo" type="button" onClick={getSearch}>
+          <button className="btnlogo" type="button">
             <img src={LogoSearch} alt="search" className="logo-search" />
           </button>
         </div>
@@ -83,14 +93,23 @@ export default function Search() {
             ) : (
               <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
             )}
-          </button>{" "}
+          </button>
           {showTheme && (
             <div className="result-theme">
               <ul className="list-theme">
                 {searchCategory.map((category) => (
-                  <li key={category.Id} className="li-theme">
+                  <button
+                    type="button"
+                    tabIndex={0}
+                    key={category.Id}
+                    className="li-theme"
+                    onClick={handleChange}
+                    onKeyPress={handleChange}
+                    value={category.name}
+                  >
                     {category.name}
-                  </li>
+                    <span className="separation"> | </span>
+                  </button>
                 ))}
               </ul>
             </div>
@@ -99,51 +118,63 @@ export default function Search() {
 
         <div className="search-metier">
           <button
-            className={showMetiers ? "btnSearchMetier" : "btnsearchmetier"}
+            className={showEntreprise ? "btnSearchMetier" : "btnsearchmetier"}
             type="button"
-            onClick={handleShowMetiers}
+            onClick={handleShowEntreprise}
           >
-            <span className="letter-m">M</span>
+            <span className="letter-m">E</span>
             <div>
               <h3 className="recherche">Recherche par</h3>
 
-              <h3 className="etiers">ETIER</h3>
+              <h3 className="etiers">NTREPRISE</h3>
             </div>
-            {showMetiers ? (
+            {showEntreprise ? (
               <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
             ) : (
               <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
             )}
           </button>
-          {showMetiers && (
+          {showEntreprise && (
             <div className="result-metier">
               <ul className="list-metier">
-                <li className="li-theme">DevOps Engineer</li>
-                <li className="li-theme">Frontend Engineer</li>
-                <li className="li-theme">Backend Engineer</li>
-                <li className="li-theme">Entrepreneur</li>
-                <li className="li-theme">Data Scientist</li>
-                <li className="li-theme">Consultant</li>
-                <li className="li-theme">UX Designer</li>
-                <li className="li-theme">Spécialiste Marketing</li>
-                <li className="li-theme">Data Analyst</li>
+                {listEntreprise.map((entreprise) => (
+                  <button
+                    type="button"
+                    tabIndex={0}
+                    key={entreprise.Id}
+                    className="li-theme"
+                    onClick={handleChange}
+                    onKeyPress={handleChange}
+                    value={entreprise.name}
+                  >
+                    {entreprise.name}
+                    <span className="separation"> | </span>
+                  </button>
+                ))}
               </ul>
             </div>
           )}
         </div>
       </section>
-      <div className="result-mastersearch">
-        <section className="result-masterclass">
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-          <CardMasterclass />
-        </section>
+      <div className="res-search">
+        <ul className="result-mastersearch">
+          {listMasterclass
+            .filter(
+              (mastercard) =>
+                mastercard.keywords
+                  .map((toto) => toto.keyword.name)
+                  .includes(filterSearch) ||
+                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.category.name.includes(filterSearch) ||
+                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.category.name.includes(filterSearch)
+            )
+            .map((mastercard) => (
+              <li className="testli" key={mastercard.Id}>
+                <CardMasterclass key={mastercard.Id} mastercard={mastercard} />
+              </li>
+            ))}
+        </ul>
       </div>
     </div>
   );

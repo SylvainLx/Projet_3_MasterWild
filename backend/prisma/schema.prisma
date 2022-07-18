@@ -10,9 +10,9 @@ datasource db {
 model entreprise {
   Id          Int           @id @default(autoincrement())
   name        String        @unique @db.VarChar(150)
-  speciality  String        @db.VarChar(150)
-  logo_source String        @db.VarChar(250)
-  logo_name   String        @db.VarChar(150)
+  speciality  String?       @db.VarChar(150)
+  logo_source String?       @db.VarChar(250)
+  logo_name   String?       @db.VarChar(150)
   masterclass masterclass[]
 }
 
@@ -66,6 +66,8 @@ model user {
   email         String     @unique @db.VarChar(255)
   password      String     @db.VarChar(3000)
   birthday_date DateTime?  @db.DateTime(0)
-  role          String?    @db.VarChar(3000)
+  role          String     @default("user") @db.VarChar(3000)
+  professional  Boolean    @default(false) @db.TinyInt
+  company       String?    @db.VarChar(300)
   favorite      favorite[]
 }

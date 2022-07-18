@@ -10,6 +10,24 @@ exports.findAll = async () => {
   }
 };
 
+exports.findAllExcel = async () => {
+  try {
+    return await prisma.user.findMany({
+      select: {
+        Id: true,
+        password: false,
+        firstname: true,
+        lastname: true,
+        email: true,
+        birthday_date: true,
+        role: true,
+      },
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
 exports.findOne = async (id) => {
   try {
     return await prisma.user.findUnique({
