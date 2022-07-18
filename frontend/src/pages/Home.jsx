@@ -15,7 +15,6 @@ import Alectio from "../assets/logo_partenaires/alectio.png";
 import Keyrus from "../assets/logo_partenaires/keyrus.png";
 import Tricky from "../assets/logo_partenaires/tricky.png";
 
-import flower from "../assets/flower.webm";
 import "../style/Home.css";
 
 export default function Home() {
@@ -52,10 +51,19 @@ export default function Home() {
       </div>
       <div className="video-sample-area">
         <div className="video-sample">
-          <video controls width="1500">
-            <source src={flower} type="video/webm" />
-            <track default kind="captions" srcLang="en" />
-          </video>
+          <iframe
+            className="iframeHome"
+            title="pres"
+            controlsList="nodownload"
+            style={{
+              width: "1000px",
+              height: "320px",
+              left: "0px",
+              top: "0px",
+            }}
+            src="https://www.youtube-nocookie.com/embed/RmKB474UE2A"
+          />
+          <track default kind="captions" srcLang="en" />
           <div className="divMastHome">
             <h3 className="info-wsc">Un large choix de contenu</h3>
             <p className="video-desc">
