@@ -15,7 +15,6 @@ import Alectio from "../assets/logo_partenaires/alectio.png";
 import Keyrus from "../assets/logo_partenaires/keyrus.png";
 import Tricky from "../assets/logo_partenaires/tricky.png";
 
-// import flower from "../assets/flower.webm";
 import "../style/Home.css";
 
 export default function Home() {
