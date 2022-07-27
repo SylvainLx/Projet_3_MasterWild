@@ -43,6 +43,7 @@ export default function ListFAQ() {
     <div className="popularQuestions">
       <p className="pfaq">La réponse à toutes vos questions est ici !</p>
       <select className="selectQuestions" onChange={handleChange}>
+        <option value="">---</option>
         <option value="1">À qui s'adresse Wild Masterclass ?</option>
         <option value="2">
           Quelle est la différence avec une formation en ligne ?

@@ -66,120 +66,91 @@ export default function EditProfil() {
 
   return (
     <div className="my-profil">
-      {lastname.length > 0 && firstname.length > 0 && email.length > 0 && (
-        <Formik
-          initialValues={{
-            lastname,
-            firstname,
-            email,
-            password,
-            newPassword,
-            passwordConfirmation,
-          }}
-          validationSchema={validationSchema}
-          onSubmit={postUser}
-          validateOnMount
-        >
-          {(formik) => (
-            <Form className="user-table">
-              <div
-                className="input-profile"
-                onChange={(e) => {
-                  setLastname(e.target.value);
-                }}
-              >
-                <p>Nom :</p>
-                <Field
-                  name="lastname"
-                  value={formik.values.lastname}
-                  type="text"
-                  size="30"
-                  className="modify-input"
-                />
-                <ErrorMessage
-                  name="lastname"
-                  className="text-danger"
-                  component="span"
-                />
-              </div>
+      <Formik
+        initialValues={{
+          lastname,
+          firstname,
+          email,
+          password,
+          newPassword,
+          passwordConfirmation,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={postUser}
+        validateOnMount
+      >
+        {(formik) => (
+          <Form className="user-table">
+            <div
+              className="input-profile"
+              onChange={(e) => {
+                setLastname(e.target.value);
+              }}
+            >
+              <p>Nom :</p>
+              <Field
+                name="lastname"
+                value={formik.values.lastname}
+                type="text"
+                size="30"
+                className="modify-input"
+              />
+              <ErrorMessage
+                name="lastname"
+                className="text-danger-profil"
+                component="span"
+              />
+            </div>
+            <div
+              className="verif-form"
+              onChange={(e) => {
+                setFirstname(e.target.value);
+              }}
+            >
+              <p>Prénom :</p>
+              <Field
+                name="firstname"
+                value={formik.values.firstname}
+                type="text"
+                size="30"
+                className="modify-input"
+              />
+              <ErrorMessage
+                name="firstname"
+                className="text-danger-profil"
+                component="span"
+              />
+            </div>
+            <div
+              className="verif-form"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            >
+              <p>Email :</p>
+              <Field
+                name="email"
+                value={formik.values.email}
+                type="email"
+                size="30"
+                className="modify-input"
+              />
+              <ErrorMessage
+                name="email"
+                className="text-danger-profil"
+                component="span"
+              />
+            </div>
+            <div className="container-password-profil">
               <div
                 className="verif-form"
                 onChange={(e) => {
-                  setFirstname(e.target.value);
+                  setPassword(e.target.value);
                 }}
               >
-                <p>Prénom :</p>
-                <Field
-                  name="firstname"
-                  value={formik.values.firstname}
-                  type="text"
-                  size="30"
-                  className="modify-input"
-                />
-                <ErrorMessage
-                  name="firstname"
-                  className="text-danger"
-                  component="span"
-                />
-              </div>
-              <div
-                className="verif-form"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              >
-                <p>Email :</p>
-                <Field
-                  name="email"
-                  value={formik.values.email}
-                  type="email"
-                  size="30"
-                  className="modify-input"
-                />
-                <ErrorMessage
-                  name="email"
-                  className="text-danger"
-                  component="span"
-                />
-              </div>
-              <div className="container-password-profil">
-                <div
-                  className="verif-form"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                >
-                  <p>
-                    Mot de passe actuel :{" "}
-                    <span className="no-bold">
-                      <button
-                        className="buttonShow"
-                        type="button"
-                        onClick={handleClick}
-                      >
-                        {show ? <p>show</p> : <p>hide</p>}
-                      </button>
-                    </span>
-                  </p>
-
-                  <Field
-                    name="password"
-                    type={show ? "password" : "text"}
-                    size="30"
-                    className="modify-input"
-                  />
-                </div>
-              </div>
-
-              <div className="container-password-profil">
-                <div
-                  className="verif-form"
-                  onChange={(e) => {
-                    setNewPassword(e.target.value);
-                  }}
-                >
-                  <p>
-                    Nouveau mot de passe :{" "}
+                <p>
+                  Mot de passe actuel :{" "}
+                  <span className="no-bold">
                     <button
                       className="buttonShow"
                       type="button"
@@ -187,74 +158,101 @@ export default function EditProfil() {
                     >
                       {show ? <p>show</p> : <p>hide</p>}
                     </button>
-                  </p>
-                  <Field
-                    name="newPassword"
-                    type={show ? "password" : "text"}
-                    size="30"
-                    className="modify-input"
-                  />
-                </div>
-                <ErrorMessage
+                  </span>
+                </p>
+
+                <Field
+                  name="password"
+                  type={show ? "password" : "text"}
+                  size="30"
+                  className="modify-input"
+                />
+              </div>
+            </div>
+
+            <div className="container-password-profil">
+              <div
+                className="verif-form"
+                onChange={(e) => {
+                  setNewPassword(e.target.value);
+                }}
+              >
+                <p>
+                  Nouveau mot de passe :{" "}
+                  <button
+                    className="buttonShow"
+                    type="button"
+                    onClick={handleClick}
+                  >
+                    {show ? <p>show</p> : <p>hide</p>}
+                  </button>
+                </p>
+                <Field
                   name="newPassword"
-                  className="text-danger"
+                  type={show ? "password" : "text"}
+                  size="30"
+                  className="modify-input"
+                />
+              </div>
+              <ErrorMessage
+                name="newPassword"
+                className="text-danger-profil"
+                component="span"
+              />
+            </div>
+            <div className="container-password-profil">
+              <div
+                className="verif-form"
+                onChange={(e) => {
+                  setPasswordConfirmation(e.target.value);
+                }}
+              >
+                <p>
+                  Validation mot de passe :{" "}
+                  <button
+                    className="buttonShow"
+                    type="button"
+                    onClick={handleClick}
+                  >
+                    {show ? <p>show</p> : <p>hide</p>}
+                  </button>
+                </p>
+                <Field
+                  name="passwordConfirmation"
+                  type={show ? "password" : "text"}
+                  size="30"
+                  className="modify-input"
+                />
+                <ErrorMessage
+                  name="passwordConfirmation"
+                  className="text-danger-profil"
                   component="span"
                 />
               </div>
-              <div className="container-password-profil">
-                <div
-                  className="verif-form"
-                  onChange={(e) => {
-                    setPasswordConfirmation(e.target.value);
-                  }}
-                >
-                  <p>
-                    Validation du mot de passe :{" "}
-                    <button
-                      className="buttonShow"
-                      type="button"
-                      onClick={handleClick}
-                    >
-                      {show ? <p>show</p> : <p>hide</p>}
-                    </button>
-                  </p>
-                  <Field
-                    name="passwordConfirmation"
-                    type={show ? "password" : "text"}
-                    size="30"
-                    className="modify-input"
-                  />
-                  <ErrorMessage
-                    name="passwordConfirmation"
-                    className="text-danger"
-                    component="span"
-                  />
-                </div>
-              </div>
-              <div className="cont-valid-button">
-                <button
-                  className="button-blue button-profil"
-                  type="submit"
-                  disabled={!formik.isValid || formik.isSubmitting}
-                >
-                  Valider
-                </button>
-                <ToastContainer
-                  position="bottom-right"
-                  autoClose={4000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
-              </div>
-            </Form>
-          )}
-        </Formik>
-      )}
+            </div>
+            <div className="cont-valid-button">
+              <button
+                className="button-blue button-profil"
+                type="submit"
+                disabled={!formik.isValid || formik.isSubmitting}
+              >
+                Valider
+              </button>
+              <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+            </div>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }
