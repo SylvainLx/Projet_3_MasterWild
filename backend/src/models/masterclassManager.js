@@ -105,9 +105,9 @@ exports.editOne = async (id, masterclass) => {
     },
   }));
   try {
-    return await prisma.masterclass.update({
+    return await prisma.masterclass.upsert({
       where: { Id: parseInt(id, 10) },
-      data: {
+      update: {
         title: masterclass.title,
         description: masterclass.description,
         source: masterclass.source,
@@ -121,14 +121,19 @@ exports.editOne = async (id, masterclass) => {
           deleteMany: {},
           create: keywordsFormated,
         },
-        entreprise: {
+      },
+      create: {
+        title: masterclass.title,
+        description: masterclass.description,
+        source: masterclass.source,
+        category: {
           connectOrCreate: {
-            where: { name: masterclass.name },
-            create: {
-              name: masterclass.name,
-              speciality: masterclass.speciality,
-            },
+            where: { name: masterclass.theme },
+            create: { name: masterclass.theme },
           },
+        },
+        keywords: {
+          create: keywordsFormated,
         },
       },
     });
