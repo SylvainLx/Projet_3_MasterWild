@@ -39,25 +39,11 @@ export default function EditMasterclass({
 
   const editMasterclass = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-
-    formData.append("title", title);
-    formData.append("name", name);
-    formData.append("source", source);
-    formData.append("description", desc);
-    formData.append("theme", theme);
-    formData.append("keyword", keyword);
-
+    const data = { title, name, description: desc, source, theme, keyword };
     axios
       .put(
         `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
-
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        data
       )
       .then(() => ToastEditMasterclass());
   };
@@ -89,7 +75,7 @@ export default function EditMasterclass({
             type="text"
             name="name"
             onChange={(e) => setName(e.target.value)}
-            value={names}
+            value={name}
           />
         </label>
         <label htmlFor="source">
