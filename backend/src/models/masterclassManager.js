@@ -96,14 +96,27 @@ exports.createOne = async (masterclass, file) => {
 };
 
 exports.editOne = async (id, masterclass) => {
-  const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
-    keyword: {
-      connectOrCreate: {
-        where: { name: word },
-        create: { name: word },
+  let keywordsFormated = "";
+  if (typeof masterclass.keyword === "string") {
+    keywordsFormated = masterclass.keyword.split(",").map((word) => ({
+      keyword: {
+        connectOrCreate: {
+          where: { name: word },
+          create: { name: word },
+        },
       },
-    },
-  }));
+    }));
+  } else {
+    keywordsFormated = masterclass.keyword.map((word) => ({
+      keyword: {
+        connectOrCreate: {
+          where: { name: word },
+          create: { name: word },
+        },
+      },
+    }));
+  }
+
   try {
     return await prisma.masterclass.upsert({
       where: { Id: parseInt(id, 10) },
