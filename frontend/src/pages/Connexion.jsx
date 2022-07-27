@@ -61,8 +61,14 @@ export default function Connexion() {
     setPassword(e.target.value);
   };
 
-  const ToastConnexion = () => toast.success("Connexion réussie !");
+  const ToastConnexion = () =>
+    toast.success("Connexion réussie, vous allez être redirigé !");
   const ToastEditPassword = () => toast.success("Mot de passe modifié !");
+  const delayNavigate = () => {
+    setTimeout(() => {
+      navigate("/search");
+    }, 2000);
+  };
 
   const searchUser = () => {
     try {
@@ -76,10 +82,10 @@ export default function Connexion() {
           { withCredentials: true }
         )
         .then((response) => {
+          ToastConnexion();
           setUserProfil(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
-          ToastConnexion();
-          navigate("/search");
+          delayNavigate();
         });
     } catch (error) {
       console.error(error);
@@ -157,7 +163,7 @@ export default function Connexion() {
               </button>
               <ToastContainer
                 position="bottom-right"
-                autoClose={4000}
+                autoClose={1500}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

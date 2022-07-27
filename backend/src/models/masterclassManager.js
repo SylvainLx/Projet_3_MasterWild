@@ -96,18 +96,31 @@ exports.createOne = async (masterclass, file) => {
 };
 
 exports.editOne = async (id, masterclass) => {
-  const keywordsFormated = masterclass.keyword.split(",").map((word) => ({
-    keyword: {
-      connectOrCreate: {
-        where: { name: word },
-        create: { name: word },
+  let keywordsFormated = "";
+  if (typeof masterclass.keyword === "string") {
+    keywordsFormated = masterclass.keyword.split(",").map((word) => ({
+      keyword: {
+        connectOrCreate: {
+          where: { name: word },
+          create: { name: word },
+        },
       },
-    },
-  }));
+    }));
+  } else {
+    keywordsFormated = masterclass.keyword.map((word) => ({
+      keyword: {
+        connectOrCreate: {
+          where: { name: word },
+          create: { name: word },
+        },
+      },
+    }));
+  }
+
   try {
-    return await prisma.masterclass.update({
+    return await prisma.masterclass.upsert({
       where: { Id: parseInt(id, 10) },
-      data: {
+      update: {
         title: masterclass.title,
         description: masterclass.description,
         source: masterclass.source,
@@ -121,14 +134,19 @@ exports.editOne = async (id, masterclass) => {
           deleteMany: {},
           create: keywordsFormated,
         },
-        entreprise: {
+      },
+      create: {
+        title: masterclass.title,
+        description: masterclass.description,
+        source: masterclass.source,
+        category: {
           connectOrCreate: {
-            where: { name: masterclass.name },
-            create: {
-              name: masterclass.name,
-              speciality: masterclass.speciality,
-            },
+            where: { name: masterclass.theme },
+            create: { name: masterclass.theme },
           },
+        },
+        keywords: {
+          create: keywordsFormated,
         },
       },
     });
