@@ -66,6 +66,11 @@ export default function Inscription() {
   };
 
   const ToastInscription = () => toast.success("Inscription validée !");
+  const delayNavigate = () => {
+    setTimeout(() => {
+      navigate("/connexion");
+    }, 2000);
+  };
 
   const postUser = () => {
     try {
@@ -79,8 +84,8 @@ export default function Inscription() {
           company,
         })
         .then(() => {
-          navigate("/connexion");
           ToastInscription();
+          delayNavigate();
         });
     } catch (error) {
       console.error(error);
@@ -287,7 +292,7 @@ export default function Inscription() {
                 Je m'inscris
                 <ToastContainer
                   position="bottom-right"
-                  autoClose={4000}
+                  autoClose={1500}
                   hideProgressBar={false}
                   newestOnTop={false}
                   closeOnClick
