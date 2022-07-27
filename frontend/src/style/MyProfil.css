@@ -81,6 +81,12 @@
   display: none;
 }
 
+.text-danger-profil {
+  color: var(--main-red);
+  font-size: var(--XS);
+  margin-bottom: 1.2em;
+}
+
 @media screen and (min-width: 767.98px) {
   .logo-profile {
     display: block;
