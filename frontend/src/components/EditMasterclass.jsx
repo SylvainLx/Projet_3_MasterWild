@@ -128,7 +128,13 @@ export default function EditMasterclass({
             value={desc}
           />
         </label>
-        <input className="btnPut" type="submit" value="Modifier" />{" "}
+        <input className="btnPut" type="submit" value="Modifier" />
+        <input
+          className="btnDel"
+          type="submit"
+          value="Supprimer"
+          onClick={deleteMasterclass}
+        />
         <ToastContainer
           position="bottom-right"
           autoClose={4000}
@@ -141,12 +147,6 @@ export default function EditMasterclass({
           pauseOnHover
         />
       </form>{" "}
-      <input
-        className="btnDel"
-        type="submit"
-        value="Supprimer"
-        onClick={deleteMasterclass}
-      />
     </div>
   );
 }
