@@ -146,7 +146,7 @@ export default function EditMasterclass({
           draggable
           pauseOnHover
         />
-      </form>{" "}
+      </form>
     </div>
   );
 }

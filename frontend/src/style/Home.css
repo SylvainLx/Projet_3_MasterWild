@@ -24,6 +24,9 @@
   .search-exemples {
     display: none;
   }
+  .iframeHome{
+    max-width: 100%;
+  }
 }
 
 .top-page {
