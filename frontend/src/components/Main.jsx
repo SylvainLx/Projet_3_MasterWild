@@ -23,7 +23,6 @@ export default function Main() {
       <Wrapper>
         <Routes>
           <Route path="/" element={<Home />} />
-
           <Route path="/search" element={<Search />} />
           <Route path="/masterclass" element={<Masterclass />} />
           <Route path="/masterclass/:masterclassId" element={<Masterclass />} />

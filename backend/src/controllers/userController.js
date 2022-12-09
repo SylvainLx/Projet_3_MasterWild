@@ -1,5 +1,6 @@
+/* eslint-disable no-restricted-syntax */
 const userDataAccess = require("../models/userDataAccess");
-const { hashPassword } = require("../helpers/argonHelper");
+const { hashPassword, verifyPassword } = require("../helpers/argonHelper");
 
 exports.addOne = async (req, res) => {
   const { password, email } = req.body;
@@ -80,23 +81,39 @@ exports.deleteOne = (req, res) => {
 
 exports.updateOne = (req, res) => {
   const userId = parseInt(req.params.id, 10);
-  const { password } = req.body;
+  const { password, newPassword, firstname, lastname, email } = req.body;
 
-  if (password) {
-    hashPassword(password)
-      .then((hash) => {
-        userDataAccess
-          .modifyOne(userId, { ...req.body, password: hash })
-          .then((info) => console.error(info))
-          .then((info) => res.status(201).json(info))
-          .catch((err) => res.status(300).send({ err }));
-      })
-      .catch((err) => res.status(500).send({ err }));
-  } else {
-    userDataAccess
-      .modifyOne(userId, { ...req.body })
-      .then((info) => console.error(info))
-      .then((info) => res.status(201).json(info))
-      .catch((err) => res.status(300).send({ err }));
-  }
+  userDataAccess.findOne(userId).then((user) => {
+    if (!user) {
+      res.status(401).send("Invalid credentials");
+    }
+    if (password && newPassword) {
+      verifyPassword(password, user.password).then((verification) => {
+        if (verification) {
+          console.log(newPassword, "verification");
+
+          hashPassword(newPassword)
+            .then((hash) => {
+              userDataAccess
+                .modifyOne(userId, {
+                  firstname,
+                  lastname,
+                  email,
+                  password: hash,
+                })
+                .then((info) => console.error(info))
+                .then((info) => res.status(201).json(info))
+                .catch((err) => res.status(300).send({ err }));
+            })
+            .catch((err) => res.status(500).send({ err }));
+        }
+      });
+    } else {
+      userDataAccess
+        .modifyOne(userId, { ...req.body })
+        .then((info) => console.error(info))
+        .then((info) => res.status(201).json(info))
+        .catch((err) => res.status(300).send({ err }));
+    }
+  });
 };
