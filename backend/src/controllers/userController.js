@@ -40,6 +40,21 @@ exports.getOne = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
+exports.checkRoleAdmin = (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+
+  userDataAccess
+    .findOne(userId)
+    .then((user) => {
+      if (user.role !== "admin") {
+        res.sendStatus(403);
+      } else {
+        res.send(user);
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+};
+
 exports.getAll = (req, res) => {
   userDataAccess
     .findAll()

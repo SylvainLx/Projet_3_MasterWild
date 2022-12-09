@@ -1,4 +1,8 @@
+import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import CurrentUserContext from "../contexts/currentUser";
+
+import InvalidPage from "../pages/InvalidPage";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Masterclass from "../pages/Masterclass";
@@ -12,6 +16,8 @@ import AdminMasterclass from "./AdminMasterclass";
 import Wrapper from "../services/wrapper";
 
 export default function Main() {
+  const { userProfil } = useContext(CurrentUserContext);
+
   return (
     <div id="content-wrap">
       <Wrapper>
@@ -23,10 +29,14 @@ export default function Main() {
           <Route path="/masterclass/:masterclassId" element={<Masterclass />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin" element={<Admin />}>
-            <Route path="abonne" element={<AdminAbonne />} />
-            <Route path="editmasterclass" element={<AdminMasterclass />} />
-          </Route>
+          {userProfil && userProfil.role === "admin" ? (
+            <Route path="/admin" element={<Admin />}>
+              <Route path="abonne" element={<AdminAbonne />} />
+              <Route path="editmasterclass" element={<AdminMasterclass />} />
+            </Route>
+          ) : (
+            <Route path="/403" element={<InvalidPage />} />
+          )}
 
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/inscription" element={<Inscription />} />
