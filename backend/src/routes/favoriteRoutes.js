@@ -1,5 +1,4 @@
 const express = require("express");
-// const auth = require("../middlewares/auth");
 
 const favoriteController = require("../controllers/FavoriteController");
 

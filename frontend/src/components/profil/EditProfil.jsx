@@ -47,7 +47,8 @@ export default function EditProfil() {
           firstname,
           lastname,
           email,
-          password: newPassword,
+          password,
+          newPassword,
         })
         .then(() => {
           setUserProfil({

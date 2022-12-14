@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+
+const authRoleAdmin = require("./middlewares/checkRole");
+
 require("dotenv").config();
 
 const app = express();
@@ -37,13 +40,13 @@ const excelRoutes = require("./routes/excelRoutes");
 
 app.use("/api", router);
 
-router.use("/admin", adminRoutes);
 router.use("/user", userRoutes);
 router.use("/auth", authRoutes);
 router.use("/favorite", favoriteRoutes);
 router.use("/entreprise", entrepriseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/excel", excelRoutes);
+router.use("/admin", authRoleAdmin, adminRoutes);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {
