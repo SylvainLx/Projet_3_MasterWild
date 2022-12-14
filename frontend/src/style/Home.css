@@ -74,6 +74,7 @@
   background-color: var(--main-red);
   font-family: "Raleway", sans-serif;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .home-mosaic {
@@ -93,7 +94,8 @@
 }
 
 .square-pic {
-  width: 100%;
+  width: 80%;
+  margin-inline: auto;
 }
 
 .text {
@@ -149,6 +151,7 @@
 .video-sample-area {
   margin-top: 1.5em;
   background-color: rgba(245, 207, 206);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .divMastHome {
@@ -181,6 +184,7 @@
   color: white;
   margin-bottom: 1em;
   margin-top: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .info-wsc {
@@ -189,6 +193,7 @@
   color: var(--primary-text);
   font-weight: var(--bold);
   font-family: "VarelaRound", sans-serif;
+  margin-top: 1em;
 }
 
 .intro-wsc {
@@ -216,6 +221,12 @@
 
 /*START Tablet and Laptop Version */
 @media screen and (min-width: 767.98px) {
+  .logo-brand{
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    height: 250px;
+    width: auto;
+  }
   .top-page {
     margin: 1em;
     margin-left: 8em;
@@ -245,6 +256,7 @@
     text-align: left;
     line-height: 1.2em;
     margin-left: 0.5em;
+    margin-bottom: .5em;
   }
 
   .logo-top img {
@@ -356,11 +368,12 @@
     background-color: var(--optionnal-text);
     border-radius: 20px;
     margin: 3em 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
   .first-block > h2 {
     color: var(--primary-text);
-    padding: 0.8em 0 0 1em;
+    padding: 1em 0 0 1em;
     font-family: "VarelaRound", sans-serif;
     font-size: var(--L);
     font-weight: var(--bold);
@@ -370,11 +383,12 @@
     background-color: var(--optionnal-text);
     border-radius: 20px;
     margin-bottom: 3em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
   .second-block > h2 {
     color: var(--primary-text);
-    padding: 0.8em 1em 0 1em;
+    padding: 1em 1em 0 1em;
     font-family: "VarelaRound", sans-serif;
     font-size: var(--L);
     font-weight: var(--bold);
