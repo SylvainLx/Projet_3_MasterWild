@@ -11,7 +11,7 @@ export default function InvalidPage() {
         <img src={Oops} alt="oops" className="img" />
       </div>
       <div className="textContainer">
-        <p>La page que vous essayez d'acceder est restreinte !</p>
+        <p>La page que vous essayez d'accéder est restreinte !</p>
         <p>Redirection automatique vers la page principale...</p>
       </div>
     </div>
