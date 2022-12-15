@@ -1,27 +1,35 @@
 import "../style/Admin.css";
 import "../style/App.css";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 import AdminAbonne from "../components/AdminAbonne";
 import AdminMasterclass from "../components/AdminMasterclass";
 
-export default function Admin() {
+export default function Admin({ isAdmin }) {
+  Admin.propTypes = {
+    isAdmin: PropTypes.string.isRequired,
+  };
   const [showClients, setShowClients] = useState(true);
   const [showMasterclass, setShowMasterclass] = useState(false);
   const [masterclassDashboard, setMasterclassDashboard] = useState([]);
   const [usersDashboard, setUsersDashboard] = useState([]);
+  const navigate = useNavigate();
 
   const handleClients = () => {
     setShowClients((current) => !current);
     setShowMasterclass(!true);
   };
+
   const handleMasterclass = () => {
     setShowMasterclass((current) => !current);
     setShowClients(!true);
   };
 
-  useEffect(() => {
+  const fetchData = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
       .then((res) => {
@@ -30,6 +38,14 @@ export default function Admin() {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user`).then((res) => {
       setUsersDashboard(res.data);
     });
+  };
+
+  useEffect(() => {
+    if (isAdmin) {
+      navigate("/403");
+    } else {
+      fetchData();
+    }
   }, []);
 
   const masterclassQuantity = masterclassDashboard.length;
