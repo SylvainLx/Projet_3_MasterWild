@@ -1,0 +1,31 @@
+@import "../style/App.css";
+.page403 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 3rem;
+}
+.img {
+  width: 80%;
+}
+.textContainer {
+  color: var(--main-red);
+  font-size: var(--M);
+  font-weight: var(--bold);
+  font-family: "VarelaRound", sans-serif;
+  line-height: 30px;
+}
+@media screen and (min-width: 767.98px) {
+  .textContainer {
+    font-size: var(--XL);
+    font-weight: var(--black);
+    line-height: 60px;
+  }
+  .img {
+    width: 40%;
+  }
+}
