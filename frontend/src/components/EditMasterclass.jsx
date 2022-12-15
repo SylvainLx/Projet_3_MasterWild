@@ -50,11 +50,14 @@ export default function EditMasterclass({
   const ToastDeleteMasterclass = () => toast.success("Masterclass supprimée !");
 
   const deleteMasterclass = (e) => {
-    e.preventDefault();
-    axios.delete(
-      `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
-    );
-    ToastDeleteMasterclass();
+    // eslint-disable-next-line no-alert
+    if (window.confirm("Voulez-vous supprimer cette masterclass ?")) {
+      e.preventDefault();
+      axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
+      );
+      ToastDeleteMasterclass();
+    }
   };
 
   return (

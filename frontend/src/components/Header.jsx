@@ -72,12 +72,6 @@ export default function Header() {
   const navigate = useNavigate();
   const ToastLogout = () => toast.success("Déconnexion réussie. A bientôt !");
 
-  const delayNavigate = () => {
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
-  };
-
   const logOut = () => {
     try {
       axios
@@ -85,12 +79,13 @@ export default function Header() {
           withCredentials: true,
         })
         .then(() => {
-          setUserProfil({});
-          // navigate("/");
           ToastLogout();
-          delayNavigate();
-          closeSideBar();
-          localStorage.clear();
+          setTimeout(() => {
+            setUserProfil({});
+            localStorage.clear();
+            navigate("/");
+            closeSideBar();
+          }, 3000);
         })
         .catch((error) => {
           console.error(error);
