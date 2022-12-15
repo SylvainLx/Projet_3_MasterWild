@@ -17,6 +17,7 @@ import Wrapper from "../services/wrapper";
 
 export default function Main() {
   const { userProfil } = useContext(CurrentUserContext);
+
   const isAdmin = userProfil === null || userProfil?.role !== "admin";
 
   return (
