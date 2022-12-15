@@ -14,9 +14,15 @@
   justify-content: space-between;
 }
 
+.carousel-items {
+  margin-inline: 1em;
+}
+
 /* BOUTON RETOUR VERS PAGE SEARCH */
 .go-to-search {
   margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
 }
 
 .global-return-button {

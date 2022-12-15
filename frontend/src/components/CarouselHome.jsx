@@ -22,27 +22,27 @@ export default function CarouselHome() {
   const slides = [
     {
       key: 1,
-      content: <img src={Solutions909} alt="1" />,
+      content: <img className="logo-brand" src={Solutions909} alt="1" />,
     },
     {
       key: 2,
-      content: <img src={Anssi} alt="2" />,
+      content: <img className="logo-brand" src={Anssi} alt="2" />,
     },
     {
       key: 3,
-      content: <img src={Mydatafit} alt="3" />,
+      content: <img className="logo-brand" src={Mydatafit} alt="3" />,
     },
     {
       key: 4,
-      content: <img src={Alectio} alt="4" />,
+      content: <img className="logo-brand" src={Alectio} alt="4" />,
     },
     {
       key: 5,
-      content: <img src={Keyrus} alt="5" />,
+      content: <img className="logo-brand" src={Keyrus} alt="5" />,
     },
     {
       key: 6,
-      content: <img src={Tricky} alt="6" />,
+      content: <img className="logo-brand" src={Tricky} alt="6" />,
     },
   ].map((slide, index) => {
     return { ...slide, onClick: () => setState({ goToSlide: index }) };
@@ -53,7 +53,7 @@ export default function CarouselHome() {
   }, [showArrows]);
 
   return (
-    <div style={{ width: "80%", height: "300px", margin: "2rem auto" }}>
+    <div style={{ width: "80%", height: "250px", margin: "20px auto" }}>
       <Carousel
         className="carousel-style"
         slides={slides}

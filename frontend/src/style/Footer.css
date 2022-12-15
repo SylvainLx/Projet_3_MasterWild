@@ -65,10 +65,13 @@
 
 .liIcone {
   text-align: center;
+  transform: translateY(0px) scale(1.05);
+  transition: all 0.5s;
 }
 
 .liIcone:hover {
   transform: translateY(-5px) scale(1.05);
+  transition: all 0.5s;
 }
 .linkIntern {
   margin-top: 0.7em;

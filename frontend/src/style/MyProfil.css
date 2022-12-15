@@ -59,6 +59,7 @@
   background-color: var(--main-red);
   color: white;
   margin: 0.6em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .container-password-profil {
@@ -91,8 +92,8 @@
   .logo-profile {
     display: block;
     padding: 0.5em;
-    width: 35%;
-    height: 35%;
+    width: auto;
+    height: 550px;
   }
 
   .my-profil {
