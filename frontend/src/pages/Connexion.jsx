@@ -62,7 +62,7 @@ export default function Connexion() {
   };
 
   const ToastConnexion = () =>
-    toast.success("Connexion réussie, vous allez être redirigé !");
+    toast.success("Connexion réussie, vous pouvez désormais vous connecter !");
   const ToastEditPassword = () => toast.success("Mot de passe modifié !");
   const delayNavigate = () => {
     setTimeout(() => {

@@ -31,6 +31,7 @@
   text-align: center;
   margin-top: 1em;
   margin-bottom: 1.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .text-masterclass {
   grid-column-start: span 3;
@@ -57,6 +58,7 @@
   border-radius: 40px;
   padding: 0.4em 0.7em;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btn-blue {
@@ -68,6 +70,7 @@
   border-radius: 40px;
   padding: 0.4em 0.7em;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .selectTask {
@@ -106,6 +109,7 @@
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .buttonClient {
@@ -166,6 +170,7 @@
   height: 3rem;
   padding-left: 1rem;
   border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .exportData {
   display: flex;
@@ -183,6 +188,7 @@
   height: 3rem;
   text-decoration: none;
   margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 /* AdminMasterclass */
 
@@ -204,6 +210,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .selectmaster {
@@ -257,6 +264,7 @@
   border: none;
   font-size: var(--S);
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btnDel {
@@ -271,6 +279,7 @@
   font-size: var(--S);
   cursor: pointer;
   margin-bottom: 1.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btnAbonne {
@@ -282,6 +291,7 @@
   border: none;
   font-size: var(--M);
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* Add a Masterclass */
@@ -301,6 +311,7 @@
 .divAdd-masterclass {
   background-color: var(--optionnal-text);
   border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .formAdd-masterclass {
@@ -323,6 +334,7 @@
   font-size: var(--S);
   cursor: pointer;
   margin-bottom: 1.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .input {
@@ -441,6 +453,7 @@
   .selectmaster {
     margin-top: 2rem;
     grid-column-start: span 2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .selectTask {
     margin-bottom: 2em;

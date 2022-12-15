@@ -70,7 +70,13 @@ export default function Header() {
 
   const { setUserProfil, userProfil } = useContext(CurrentUserContext);
   const navigate = useNavigate();
-  const ToastLogout = () => toast.success("A bientôt !");
+  const ToastLogout = () => toast.success("Déconnexion réussie. A bientôt !");
+
+  const delayNavigate = () => {
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+  };
 
   const logOut = () => {
     try {
@@ -80,10 +86,11 @@ export default function Header() {
         })
         .then(() => {
           setUserProfil({});
-          localStorage.clear();
-          navigate("/");
+          // navigate("/");
           ToastLogout();
+          delayNavigate();
           closeSideBar();
+          localStorage.clear();
         })
         .catch((error) => {
           console.error(error);
@@ -133,6 +140,13 @@ export default function Header() {
           </NavLink>
           {userProfil?.role && (
             <div className="menu-right">
+              <NavLink className="navlink-menu-right" to="/profil">
+                <img
+                  className="menu-right-icon"
+                  src={UserProfile}
+                  alt="logowhite"
+                />
+              </NavLink>
               <button
                 type="button"
                 onClick={logOut}
@@ -152,13 +166,6 @@ export default function Header() {
                 draggable
                 pauseOnHover
               />
-              <NavLink className="navlink-menu-right" to="/profil">
-                <img
-                  className="menu-right-icon"
-                  src={UserProfile}
-                  alt="logowhite"
-                />
-              </NavLink>
             </div>
           )}
         </div>
