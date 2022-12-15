@@ -234,10 +234,15 @@
 
   .wildMonitor {
     display: block;
+    width: 500px;
+    height: auto;
     margin-right: 2em;
+    aspect-ratio: 3/2;
+    object-fit: contain;
   }
   .introHomeMasterwild {
     display: flex;
+    margin-top: 2em;
   }
 
   .down-page {
@@ -293,7 +298,7 @@
     justify-content: flex-start;
     text-align: left;
     padding-left: 0;
-    padding-right: 5em;
+    width: 50%;
   }
 
   .intro-wsc {
@@ -450,5 +455,9 @@
     font-weight: var(--bold);
     font-size: 1.1em;
     line-height: 2.5em;
+  }
+
+  .wildMonitor{
+    width:50%;
   }
 }
