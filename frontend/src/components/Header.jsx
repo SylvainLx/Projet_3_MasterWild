@@ -64,9 +64,8 @@ export default function Header() {
 
   if (!userProfil) navlinklist.push(connectLink);
 
-  const ToastLogout = () => toast.success("A bientôt !");
-
   const navigate = useNavigate();
+  const ToastLogout = () => toast.success("Déconnexion réussie. A bientôt !");
 
   const logOut = () => {
     try {
@@ -81,7 +80,7 @@ export default function Header() {
             localStorage.clear();
             navigate("/");
             closeSideBar();
-          }, 1000);
+          }, 3000);
         })
         .catch((error) => {
           console.error(error);
@@ -131,6 +130,13 @@ export default function Header() {
           </NavLink>
           {userProfil?.role && (
             <div className="menu-right">
+              <NavLink className="navlink-menu-right" to="/profil">
+                <img
+                  className="menu-right-icon"
+                  src={UserProfile}
+                  alt="logowhite"
+                />
+              </NavLink>
               <button
                 type="button"
                 onClick={logOut}
@@ -150,13 +156,6 @@ export default function Header() {
                 draggable
                 pauseOnHover
               />
-              <NavLink className="navlink-menu-right" to="/profil">
-                <img
-                  className="menu-right-icon"
-                  src={UserProfile}
-                  alt="logowhite"
-                />
-              </NavLink>
             </div>
           )}
         </div>

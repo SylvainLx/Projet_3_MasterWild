@@ -65,7 +65,8 @@ export default function Inscription() {
     setCompany(e.target.value);
   };
 
-  const ToastInscription = () => toast.success("Inscription validée !");
+  const ToastInscription = () =>
+    toast.success("Inscription validée, vous pouvez vous connecter !");
   const delayNavigate = () => {
     setTimeout(() => {
       navigate("/connexion");

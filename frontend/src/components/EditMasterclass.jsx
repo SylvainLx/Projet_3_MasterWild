@@ -59,15 +59,18 @@ export default function EditMasterclass({
   };
 
   const deleteMasterclass = (e) => {
-    e.preventDefault();
-    try {
-      axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
-      );
-      ToastDeleteMasterclass();
-    } catch (err) {
-      console.error(err);
-      ToastDeleteErrorMasterclass();
+    // eslint-disable-next-line no-alert
+    if (window.confirm("Voulez-vous supprimer cette masterclass ?")) {
+      try {
+        e.preventDefault();
+        axios.delete(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
+        );
+        ToastDeleteMasterclass();
+      } catch (err) {
+        console.error(err);
+        ToastDeleteErrorMasterclass();
+      }
     }
   };
 

@@ -7,7 +7,7 @@ export default function UsersList({ users }) {
   return (
     <div className="usersList">
       <p>
-        <span className="usersSpan">Utilisateur N°</span> {users.Id}
+        <span className="usersSpan">Utilisateur n°</span> {users.Id}
       </p>
       <p>
         <span className="usersSpan">Nom : </span> {users.lastname}

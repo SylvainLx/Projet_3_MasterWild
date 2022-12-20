@@ -1,4 +1,5 @@
 /* Page Search */
+
 .search-page {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,7 @@
 }
 
 /* Title Masterclass */
+
 .div-title {
   width: 100%;
   height: 5rem;
@@ -187,7 +189,9 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
 /* Result Search Jobs */
+
 .list-metier {
   background-color: var(--secondary-red);
   color: var(--primary-text);
@@ -197,18 +201,19 @@
   border-radius: 0px 0px 40px 40px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 /* Result Search Section */
 
 .result-masterclass {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
 }
 .result-mastersearch {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
 }
 
@@ -223,9 +228,8 @@
     padding: 3rem 0rem;
   }
   .result-masterclass {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
   }
   .search-theme,
@@ -236,9 +240,8 @@
   .result-mastersearch {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
   }
   .card-container {
