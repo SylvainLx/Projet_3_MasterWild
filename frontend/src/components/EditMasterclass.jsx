@@ -36,27 +36,41 @@ export default function EditMasterclass({
   );
 
   const ToastEditMasterclass = () => toast.success("Masterclass modifiée !");
+  const ToastEditErrorMasterclass = () =>
+    toast.success("Erreur lors de la modification !");
+  const ToastDeleteMasterclass = () => toast.success("Masterclass supprimée !");
+  const ToastDeleteErrorMasterclass = () =>
+    toast.success("Erreur lors de la suppression !");
 
   const editMasterclass = (e) => {
     e.preventDefault();
     const data = { title, name, description: desc, source, theme, keyword };
-    axios
-      .put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
-        data
-      )
-      .then(() => ToastEditMasterclass());
+    try {
+      axios
+        .put(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`,
+          data
+        )
+        .then(() => ToastEditMasterclass());
+    } catch (err) {
+      console.error(err);
+      ToastEditErrorMasterclass();
+    }
   };
-  const ToastDeleteMasterclass = () => toast.success("Masterclass supprimée !");
 
   const deleteMasterclass = (e) => {
     // eslint-disable-next-line no-alert
     if (window.confirm("Voulez-vous supprimer cette masterclass ?")) {
-      e.preventDefault();
-      axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
-      );
-      ToastDeleteMasterclass();
+      try {
+        e.preventDefault();
+        axios.delete(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass/${Id}`
+        );
+        ToastDeleteMasterclass();
+      } catch (err) {
+        console.error(err);
+        ToastDeleteErrorMasterclass();
+      }
     }
   };
 

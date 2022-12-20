@@ -16,6 +16,8 @@ export default function AddMasterclass() {
   const [speciality, setSpeciality] = useState("");
 
   const ToastAddMasterclass = () => toast.success("Masterclass ajoutée !");
+  const ToastErrorAddMasterclass = () =>
+    toast.error("Erreur lors de la création d'une masterclass !");
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -30,19 +32,26 @@ export default function AddMasterclass() {
     formData.append("theme", theme);
     formData.append("keyword", keyword);
     formData.append("file", photo[0]);
+    try {
+      axios
+        .post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
 
-    axios
-      .post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
-
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then(() => ToastAddMasterclass());
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then(() => {
+          ToastAddMasterclass();
+          window.location.reload();
+        });
+    } catch (err) {
+      console.error(err);
+      ToastErrorAddMasterclass();
+    }
   };
 
   return (

@@ -49,14 +49,26 @@
   width: 50vw;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
 .logo-search {
   width: 1.7rem;
+  margin-left: -50px;
+  z-index: 2;
+  position: relative;
 }
-.btnlogo {
+.logoCloseSearchBar {
+  width: 1.6rem;
+  margin-right: -50px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+
+.btnlogo,
+.btnClose {
   border: none;
   background-color: transparent;
+  margin-top: 3px;
 }
 
 /* Search Select Theme */

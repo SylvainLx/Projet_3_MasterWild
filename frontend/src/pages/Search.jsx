@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import LogoSearch from "../assets/search.png";
+import Close from "../assets/close.png";
 import ArrowDown from "../assets/arrowdown.png";
 import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
@@ -47,6 +48,13 @@ export default function Search() {
     setFilterSearch(e.target.value);
   };
 
+  const clearSearchBar = () => {
+    setSearchCategory([]);
+    setFilterSearch([]);
+    const clearBar = document.getElementById("searching");
+    clearBar.value = "";
+  };
+
   // Show all CardMasterclass
   const [listMasterclass, setListMasterclass] = useState([]);
   useEffect(() => {
@@ -66,7 +74,11 @@ export default function Search() {
       </div>
       <section className="search-section">
         <div className="search-bar">
+          <button className="btnClose" type="button" onClick={clearSearchBar}>
+            <img src={Close} alt="close" className="logoCloseSearchBar" />
+          </button>
           <input
+            id="searching"
             className="searching"
             type="text"
             placeholder="Chercher une entreprise, une thématique, un mot-clé..."
