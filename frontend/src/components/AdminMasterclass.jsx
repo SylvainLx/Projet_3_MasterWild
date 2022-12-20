@@ -16,7 +16,7 @@ export default function AdminMasterclass() {
       .then((res) => {
         setShowMasterclass(res.data.data);
       });
-  }, []);
+  }, [showMasterclass]);
 
   const handleFilter = (e) => {
     setFilterMasterclass(e.target.value);
