@@ -42,9 +42,9 @@ export default function Admin({ isAdmin }) {
 
   useEffect(() => {
     if (isAdmin) {
-      navigate("/403");
-    } else {
       fetchData();
+    } else {
+      navigate("/403");
     }
   }, []);
 

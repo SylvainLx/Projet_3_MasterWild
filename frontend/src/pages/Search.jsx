@@ -1,6 +1,9 @@
 import "../style/Search.css";
 import "../style/App.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import PropTypes from "prop-types";
+
 import axios from "axios";
 
 import LogoSearch from "../assets/search.png";
@@ -9,7 +12,12 @@ import ArrowDown from "../assets/arrowdown.png";
 import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
 
-export default function Search() {
+export default function Search({ isOnline }) {
+  Search.propTypes = {
+    isOnline: PropTypes.string.isRequired,
+  };
+  const navigate = useNavigate();
+
   // Show div showTheme & showEntreprise
   const [showTheme, setShowTheme] = useState(false);
   const [showEntreprise, setShowEntreprise] = useState(false);
@@ -26,12 +34,17 @@ export default function Search() {
 
   // Lists categories and entreprises
   const [searchCategory, setSearchCategory] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
-      .then((res) => {
-        setSearchCategory(res.data.data);
-      });
+    if (!isOnline) {
+      navigate("/403");
+    } else {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
+        .then((res) => {
+          setSearchCategory(res.data.data);
+        });
+    }
   }, []);
 
   const [listEntreprise, setListEntreprise] = useState([]);

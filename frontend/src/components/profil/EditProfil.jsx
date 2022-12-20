@@ -10,12 +10,27 @@ import CurrentUserContext from "../../contexts/currentUser";
 import "../../style/MyProfil.css";
 
 const validationSchema = Yup.object().shape({
-  firstname: Yup.string().required("Le prénom est obligatoire"),
-  lastname: Yup.string().required("Le nom est obligatoire"),
+  firstname: Yup.string()
+    .matches(
+      /^[a-zA-ZàâäéèêëïîôöùûüçÀÂÄÉÈËÏÎÔÖÙÛÜÇ]+$/,
+      "Caractères spéciaux interdits"
+    )
+    .required("Le prénom est obligatoire"),
+  lastname: Yup.string()
+    .matches(
+      /^[a-zA-ZàâäéèêëïîôöùûüçÀÂÄÉÈËÏÎÔÖÙÛÜÇ]+$/,
+      "Caractères spéciaux interdits"
+    )
+    .required("Le nom est obligatoire"),
   email: Yup.string()
+    .matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, "L'adresse e-mail invalide")
     .required("L'adresse e-mail est obligatoire")
     .email("Veuillez entrer une adresse e-mail valide"),
   newPassword: Yup.string()
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+      "Minimum 8 caractères, au moins une majuscule, une minuscule et un chiffre"
+    )
     .required("Le mot de passe est obligatoire")
     .min(8, "Le mot de passe doit avoir 8 caractères"),
   passwordConfirmation: Yup.string().oneOf(

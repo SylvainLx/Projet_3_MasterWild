@@ -84,6 +84,9 @@ export default function EditMasterclass({
             name="title"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="name">
@@ -93,6 +96,9 @@ export default function EditMasterclass({
             name="name"
             onChange={(e) => setName(e.target.value)}
             value={name}
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="source">
@@ -102,6 +108,9 @@ export default function EditMasterclass({
             name="source"
             onChange={(e) => setSource(e.target.value)}
             value={source}
+            required
+            maxLength="1000"
+            pattern="((https?:\/\/)|(\/)|(..\/))(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?"
           />
         </label>
         <label htmlFor="category">
@@ -111,6 +120,9 @@ export default function EditMasterclass({
             name="category"
             onChange={(e) => setTheme(e.target.value)}
             value={theme}
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="keyword">
@@ -120,6 +132,9 @@ export default function EditMasterclass({
             name="keyword"
             onChange={(e) => setKeyword(e.target.value)}
             value={keyword}
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label className="desc" htmlFor="description">
@@ -129,6 +144,9 @@ export default function EditMasterclass({
             name="description"
             onChange={(e) => setDesc(e.target.value)}
             value={desc}
+            maxLength="2500"
+            required
+            pattern="[@_$*€£`+=/;#]+"
           />
         </label>
         <input className="btnPut" type="submit" value="Modifier" />
