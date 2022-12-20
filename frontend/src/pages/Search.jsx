@@ -89,13 +89,21 @@ export default function Search() {
               <h3 className="hematiques">HEMATIQUE</h3>
             </div>
             {showTheme ? (
-              <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
+              <img
+                src={ArrowUp}
+                alt="arrowdown"
+                className="logo-arrow vignets"
+              />
             ) : (
-              <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
+              <img
+                src={ArrowDown}
+                alt="arrowleft"
+                className="logo-arrow vignets"
+              />
             )}
           </button>
           {showTheme && (
-            <div className="result-theme">
+            <div className="result-theme vignets">
               <ul className="list-theme">
                 {searchCategory.map((category) => (
                   <button
@@ -129,13 +137,21 @@ export default function Search() {
               <h3 className="etiers">NTREPRISE</h3>
             </div>
             {showEntreprise ? (
-              <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
+              <img
+                src={ArrowUp}
+                alt="arrowdown"
+                className="logo-arrow vignets"
+              />
             ) : (
-              <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
+              <img
+                src={ArrowDown}
+                alt="arrowleft"
+                className="logo-arrow vignets"
+              />
             )}
           </button>
           {showEntreprise && (
-            <div className="result-metier">
+            <div className="result-metier vignets">
               <ul className="list-metier">
                 {listEntreprise.map((entreprise) => (
                   <button
