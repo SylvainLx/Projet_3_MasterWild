@@ -71,7 +71,7 @@ export default function Admin({ isAdmin }) {
         <p className="text-dashboard">
           <span className="span-number">{employeQuantity.length}</span>
           <br />
-          Entreprises
+          Professionnels
         </p>
         <p className="text-dashboard text-masterclass">
           <span className="span-number">{masterclassQuantity}</span>

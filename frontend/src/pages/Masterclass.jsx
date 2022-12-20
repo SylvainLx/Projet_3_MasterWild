@@ -35,8 +35,8 @@ export default function Masterclass() {
         <NavLink to="/search" className="global-return-button">
           <button type="button" className="return-button">
             <svg
-              height="16"
-              width="16"
+              height="32"
+              width="32"
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
               viewBox="0 0 1024 1024"
