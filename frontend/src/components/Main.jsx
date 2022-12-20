@@ -18,6 +18,8 @@ import Wrapper from "../services/wrapper";
 export default function Main() {
   const { userProfil } = useContext(CurrentUserContext);
 
+  const isAdmin = userProfil === null || userProfil?.role !== "admin";
+
   return (
     <div id="content-wrap">
       <Wrapper>
@@ -28,15 +30,11 @@ export default function Main() {
           <Route path="/masterclass/:masterclassId" element={<Masterclass />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/contact" element={<Contact />} />
-          {userProfil && userProfil.role === "admin" ? (
-            <Route path="/admin" element={<Admin />}>
-              <Route path="abonne" element={<AdminAbonne />} />
-              <Route path="editmasterclass" element={<AdminMasterclass />} />
-            </Route>
-          ) : (
-            <Route path="/403" element={<InvalidPage />} />
-          )}
-
+          <Route path="/admin" element={<Admin isAdmin={isAdmin} />}>
+            <Route path="abonne" element={<AdminAbonne />} />
+            <Route path="editmasterclass" element={<AdminMasterclass />} />
+          </Route>
+          <Route path="/403" element={<InvalidPage />} />
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/inscription" element={<Inscription />} />
         </Routes>

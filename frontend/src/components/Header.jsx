@@ -24,53 +24,48 @@ export default function Header() {
     setOpen(false);
   };
 
+  const { setUserProfil, userProfil } = useContext(CurrentUserContext);
+
   const navlinklist = [
     {
       to: "/",
-
       text: "Home",
       isRequiered: [],
     },
-
-    {
-      to: "/connexion",
-
-      text: "Inscription / Connexion",
-      isRequiered: [],
-    },
-
     {
       to: "/search",
-
       text: "Masterclasses",
       isRequiered: ["user", "admin"],
     },
-
     {
       to: "/profil",
-
       text: "Mon Profil",
       isRequiered: ["user", "admin"],
     },
 
     {
       to: "/contact",
-
       text: "FAQ / Contact",
       isRequiered: ["user", "admin"],
     },
-
     {
       to: "/admin",
-
       text: "Administrateur",
       isRequiered: ["admin"],
     },
   ];
 
-  const { setUserProfil, userProfil } = useContext(CurrentUserContext);
+  const connectLink = {
+    to: "/connexion",
+
+    text: "Inscription / Connexion",
+    isRequiered: [],
+  };
+
+  if (!userProfil) navlinklist.push(connectLink);
+
   const navigate = useNavigate();
-  const ToastLogout = () => toast.success("A bientôt !");
+  const ToastLogout = () => toast.success("Déconnexion réussie. A bientôt !");
 
   const logOut = () => {
     try {
@@ -79,11 +74,13 @@ export default function Header() {
           withCredentials: true,
         })
         .then(() => {
-          setUserProfil({});
-          localStorage.clear();
-          navigate("/");
           ToastLogout();
-          closeSideBar();
+          setTimeout(() => {
+            setUserProfil({});
+            localStorage.clear();
+            navigate("/");
+            closeSideBar();
+          }, 3000);
         })
         .catch((error) => {
           console.error(error);
@@ -133,6 +130,13 @@ export default function Header() {
           </NavLink>
           {userProfil?.role && (
             <div className="menu-right">
+              <NavLink className="navlink-menu-right" to="/profil">
+                <img
+                  className="menu-right-icon"
+                  src={UserProfile}
+                  alt="logowhite"
+                />
+              </NavLink>
               <button
                 type="button"
                 onClick={logOut}
@@ -152,13 +156,6 @@ export default function Header() {
                 draggable
                 pauseOnHover
               />
-              <NavLink className="navlink-menu-right" to="/profil">
-                <img
-                  className="menu-right-icon"
-                  src={UserProfile}
-                  alt="logowhite"
-                />
-              </NavLink>
             </div>
           )}
         </div>

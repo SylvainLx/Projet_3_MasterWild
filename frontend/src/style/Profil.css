@@ -5,7 +5,7 @@
 
 .ongletLeft {
   width: 40%;
-  height: 50px;
+  height: 80px;
   font-size: large;
   font-family: "VarelaRound", sans-serif;
   display: flex;
@@ -23,7 +23,7 @@
 
 .ongletLeftActive {
   width: 60%;
-  height: 50px;
+  height: 80px;
   font-size: x-large;
   display: flex;
   border-top: none;
@@ -36,11 +36,12 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .ongletRight {
   width: 40%;
-  height: 50px;
+  height: 80px;
   font-size: large;
   font-family: "VarelaRound", sans-serif;
   display: flex;
@@ -58,7 +59,7 @@
 
 .ongletRightActive {
   width: 60%;
-  height: 50px;
+  height: 80px;
   font-size: x-large;
   display: flex;
   border-top: none;
@@ -70,4 +71,5 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  text-decoration: underline;
 }

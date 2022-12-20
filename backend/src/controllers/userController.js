@@ -90,8 +90,6 @@ exports.updateOne = (req, res) => {
     if (password && newPassword) {
       verifyPassword(password, user.password).then((verification) => {
         if (verification) {
-          console.log(newPassword, "verification");
-
           hashPassword(newPassword)
             .then((hash) => {
               userDataAccess

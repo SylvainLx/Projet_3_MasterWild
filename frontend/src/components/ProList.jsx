@@ -7,7 +7,7 @@ export default function ProList({ pro }) {
   return (
     <div className="proList">
       <p>
-        <span className="proSpan">Entreprise N°</span> {pro.Id}
+        <span className="proSpan">Entreprise : </span> {pro.company}
       </p>
       <p>
         <span className="proSpan">Nom : </span> {pro.lastname}

@@ -1,4 +1,5 @@
 /* Page Search */
+
 .search-page {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,7 @@
 }
 
 /* Title Masterclass */
+
 .div-title {
   width: 100%;
   height: 5rem;
@@ -40,19 +42,33 @@
   justify-content: center;
 }
 .searching {
-  background-color: rgba(218, 212, 212, 0.691);
+  background-color: rgba(218, 212, 212, 0.465);
   border-radius: 1rem;
   padding-left: 2rem;
   height: 2rem;
   width: 50vw;
   border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .logo-search {
   width: 1.7rem;
+  margin-left: -50px;
+  z-index: 2;
+  position: relative;
 }
-.btnlogo {
+.logoCloseSearchBar {
+  width: 1.6rem;
+  margin-right: -50px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+
+.btnlogo,
+.btnClose {
   border: none;
   background-color: transparent;
+  margin-top: 3px;
 }
 
 /* Search Select Theme */
@@ -74,6 +90,7 @@
   background-color: var(--main-red);
   border: none;
   border-radius: 40px 40px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .letter-t {
   color: whitesmoke;
@@ -122,6 +139,7 @@
   width: 100%;
   height: 10rem;
   border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .btnsearchmetier {
   font-family: "VarelaRound", sans-serif;
@@ -134,6 +152,7 @@
   height: 10rem;
   border: none;
   border-radius: 0px 0px 40px 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .letter-m {
   color: var(--main-red);
@@ -156,6 +175,7 @@
   font-weight: var(--bold);
   padding: 1rem;
   line-height: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .li-theme {
   border: none;
@@ -169,7 +189,9 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
 /* Result Search Jobs */
+
 .list-metier {
   background-color: var(--secondary-red);
   color: var(--primary-text);
@@ -177,19 +199,21 @@
   padding: 1rem;
   line-height: 2rem;
   border-radius: 0px 0px 40px 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 /* Result Search Section */
 
 .result-masterclass {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
 }
 .result-mastersearch {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
 }
 
@@ -204,9 +228,8 @@
     padding: 3rem 0rem;
   }
   .result-masterclass {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
   }
   .search-theme,
@@ -217,9 +240,8 @@
   .result-mastersearch {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
   }
   .card-container {

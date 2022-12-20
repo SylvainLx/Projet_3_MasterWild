@@ -101,29 +101,31 @@ export default function VideoSample({
             src={masterclass.source}
           />
         )}
-        <div className="like-button">
-          <button
-            type="button"
-            className={heartClass}
-            onClick={handleClickFavorite}
-          >
-            &nbsp;
-          </button>
-        </div>
         <div className="description-video">
-          <div className="logo-container">
-            <img
-              className="picture-video"
-              src={entrepriseLogo}
-              alt={entrepriseName}
-            />
-          </div>
-
-          <div className="text">
-            <div className="text-top">
-              <h1 className="title-video">{masterclass.title}</h1>
+          <div className="intro-vid">
+            <div className="logo-container">
+              <img
+                className="picture-video"
+                src={entrepriseLogo}
+                alt={entrepriseName}
+              />
             </div>
-            <p className="text-bottom">{masterclass.description}</p>
+
+            <div className="text">
+              <div className="text-top">
+                <h1 className="title-video">{masterclass.title}</h1>
+              </div>
+              <p className="text-bottom">{masterclass.description}</p>
+            </div>
+          </div>
+          <div className="like-button">
+            <button
+              type="button"
+              className={heartClass}
+              onClick={handleClickFavorite}
+            >
+              &nbsp;
+            </button>
           </div>
         </div>
         <div className="button-watch">
