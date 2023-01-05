@@ -494,3 +494,11 @@
     grid-column-start: span 2;
   }
 }
+
+.input:not(:placeholder-shown), .i-desc:not(:placeholder-shown), .i-title:not(:placeholder-shown) {
+  border: 1px solid red;
+}
+
+.input:valid, .i-desc:valid, .i-title:valid {
+  border: none;
+}

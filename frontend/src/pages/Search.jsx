@@ -94,7 +94,7 @@ export default function Search({ isOnline }) {
             id="searching"
             className="searching"
             type="text"
-            placeholder="Chercher une entreprise, une thématique, un mot-clé..."
+            placeholder="Recherche..."
             onChange={(e) => setFilterSearch(e.target.value)}
           />
           <button className="btnlogo" type="button">
