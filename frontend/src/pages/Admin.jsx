@@ -42,9 +42,9 @@ export default function Admin({ isAdmin }) {
 
   useEffect(() => {
     if (isAdmin) {
-      navigate("/403");
-    } else {
       fetchData();
+    } else {
+      navigate("/403");
     }
   }, []);
 
@@ -71,7 +71,7 @@ export default function Admin({ isAdmin }) {
         <p className="text-dashboard">
           <span className="span-number">{employeQuantity.length}</span>
           <br />
-          Entreprises
+          Professionnels
         </p>
         <p className="text-dashboard text-masterclass">
           <span className="span-number">{masterclassQuantity}</span>

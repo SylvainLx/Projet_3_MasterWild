@@ -36,6 +36,7 @@
   padding-top: 1.2em;
   padding-bottom: 1.2em;
   border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .pfaq {
   font-size: var(--L);
@@ -57,6 +58,7 @@
   max-width: 100%;
   border-radius: 5px;
   width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .answerDiv {
@@ -83,14 +85,13 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 1em;
+  padding-top: 1.5em;
   padding-bottom: 1em;
   max-width: 100%;
 }
 
 .pAsk {
   font-size: var(--M);
-  font-weight: var(--bold);
   color: var(--main-red);
   padding-bottom: 1em;
   text-align: center;
@@ -114,6 +115,7 @@
   font-weight: var(--semi-bold);
   max-width: 100%;
   font-family: "VarelaRound", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .formHidden {
@@ -129,6 +131,7 @@
   flex-direction: column;
   width: 100%;
   border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .contactInput {
@@ -163,6 +166,7 @@
   cursor: pointer;
   max-width: 60%;
   font-family: "VarelaRound", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .contactButton:hover {
@@ -211,8 +215,7 @@
     margin-bottom: 1em;
   }
   .popularQuestions {
-    margin-left: 1.5em;
-    margin-right: 1.5em;
+    margin:0 1.5em 1.5em 1.5em;
   }
   .answerDiv {
     text-align: center;
@@ -225,11 +228,13 @@
   }
   .pAsk {
     padding-bottom: 0;
+    font-size: var(--L);
   }
   .askButton {
     margin-inline: 0;
     border-radius: 0.2rem;
     border: none;
+    font-size: var(--M);
   }
   .formHidden {
     padding-top: 1.2em;
@@ -242,13 +247,14 @@
     width: 100%;
     margin-inline: 1em;
     border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .divFormContact {
     margin-inline: 1.5em;
   }
   .formContact {
-    padding-top: 1.2em;
-    padding-bottom: 1em;
+    padding-top: 1.5em;
+    padding-bottom: 1.2em;
     background-color: var(--secondary-red);
     display: flex;
     align-self: center;
@@ -256,6 +262,7 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    margin-top: 1.5em;
   }
   .sep {
     border: 1px solid white;
@@ -285,6 +292,7 @@
   }
   .contactInput {
     padding: 0.3em;
+    padding-left: 1em;
     height: 2em;
   }
   .contactButton {

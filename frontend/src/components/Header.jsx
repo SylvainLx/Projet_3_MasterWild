@@ -80,6 +80,7 @@ export default function Header() {
             localStorage.clear();
             navigate("/");
             closeSideBar();
+            window.location.reload();
           }, 3000);
         })
         .catch((error) => {

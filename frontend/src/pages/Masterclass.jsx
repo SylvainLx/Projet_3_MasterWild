@@ -1,20 +1,32 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
+import PropTypes from "prop-types";
 import { NavLink, useParams } from "react-router-dom";
 import VideoSample from "../components/VideoSample";
 import CardMasterclass from "../components/CardMasterclass";
 import "../style/Masterclass.css";
 
-export default function Masterclass() {
+export default function Masterclass({ isOnline }) {
+  Masterclass.propTypes = {
+    isOnline: PropTypes.string.isRequired,
+  };
   const [listMasterclass, setListMasterclass] = useState([]);
   const params = useParams();
   const paramMasterId = parseInt(params.masterclassId, 10);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
-      .then((res) => {
-        setListMasterclass(res.data.data);
-      });
+    if (!isOnline) {
+      navigate("/403");
+    } else {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
+        .then((res) => {
+          setListMasterclass(res.data.data);
+        });
+    }
   }, []);
 
   return (
@@ -35,8 +47,8 @@ export default function Masterclass() {
         <NavLink to="/search" className="global-return-button">
           <button type="button" className="return-button">
             <svg
-              height="16"
-              width="16"
+              height="32"
+              width="32"
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
               viewBox="0 0 1024 1024"
