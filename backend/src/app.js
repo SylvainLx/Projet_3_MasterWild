@@ -3,8 +3,6 @@ const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-const authRoleAdmin = require("./middlewares/checkRole");
-
 require("dotenv").config();
 
 const app = express();
@@ -46,7 +44,7 @@ router.use("/favorite", favoriteRoutes);
 router.use("/entreprise", entrepriseRoutes);
 router.use("/category", categoryRoutes);
 router.use("/excel", excelRoutes);
-router.use("/admin", authRoleAdmin, adminRoutes);
+router.use("/admin", adminRoutes);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {
