@@ -48,7 +48,7 @@
 }
 .return-button span {
   font-family: "Raleway", sans-serif;
-  font-size: var(--S);
+  font-size: var(--M);
   font-weight: var(--semi-bold);
 }
 
@@ -61,9 +61,6 @@
     width: 12%;
     height: 5rem;
   }
-  .return-button span {
-    font-size: 0.9rem;
-  }
 }
 
 @media screen and (min-width: 767.98px) {
@@ -73,9 +70,6 @@
   .global-return-button {
     width: 12%;
     height: 5rem;
-  }
-  .return-button span {
-    font-size: 1.1rem;
   }
 }
 
@@ -96,8 +90,5 @@
   }
   .go-to-search {
     margin: 0;
-  }
-  .return-button span {
-    font-size: 0.9rem;
   }
 }

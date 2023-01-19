@@ -49,14 +49,26 @@
   width: 50vw;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
 .logo-search {
   width: 1.7rem;
+  margin-left: -50px;
+  z-index: 2;
+  position: relative;
 }
-.btnlogo {
+.logoCloseSearchBar {
+  width: 1.6rem;
+  margin-right: -50px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+
+.btnlogo,
+.btnClose {
   border: none;
   background-color: transparent;
+  margin-top: 3px;
 }
 
 /* Search Select Theme */
@@ -235,5 +247,48 @@
   .card-container {
     margin-right: 2em;
     margin-left: 2em;
+  }
+}
+
+
+/* animation div */
+
+.vignets {
+    
+  animation: fadein 1s;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari et Chrome */
+  -o-animation: fadein 1s; /* Opera */
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* sur Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* sur Safari et Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* sur Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
   }
 }

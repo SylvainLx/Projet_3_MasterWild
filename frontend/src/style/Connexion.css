@@ -153,6 +153,18 @@
 }
 
 /* Media querie */
+@media screen and (max-width: 1200px) {
+ .divPicConnexionbis {
+  display: none;
+ }
+}
+
+@media screen and (min-width: 1200px) {
+  .divPicConnexionbis {
+    display: block;
+    justify-self: center;
+  }
+ }
 
 @media screen and (min-width: 767.98px) {
   .introSeConnecter {
@@ -168,10 +180,7 @@
     font-weight: var(--bold);
     color: var(--primary-text);
   }
-  .divPicConnexionbis {
-    display: block;
-    justify-self: center;
-  }
+
   .formConnection {
     width: 50%;
   }

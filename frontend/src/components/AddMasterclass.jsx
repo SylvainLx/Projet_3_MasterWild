@@ -16,6 +16,8 @@ export default function AddMasterclass() {
   const [speciality, setSpeciality] = useState("");
 
   const ToastAddMasterclass = () => toast.success("Masterclass ajoutée !");
+  const ToastErrorAddMasterclass = () =>
+    toast.error("Erreur lors de la création d'une masterclass !");
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -30,19 +32,26 @@ export default function AddMasterclass() {
     formData.append("theme", theme);
     formData.append("keyword", keyword);
     formData.append("file", photo[0]);
+    try {
+      axios
+        .post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
 
-    axios
-      .post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`,
-
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then(() => ToastAddMasterclass());
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then(() => {
+          ToastAddMasterclass();
+          window.location.reload();
+        });
+    } catch (err) {
+      console.error(err);
+      ToastErrorAddMasterclass();
+    }
   };
 
   return (
@@ -55,6 +64,9 @@ export default function AddMasterclass() {
             name="title"
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Titre de la masterclass"
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="name">
@@ -64,6 +76,9 @@ export default function AddMasterclass() {
             name="name"
             onChange={(e) => setName(e.target.value)}
             placeholder="Nom de l'entreprise"
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="speciality">
@@ -73,15 +88,21 @@ export default function AddMasterclass() {
             name="speciality"
             onChange={(e) => setSpeciality(e.target.value)}
             placeholder="Spécialité - domaine"
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="source">
           <input
             className="input"
-            type="text"
+            type="url"
             name="source"
             onChange={(e) => setSource(e.target.value)}
             placeholder="Lien YT de la video"
+            required
+            maxLength="1000"
+            pattern="((https?:\/\/)|(\/)|(..\/))(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?"
           />
         </label>
         <label htmlFor="category">
@@ -91,6 +112,9 @@ export default function AddMasterclass() {
             name="category"
             onChange={(e) => setTheme(e.target.value)}
             placeholder="Thématique"
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="keyword">
@@ -100,6 +124,9 @@ export default function AddMasterclass() {
             name="keyword"
             onChange={(e) => setKeyword(e.target.value)}
             placeholder="Mots Clés"
+            required
+            maxLength="150"
+            pattern="[^@&()!_$*€£`+=/;?#]+"
           />
         </label>
         <label htmlFor="logo_source">
@@ -117,6 +144,9 @@ export default function AddMasterclass() {
             name="description"
             onChange={(e) => setDesc(e.target.value)}
             placeholder="Description de la masterclass"
+            maxLength="2500"
+            required
+            pattern="[@_$*€£`+=/;#]+"
           />
         </label>
         <input className="btnPostMasterclass" type="submit" />

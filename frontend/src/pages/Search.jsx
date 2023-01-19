@@ -1,14 +1,23 @@
 import "../style/Search.css";
 import "../style/App.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import PropTypes from "prop-types";
+
 import axios from "axios";
 
 import LogoSearch from "../assets/search.png";
+import Close from "../assets/close.png";
 import ArrowDown from "../assets/arrowdown.png";
 import ArrowUp from "../assets/arrowup.png";
 import CardMasterclass from "../components/CardMasterclass";
 
-export default function Search() {
+export default function Search({ isOnline }) {
+  Search.propTypes = {
+    isOnline: PropTypes.string.isRequired,
+  };
+  const navigate = useNavigate();
+
   // Show div showTheme & showEntreprise
   const [showTheme, setShowTheme] = useState(false);
   const [showEntreprise, setShowEntreprise] = useState(false);
@@ -25,12 +34,17 @@ export default function Search() {
 
   // Lists categories and entreprises
   const [searchCategory, setSearchCategory] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
-      .then((res) => {
-        setSearchCategory(res.data.data);
-      });
+    if (!isOnline) {
+      navigate("/403");
+    } else {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
+        .then((res) => {
+          setSearchCategory(res.data.data);
+        });
+    }
   }, []);
 
   const [listEntreprise, setListEntreprise] = useState([]);
@@ -45,6 +59,13 @@ export default function Search() {
   // Filter by category or entreprise
   const handleChange = (e) => {
     setFilterSearch(e.target.value);
+  };
+
+  const clearSearchBar = () => {
+    setSearchCategory([]);
+    setFilterSearch([]);
+    const clearBar = document.getElementById("searching");
+    clearBar.value = "";
   };
 
   // Show all CardMasterclass
@@ -66,10 +87,14 @@ export default function Search() {
       </div>
       <section className="search-section">
         <div className="search-bar">
+          <button className="btnClose" type="button" onClick={clearSearchBar}>
+            <img src={Close} alt="close" className="logoCloseSearchBar" />
+          </button>
           <input
+            id="searching"
             className="searching"
             type="text"
-            placeholder="Chercher une entreprise, une thématique, un mot-clé..."
+            placeholder="Recherche..."
             onChange={(e) => setFilterSearch(e.target.value)}
           />
           <button className="btnlogo" type="button">
@@ -89,13 +114,21 @@ export default function Search() {
               <h3 className="hematiques">HEMATIQUE</h3>
             </div>
             {showTheme ? (
-              <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
+              <img
+                src={ArrowUp}
+                alt="arrowdown"
+                className="logo-arrow vignets"
+              />
             ) : (
-              <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
+              <img
+                src={ArrowDown}
+                alt="arrowleft"
+                className="logo-arrow vignets"
+              />
             )}
           </button>
           {showTheme && (
-            <div className="result-theme">
+            <div className="result-theme vignets">
               <ul className="list-theme">
                 {searchCategory.map((category) => (
                   <button
@@ -129,13 +162,21 @@ export default function Search() {
               <h3 className="etiers">NTREPRISE</h3>
             </div>
             {showEntreprise ? (
-              <img src={ArrowUp} alt="arrowdown" className="logo-arrow" />
+              <img
+                src={ArrowUp}
+                alt="arrowdown"
+                className="logo-arrow vignets"
+              />
             ) : (
-              <img src={ArrowDown} alt="arrowleft" className="logo-arrow" />
+              <img
+                src={ArrowDown}
+                alt="arrowleft"
+                className="logo-arrow vignets"
+              />
             )}
           </button>
           {showEntreprise && (
-            <div className="result-metier">
+            <div className="result-metier vignets">
               <ul className="list-metier">
                 {listEntreprise.map((entreprise) => (
                   <button

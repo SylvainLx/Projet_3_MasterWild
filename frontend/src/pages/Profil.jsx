@@ -1,10 +1,21 @@
-import { React, useState } from "react";
+import { useNavigate } from "react-router";
+import PropTypes from "prop-types";
+import { React, useState, useEffect } from "react";
 import MyProfil from "../components/profil/MyProfil";
 import MyMCFavoritesList from "../components/profil/MyMCFavoritesList";
 import "../style/Profil.css";
 
-export default function Profil() {
+export default function Profil({ isOnline }) {
+  Profil.propTypes = {
+    isOnline: PropTypes.string.isRequired,
+  };
   const [selectOnglet, setSelectOnglet] = useState(0);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isOnline) navigate("/403");
+  }, []);
 
   const profilChange = () => {
     setSelectOnglet(0);

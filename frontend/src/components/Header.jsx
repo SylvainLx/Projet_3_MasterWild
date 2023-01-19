@@ -24,51 +24,46 @@ export default function Header() {
     setOpen(false);
   };
 
+  const { setUserProfil, userProfil } = useContext(CurrentUserContext);
+
   const navlinklist = [
     {
       to: "/",
-
       text: "Home",
       isRequiered: [],
     },
-
-    {
-      to: "/connexion",
-
-      text: "Inscription / Connexion",
-      isRequiered: [],
-    },
-
     {
       to: "/search",
-
       text: "Masterclasses",
       isRequiered: ["user", "admin"],
     },
-
     {
       to: "/profil",
-
       text: "Mon Profil",
       isRequiered: ["user", "admin"],
     },
 
     {
       to: "/contact",
-
       text: "FAQ / Contact",
       isRequiered: ["user", "admin"],
     },
-
     {
       to: "/admin",
-
       text: "Administrateur",
       isRequiered: ["admin"],
     },
   ];
 
-  const { setUserProfil, userProfil } = useContext(CurrentUserContext);
+  const connectLink = {
+    to: "/connexion",
+
+    text: "Inscription / Connexion",
+    isRequiered: [],
+  };
+
+  if (!userProfil) navlinklist.push(connectLink);
+
   const navigate = useNavigate();
   const ToastLogout = () => toast.success("Déconnexion réussie. A bientôt !");
 
@@ -85,6 +80,7 @@ export default function Header() {
             localStorage.clear();
             navigate("/");
             closeSideBar();
+            window.location.reload();
           }, 3000);
         })
         .catch((error) => {

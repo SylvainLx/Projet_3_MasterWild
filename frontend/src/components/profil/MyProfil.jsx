@@ -19,48 +19,41 @@ export default function MyProfil() {
         src={ProfilePic}
         alt="logo wild code school"
       />
-      <table className="user-table">
+      <div className="user-table">
         <h2 className="titleInscbis">
           <span className="accent">I</span>nformations
         </h2>
-        <tbody>
-          <tr>
-            <p>Nom :</p>
-            <td className="input-profile">
-              <input
-                readOnly="readonly"
-                type="text"
-                name="nom"
-                size="30"
-                value={userProfil.lastname}
-              />
-            </td>
-          </tr>
-          <tr>
+        <div>
+          <p>Nom :</p>
+          <input
+            readOnly="readonly"
+            type="text"
+            name="nom"
+            size="30"
+            value={userProfil?.lastname}
+          />
+
+          <div>
             <p>Prénom :</p>
-            <td className="input-profile">
-              <input
-                readOnly="readonly"
-                type="text"
-                name="prenom"
-                value={userProfil.firstname}
-                size="30"
-              />
-            </td>
-          </tr>
-          <tr>
+            <input
+              readOnly="readonly"
+              type="text"
+              name="prenom"
+              value={userProfil?.firstname}
+              size="30"
+            />
+          </div>
+          <div>
             <p>Email :</p>
-            <td className="input-profile">
-              <input
-                readOnly="readonly"
-                type="text"
-                name="email"
-                value={userProfil.email}
-                size="30"
-              />
-            </td>
-          </tr>
-        </tbody>
+            <input
+              readOnly="readonly"
+              type="text"
+              name="email"
+              value={userProfil?.email}
+              size="30"
+            />
+          </div>
+        </div>
         <button
           onClick={EditProfilOpen}
           className="button-pink button-profil"
@@ -68,7 +61,7 @@ export default function MyProfil() {
         >
           Editer mon profil
         </button>
-      </table>
+      </div>
       {editProfil ? <EditProfil /> : ""}
     </div>
   );

@@ -21,6 +21,15 @@ export default function Home() {
   const [listMasterclass, setListMasterclass] = useState([]);
   const { userProfil } = useContext(CurrentUserContext);
 
+  const mobileVersionLogo = [
+    { src: Alectio, alt: "logo-alectio" },
+    { src: Solutions909, alt: "logo-solution909" },
+    { src: Mydatafit, alt: "logo-mydatafit" },
+    { src: Tricky, alt: "logo-tricky" },
+    { src: Keyrus, alt: "logo-keyrus" },
+    { src: Anssi, alt: "logo-anssi" },
+  ];
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/admin/masterclass`)
@@ -38,16 +47,9 @@ export default function Home() {
         <CarouselHome />
       </div>
       <div className="home-mosaic">
-        <img className="square-pic" src={Alectio} alt="logo-solutions909" />
-        <img
-          className="square-pic"
-          src={Solutions909}
-          alt="logo-solutions909"
-        />
-        <img className="square-pic" src={Mydatafit} alt="logo-mydatafit" />
-        <img className="square-pic" src={Tricky} alt="logo-solutions909" />
-        <img className="square-pic" src={Keyrus} alt="logo-solutions909" />
-        <img className="square-pic" src={Anssi} alt="logo-anssi" />
+        {mobileVersionLogo.map((logo) => (
+          <img className="square-pic" src={logo.src} alt={logo.alt} />
+        ))}
       </div>
       <div className="video-sample-area">
         <div className="video-sample">
