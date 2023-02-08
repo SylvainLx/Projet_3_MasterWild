@@ -50,7 +50,7 @@ export default function Admin({ isAdmin }) {
 
   const masterclassQuantity = masterclassDashboard.length;
   const usersQuantity = usersDashboard.filter(
-    (users) => users.role !== "pro" && users.role !== "admin"
+    (users) => users.professional === false && users.role !== "admin"
   );
   const employeQuantity = usersDashboard.filter(
     (employe) => employe.professional === true
