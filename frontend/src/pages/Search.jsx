@@ -95,7 +95,7 @@ export default function Search({ isOnline }) {
             className="searching"
             type="text"
             placeholder="Recherche..."
-            onChange={(e) => setFilterSearch(e.target.value)}
+            onChange={(e) => setFilterSearch(e.target.value.toLowerCase())}
           />
           <button className="btnlogo" type="button">
             <img src={LogoSearch} alt="search" className="logo-search" />
@@ -205,9 +205,9 @@ export default function Search({ isOnline }) {
                 mastercard.keywords
                   .map((toto) => toto.keyword.name)
                   .includes(filterSearch) ||
-                mastercard.entreprise.name.includes(filterSearch) ||
-                mastercard.category.name.includes(filterSearch) ||
-                mastercard.entreprise.name.includes(filterSearch) ||
+                mastercard.entreprise.name
+                  .toLowerCase()
+                  .includes(filterSearch) ||
                 mastercard.category.name.includes(filterSearch)
             )
             .map((mastercard) => (

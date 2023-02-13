@@ -93,31 +93,38 @@ export default function Home() {
       </div>
       <div className="search-exemples">
         <div className="first-block">
-          <h2>Découvrez de nombreux métiers ...</h2>
+          <h2>Découvrez de nombreuses Masterclasses ...</h2>
           <ul className="carousel-items">
             {listMasterclass
-              .filter(
-                (mastercard) => mastercard.entreprise.speciality === "Solutions"
-              )
-              .map((mastercard) => (
-                <li className="carousel-item" key={mastercard.Id}>
-                  <CardMasterclass
-                    key={mastercard.Id}
-                    mastercard={mastercard}
-                  />
-                </li>
-              ))}
+              .filter((mastercard) => mastercard.entreprise.speciality)
+              .map(
+                (mastercard, idx) =>
+                  idx % 2 === 0 && (
+                    <li className="carousel-item" key={mastercard.Id}>
+                      <CardMasterclass
+                        key={mastercard.Id}
+                        mastercard={mastercard}
+                      />
+                    </li>
+                  )
+              )}
           </ul>
         </div>
 
         <div className="second-block">
-          <h2>... et différents domaines technologiques.</h2>
+          <h2>... avec de nombreux partenaires.</h2>
           <ul className="carousel-items">
-            {listMasterclass.map((mastercard) => (
-              <li className="carousel-item" key={mastercard.Id}>
-                <CardMasterclass key={mastercard.Id} mastercard={mastercard} />
-              </li>
-            ))}
+            {listMasterclass.map(
+              (mastercard, idx) =>
+                idx % 2 !== 0 && (
+                  <li className="carousel-item" key={mastercard.Id}>
+                    <CardMasterclass
+                      key={mastercard.Id}
+                      mastercard={mastercard}
+                    />
+                  </li>
+                )
+            )}
           </ul>
         </div>
       </div>

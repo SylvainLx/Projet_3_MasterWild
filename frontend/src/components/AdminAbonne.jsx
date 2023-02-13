@@ -37,7 +37,7 @@ export default function AdminAbonne({ users, professionals }) {
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/excel`).then((res) => {
-      setExcel(res.data);
+      setExcel(res.data.filter((f) => f.role !== "admin"));
     });
   }, []);
 
